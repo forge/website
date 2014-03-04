@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{addonBean.page}'/>
+		<f:event type="preRenderView" listener='#{addonBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Addon entities"/>
+
+	<ui:define name="header">
+		Addon
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Addon entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="addonBeanExampleGroupId" value="Group Id:"/>
+						<h:panelGroup>
+							<h:inputText id="addonBeanExampleGroupId" value="#{addonBean.example.groupId}"/>
+							<h:message for="addonBeanExampleGroupId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="addonBeanExampleArtifactId" value="Artifact Id:"/>
+						<h:panelGroup>
+							<h:inputText id="addonBeanExampleArtifactId" value="#{addonBean.example.artifactId}"/>
+							<h:message for="addonBeanExampleArtifactId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{addonBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{addonBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="addonBeanPageItems" styleClass="data-table" value="#{addonBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/addon/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/addon/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{addonBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
