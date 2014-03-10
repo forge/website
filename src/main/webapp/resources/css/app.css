@@ -1,0 +1,23 @@
+#nav-meta {
+	position: fixed;
+	right: 100px;
+	top: 10px;
+}
+
+#nav-meta ul li {
+	float: left;
+	margin: 0px 2px 0px 0px;
+	list-style: none outside none;
+	font-size: 10px;
+	height: 17px;
+}
+
+#nav-meta ul li a {
+	margin: 0px 4px;
+	padding: 0px;
+	text-decoration: none;
+	vertical-align: top;
+	font-size: 11px;
+	color: white;
+	text-shadow: none;
+}
