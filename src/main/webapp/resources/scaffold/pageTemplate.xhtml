@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt_BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
 	<link rel="icon" href='#{resource["favicon.ico"]}' />
 	<h:outputStylesheet name="bootstrap.css" />
 	<h:outputStylesheet name="forge-style.css" />
-	<h:outputStylesheet name="css/app.css" />
 </h:head>
 
 <h:body>
 	<ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
-			<div id="branding" class="container">
+			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">Website</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html">How to Customize</a></li>
 					</ul>
-					<div id="nav-meta">
-						<ul>
-							<li id="jbssologininfo1"/>
-							<li id="jbssologininfo2"/>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -36,7 +31,12 @@
 				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
-				<li><h:link outcome="/addon/search" value="Addon" /></li>
+				<li>
+					<h:link outcome="/addon/search" value="Addon"/>
+				</li>
+				<li>
+					<h:link outcome="/document/search" value="Document"/>
+				</li>
 			</ul>
 		</div>
 
@@ -54,12 +54,9 @@
 
 	<footer>
 		<div id="footer-wrapper">
-			<p>
-				Powered by <a href="http://jboss.org/forge">Forge</a>
-			</p>
-		</div>
+	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+	    </div>
 	</footer>
-	<h:outputScript library="webjars" name="jquery/2.1.0/jquery.min.js" />
-	<h:outputScript name="js/app.js" />
+
 </h:body>
 </html>
