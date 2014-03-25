@@ -1,27 +1,248 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/resources/scaffold/pageTemplate.xhtml">
-
-	<ui:param name="pageTitle" value="Welcome to Forge" />
-
-	<ui:define name="header">
-		Welcome to the Forge Website
-	</ui:define>
-
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/pageTemplate.xhtml">
+	<ui:param name="pageTitle" value="JBoss Forge" />
 	<ui:define name="main">
-		<h2 class="success">The website is now open for business! Enjoy!</h2>
-		<p>
-			<a target="_blank" href="http://forge.jboss.org/docs/index.html">Documentation</a>
-			| <a target="_blank"
-				href="http://twitter.com/intent/tweet?text=I+just+built+and+deployed+a+webapp+using+%23Forge,+from+%23JBoss+-+Super+easy!+(+http://jboss.org/forge+)">Get
-				Excited!</a><br /> <a target="_blank" href="http://jboss.org/forge"><br />
-				Forge Project</a> | <a target="_blank"
-				href="https://community.jboss.org/en/forge">User Forums</a> | <a
-				target="_blank" href="https://issues.jboss.org/browse/FORGE">Report
-				an issue</a>
-		</p>
-	</ui:define>
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Main Call to Action -->
+				<h1>JBoss Forge is a free, open source rapid application development tool for Maven and Java EE</h1>
+				<div class="buttons margin-10">
+					<a href="download.html" class="btn btn-middle"><span>DOWNLOAD JBOSS FORGE</span></a>
+				</div>
+				<p>OR</p>
+				<h5>LEARN MORE</h5>
+				<p class="margin-100">
+					<h:graphicImage library="images" name="down_arrows.png" alt="down arrows" />
+				</p>
+			</div>
+		</div>
 
+
+		<!-- Forge intro -->
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>The fastest way to build Maven-based Java EE projects. Period</h3>
+				<iframe src="//player.vimeo.com/video/39608223" width="80%" height="400" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe>
+				<p>
+					<a href="http://vimeo.com/39608223"></a>
+				</p>
+				<hr class="margin-50" />
+				<!-- Addon intro -->
+				<h3>Addons that work for every part of your toolchain.</h3>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="widget-container boxed styled">
+							<div class="inner">
+								<span class="text-left"><h5>
+										<a href="#">Addon Name</a>
+									</h5></span> <span class="text-left"><h5 class="small">
+										Nov 2013<br /> <a href="#">Author Name</a>
+									</h5></span>
+								<!-- Rating Stars and downloads -->
+								<div class="rating">
+									<span class="star on" rel="1"></span> <span class="star on" rel="2"></span> <span class="star on" rel="3"></span> <span class="star off" rel="4"></span> <span class="star off" rel="5"></span> <span><p>154 downloads</p></span>
+								</div>
+								<!--/ Rating Stars and downloads -->
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="widget-container boxed styled">
+							<div class="inner">
+								<span class="text-left"><h5>
+										<a href="#">Addon Name</a>
+									</h5></span> <span class="text-left"><h5 class="small">
+										Nov 2013<br /> <a href="#">Author Name</a>
+									</h5></span>
+								<!-- Rating Stars and downloads -->
+								<div class="rating">
+									<span class="star on" rel="1"></span> <span class="star on" rel="2"></span> <span class="star on" rel="3"></span> <span class="star off" rel="4"></span> <span class="star off" rel="5"></span> <span><p>154 downloads</p></span>
+								</div>
+								<!--/ Rating Stars and downloads -->
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="widget-container boxed styled">
+							<div class="inner">
+								<span class="text-left"><h5>
+										<a href="#">Addon Name</a>
+									</h5></span> <span class="text-left"><h5 class="small">
+										Nov 2013<br /> <a href="#">Author Name</a>
+									</h5></span>
+								<!-- Rating Stars and downloads -->
+								<div class="rating">
+									<span class="star on" rel="1"></span> <span class="star on" rel="2"></span> <span class="star on" rel="3"></span> <span class="star off" rel="4"></span> <span class="star off" rel="5"></span> <span><p>154 downloads</p></span>
+								</div>
+								<!--/ Rating Stars and downloads -->
+							</div>
+						</div>
+					</div>
+					<!-- remove extra addon -->
+
+					<!-- Search -->
+					<div class="row">
+						<div class="col-sm-6 pull-center">
+							<div class="widget-container widget-search styled">
+								<form method="get" id="searchform" action="#">
+									<span class="btn btn-middle btn-caps"><input type="submit" value="Search" /></span>
+									<div class="field_text lightPlaceholder">
+										<input name="search" value="" type="text" placeholder="Find an addon" />
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!--/ Search -->
+					<span><a href="#">See all addons</a></span>
+					<hr class="margin-50" />
+				</div>
+			</div>
+
+
+			<!-- Community intro -->
+			<div class="row">
+				<div class="col-sm-12">
+					<h3>A rapidly growing community</h3>
+					<div class="row">
+						<div class="col-sm-4 pull-center">
+							<!-- Image Slider -->
+							<div class="widget-container widget-gallery boxed">
+								<div class="inner">
+									<div id="myCarousel3" class="carousel slide" data-interval="20000">
+										<!-- Carousel items -->
+										<div class="carousel-inner">
+											<div class="active item">
+												<a href="#">
+												<h:graphicImage library="images/temp" name="post-img-1.jpg"/>
+												</a>
+												<div class="carousel-desc gradient">
+													<strong>Brave</strong><span>&#171;Change your fate.&#187;</span>
+												</div>
+											</div>
+											<div class="item">
+												<a href="#"><h:graphicImage library="images/temp" name="post-img-2.jpg"/></a>
+												<div class="carousel-desc gradient">
+													<strong>Ice Age</strong><span>&#171;Change your fate.&#187;</span>
+												</div>
+											</div>
+											<div class="item">
+												<a href="#"><h:graphicImage library="images/temp" name="post-img-3.jpg"/></a>
+												<div class="carousel-desc gradient">
+													<strong>Horton</strong><span>&#171;Change your fate.&#187;</span>
+												</div>
+											</div>
+										</div>
+										<!-- Carousel indicators -->
+										<ol class="carousel-indicators">
+											<li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+											<li data-target="#myCarousel3" data-slide-to="1"></li>
+											<li data-target="#myCarousel3" data-slide-to="2"></li>
+										</ol>
+										<!-- Carousel nav -->
+										<a class="carousel-control left" href="#myCarousel3" data-slide="prev"></a> <a class="carousel-control right" href="#myCarousel3" data-slide="next"></a>
+									</div>
+								</div>
+							</div>
+							<!--/ Image Slider -->
+						</div>
+					</div>
+					<hr class="margin-50" />
+				</div>
+			</div>
+
+
+
+			<!-- Download call to action -->
+			<div class="row">
+				<div class="col-sm-12">
+					<h3>Works in the environment you use</h3>
+					<!-- pricing1-->
+					<div class="pricing_box price_style1 clearfix">
+						<ul>
+							<li class="price_col price_col_yellow">
+								<!--pricing item-->
+								<div class="price_item">
+									<div class="inner">
+										<div class="badge badge-popular"></div>
+										<div class="price_col_head">
+											<span class="price">IDE</span>
+										</div>
+										<div class="price_col_body clearfix">
+											<div class="price_body_inner">
+												<div class="price_body_top">
+													<span>Download Forge for your IDE</span>
+												</div>
+												<ul>
+													<li><a href="#" class="btn btn-gray"><span>Eclipse</span></a></li>
+													<li><a href="#" class="btn btn-gray"><span>IntelliJ</span></a></li>
+													<li><a href="#" class="btn btn-gray"><span>Other IDE</span></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div> <!--/ pricing-item -->
+							</li>
+
+							<li class="price_col col_active">
+								<!--pricing item-->
+								<div class="price_item">
+									<div class="inner">
+										<div class="badge badge-popular"></div>
+										<div class="price_col_head">
+											<span class="price">JBDS</span>
+										</div>
+										<div class="price_col_body clearfix">
+											<div class="price_body_inner">
+												<div class="price_body_top">
+													<strong>Included</strong> <span>in JBoss Developer Studio</span>
+												</div>
+												<ul>
+													<li>Feature of note</li>
+													<li>Feature of note</li>
+													<li>Feature of note</li>
+												</ul>
+											</div>
+										</div>
+										<div class="price_col_foot">
+											<div class="sign_up">
+												<a href="#" class="btn btn-large btn-caps"><span>Download</span></a>
+											</div>
+										</div>
+									</div>
+								</div> <!--/ pricing-item -->
+							</li>
+
+							<li class="price_col price_col_purple">
+								<!--pricing item-->
+								<div class="price_item">
+									<div class="badge badge-popular"></div>
+									<div class="inner">
+										<div class="price_col_head">
+											<span class="price">OS</span>
+										</div>
+										<div class="price_col_body clearfix">
+											<div class="price_body_inner">
+												<div class="price_body_top">
+													<strong>Windows</strong> <span>Instructions for Install</span>
+												</div>
+												<div class="price_body_top">
+													<strong>MacOS</strong> <span>Instructions for Install</span>
+												</div>
+												<div class="price_body_top">
+													<strong>Linux</strong> <span>Instructions for Install</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> <!--/ pricing-item -->
+							</li>
+						</ul>
+					</div>
+					<!--/ pricing1-->
+				</div>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>
