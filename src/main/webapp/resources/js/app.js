@@ -20,7 +20,7 @@ $(function() {
 				// user is logged in!
 				var responsePart1 = $(data.part1);
 				var responsePart2 = $(data.part2);
-				$('#jbssologininfo1').html(responsePart1).append(' |');
+				$('#jbssologininfo1').html(responsePart1);
 				$('#jbssologininfo2').html(responsePart2);
 			}
 		}
