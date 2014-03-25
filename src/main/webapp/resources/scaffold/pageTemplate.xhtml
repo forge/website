@@ -3,13 +3,13 @@
 
 <h:head>
 	<title>#{empty pageTitle ? 'JBoss Forge' : pageTitle}</title>
-	<link rel="icon" href='#{resource["favicon.ico"]}' />
+	<link rel="icon" href='#{resource["icons/favicon.ico"]}' />
 
 	<!-- main JS libs -->
-	<h:outputScript library="js/libs" name="modernizr.min.js" />
-	<h:outputScript library="js/libs" name="jquery-1.10.2.min.js" />
-	<h:outputScript library="js/libs" name="jquery-ui.min.js" />
-	<h:outputScript library="js/libs" name="bootstrap.min.js" />
+	<h:outputScript library="webjars" name="modernizr/2.6.2/modernizr.min.js" />
+	<h:outputScript library="webjars" name="jquery/1.10.2/jquery.min.js" />
+	<h:outputScript library="webjars" name="jquery-ui/1.10.2/ui/minified/jquery-ui.min.js" />
+	<h:outputScript library="webjars" name="bootstrap/3.0.2/js/bootstrap.min.js" />
 
 	<!-- Style CSS -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
