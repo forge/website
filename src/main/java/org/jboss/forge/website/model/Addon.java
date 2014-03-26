@@ -32,6 +32,9 @@ public class Addon implements Serializable
    @Column
    private String artifactId;
 
+   @Column
+   private String addonVersion;
+
    public Long getId()
    {
       return this.id;
@@ -103,14 +106,27 @@ public class Addon implements Serializable
       this.artifactId = artifactId;
    }
 
+   public String getAddonVersion()
+   {
+      return this.addonVersion;
+   }
+
+   public void setAddonVersion(final String addonVersion)
+   {
+      this.addonVersion = addonVersion;
+   }
+
    @Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";
+      result += "serialVersionUID: " + serialVersionUID;
       if (groupId != null && !groupId.trim().isEmpty())
-         result += "groupId: " + groupId;
+         result += ", groupId: " + groupId;
       if (artifactId != null && !artifactId.trim().isEmpty())
          result += ", artifactId: " + artifactId;
+      if (addonVersion != null && !addonVersion.trim().isEmpty())
+         result += ", addonVersion: " + addonVersion;
       return result;
    }
 }

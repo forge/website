@@ -28,7 +28,7 @@
 			<f:validateBean disabled="true">
 				<h:panelGroup styleClass="search">
 
-					<h:panelGrid columnClasses="label,component,required" columns="3">
+					<h:panelGrid columnClasses="label_title,component,required" columns="3">
 						<h:outputLabel for="addonBeanExampleGroupId" value="Group Id:"/>
 						<h:panelGroup>
 							<h:inputText id="addonBeanExampleGroupId" value="#{addonBean.example.groupId}"/>
@@ -41,6 +41,12 @@
 							<h:message for="addonBeanExampleArtifactId" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="addonBeanExampleAddonVersion" value="Addon Version:"/>
+						<h:panelGroup>
+							<h:inputText id="addonBeanExampleAddonVersion" value="#{addonBean.example.addonVersion}"/>
+							<h:message for="addonBeanExampleAddonVersion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{addonBean.search}' styleClass="btn btn-primary"/>
@@ -48,7 +54,7 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="addonBeanPageItems" styleClass="data-table" value="#{addonBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
@@ -68,12 +74,21 @@
 						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
 					</h:link>
 				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Addon Version"/>
+					</f:facet>
+					<h:link outcome="/addon/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAddonVersion" value="#{_item.addonVersion}"/>
+					</h:link>
+				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{addonBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

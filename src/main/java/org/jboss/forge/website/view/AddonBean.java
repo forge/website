@@ -237,6 +237,11 @@ public class AddonBean implements Serializable
       {
          predicatesList.add(builder.like(builder.lower(root.<String> get("artifactId")), '%' + artifactId.toLowerCase() + '%'));
       }
+      String addonVersion = this.example.getAddonVersion();
+      if (addonVersion != null && !"".equals(addonVersion))
+      {
+         predicatesList.add(builder.like(builder.lower(root.<String> get("addonVersion")), '%' + addonVersion.toLowerCase() + '%'));
+      }
 
       return predicatesList.toArray(new Predicate[predicatesList.size()]);
    }

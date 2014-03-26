@@ -24,17 +24,20 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
-		<h:panelGrid columnClasses="label,component,required" columns="3">
+		<h:panelGrid columnClasses="label_title,component,required" columns="3">
 			<h:outputLabel for="addonBeanAddonGroupId" value="Group Id:"/>
 			<h:outputText id="addonBeanAddonGroupId" value="#{addonBean.addon.groupId}"/>
 			<h:outputText/>
 			<h:outputLabel for="addonBeanAddonArtifactId" value="Artifact Id:"/>
 			<h:outputText id="addonBeanAddonArtifactId" value="#{addonBean.addon.artifactId}"/>
 			<h:outputText/>
+			<h:outputLabel for="addonBeanAddonAddonVersion" value="Addon Version:"/>
+			<h:outputText id="addonBeanAddonAddonVersion" value="#{addonBean.addon.addonVersion}"/>
+			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

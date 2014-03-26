@@ -35,7 +35,7 @@
 		<h:form id="create">
 			<h:messages globalOnly="true" styleClass="error"/>
 
-			<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:panelGrid columnClasses="label_title,component,required" columns="3">
 				<h:outputLabel for="addonBeanAddonGroupId" value="Group Id:"/>
 				<h:panelGroup>
 					<h:inputText id="addonBeanAddonGroupId" value="#{addonBean.addon.groupId}"/>
@@ -48,10 +48,16 @@
 					<h:message for="addonBeanAddonArtifactId" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="addonBeanAddonAddonVersion" value="Addon Version:"/>
+				<h:panelGroup>
+					<h:inputText id="addonBeanAddonAddonVersion" value="#{addonBean.addon.addonVersion}"/>
+					<h:message for="addonBeanAddonAddonVersion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 			</h:panelGrid>
 
 			<div class="buttons">
-				<h:commandLink value="Save" action='#{addonBean.update}' styleClass="btn btn-primary"/>
+				<h:commandButton value="Save" action='#{addonBean.update}' styleClass="btn btn-primary"/>
 				<c:choose>
 					<c:when test='#{!empty addonBean.id}'>
 						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
