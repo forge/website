@@ -15,6 +15,8 @@ import org.ocpsoft.rewrite.config.Direction;
 import org.ocpsoft.rewrite.servlet.config.DispatchType;
 import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
 import org.ocpsoft.rewrite.servlet.config.Path;
+import org.ocpsoft.rewrite.servlet.config.Redirect;
+import org.ocpsoft.rewrite.servlet.config.RequestParameter;
 import org.ocpsoft.rewrite.servlet.config.Resource;
 import org.ocpsoft.rewrite.servlet.config.SendStatus;
 import org.ocpsoft.rewrite.servlet.config.ServletMapping;
@@ -30,7 +32,8 @@ public class RouteConfiguration extends HttpConfigurationProvider
    @Override
    public Configuration getConfiguration(ServletContext context)
    {
-      return ConfigurationBuilder.begin()
+      return ConfigurationBuilder
+               .begin()
 
                /*
                 * Block direct file access.
@@ -41,20 +44,27 @@ public class RouteConfiguration extends HttpConfigurationProvider
                         .and(Resource.exists("/{p}.xhtml"))
                         .andNot(ServletMapping.includes("/{p}")))
                .perform(SendStatus.error(404))
-               .where("p").matches(".*")
+               .where("p")
+               .matches(".*")
 
                /*
                 * Application Routes
                 */
                .addRule(Join.path("/{p}/").to("/faces/{p}/index.xhtml"))
                .when(Resource.exists("/{p}/index.xhtml"))
-               .where("p").matches(".*")
+               .where("p")
+               .matches(".*")
 
                .addRule(Join.path("/{p}").to("/faces/{p}.xhtml"))
                .when(Resource.exists("/{p}.xhtml"))
-               .where("p").matches(".*")
+               .where("p")
+               .matches(".*")
 
-      ;
+               .addRule()
+               .when(DispatchType.isRequest().and(Direction.isInbound())
+                        .and(RequestParameter.exists("ticket")).and(Path.matches("/auth")))
+               .perform(Redirect
+                        .temporary(context.getContextPath()));
    }
 
    @Override
