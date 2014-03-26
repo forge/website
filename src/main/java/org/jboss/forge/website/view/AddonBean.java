@@ -31,11 +31,9 @@ import org.jboss.forge.website.model.AddonStatus;
 /**
  * Backing bean for Addon entities.
  * <p>
- * This class provides CRUD functionality for all Addon entities. It focuses
- * purely on Java EE 6 standards (e.g. <tt>&#64;ConversationScoped</tt> for
- * state management, <tt>PersistenceContext</tt> for persistence,
- * <tt>CriteriaBuilder</tt> for searches) rather than introducing a CRUD framework or
- * custom base class.
+ * This class provides CRUD functionality for all Addon entities. It focuses purely on Java EE 6 standards (e.g.
+ * <tt>&#64;ConversationScoped</tt> for state management, <tt>PersistenceContext</tt> for persistence,
+ * <tt>CriteriaBuilder</tt> for searches) rather than introducing a CRUD framework or custom base class.
  */
 
 @Named
@@ -208,18 +206,18 @@ public class AddonBean implements Serializable
       CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
       Root<Addon> root = countCriteria.from(Addon.class);
       countCriteria = countCriteria.select(builder.count(root)).where(
-            getSearchPredicates(root));
+               getSearchPredicates(root));
       this.count = this.entityManager.createQuery(countCriteria)
-            .getSingleResult();
+               .getSingleResult();
 
       // Populate this.pageItems
 
       CriteriaQuery<Addon> criteria = builder.createQuery(Addon.class);
       root = criteria.from(Addon.class);
       TypedQuery<Addon> query = this.entityManager.createQuery(criteria
-            .select(root).where(getSearchPredicates(root)));
+               .select(root).where(getSearchPredicates(root)));
       query.setFirstResult(this.page * getPageSize()).setMaxResults(
-            getPageSize());
+               getPageSize());
       this.pageItems = query.getResultList();
    }
 
@@ -237,7 +235,8 @@ public class AddonBean implements Serializable
       String authorName = this.example.getAuthorName();
       if (authorName != null && !"".equals(authorName))
       {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("authorName")), '%' + authorName.toLowerCase() + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("authorName")),
+                  '%' + authorName.toLowerCase() + '%'));
       }
       AddonSource source = this.example.getSource();
       if (source != null)
@@ -264,17 +263,16 @@ public class AddonBean implements Serializable
    }
 
    /*
-    * Support listing and POSTing back Addon entities (e.g. from inside an
-    * HtmlSelectOneMenu)
+    * Support listing and POSTing back Addon entities (e.g. from inside an HtmlSelectOneMenu)
     */
 
    public List<Addon> getAll()
    {
 
       CriteriaQuery<Addon> criteria = this.entityManager
-            .getCriteriaBuilder().createQuery(Addon.class);
+               .getCriteriaBuilder().createQuery(Addon.class);
       return this.entityManager.createQuery(
-            criteria.select(criteria.from(Addon.class))).getResultList();
+               criteria.select(criteria.from(Addon.class))).getResultList();
    }
 
    @Resource
@@ -290,7 +288,7 @@ public class AddonBean implements Serializable
 
          @Override
          public Object getAsObject(FacesContext context,
-               UIComponent component, String value)
+                  UIComponent component, String value)
          {
 
             return ejbProxy.findById(Long.valueOf(value));
@@ -298,7 +296,7 @@ public class AddonBean implements Serializable
 
          @Override
          public String getAsString(FacesContext context,
-               UIComponent component, Object value)
+                  UIComponent component, Object value)
          {
 
             if (value == null)
@@ -309,6 +307,20 @@ public class AddonBean implements Serializable
             return String.valueOf(((Addon) value).getId());
          }
       };
+   }
+
+   /**
+    * Called when the bean needs to be approved
+    */
+   public void approve()
+   {
+      this.addon.setStatus(AddonStatus.APPROVED);
+      entityManager.merge(this.addon);
+   }
+
+   public boolean canApprove()
+   {
+      return this.addon.getStatus() == AddonStatus.PENDING;
    }
 
    /*
