@@ -118,10 +118,7 @@
       <artifactId>modernizr</artifactId>
       <version>2.6.2-1</version>
     </dependency>
-    <dependency>
-      <groupId>org.primefaces</groupId>
-      <artifactId>primefaces</artifactId>
-    </dependency>
+   <!-- <dependency> <groupId>org.primefaces</groupId> <artifactId>primefaces</artifactId> </dependency> -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-jpamodelgen</artifactId>

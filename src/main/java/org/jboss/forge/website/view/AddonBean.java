@@ -323,6 +323,12 @@ public class AddonBean implements Serializable
       return this.addon.getStatus() == AddonStatus.PENDING;
    }
 
+   public void addonsPaginate()
+   {
+      this.example.setStatus(AddonStatus.APPROVED);
+      paginate();
+   }
+
    /*
     * Support adding children to bidirectional, one-to-many tables
     */
