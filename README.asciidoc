@@ -10,8 +10,13 @@ Use it in http://yuml.me
   [Authenticated]-(Browse Website)
   [Authenticated]-(Rate Addons)
   [Authenticated]-(Suggest Addons)
-  [Admin]-(Approve Addons)
-  [Admin]-(Maintain Addons)
+  [Administrator]-(Approve Addons)
+  [Administrator]-(Maintain Addons)
   [Timer Service]-(Synchronize Github data)
 
-image:http://yuml.me/f17f5046.png[]
+image:http://yuml.me/c239857f[]
+
+
+== Class Diagram
+
+TODO
