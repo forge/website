@@ -1,68 +1,62 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<title>#{empty pageTitle ? 'JBoss Forge' : pageTitle}</title>
-	<link rel="icon" href='#{resource["icons/favicon.ico"]}' />
-
-	<!-- main JS libs -->
-	<h:outputScript library="webjars" name="modernizr/2.6.2/modernizr.min.js" />
-	<h:outputScript library="webjars" name="jquery/1.10.2/jquery.min.js" />
-	<h:outputScript library="webjars" name="jquery-ui/1.10.2/ui/minified/jquery-ui.min.js" />
-	<h:outputScript library="webjars" name="bootstrap/3.0.2/js/bootstrap.min.js" />
-
-	<!-- Style CSS -->
-	<h:outputStylesheet library="css" name="bootstrap.css" />
-	<h:outputStylesheet library="css" name="style.css" />
-
-	<!-- General Scripts -->
-	<h:outputScript library="js" name="general.js" />
-	<h:outputScript library="js" name="app.js" />
-
-	<!--[if lt IE 9]><script src="resources/js/respond.min.js"></script><![endif]-->
-	<!--[if gte IE 9]>
-<style type="text/css">
-    .gradient {filter: none !important;}
-</style>
-<![endif]-->
+	<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
+	<link rel="icon" href='#{resource["favicon.ico"]}' />
+	<h:outputStylesheet name="bootstrap.css" />
+	<h:outputStylesheet name="forge-style.css" />
 </h:head>
 
 <h:body>
 	<ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
-	<div class="body-wrap">
-		<!--container-->
-		<div class="container text-center">
-			<!-- Website Menu -->
-			<ul class="menu clearfix gradient margin-100">
-				<li><a href="index.xhtml">Home</a></li>
-				<li><a href="download.xhtml">Download</a></li>
-				<li><a href="addons.xhtml">Addons</a></li>
-				<li><a href="documentation.xhtml">Documentation</a></li>
-				<li><a href="community.xhtml">Community</a></li>
-				<li><a href="#">Resources</a>
-					<ul>
-						<li><a href="https://github.com/forge/core">Source Code</a></li>
-						<li><a href="https://issues.jboss.org/browse/FORGE">Issue Tracker</a></li>
-						<li><a href="https://community.jboss.org/en/forge">Forums</a></li>
-					</ul></li>
-				<!--
-				<li><span id="jbssologininfo1"/>
-					<ul>
-						<li><span id="jbssologininfo2" /></li>
-					</ul></li>
-					 -->
-			</ul>
-			<!--/ Website Menu -->
-			<ui:insert name="main" />
-			<!-- Footer -->
-			<div class="row">
-				<div class="col-sm-12 pull-center">
-					<img src="#" alt="This project is sponsored by Red Hat" /> #{facesContext.externalContext.userPrincipal}
-					<!-- Red Hat Logo Here -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">Website</h:link>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html">How to Customize</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
-		<!--/ container -->
 	</div>
+
+	<div class="container forgecontainer">
+		<div id="navigation">
+			<h:link id="homeLink" outcome="/index.xhtml">
+				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
+			</h:link>
+			<ul>
+				<li>
+					<h:link outcome="/addon/search" value="Addon"/>
+				</li>
+				<li>
+					<h:link outcome="/document/search" value="Document"/>
+				</li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<h1>
+				<ui:insert name="header" />
+			</h1>
+			<h2>
+				<ui:insert name="subheader" />
+			</h2>
+
+			<ui:insert name="main" />
+		</div>
+	</div>
+
+	<footer>
+		<div id="footer-wrapper">
+	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+	    </div>
+	</footer>
+
 </h:body>
 </html>
