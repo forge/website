@@ -1,4 +1,4 @@
-package org.jboss.forge.view;
+package org.jboss.forge.website.view;
 
 import java.io.Serializable;
 import java.util.ArrayList;

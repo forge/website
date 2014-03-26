@@ -6,7 +6,7 @@
       <artifactId>jboss-parent</artifactId>
       <version>14</version>
    </parent>
-   <groupId>org.jboss.forge</groupId>
+   <groupId>org.jboss.forge.website</groupId>
    <artifactId>website</artifactId>
    <version>1.0.0-SNAPSHOT</version>
    <packaging>war</packaging>
