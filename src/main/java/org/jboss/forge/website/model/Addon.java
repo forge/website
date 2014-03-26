@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import java.lang.Override;
 
 @Entity
@@ -44,7 +46,7 @@ public class Addon implements Serializable
    private Date creationDate = new Date();
 
    @Column
-   @Enumerated
+   @Enumerated(EnumType.ORDINAL)
    private AddonSource source;
 
    @Column
@@ -166,7 +168,6 @@ public class Addon implements Serializable
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";
-      result += "serialVersionUID: " + serialVersionUID;
       if (name != null && !name.trim().isEmpty())
          result += ", name: " + name;
       if (authorName != null && !authorName.trim().isEmpty())
