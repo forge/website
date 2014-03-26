@@ -64,7 +64,7 @@ public class RouteConfiguration extends HttpConfigurationProvider
                .when(DispatchType.isRequest().and(Direction.isInbound())
                         .and(RequestParameter.exists("ticket")).and(Path.matches("/auth")))
                .perform(Redirect
-                        .temporary(context.getContextPath()));
+                        .temporary(context.getContextPath() + "/index.html"));
    }
 
    @Override
