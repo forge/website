@@ -56,11 +56,10 @@
 				<h:outputText/>
 				<h:outputLabel for="addonBeanAddonSource" value="Source:"/>
 				<h:panelGroup>
-					<h:selectOneMenu id="addonBeanAddonSource" value="#{addonBean.addon.source}">
-						<f:selectItem/>
+					<h:selectOneRadio id="addonBeanAddonSource" value="#{addonBean.addon.source}">
+						<f:selectItem itemValue="Community" />
 						<f:selectItem itemValue="Core"/>
-						<f:selectItem itemValue="Community"/>
-					</h:selectOneMenu>
+					</h:selectOneRadio>
 					<h:message for="addonBeanAddonSource" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
