@@ -24,15 +24,26 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
-		<h:panelGrid columnClasses="label_title,component,required" columns="3">
-			<h:outputLabel for="addonBeanAddonGroupId" value="Group Id:"/>
-			<h:outputText id="addonBeanAddonGroupId" value="#{addonBean.addon.groupId}"/>
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="addonBeanAddonName" value="Name:"/>
+			<h:outputText id="addonBeanAddonName" value="#{addonBean.addon.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="addonBeanAddonArtifactId" value="Artifact Id:"/>
-			<h:outputText id="addonBeanAddonArtifactId" value="#{addonBean.addon.artifactId}"/>
+			<h:outputLabel for="addonBeanAddonDescription" value="Description:"/>
+			<h:outputText id="addonBeanAddonDescription" value="#{addonBean.addon.description}"/>
 			<h:outputText/>
-			<h:outputLabel for="addonBeanAddonAddonVersion" value="Addon Version:"/>
-			<h:outputText id="addonBeanAddonAddonVersion" value="#{addonBean.addon.addonVersion}"/>
+			<h:outputLabel for="addonBeanAddonAuthorName" value="Author Name:"/>
+			<h:outputText id="addonBeanAddonAuthorName" value="#{addonBean.addon.authorName}"/>
+			<h:outputText/>
+			<h:outputLabel for="addonBeanAddonCreationDate" value="Creation Date:"/>
+			<h:outputText id="addonBeanAddonCreationDate" value="#{addonBean.addon.creationDate}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="addonBeanAddonSource" value="Source:"/>
+			<h:outputText id="addonBeanAddonSource" value="#{addonBean.addon.source}"/>
+			<h:outputText/>
+			<h:outputLabel for="addonBeanAddonStatus" value="Status:"/>
+			<h:outputText id="addonBeanAddonStatus" value="#{addonBean.addon.status}"/>
 			<h:outputText/>
 		</h:panelGrid>
 

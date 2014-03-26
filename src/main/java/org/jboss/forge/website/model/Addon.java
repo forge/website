@@ -1,15 +1,19 @@
 package org.jboss.forge.website.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
-import java.lang.Override;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Override;
 
 @Entity
 @XmlRootElement
@@ -27,13 +31,25 @@ public class Addon implements Serializable
    private int version;
 
    @Column
-   private String groupId;
+   private String name;
 
    @Column
-   private String artifactId;
+   private String description;
 
    @Column
-   private String addonVersion;
+   private String authorName;
+
+   @Column
+   @Temporal(TemporalType.DATE)
+   private Date creationDate = new Date();
+
+   @Column
+   @Enumerated
+   private AddonSource source;
+
+   @Column
+   @Enumerated
+   private AddonStatus status = AddonStatus.PENDING;
 
    public Long getId()
    {
@@ -86,34 +102,64 @@ public class Addon implements Serializable
       return result;
    }
 
-   public String getGroupId()
+   public String getName()
    {
-      return this.groupId;
+      return this.name;
    }
 
-   public void setGroupId(final String groupId)
+   public void setName(final String groupId)
    {
-      this.groupId = groupId;
+      this.name = groupId;
    }
 
-   public String getArtifactId()
+   public String getAuthorName()
    {
-      return this.artifactId;
+      return this.authorName;
    }
 
-   public void setArtifactId(final String artifactId)
+   public void setAuthorName(final String authorName)
    {
-      this.artifactId = artifactId;
+      this.authorName = authorName;
    }
 
-   public String getAddonVersion()
+   public Date getCreationDate()
    {
-      return this.addonVersion;
+      return this.creationDate;
    }
 
-   public void setAddonVersion(final String addonVersion)
+   public void setCreationDate(final Date creationDate)
    {
-      this.addonVersion = addonVersion;
+      this.creationDate = creationDate;
+   }
+
+   public AddonSource getSource()
+   {
+      return this.source;
+   }
+
+   public void setSource(final AddonSource source)
+   {
+      this.source = source;
+   }
+
+   public AddonStatus getStatus()
+   {
+      return this.status;
+   }
+
+   public void setStatus(final AddonStatus status)
+   {
+      this.status = status;
+   }
+
+   public String getDescription()
+   {
+      return this.description;
+   }
+
+   public void setDescription(final String description)
+   {
+      this.description = description;
    }
 
    @Override
@@ -121,12 +167,12 @@ public class Addon implements Serializable
    {
       String result = getClass().getSimpleName() + " ";
       result += "serialVersionUID: " + serialVersionUID;
-      if (groupId != null && !groupId.trim().isEmpty())
-         result += ", groupId: " + groupId;
-      if (artifactId != null && !artifactId.trim().isEmpty())
-         result += ", artifactId: " + artifactId;
-      if (addonVersion != null && !addonVersion.trim().isEmpty())
-         result += ", addonVersion: " + addonVersion;
+      if (name != null && !name.trim().isEmpty())
+         result += ", name: " + name;
+      if (authorName != null && !authorName.trim().isEmpty())
+         result += ", authorName: " + authorName;
+      if (description != null && !description.trim().isEmpty())
+         result += ", description: " + description;
       return result;
    }
 }

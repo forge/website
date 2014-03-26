@@ -35,29 +35,39 @@
 		<h:form id="create">
 			<h:messages globalOnly="true" styleClass="error"/>
 
-			<h:panelGrid columnClasses="label_title,component,required" columns="3">
-				<h:outputLabel for="addonBeanAddonGroupId" value="Group Id:"/>
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="addonBeanAddonName" value="Name:"/>
 				<h:panelGroup>
-					<h:inputText id="addonBeanAddonGroupId" value="#{addonBean.addon.groupId}"/>
-					<h:message for="addonBeanAddonGroupId" styleClass="error"/>
+					<h:inputText id="addonBeanAddonName" value="#{addonBean.addon.name}"/>
+					<h:message for="addonBeanAddonName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="addonBeanAddonArtifactId" value="Artifact Id:"/>
+				<h:outputLabel for="addonBeanAddonDescription" value="Description:"/>
 				<h:panelGroup>
-					<h:inputText id="addonBeanAddonArtifactId" value="#{addonBean.addon.artifactId}"/>
-					<h:message for="addonBeanAddonArtifactId" styleClass="error"/>
+					<h:inputTextarea id="addonBeanAddonDescription" value="#{addonBean.addon.description}"/>
+					<h:message for="addonBeanAddonDescription" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="addonBeanAddonAddonVersion" value="Addon Version:"/>
+				<h:outputLabel for="addonBeanAddonAuthorName" value="Author Name:"/>
 				<h:panelGroup>
-					<h:inputText id="addonBeanAddonAddonVersion" value="#{addonBean.addon.addonVersion}"/>
-					<h:message for="addonBeanAddonAddonVersion" styleClass="error"/>
+					<h:inputText id="addonBeanAddonAuthorName" value="#{addonBean.addon.authorName}"/>
+					<h:message for="addonBeanAddonAuthorName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="addonBeanAddonSource" value="Source:"/>
+				<h:panelGroup>
+					<h:selectOneMenu id="addonBeanAddonSource" value="#{addonBean.addon.source}">
+						<f:selectItem/>
+						<f:selectItem itemValue="Core"/>
+						<f:selectItem itemValue="Community"/>
+					</h:selectOneMenu>
+					<h:message for="addonBeanAddonSource" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>
 
 			<div class="buttons">
-				<h:commandButton value="Save" action='#{addonBean.update}' styleClass="btn btn-primary"/>
+				<h:commandLink value="Save" action='#{addonBean.update}' styleClass="btn btn-primary"/>
 				<c:choose>
 					<c:when test='#{!empty addonBean.id}'>
 						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">

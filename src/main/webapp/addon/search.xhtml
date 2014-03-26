@@ -28,23 +28,37 @@
 			<f:validateBean disabled="true">
 				<h:panelGroup styleClass="search">
 
-					<h:panelGrid columnClasses="label_title,component,required" columns="3">
-						<h:outputLabel for="addonBeanExampleGroupId" value="Group Id:"/>
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="addonBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="addonBeanExampleGroupId" value="#{addonBean.example.groupId}"/>
-							<h:message for="addonBeanExampleGroupId" styleClass="error"/>
+							<h:inputText id="addonBeanExampleName" value="#{addonBean.example.name}"/>
+							<h:message for="addonBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="addonBeanExampleArtifactId" value="Artifact Id:"/>
+						<h:outputLabel for="addonBeanExampleAuthorName" value="Author Name:"/>
 						<h:panelGroup>
-							<h:inputText id="addonBeanExampleArtifactId" value="#{addonBean.example.artifactId}"/>
-							<h:message for="addonBeanExampleArtifactId" styleClass="error"/>
+							<h:inputText id="addonBeanExampleAuthorName" value="#{addonBean.example.authorName}"/>
+							<h:message for="addonBeanExampleAuthorName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="addonBeanExampleAddonVersion" value="Addon Version:"/>
+						<h:outputLabel for="addonBeanExampleSource" value="Source:"/>
 						<h:panelGroup>
-							<h:inputText id="addonBeanExampleAddonVersion" value="#{addonBean.example.addonVersion}"/>
-							<h:message for="addonBeanExampleAddonVersion" styleClass="error"/>
+							<h:selectOneMenu id="addonBeanExampleSource" value="#{addonBean.example.source}">
+								<f:selectItem/>
+								<f:selectItem itemValue="Core"/>
+								<f:selectItem itemValue="Community"/>
+							</h:selectOneMenu>
+							<h:message for="addonBeanExampleSource" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="addonBeanExampleStatus" value="Status:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="addonBeanExampleStatus" value="#{addonBean.example.status}">
+								<f:selectItem/>
+								<f:selectItem itemValue="PENDING"/>
+								<f:selectItem itemValue="APPROVED"/>
+							</h:selectOneMenu>
+							<h:message for="addonBeanExampleStatus" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -54,33 +68,53 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-
+			
 			<h:dataTable id="addonBeanPageItems" styleClass="data-table" value="#{addonBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Group Id"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Artifact Id"/>
+						<h:outputText value="Author Name"/>
 					</f:facet>
 					<h:link outcome="/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+						<h:outputText id="itemAuthorName" value="#{_item.authorName}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Addon Version"/>
+						<h:outputText value="Creation Date"/>
 					</f:facet>
 					<h:link outcome="/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAddonVersion" value="#{_item.addonVersion}"/>
+						<h:outputText id="itemCreationDate" value="#{_item.creationDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Source"/>
+					</f:facet>
+					<h:link outcome="/addon/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSource" value="#{_item.source}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Status"/>
+					</f:facet>
+					<h:link outcome="/addon/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemStatus" value="#{_item.status}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>
@@ -88,7 +122,7 @@
 				<ui:param name="paginatorBean" value='#{addonBean}'/>
 			</ui:include>
 		</h:form>
-
+			
 	</ui:define>
 
 </ui:composition>

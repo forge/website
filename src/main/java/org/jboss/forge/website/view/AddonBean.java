@@ -25,6 +25,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.jboss.forge.website.model.Addon;
+import org.jboss.forge.website.model.AddonSource;
+import org.jboss.forge.website.model.AddonStatus;
 
 /**
  * Backing bean for Addon entities.
@@ -227,20 +229,25 @@ public class AddonBean implements Serializable
       CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
       List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-      String groupId = this.example.getGroupId();
-      if (groupId != null && !"".equals(groupId))
+      String name = this.example.getName();
+      if (name != null && !"".equals(name))
       {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("groupId")), '%' + groupId.toLowerCase() + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("name")), '%' + name.toLowerCase() + '%'));
       }
-      String artifactId = this.example.getArtifactId();
-      if (artifactId != null && !"".equals(artifactId))
+      String authorName = this.example.getAuthorName();
+      if (authorName != null && !"".equals(authorName))
       {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("artifactId")), '%' + artifactId.toLowerCase() + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("authorName")), '%' + authorName.toLowerCase() + '%'));
       }
-      String addonVersion = this.example.getAddonVersion();
-      if (addonVersion != null && !"".equals(addonVersion))
+      AddonSource source = this.example.getSource();
+      if (source != null)
       {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("addonVersion")), '%' + addonVersion.toLowerCase() + '%'));
+         predicatesList.add(builder.equal(root.get("source"), source));
+      }
+      AddonStatus status = this.example.getStatus();
+      if (status != null)
+      {
+         predicatesList.add(builder.equal(root.get("status"), status));
       }
 
       return predicatesList.toArray(new Predicate[predicatesList.size()]);
