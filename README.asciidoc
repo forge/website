@@ -2,3 +2,16 @@ website
 =======
 
 The place where everything about Forge happens. The webapp.
+
+== Use Case Diagram
+Use it in http://yuml.me
+
+  [Anonymous]-(Browse Website)
+  [Authenticated]-(Browse Website)
+  [Authenticated]-(Rate Addons)
+  [Authenticated]-(Suggest Addons)
+  [Admin]-(Approve Addons)
+  [Admin]-(Maintain Addons)
+  [Timer Service]-(Synchronize Github data)
+
+image:http://yuml.me/f17f5046.png[]
