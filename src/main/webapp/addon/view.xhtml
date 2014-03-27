@@ -41,14 +41,17 @@
 			<h:outputLabel for="addonBeanAddonStatus" value="Status:" />
 			<h:outputText id="addonBeanAddonStatus" value="#{addonBean.addon.status}" />
 			<h:outputText />
+			<h:outputLabel for="addonBeanRepositoryUrl" value="Repository URL:" />
+			<h:outputLink target="_blank" id="addonBeanRepositoryUrl" value="#{addonBean.addon.repositoryUrl}">#{addonBean.addon.repositoryUrl}</h:outputLink>
+			<h:outputText />
 		</h:panelGrid>
 
 		<div class="buttons">
 			<h:form>
 				<h:commandLink value="Approve" actionListener="#{addonBean.approve}" outcome="search" styleClass="btn btn-primary" rendered="#{addonBean.canApprove()}" />
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary" />
-			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary" />
-			<h:link value="Create New" outcome="create" styleClass="btn btn-primary" />
+				<h:link value="View All" outcome="search" styleClass="btn btn-primary" />
+				<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary" />
+				<h:link value="Create New" outcome="create" styleClass="btn btn-primary" />
 			</h:form>
 		</div>
 	</ui:define>

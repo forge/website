@@ -121,6 +121,7 @@ public class AddonBean implements Serializable
       {
          if (this.id == null)
          {
+            this.addon.setStatus(AddonStatus.PENDING);
             this.entityManager.persist(this.addon);
             return "search?faces-redirect=true";
          }

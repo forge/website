@@ -53,6 +53,9 @@ public class Addon implements Serializable
    @Enumerated
    private AddonStatus status = AddonStatus.PENDING;
 
+   @Column
+   private String repositoryUrl;
+
    public Long getId()
    {
       return this.id;
@@ -164,16 +167,29 @@ public class Addon implements Serializable
       this.description = description;
    }
 
+   public String getRepositoryUrl()
+   {
+      return this.repositoryUrl;
+   }
+
+   public void setRepositoryUrl(final String repositoryUrl)
+   {
+      this.repositoryUrl = repositoryUrl;
+   }
+
    @Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";
+      result += "serialVersionUID: " + serialVersionUID;
       if (name != null && !name.trim().isEmpty())
          result += ", name: " + name;
-      if (authorName != null && !authorName.trim().isEmpty())
-         result += ", authorName: " + authorName;
       if (description != null && !description.trim().isEmpty())
          result += ", description: " + description;
+      if (authorName != null && !authorName.trim().isEmpty())
+         result += ", authorName: " + authorName;
+      if (repositoryUrl != null && !repositoryUrl.trim().isEmpty())
+         result += ", repositoryUrl: " + repositoryUrl;
       return result;
    }
 }

@@ -24,7 +24,7 @@
 				Edit existing Addon
 			</c:when>
 			<c:otherwise>
-				Create a new Addon
+				Creatfe a new Addon
 			</c:otherwise>
 		</c:choose>
 	</ui:define>
@@ -38,29 +38,35 @@
 			<h:panelGrid columnClasses="label,component,required" columns="3">
 				<h:outputLabel for="addonBeanAddonName" value="Name:"/>
 				<h:panelGroup>
-					<h:inputText id="addonBeanAddonName" value="#{addonBean.addon.name}"/>
+					<h:inputText id="addonBeanAddonName" value="#{addonBean.addon.name}" required="true"/>
 					<h:message for="addonBeanAddonName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="addonBeanAddonDescription" value="Description:"/>
 				<h:panelGroup>
-					<h:inputTextarea id="addonBeanAddonDescription" value="#{addonBean.addon.description}"/>
+					<h:inputTextarea id="addonBeanAddonDescription" value="#{addonBean.addon.description}" cols="100"/>
 					<h:message for="addonBeanAddonDescription" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="addonBeanAddonAuthorName" value="Author Name:"/>
 				<h:panelGroup>
-					<h:inputText id="addonBeanAddonAuthorName" value="#{addonBean.addon.authorName}"/>
+					<h:inputText id="addonBeanAddonAuthorName" value="#{addonBean.addon.authorName}" required="true"/>
 					<h:message for="addonBeanAddonAuthorName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="addonBeanAddonSource" value="Source:"/>
 				<h:panelGroup>
-					<h:selectOneRadio id="addonBeanAddonSource" value="#{addonBean.addon.source}">
-						<f:selectItem itemValue="Community" />
-						<f:selectItem itemValue="Core"/>
-					</h:selectOneRadio>
+					<h:selectOneMenu id="addonBeanAddonSource" value="#{addonBean.addon.source}" required="true">
+						<f:selectItem itemLabel="Community" itemValue="Community" />
+						<f:selectItem itemLabel="Core" itemValue="Core"/>
+					</h:selectOneMenu>
 					<h:message for="addonBeanAddonSource" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="addonBeanRepositoryUrl" value="Repository URL:"/>
+				<h:panelGroup>
+					<h:inputText id="addonBeanRepositoryUrl" value="#{addonBean.addon.repositoryUrl}"/>
+					<h:message for="addonBeanRepositoryUrl" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

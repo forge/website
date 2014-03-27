@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-<display-name>website</display-name>
-  <session-config>
-   <session-timeout>30</session-timeout>
-  </session-config>
-  <mime-mapping>
-   <extension>ico</extension>
-    <mime-type>image/icon</mime-type>
-  </mime-mapping>
-  <context-param>
-   <param-name>org.ocpsoft.rewrite.config.CONFIG_RELOADING</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-   <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <welcome-file-list>
-   <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
-  <!-- CAS Specific Filters -->
-  <filter>
-   <filter-name>CAS Authentication Filter</filter-name>
-    <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
-    <init-param>
-      <param-name>casServerLoginUrl</param-name>
-      <param-value>https://sso.jboss.org/login</param-value>
-    </init-param>
-    <init-param>
-      <param-name>serverName</param-name>
-      <param-value>http://website-forge.rhcloud.com</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-   <filter-name>CAS Authentication Filter</filter-name>
-    <url-pattern>/auth</url-pattern>
-  </filter-mapping>
-  <filter>
-   <filter-name>CAS User Principal Filter</filter-name>
-    <filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
-  </filter>
-  <filter-mapping>
-   <filter-name>CAS User Principal Filter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/faces/error.xhtml</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/faces/error.xhtml</location>
-  </error-page>
+   <display-name>website</display-name>
+   <session-config>
+      <session-timeout>30</session-timeout>
+   </session-config>
+   <mime-mapping>
+      <extension>ico</extension>
+      <mime-type>image/icon</mime-type>
+   </mime-mapping>
+   <context-param>
+      <param-name>org.ocpsoft.rewrite.config.CONFIG_RELOADING</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <welcome-file-list>
+      <welcome-file>index.html</welcome-file>
+   </welcome-file-list>
+   <!-- CAS Specific Filters -->
+   <filter>
+      <filter-name>CAS Authentication Filter</filter-name>
+      <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
+      <init-param>
+         <param-name>casServerLoginUrl</param-name>
+         <param-value>https://sso.jboss.org/login</param-value>
+      </init-param>
+      <init-param>
+         <param-name>serverName</param-name>
+         <param-value>http://website-forge.rhcloud.com</param-value>
+      </init-param>
+   </filter>
+   <filter-mapping>
+      <filter-name>CAS Authentication Filter</filter-name>
+      <url-pattern>/auth</url-pattern>
+   </filter-mapping>
+   <filter>
+      <filter-name>CAS User Principal Filter</filter-name>
+      <filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>CAS User Principal Filter</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   <error-page>
+      <error-code>404</error-code>
+      <location>/faces/error.xhtml</location>
+   </error-page>
+   <error-page>
+      <error-code>500</error-code>
+      <location>/faces/error.xhtml</location>
+   </error-page>
+   <context-param>
+      <param-name>javax.faces.PROJECT_STAGE</param-name>
+      <param-value>Development</param-value>
+   </context-param>
 </web-app>
