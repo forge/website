@@ -1,6 +1,5 @@
 package org.jboss.forge.website.view;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -84,9 +83,7 @@ public class DocumentBean implements Serializable
       String result = "No Content";
       try (InputStream contentStream = new URL(address.toString()).openStream())
       {
-         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-         Streams.copy(contentStream, outputStream);
-         result = outputStream.toString();
+         result = Streams.toString(contentStream);
       }
       catch (IOException e)
       {
