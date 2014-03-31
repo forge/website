@@ -1,4 +1,4 @@
-/* ------------------ Red Hat Tab & "A JBoss project box - Necessary for every JBoss projectregardless of hosting location ------------------------- */
+/* ------------------ Red Hat Tab & "A JBoss project box - Necessary for every JBoss project regardless of hosting location ------------------------- */
 .dropup {
 	/* --- This is the standard RH tab that overlaps what's below it (project banner or navigation bar) --- */
 	/* display: none;  HIDE IT UNTIL WORKING */
@@ -17,10 +17,10 @@
 	margin-top: -1px !important;
 }
 
-/* (I renamed all tabzilla to tabnav here...) */
+/* (I renamed all tabzilla to tabnav here...) */ 
 #tabnav-panel.tabnav-opened {
 	height: 240px;
-	border-bottom: 1px solid@grayLight;
+	border-bottom: 1px solid #999;
 }
 
 #tabnav-panel {
@@ -30,21 +30,51 @@
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 	font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
-	font-size: 11px;
+	font-size: 13px;
 	font-style: normal;
 	font-weight: normal;
 	height: 0;
 	line-height: 1.3;
 	overflow: hidden;
 	position: relative;
+	background: linear-gradient(to bottom, #e1eef4 0%, #FFF 60%) no-repeat scroll 0 0 transparent;
+	clear:both;
 }
 
-#tabnav-contents {
-	bottom: 0;
+#tabnav .tabcontent {
+	/* bottom: 0;
 	left: 50%;
 	right: 0;
+	*/
 	text-align: left;
+    height: 100%;
+    padding-top: 30px;
+	padding:20px 25px;
 }
+
+#tabnav .tabcontent ul li {
+    color: #333;
+    line-height: 23px;
+    list-style:none;
+    padding:0px;
+}
+
+.middlewarelogo {
+    border-right: 1px solid #999;
+    text-align: center;
+    margin: 0 auto;
+ }
+ 
+ .row-fluid {
+ 	width: 100%;
+ }
+ 
+ .span4 {
+ 	display: table;
+    width: 33.33333333333333%;
+    float: left;
+    padding: 0 35px 20px;
+ }
 
 * html #tabnav-contents {
 	zoom: 1;
@@ -52,6 +82,7 @@
 *:first-child+html #tabnav-contents {
 	zoom: 1;
 } /* IE7 */
+
 #tabnav-contents:after {
 	clear: both;
 	content: " ";
