@@ -9,6 +9,7 @@ target/
 *.iws
 *.swp
 /*/src/main/java/META-INF
+bin
 .gitignore.swp
 docs/reference/src/main/docbook/en-US/version_info.xml
 .idea
