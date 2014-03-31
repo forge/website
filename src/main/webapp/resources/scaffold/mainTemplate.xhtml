@@ -30,10 +30,27 @@
 <h:body>
 	<ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
 	<div class="body-wrap">
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-1 pull-left">
+				<!-- Forge Logo -->
+				<img src="resources/images/ForgeLogo_Flat.png" height="43px" style="margin-top: 10px;" alt="Forge logo"></img>
+			</div>
+			<div class="col-sm-4 pull-right" style="margin-top:10px;">
+				<!--  Log In information -->
+				<span id="jbssologininfo1"/>
+					<ul>
+						<li><span id="jbssologininfo2" /></li>
+					</ul>
+			</div>
+			<div class="col-sm-4 pull-right">
+				<!--  Red Hat tab goes here - need to get info from James Cobb -->			
+			</div>
+		</div>
 		<!--container-->
 		<div class="container text-center">
-			<!-- Website Menu -->
-			<ul class="menu clearfix gradient margin-100">
+		<!-- Website Menu -->
+		<div class="row">
+			<ul class="menu clearfix gradient margin-40 pull-right">
 				<li><a href="index.xhtml">Home</a></li>
 				<li><a href="download.xhtml">Download</a></li>
 				<li><a href="addons.xhtml">Addons</a></li>
@@ -46,14 +63,14 @@
 						<li><a href="https://community.jboss.org/en/forge">Forums</a></li>
 					</ul></li>
 				<!--
-				<li><span id="jbssologininfo1"/>
-					<ul>
-						<li><span id="jbssologininfo2" /></li>
-					</ul></li>
+				
 					 -->
 			</ul>
-			<!--/ Website Menu -->
+		</div>
+		<!--/ Website Menu -->
+			
 			<ui:insert name="main" />
+			
 			<!-- Footer -->
 			<div class="row">
 				<div class="col-sm-12 pull-center">

@@ -1299,7 +1299,16 @@ h6.foo2 {
 /*-----------------------------------*/
 
 .widget-calendar.boxed {border-radius: 12px;}
-.widget-calendar .inner {padding:0 12px 12px;}
+
+/*-----------------------------------*/
+/* Widget Full Document */
+/*-----------------------------------*/
+
+.widget-doc.boxed {
+	border-radius: 12px;
+	padding: 12px 12px;
+}
+.widget-doc .inner {padding:12px 12px;}
 
 /* Datepicker General Styles
 ---------------------------------------------------------------------*/
@@ -2028,11 +2037,11 @@ textarea:focus {
     text-transform: none;
     color: #6f6f6f;
     padding: 5px 10px 4px 26px;
+    text-align: left;
 }
 .menu ul li:hover a {color: #494949;}
 
 .menu ul li a:before {
-    content: '';
     display: block;
     width: 3px;
     height: 3px;
