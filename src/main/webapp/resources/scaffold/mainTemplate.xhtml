@@ -14,6 +14,12 @@
 	<!-- Style CSS -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="app.css" />
+
+	<h:outputStylesheet library="css" name="jboss-community.css" />
+
+	<!-- JBoss ORG scripts -->
+	<h:outputScript library="js" name="_jbossorg-tabzilla.js" />
 
 	<!-- General Scripts -->
 	<h:outputScript library="js" name="general.js" />
@@ -29,48 +35,58 @@
 
 <h:body>
 	<ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
+	<div class="container" id="content">
+		<div class="dropup">
+			<a class="tabnav-closed" href="#" id="tab">Red Hat</a>
+			<script>
+				window.addEventListener('load', function() {
+					renderTabzilla("JBoss Forge", "forge")
+				}, false);
+			</script>
+		</div>
+	</div>
 	<div class="body-wrap">
 		<div class="row">
 			<div class="col-sm-3 col-sm-offset-1 pull-left">
 				<!-- Forge Logo -->
-				<img src="resources/images/ForgeLogo_Flat.png" height="43px" style="margin-top: 10px;" alt="Forge logo"></img>
+				<h:graphicImage name="ForgeLogo_Flat.png" library="images" height="43px" style="margin-top: 10px;" alt="Forge logo" />
 			</div>
-			<div class="col-sm-4 pull-right" style="margin-top:10px;">
+			<div class="col-sm-4 pull-right" style="margin-top: 10px;">
 				<!--  Log In information -->
-				<span id="jbssologininfo1"/>
-					<ul>
-						<li><span id="jbssologininfo2" /></li>
-					</ul>
+				<span id="jbssologininfo1" />
+				<ul>
+					<li><span id="jbssologininfo2" /></li>
+				</ul>
 			</div>
 			<div class="col-sm-4 pull-right">
-				<!--  Red Hat tab goes here - need to get info from James Cobb -->			
+				<!--  Red Hat tab goes here - need to get info from James Cobb -->
 			</div>
 		</div>
 		<!--container-->
 		<div class="container text-center">
-		<!-- Website Menu -->
-		<div class="row">
-			<ul class="menu clearfix gradient margin-40 pull-right">
-				<li><a href="index.xhtml">Home</a></li>
-				<li><a href="download.xhtml">Download</a></li>
-				<li><a href="addons.xhtml">Addons</a></li>
-				<li><a href="documentation.xhtml">Documentation</a></li>
-				<li><a href="community.xhtml">Community</a></li>
-				<li><a href="#">Resources</a>
-					<ul>
-						<li><a href="https://github.com/forge/core">Source Code</a></li>
-						<li><a href="https://issues.jboss.org/browse/FORGE">Issue Tracker</a></li>
-						<li><a href="https://community.jboss.org/en/forge">Forums</a></li>
-					</ul></li>
-				<!--
-				
+			<!-- Website Menu -->
+			<div class="row">
+				<ul class="menu clearfix gradient margin-40 pull-right">
+					<li><a href="index.xhtml">Home</a></li>
+					<li><a href="download.xhtml">Download</a></li>
+					<li><a href="addons.xhtml">Addons</a></li>
+					<li><a href="documentation.xhtml">Documentation</a></li>
+					<li><a href="community.xhtml">Community</a></li>
+					<li><a href="#">Resources</a>
+						<ul>
+							<li><a href="https://github.com/forge/core">Source Code</a></li>
+							<li><a href="https://issues.jboss.org/browse/FORGE">Issue Tracker</a></li>
+							<li><a href="https://community.jboss.org/en/forge">Forums</a></li>
+						</ul></li>
+					<!--
+
 					 -->
-			</ul>
-		</div>
-		<!--/ Website Menu -->
-			
+				</ul>
+			</div>
+			<!--/ Website Menu -->
+
 			<ui:insert name="main" />
-			
+
 			<!-- Footer -->
 			<div class="row">
 				<div class="col-sm-12 pull-center">

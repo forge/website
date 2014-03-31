@@ -22,5 +22,10 @@ image:http://yuml.me/c239857f[]
   [Addon|-name;-description;-authorName;-creationDate;-repositoryUrl]->status[<<enumeration>>;AddonStatus]
   [Addon]->source[<<enumeration>>;AddonSource]
   [Document|-repository;-ref;-path]
-  
+
 image:http://yuml.me/39d634a2[]
+
+
+== Requirements
+
+- Golden Gate requirements: https://mojo.redhat.com/docs/DOC-165622
