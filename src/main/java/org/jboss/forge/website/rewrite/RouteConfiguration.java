@@ -34,6 +34,7 @@ public class RouteConfiguration extends HttpConfigurationProvider
    {
       return ConfigurationBuilder
                .begin()
+               .addRule(Join.path("/").to("/faces/index.xhtml"))
 
                /*
                 * Block direct file access.
