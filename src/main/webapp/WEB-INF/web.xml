@@ -46,7 +46,7 @@
    </filter-mapping>
    <error-page>
       <error-code>404</error-code>
-      <location>/faces/error.xhtml</location>
+      <location>/faces/404.xhtml</location>
    </error-page>
    <error-page>
       <error-code>500</error-code>
