@@ -2,19 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/resources/scaffold/pageTemplate.xhtml">
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/resources/scaffold/mainTemplate.xhtml">
 
 	<ui:param name="pageTitle" value="Server error" />
 
-	<ui:define name="header">
-		Oops
-	</ui:define>
-
-	<ui:define name="subheader">
-		That's going to leave a mark!
-	</ui:define>
-
 	<ui:define name="main">
+		<h1>
+			Sorry, something went wrong. Please try again or return
+			<h:link outcome="/index.xhtml">&rarr; home</h:link>.
+		</h1>
+
 		<p style="text-align: right; padding-top: 150px">
 			<a target="_blank" href="http://jboss.org"><img
 				src="#{resource['jboss-community.png']}"
