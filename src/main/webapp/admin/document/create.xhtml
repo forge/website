@@ -54,6 +54,28 @@
 					<h:message for="documentBeanDocumentPath" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="documentBeanDocumentTitle" value="Title:"/>
+				<h:panelGroup>
+					<h:inputText id="documentBeanDocumentTitle" value="#{documentBean.document.title}"/>
+					<h:message for="documentBeanDocumentTitle" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="documentBeanDocumentDescription" value="Description:"/>
+				<h:panelGroup>
+					<h:inputText id="documentBeanDocumentDescription" value="#{documentBean.document.description}"/>
+					<h:message for="documentBeanDocumentDescription" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="documentBeanDocumentCategory" value="Category:"/>
+				<h:panelGroup>
+					<h:selectOneMenu id="documentBeanDocumentCategory" value="#{documentBean.document.category}" required="true">
+						<f:selectItem itemLabel="Get Started" itemValue="GET_STARTED" />
+						<f:selectItem itemLabel="Tutorials" itemValue="TUTORIALS"/>
+						<f:selectItem itemLabel="Advanced" itemValue="ADVANCED"/>
+					</h:selectOneMenu>
+					<h:message for="documentBeanDocumentCategory" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 			</h:panelGrid>
 
 			<div class="buttons">

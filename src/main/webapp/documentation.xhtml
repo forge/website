@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/mainTemplate.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/mainTemplate.xhtml">
+	<f:metadata>
+		<f:viewParam name="page" value='#{documentBean.page}' />
+		<f:event type="preRenderView" listener='#{documentBean.paginate}' />
+	</f:metadata>
 	<ui:param name="pageTitle" value="Documentation | JBoss Forge" />
 	<ui:define name="main">
 		<!-- Intro -->
@@ -36,143 +40,26 @@
 			</div>
 		</div>
 
-
-		<div class="row row-equal">
-			<!-- Doc -->
-			<div class="col-md-4 col-equal">
-				<div class="widget-container widget-document boxed">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Installation Guide</h5>
-						<span class="subtitle"><p>Installing Forge is a relatively short process, and this guide will take you through the fundamentals.</p>
-							<p>We'll show you how to install using various methods, and a quick getting started walkthrough of using Forge.</p></span>
-						<div class="btn btn-caps">
-							<a href="#"><span>View</span></a>
+		<ui:repeat var="item" value="#{documentBean.pageItems}">
+			<div class="row row-equal">
+				<!-- Doc -->
+				<div class="col-md-4 col-equal">
+					<div class="widget-container widget-document boxed">
+						<div class="inner clearfix">
+							<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
+							<h5><h:outputText value="#{item.title}"/></h5>
+							<span class="subtitle"><p><h:outputText value="#{item.description}"/></p></span>
+							<div class="btn btn-caps">
+								<h:link outcome="/document">
+									<f:param name="id" value="#{item.id}" />
+									<span>View</span>
+								</h:link>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!--/ Doc -->
 			</div>
-			<!--/ Doc -->
-			<!-- Doc -->
-			<div class="col-md-4 col-equal">
-				<div class="widget-container widget-document boxed">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Reference Guide</h5>
-						<p class="subtitle">The cheatsheet you can print out or reference when you can't quite remember the command you are looking for.</p>
-						<div class="btn btn-caps">
-							<a href="#"><span>View</span></a>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ Doc -->
-			<!-- Doc -->
-			<div class="col-md-4 col-equal">
-				<div class="widget-container widget-document boxed">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Installing Addons</h5>
-						<p class="subtitle">Addons are a fundamental piece of getting Forge to work the way you want it to. Here we'll tell you how to get and install the latest addons.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ Doc -->
-		</div>
-		<div class="row row-equal">
-			<!-- Doc -->
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Writing a basic Java EE app</h5>
-						<p class="subtitle">This tutorial will show you how to write a basic Java EE app from start to finish, and deploy it on a JBoss AS7 server.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Testing with Forge</h5>
-						<p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>UI Scaffolding</h5>
-						<p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row row-equal">
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Configure HTTP Proxy</h5>
-						<p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Creating a Forge Addon</h5>
-						<p class="subtitle">If you want to have Forge work with technology that you currently use but there isn't already an addon for it, you can easily create your own addons that work with Forge. This guide will take you step-by-step through how to create your own addon.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-equal boxed">
-				<div class="widget-container widget-document">
-					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Profiling Forge</h5>
-						<p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row row-equal">
-            <div class="col-md-4 col-equal boxed">
-             <div class="widget-container widget-document">					<div class="inner clearfix">
-						<span class="btn-lg glyphicon glyphicon-ok-circle lightIcon"></span>
-						<h5>Debugging Forge</h5>
-						<p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
-						<div class="btn btn-caps margin-10">
-							<a href="#"><span>View</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ Doc -->
-		</div>
+		</ui:repeat>
 	</ui:define>
 </ui:composition>
