@@ -68,13 +68,13 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="addonBeanPageItems" styleClass="data-table" value="#{addonBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
 					</f:facet>
-					<h:link outcome="/addon/view">
+					<h:link outcome="/admin/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
@@ -83,7 +83,7 @@
 					<f:facet name="header">
 						<h:outputText value="Author Name"/>
 					</f:facet>
-					<h:link outcome="/addon/view">
+					<h:link outcome="/admin/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemAuthorName" value="#{_item.authorName}"/>
 					</h:link>
@@ -92,7 +92,7 @@
 					<f:facet name="header">
 						<h:outputText value="Creation Date"/>
 					</f:facet>
-					<h:link outcome="/addon/view">
+					<h:link outcome="/admin/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemCreationDate" value="#{_item.creationDate}">
 							<f:convertDateTime type="date"/>
@@ -103,7 +103,7 @@
 					<f:facet name="header">
 						<h:outputText value="Source"/>
 					</f:facet>
-					<h:link outcome="/addon/view">
+					<h:link outcome="/admin/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemSource" value="#{_item.source}"/>
 					</h:link>
@@ -112,7 +112,7 @@
 					<f:facet name="header">
 						<h:outputText value="Status"/>
 					</f:facet>
-					<h:link outcome="/addon/view">
+					<h:link outcome="/admin/addon/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemStatus" value="#{_item.status}"/>
 					</h:link>
@@ -122,7 +122,7 @@
 				<ui:param name="paginatorBean" value='#{addonBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

@@ -54,13 +54,13 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="documentBeanPageItems" styleClass="data-table" value="#{documentBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Repository"/>
 					</f:facet>
-					<h:link outcome="/document/view">
+					<h:link outcome="/admin/document/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemRepository" value="#{_item.repository}"/>
 					</h:link>
@@ -69,7 +69,7 @@
 					<f:facet name="header">
 						<h:outputText value="Ref"/>
 					</f:facet>
-					<h:link outcome="/document/view">
+					<h:link outcome="/admin/document/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemRef" value="#{_item.ref}"/>
 					</h:link>
@@ -78,7 +78,7 @@
 					<f:facet name="header">
 						<h:outputText value="Path"/>
 					</f:facet>
-					<h:link outcome="/document/view">
+					<h:link outcome="/admin/document/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemPath" value="#{_item.path}"/>
 					</h:link>
@@ -88,7 +88,7 @@
 				<ui:param name="paginatorBean" value='#{documentBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>
