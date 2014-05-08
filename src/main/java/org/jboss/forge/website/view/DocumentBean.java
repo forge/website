@@ -1,35 +1,21 @@
 package org.jboss.forge.website.view;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
-import javax.ejb.Stateful;
-import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.jboss.forge.website.model.Document;
-import org.ocpsoft.common.util.Streams;
+import org.jboss.forge.website.model.Document.Category;
+import org.jboss.forge.website.service.Downloader;
+import org.jboss.forge.website.service.RepositoryService;
+import org.ocpsoft.common.util.Strings;
 import org.ocpsoft.urlbuilder.Address;
 import org.ocpsoft.urlbuilder.AddressBuilder;
 
@@ -42,309 +28,163 @@ import org.ocpsoft.urlbuilder.AddressBuilder;
  */
 
 @Named
-@Stateful
 @ConversationScoped
 public class DocumentBean implements Serializable
 {
+   private static final long serialVersionUID = -1447177331142569029L;
 
-   private static final long serialVersionUID = 1L;
+   @Inject
+   private Downloader downloader;
 
-   /*
-    * Support creating and retrieving Document entities
-    */
+   @Inject
+   private RepositoryService service;
 
-   private Long id;
-
-   public Long getId()
-   {
-      return this.id;
-   }
-
-   public void setId(Long id)
-   {
-      this.id = id;
-   }
-
+   private String documentTitle;
    private Document document;
+   private List<Document> relatedDocuments;
 
-   public Document getDocument()
+   private List<Document> documents;
+   private String searchQuery;
+   private Set<Category> categoryFilter;
+   private List<Category> categories = Arrays.asList(Category.QUICKSTART, Category.TUTORIAL, Category.ADVANCED);
+
+   public void load()
    {
-      return this.document;
+      List<Document> result = new ArrayList<>();
+      List<Document> documents = service.getAllDocuments();
+
+      for (Document document : documents)
+      {
+         if (Strings.isNullOrEmpty(searchQuery) ||
+                  (document.getTitle() != null && document.getTitle().contains(searchQuery))
+                  || (document.getSummary() != null && document.getSummary().contains(searchQuery))
+                  || (document.getAuthor() != null && document.getAuthor().contains(searchQuery)))
+         {
+            if (categoryFilter == null || categoryFilter.isEmpty() || document.getCategory() == null
+                     || categoryFilter.contains(document.getCategory()))
+            {
+               result.add(document);
+            }
+         }
+
+      }
+
+      this.setDocuments(result);
+   }
+
+   public void retrieve()
+   {
+      if (documentTitle != null)
+      {
+         List<Document> documents = service.getAllDocuments();
+         for (Document document : documents)
+         {
+            if (documentTitle.equals(document.getTitle()))
+            {
+               this.document = document;
+               break;
+            }
+         }
+      }
+
+      if (document != null)
+         setRelatedDocuments(service.getRelatedDocuments(document, 4));
+   }
+
+   public String getSearchQuery()
+   {
+      return searchQuery;
+   }
+
+   public void setSearchQuery(String searchQuery)
+   {
+      this.searchQuery = searchQuery;
+   }
+
+   public List<Document> getDocuments()
+   {
+      return documents;
+   }
+
+   public void setDocuments(List<Document> documents)
+   {
+      this.documents = documents;
    }
 
    public String getDocumentHTML() throws MalformedURLException
    {
       Address address = AddressBuilder.begin().scheme("http").domain("redoculous-lincolnbaxter.rhcloud.com")
                .path("/api/v1/serve")
-               .query("repo", document.getRepository())
+               .query("repo", document.getRepo())
                .query("ref", document.getRef())
                .query("path", document.getPath()).build();
 
-      String result = "No Content";
-      try (InputStream contentStream = new URL(address.toString()).openStream())
-      {
-         result = Streams.toString(contentStream);
-      }
-      catch (IOException e)
-      {
-         System.out.println(e);
-      }
+      String result = downloader.download(address.toString());
+
+      if (Strings.isNullOrEmpty(result))
+         result = "No Content";
 
       return result;
    }
 
-   @Inject
-   private Conversation conversation;
-
-   @PersistenceContext(unitName = "website-persistence-unit", type = PersistenceContextType.EXTENDED)
-   private EntityManager entityManager;
-
-   public String create()
+   public String getDocumentToC() throws MalformedURLException
    {
+      Address address = AddressBuilder.begin().scheme("http").domain("redoculous-lincolnbaxter.rhcloud.com")
+               .path("/api/v1/serve/toc")
+               .query("repo", document.getRepo())
+               .query("ref", document.getRef())
+               .query("path", document.getPath()).build();
 
-      this.conversation.begin();
-      return "create?faces-redirect=true";
+      String result = downloader.download(address.toString());
+
+      if (Strings.isNullOrEmpty(result))
+         result = "No Content";
+
+      return result;
    }
 
-   public void retrieve()
+   public Set<Category> getCategoryFilter()
    {
-
-      if (FacesContext.getCurrentInstance().isPostback())
-      {
-         return;
-      }
-
-      if (this.conversation.isTransient())
-      {
-         this.conversation.begin();
-      }
-
-      if (this.id == null)
-      {
-         this.document = this.example;
-      }
-      else
-      {
-         this.document = findById(getId());
-      }
+      return categoryFilter;
    }
 
-   public Document findById(Long id)
+   public void setCategoryFilter(Set<Category> categoryFilter)
    {
-
-      return this.entityManager.find(Document.class, id);
+      this.categoryFilter = categoryFilter;
    }
 
-   /*
-    * Support updating and deleting Document entities
-    */
-
-   public String update()
+   public List<Category> getCategories()
    {
-      this.conversation.end();
-
-      try
-      {
-         if (this.id == null)
-         {
-            this.entityManager.persist(this.document);
-            return "search?faces-redirect=true";
-         }
-         else
-         {
-            this.entityManager.merge(this.document);
-            return "view?faces-redirect=true&id=" + this.document.getId();
-         }
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
+      return categories;
    }
 
-   public String delete()
+   public void setCategories(List<Category> categories)
    {
-      this.conversation.end();
-
-      try
-      {
-         Document deletableEntity = findById(getId());
-
-         this.entityManager.remove(deletableEntity);
-         this.entityManager.flush();
-         return "search?faces-redirect=true";
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
+      this.categories = categories;
    }
 
-   /*
-    * Support searching Document entities with pagination
-    */
-
-   private int page;
-   private long count;
-   private List<Document> pageItems;
-
-   private Document example = new Document();
-
-   public int getPage()
+   public Document getDocument()
    {
-      return this.page;
+      return this.document;
    }
 
-   public void setPage(int page)
+   public String getDocumentTitle()
    {
-      this.page = page;
+      return documentTitle;
    }
 
-   public int getPageSize()
+   public void setDocumentTitle(String documentTitle)
    {
-      return 10;
+      this.documentTitle = documentTitle;
    }
 
-   public Document getExample()
+   public List<Document> getRelatedDocuments()
    {
-      return this.example;
+      return relatedDocuments;
    }
 
-   public void setExample(Document example)
+   public void setRelatedDocuments(List<Document> relatedDocuments)
    {
-      this.example = example;
-   }
-
-   public void search()
-   {
-      this.page = 0;
-   }
-
-   public void paginate()
-   {
-
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
-
-      // Populate this.count
-
-      CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-      Root<Document> root = countCriteria.from(Document.class);
-      countCriteria = countCriteria.select(builder.count(root)).where(
-               getSearchPredicates(root));
-      this.count = this.entityManager.createQuery(countCriteria)
-               .getSingleResult();
-
-      // Populate this.pageItems
-
-      CriteriaQuery<Document> criteria = builder.createQuery(Document.class);
-      root = criteria.from(Document.class);
-      TypedQuery<Document> query = this.entityManager.createQuery(criteria
-               .select(root).where(getSearchPredicates(root)));
-      query.setFirstResult(this.page * getPageSize()).setMaxResults(
-               getPageSize());
-      this.pageItems = query.getResultList();
-   }
-
-   private Predicate[] getSearchPredicates(Root<Document> root)
-   {
-
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
-      List<Predicate> predicatesList = new ArrayList<>();
-
-      String repository = this.example.getRepository();
-      if (repository != null && !"".equals(repository))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("repository")),
-                  '%' + repository.toLowerCase() + '%'));
-      }
-      String ref = this.example.getRef();
-      if (ref != null && !"".equals(ref))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("ref")), '%' + ref.toLowerCase() + '%'));
-      }
-      String path = this.example.getPath();
-      if (path != null && !"".equals(path))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("path")), '%' + path.toLowerCase() + '%'));
-      }
-
-      return predicatesList.toArray(new Predicate[predicatesList.size()]);
-   }
-
-   public List<Document> getPageItems()
-   {
-      return this.pageItems;
-   }
-
-   public long getCount()
-   {
-      return this.count;
-   }
-
-   /*
-    * Support listing and POSTing back Document entities (e.g. from inside an HtmlSelectOneMenu)
-    */
-
-   public List<Document> getAll()
-   {
-
-      CriteriaQuery<Document> criteria = this.entityManager
-               .getCriteriaBuilder().createQuery(Document.class);
-      return this.entityManager.createQuery(
-               criteria.select(criteria.from(Document.class))).getResultList();
-   }
-
-   @Resource
-   private SessionContext sessionContext;
-
-   public Converter getConverter()
-   {
-
-      final DocumentBean ejbProxy = this.sessionContext.getBusinessObject(DocumentBean.class);
-
-      return new Converter()
-      {
-
-         @Override
-         public Object getAsObject(FacesContext context,
-                  UIComponent component, String value)
-         {
-
-            return ejbProxy.findById(Long.valueOf(value));
-         }
-
-         @Override
-         public String getAsString(FacesContext context,
-                  UIComponent component, Object value)
-         {
-
-            if (value == null)
-            {
-               return "";
-            }
-
-            return String.valueOf(((Document) value).getId());
-         }
-      };
-   }
-
-   /*
-    * Support adding children to bidirectional, one-to-many tables
-    */
-
-   private Document add = new Document();
-
-   public Document getAdd()
-   {
-      return this.add;
-   }
-
-   public Document getAdded()
-   {
-      Document added = this.add;
-      this.add = new Document();
-      return added;
+      this.relatedDocuments = relatedDocuments;
    }
 }

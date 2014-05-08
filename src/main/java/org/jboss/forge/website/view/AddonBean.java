@@ -2,31 +2,18 @@ package org.jboss.forge.website.view;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
-import javax.ejb.Stateful;
-import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.jboss.forge.website.model.Addon;
-import org.jboss.forge.website.model.AddonSource;
-import org.jboss.forge.website.model.AddonStatus;
+import org.jboss.forge.website.model.Addon.Category;
+import org.jboss.forge.website.service.RepositoryService;
+import org.ocpsoft.common.util.Strings;
 
 /**
  * Backing bean for Addon entities.
@@ -37,314 +24,78 @@ import org.jboss.forge.website.model.AddonStatus;
  */
 
 @Named
-@Stateful
 @ConversationScoped
 public class AddonBean implements Serializable
 {
-
    private static final long serialVersionUID = 1L;
 
-   /*
-    * Support creating and retrieving Addon entities
-    */
-
-   private Long id;
-
-   public Long getId()
-   {
-      return this.id;
-   }
-
-   public void setId(Long id)
-   {
-      this.id = id;
-   }
-
-   private Addon addon;
-
-   public Addon getAddon()
-   {
-      return this.addon;
-   }
-
    @Inject
-   private Conversation conversation;
+   private RepositoryService service;
 
-   @PersistenceContext(unitName = "website-persistence-unit", type = PersistenceContextType.EXTENDED)
-   private EntityManager entityManager;
+   private List<Addon> addons;
+   private String searchQuery;
+   private Set<Category> categoryFilter;
+   private List<Category> categories = Arrays.asList(Category.CORE, Category.COMMUNITY);
 
-   public String create()
+   public void load()
    {
-
-      this.conversation.begin();
-      return "create?faces-redirect=true";
-   }
-
-   public void retrieve()
-   {
-
-      if (FacesContext.getCurrentInstance().isPostback())
+      List<Addon> result = new ArrayList<>();
+      List<Addon> addons = service.getAllAddons();
+      for (Addon addon : addons)
       {
-         return;
-      }
-
-      if (this.conversation.isTransient())
-      {
-         this.conversation.begin();
-      }
-
-      if (this.id == null)
-      {
-         this.addon = this.example;
-      }
-      else
-      {
-         this.addon = findById(getId());
-      }
-   }
-
-   public Addon findById(Long id)
-   {
-
-      return this.entityManager.find(Addon.class, id);
-   }
-
-   /*
-    * Support updating and deleting Addon entities
-    */
-
-   public String update()
-   {
-      this.conversation.end();
-
-      try
-      {
-         if (this.id == null)
+         if (Strings.isNullOrEmpty(searchQuery) || (addon.getName() != null && addon.getName().contains(searchQuery))
+                  || (addon.getDescription() != null && addon.getDescription().contains(searchQuery))
+                  || (addon.getAuthor() != null && addon.getAuthor().contains(searchQuery))
+                  || (addon.getTags() != null && addon.getTags().contains(searchQuery)))
          {
-            this.addon.setStatus(AddonStatus.PENDING);
-            this.entityManager.persist(this.addon);
-            return "search?faces-redirect=true";
-         }
-         else
-         {
-            this.entityManager.merge(this.addon);
-            return "view?faces-redirect=true&id=" + this.addon.getId();
-         }
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
-   }
-
-   public String delete()
-   {
-      this.conversation.end();
-
-      try
-      {
-         Addon deletableEntity = findById(getId());
-
-         this.entityManager.remove(deletableEntity);
-         this.entityManager.flush();
-         return "search?faces-redirect=true";
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
-   }
-
-   /*
-    * Support searching Addon entities with pagination
-    */
-
-   private int page;
-   private long count;
-   private List<Addon> pageItems;
-
-   private Addon example = new Addon();
-
-   public int getPage()
-   {
-      return this.page;
-   }
-
-   public void setPage(int page)
-   {
-      this.page = page;
-   }
-
-   public int getPageSize()
-   {
-      return 10;
-   }
-
-   public Addon getExample()
-   {
-      return this.example;
-   }
-
-   public void setExample(Addon example)
-   {
-      this.example = example;
-   }
-
-   public void search()
-   {
-      this.page = 0;
-   }
-
-   public void paginate()
-   {
-
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
-
-      // Populate this.count
-
-      CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-      Root<Addon> root = countCriteria.from(Addon.class);
-      countCriteria = countCriteria.select(builder.count(root)).where(
-               getSearchPredicates(root));
-      this.count = this.entityManager.createQuery(countCriteria)
-               .getSingleResult();
-
-      // Populate this.pageItems
-
-      CriteriaQuery<Addon> criteria = builder.createQuery(Addon.class);
-      root = criteria.from(Addon.class);
-      TypedQuery<Addon> query = this.entityManager.createQuery(criteria
-               .select(root).where(getSearchPredicates(root)));
-      query.setFirstResult(this.page * getPageSize()).setMaxResults(
-               getPageSize());
-      this.pageItems = query.getResultList();
-   }
-
-   private Predicate[] getSearchPredicates(Root<Addon> root)
-   {
-
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
-      List<Predicate> predicatesList = new ArrayList<Predicate>();
-
-      String name = this.example.getName();
-      if (name != null && !"".equals(name))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("name")), '%' + name.toLowerCase() + '%'));
-      }
-      String authorName = this.example.getAuthorName();
-      if (authorName != null && !"".equals(authorName))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("authorName")),
-                  '%' + authorName.toLowerCase() + '%'));
-      }
-      AddonSource source = this.example.getSource();
-      if (source != null)
-      {
-         predicatesList.add(builder.equal(root.get("source"), source));
-      }
-      AddonStatus status = this.example.getStatus();
-      if (status != null)
-      {
-         predicatesList.add(builder.equal(root.get("status"), status));
-      }
-
-      return predicatesList.toArray(new Predicate[predicatesList.size()]);
-   }
-
-   public List<Addon> getPageItems()
-   {
-      return this.pageItems;
-   }
-
-   public long getCount()
-   {
-      return this.count;
-   }
-
-   /*
-    * Support listing and POSTing back Addon entities (e.g. from inside an HtmlSelectOneMenu)
-    */
-
-   public List<Addon> getAll()
-   {
-
-      CriteriaQuery<Addon> criteria = this.entityManager
-               .getCriteriaBuilder().createQuery(Addon.class);
-      return this.entityManager.createQuery(
-               criteria.select(criteria.from(Addon.class))).getResultList();
-   }
-
-   @Resource
-   private SessionContext sessionContext;
-
-   public Converter getConverter()
-   {
-
-      final AddonBean ejbProxy = this.sessionContext.getBusinessObject(AddonBean.class);
-
-      return new Converter()
-      {
-
-         @Override
-         public Object getAsObject(FacesContext context,
-                  UIComponent component, String value)
-         {
-
-            return ejbProxy.findById(Long.valueOf(value));
-         }
-
-         @Override
-         public String getAsString(FacesContext context,
-                  UIComponent component, Object value)
-         {
-
-            if (value == null)
+            if (categoryFilter == null || categoryFilter.isEmpty() || addon.getCategory() == null
+                     || categoryFilter.contains(addon.getCategory()))
             {
-               return "";
+               result.add(addon);
             }
-
-            return String.valueOf(((Addon) value).getId());
          }
-      };
+      }
+
+      this.setAddons(result);
    }
 
-   /**
-    * Called when the bean needs to be approved
-    */
-   public void approve()
+   public String getSearchQuery()
    {
-      this.addon.setStatus(AddonStatus.APPROVED);
-      entityManager.merge(this.addon);
+      return searchQuery;
    }
 
-   public boolean canApprove()
+   public void setSearchQuery(String searchQuery)
    {
-      return this.addon.getStatus() == AddonStatus.PENDING;
+      this.searchQuery = searchQuery;
    }
 
-   public void addonsPaginate()
+   public List<Addon> getAddons()
    {
-      this.example.setStatus(AddonStatus.APPROVED);
-      paginate();
+      return addons;
    }
 
-   /*
-    * Support adding children to bidirectional, one-to-many tables
-    */
-
-   private Addon add = new Addon();
-
-   public Addon getAdd()
+   public void setAddons(List<Addon> addons)
    {
-      return this.add;
+      this.addons = addons;
    }
 
-   public Addon getAdded()
+   public List<Category> getCategories()
    {
-      Addon added = this.add;
-      this.add = new Addon();
-      return added;
+      return categories;
+   }
+
+   public void setCategories(List<Category> categories)
+   {
+      this.categories = categories;
+   }
+
+   public Set<Category> getCategoryFilter()
+   {
+      return categoryFilter;
+   }
+
+   public void setCategoryFilter(Set<Category> categoryFilter)
+   {
+      this.categoryFilter = categoryFilter;
    }
 }
