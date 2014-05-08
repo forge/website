@@ -13,11 +13,12 @@ import org.jboss.forge.website.service.Downloader;
 import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
 import org.ocpsoft.rewrite.config.Configuration;
 import org.ocpsoft.rewrite.config.ConfigurationBuilder;
-import org.ocpsoft.rewrite.config.Operation;
 import org.ocpsoft.rewrite.context.EvaluationContext;
-import org.ocpsoft.rewrite.event.Rewrite;
 import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
+import org.ocpsoft.rewrite.servlet.config.HttpOperation;
 import org.ocpsoft.rewrite.servlet.config.Path;
+import org.ocpsoft.rewrite.servlet.config.SendStatus;
+import org.ocpsoft.rewrite.servlet.http.event.HttpServletRewrite;
 
 /**
  * @author <a href="mailto:lincolnbaxter@gmail.com">Lincoln Baxter, III</a>
@@ -35,14 +36,14 @@ public class WebHookConfiguration extends HttpConfigurationProvider
                .begin()
                .addRule()
                .when(Path.matches("/api/v1/webhooks/cache_invalidate"))
-               .perform(new Operation()
+               .perform(new HttpOperation()
                {
                   @Override
-                  public void perform(Rewrite event, EvaluationContext context)
+                  public void performHttp(HttpServletRewrite event, EvaluationContext context)
                   {
                      downloader.invalidateCaches();
                   }
-               });
+               }.and(SendStatus.code(200)));
    }
 
    @Override
