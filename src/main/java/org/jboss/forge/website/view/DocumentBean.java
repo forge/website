@@ -34,7 +34,7 @@ public class DocumentBean implements Serializable
    private static final long serialVersionUID = -1447177331142569029L;
 
    @Inject
-   private Downloader downloader;
+   private transient Downloader downloader;
 
    @Inject
    private RepositoryService service;
