@@ -17,8 +17,11 @@ import javax.inject.Inject;
 import org.jboss.forge.website.SiteConstants;
 import org.jboss.forge.website.model.Addon;
 import org.jboss.forge.website.model.Addon.Category;
+import org.jboss.forge.website.model.Contributor;
 import org.jboss.forge.website.model.Document;
 import org.yaml.snakeyaml.Yaml;
+
+import com.google.gson.Gson;
 
 /**
  * @author <a href="mailto:lincolnbaxter@gmail.com">Lincoln Baxter, III</a>
@@ -109,6 +112,31 @@ public class RepositoryService implements Serializable
       return result;
    }
 
+   public List<Contributor> getRandomContributors(int count)
+   {
+      List<Contributor> result = new ArrayList<>();
+      List<Contributor> contributors = getAllContributors();
+
+      Random random = new Random(System.currentTimeMillis());
+      while (result.size() < count && !contributors.isEmpty())
+      {
+         Contributor related = contributors.get(random.nextInt(contributors.size()));
+         if (!result.contains(related))
+         {
+            result.add(related);
+         }
+      }
+
+      return result;
+   }
+
+   public List<Contributor> getAllContributors()
+   {
+      String contributorsJson = downloader.download(SiteConstants.CONTRIBUTORS_JSON_URL);
+      Contributor[] contributors = parseJson(contributorsJson, Contributor[].class);
+      return Arrays.asList(contributors);
+   }
+
    /*
     * Helpers
     */
@@ -133,6 +161,11 @@ public class RepositoryService implements Serializable
       return result;
    }
 
+   private <T> T parseJson(String content, Class<T> type)
+   {
+      return new Gson().fromJson(content, type);
+   }
+
    private <T> List<T> fetchList(String url, Class<T> type)
    {
       String content = downloader.download(url);
@@ -141,7 +174,7 @@ public class RepositoryService implements Serializable
       if (content != null)
          result = parse(content, type);
       else
-         new ArrayList<>();
+         result = new ArrayList<>();
 
       return result;
    }

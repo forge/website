@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jboss.forge.website.model.Addon;
+import org.jboss.forge.website.model.Contributor;
 import org.jboss.forge.website.service.RepositoryService;
 
 /**
@@ -29,5 +30,10 @@ public class IndexBean
    public List<Addon> getMainAddons()
    {
       return service.getRandomCommunityAddons(3);
+   }
+
+   public List<Contributor> getContributors()
+   {
+      return service.getRandomContributors(5);
    }
 }

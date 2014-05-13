@@ -83,38 +83,30 @@
 									<div id="myCarousel3" class="carousel slide" data-interval="20000">
 										<!-- Carousel items -->
 										<div class="carousel-inner">
-											<div class="active item">
-												<a href="#"> <h:graphicImage library="images/temp" name="post-img-1.jpg" />
-												</a>
-												<div class="carousel-desc gradient">
-													<strong>Brave</strong><span>&#171;Change your fate.&#187;</span>
+											<ui:repeat varStatus="status" var="item"
+												value="#{indexBean.contributors}">
+												<div class="#{status.index == 0 ? 'active item' : 'item'}">
+													<a href="#{item.html_url}"> <h:graphicImage value="#{item.avatar_url}" /></a>
+													<div class="carousel-desc gradient">
+														<strong>#{item.login}</strong>
+													</div>
 												</div>
-											</div>
-											<div class="item">
-												<a href="#"><h:graphicImage library="images/temp" name="post-img-2.jpg" /></a>
-												<div class="carousel-desc gradient">
-													<strong>Ice Age</strong><span>&#171;Change your fate.&#187;</span>
-												</div>
-											</div>
-											<div class="item">
-												<a href="#"><h:graphicImage library="images/temp" name="post-img-3.jpg" /></a>
-												<div class="carousel-desc gradient">
-													<strong>Horton</strong><span>&#171;Change your fate.&#187;</span>
-												</div>
-											</div>
+											</ui:repeat>
 										</div>
 										<!-- Carousel indicators -->
 										<ol class="carousel-indicators">
 											<li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
 											<li data-target="#myCarousel3" data-slide-to="1"></li>
 											<li data-target="#myCarousel3" data-slide-to="2"></li>
+											<li data-target="#myCarousel3" data-slide-to="3"></li>
+											<li data-target="#myCarousel3" data-slide-to="4"></li>
+											
 										</ol>
 										<!-- Carousel nav -->
-										<a class="carousel-control left" href="#myCarousel3" data-slide="prev"></a> <a class="carousel-control right" href="#myCarousel3" data-slide="next"></a>
-									</div>
+										<a class="carousel-control left" href="#myCarousel3" data-slide="prev"></a> <a class="carousel-control right" href="#myCarousel3" data-slide="next"></a>									</div>
 								</div>
 							</div>
-							<!--/ Image Slider -->
+							<!--/ Image Slider -->						
 						</div>
 					</div>
 					<hr class="margin-50" />
