@@ -8,6 +8,11 @@
 	<ui:param name="pageTitle" value="Documentation | JBoss Forge" />
 	<ui:define name="main">
 
+		<!-- Code highlighter -->
+		<h:outputStylesheet library="css" name="highlightstyle.css" />
+		<h:outputScript library="js" name="highlight.min.js" />
+		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
 		<!-- Breadcrumbs -->
 		<div class="row text-left">
 			<div class="col-sm-10 margin-20">
