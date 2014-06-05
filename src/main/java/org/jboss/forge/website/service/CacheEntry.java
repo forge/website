@@ -13,9 +13,14 @@ public class CacheEntry
 {
    private final String content;
    private long time;
+   private final String address;
 
-   public CacheEntry(String content, long time)
+   public CacheEntry(String address, String content, long time)
    {
+      assert address != null;
+      assert content != null;
+
+      this.address = address;
       this.content = content;
       this.time = time;
    }
@@ -33,5 +38,10 @@ public class CacheEntry
    public void invalidate()
    {
       time = 0l;
+   }
+
+   public String getAddress()
+   {
+      return address;
    }
 }

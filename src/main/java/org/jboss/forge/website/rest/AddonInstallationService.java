@@ -25,7 +25,7 @@ import org.jboss.forge.website.service.RepositoryService;
  * 
  * @author <a href="ggastald@redhat.com">George Gastaldi</a>
  */
-@Path("/addons")
+@Path("/v1/addons")
 public class AddonInstallationService
 {
    @Inject

@@ -21,4 +21,6 @@ public interface SiteConstants
    String DOCS_REPO_URL_ADVANCED = REPO_BASE_URL + "/docs-advanced.yaml";
 
    String CONTRIBUTORS_JSON_URL = "https://api.github.com/repos/forge/core/contributors";
+
+   String REDOCULOUS_DOMAIN = "redoculous-lincolnbaxter.rhcloud.com";
 }

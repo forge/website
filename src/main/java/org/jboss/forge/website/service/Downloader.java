@@ -32,41 +32,39 @@ public class Downloader implements Serializable
 
    public String download(String url)
    {
-      try
+      String content = getContentFromCache(url);
+
+      if (content == null)
       {
-         String content = getContentFromCache(url);
 
-         if (content == null)
+         try (CloseableHttpClient client = HttpClientBuilder.create().build())
          {
-            HttpGet httpGetManifest = new HttpGet(url);
-
-            CloseableHttpClient client = HttpClientBuilder.create().build();
-            HttpResponse response = client.execute(httpGetManifest);
+            HttpGet get = new HttpGet(url);
+            HttpResponse response = client.execute(get);
 
             if (response.getStatusLine().getStatusCode() == 200)
                content = Streams.toString(response.getEntity().getContent());
-            
-            if (response.getStatusLine().getStatusCode()/10 == 20)
-               cache.put(url, new CacheEntry(content, System.currentTimeMillis()));
+
+            if (response.getStatusLine().getStatusCode() / 10 == 20)
+               cache.put(url, new CacheEntry(url, content, System.currentTimeMillis()));
 
             else
                throw new IllegalStateException("failed! (server returned status code: "
-                        + response.getStatusLine().getStatusCode());
-
+                        + response.getStatusLine().getStatusCode() + ")");
          }
-
-         if (content == null)
+         catch (Exception e)
          {
-            content = getContentFromCacheUnrestricted(url);
+            throw new RuntimeException("Failed to download: " + url, e);
          }
 
-         return content;
+      }
 
-      }
-      catch (Exception e)
+      if (content == null)
       {
-         throw new RuntimeException("Failed to download: " + url, e);
+         content = getContentFromCacheUnrestricted(url);
       }
+
+      return content;
    }
 
    public void invalidateCaches()
@@ -74,6 +72,15 @@ public class Downloader implements Serializable
       for (CacheEntry entry : cache.values())
       {
          entry.invalidate();
+      }
+   }
+
+   public void invalidateCachesByAddress(String pattern)
+   {
+      for (CacheEntry entry : cache.values())
+      {
+         if (entry.getAddress().matches(pattern))
+            entry.invalidate();
       }
    }
 

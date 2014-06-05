@@ -8,18 +8,23 @@ package org.jboss.forge.website.rewrite;
 
 import javax.servlet.ServletContext;
 
+import org.ocpsoft.logging.Logger.Level;
 import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
 import org.ocpsoft.rewrite.config.Configuration;
 import org.ocpsoft.rewrite.config.ConfigurationBuilder;
 import org.ocpsoft.rewrite.config.Direction;
+import org.ocpsoft.rewrite.config.Log;
+import org.ocpsoft.rewrite.config.Subset;
 import org.ocpsoft.rewrite.servlet.config.DispatchType;
 import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
+import org.ocpsoft.rewrite.servlet.config.Method;
 import org.ocpsoft.rewrite.servlet.config.Path;
 import org.ocpsoft.rewrite.servlet.config.Redirect;
 import org.ocpsoft.rewrite.servlet.config.RequestParameter;
 import org.ocpsoft.rewrite.servlet.config.Resource;
 import org.ocpsoft.rewrite.servlet.config.SendStatus;
 import org.ocpsoft.rewrite.servlet.config.ServletMapping;
+import org.ocpsoft.rewrite.servlet.config.URL;
 import org.ocpsoft.rewrite.servlet.config.rule.Join;
 
 /**
@@ -34,6 +39,30 @@ public class RouteConfiguration extends HttpConfigurationProvider
    {
       return ConfigurationBuilder
                .begin()
+
+               .addRule()
+               .when(Direction.isInbound().and(DispatchType.isRequest()).and(URL.captureIn("url")))
+               .perform(Subset.evaluate(ConfigurationBuilder.begin()
+
+                        .addRule()
+                        .when(Method.isPost())
+                        .perform(Log.message(Level.INFO, "POST: {url}"))
+
+                        .addRule()
+                        .when(Method.isGet())
+                        .perform(Log.message(Level.INFO, "GET: {url}"))
+
+                        .addRule()
+                        .when(Method.isDelete())
+                        .perform(Log.message(Level.INFO, "DELETE: {url}"))
+
+                        .addRule()
+                        .when(Method.isHead())
+                        .perform(Log.message(Level.INFO, "HEAD: {url}"))
+
+                        )
+               )
+
                .addRule(Join.path("/").to("/faces/index.xhtml"))
 
                /*

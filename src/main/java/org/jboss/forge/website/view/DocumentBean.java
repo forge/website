@@ -11,6 +11,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.forge.website.SiteConstants;
 import org.jboss.forge.website.model.Document;
 import org.jboss.forge.website.model.Document.Category;
 import org.jboss.forge.website.service.Downloader;
@@ -113,7 +114,7 @@ public class DocumentBean implements Serializable
 
    public String getDocumentHTML() throws MalformedURLException
    {
-      Address address = AddressBuilder.begin().scheme("http").domain("redoculous-lincolnbaxter.rhcloud.com")
+      Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
                .path("/api/v1/serve")
                .query("repo", document.getRepo())
                .query("ref", document.getRef())
@@ -129,7 +130,7 @@ public class DocumentBean implements Serializable
 
    public String getDocumentToC() throws MalformedURLException
    {
-      Address address = AddressBuilder.begin().scheme("http").domain("redoculous-lincolnbaxter.rhcloud.com")
+      Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
                .path("/api/v1/serve/toc")
                .query("repo", document.getRepo())
                .query("ref", document.getRef())
