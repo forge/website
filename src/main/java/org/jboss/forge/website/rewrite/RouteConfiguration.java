@@ -13,10 +13,15 @@ import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
 import org.ocpsoft.rewrite.config.Configuration;
 import org.ocpsoft.rewrite.config.ConfigurationBuilder;
 import org.ocpsoft.rewrite.config.Direction;
+import org.ocpsoft.rewrite.config.False;
 import org.ocpsoft.rewrite.config.Log;
 import org.ocpsoft.rewrite.config.Subset;
+import org.ocpsoft.rewrite.context.EvaluationContext;
+import org.ocpsoft.rewrite.event.Rewrite;
+import org.ocpsoft.rewrite.param.Transposition;
 import org.ocpsoft.rewrite.servlet.config.DispatchType;
 import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
+import org.ocpsoft.rewrite.servlet.config.HttpOperation;
 import org.ocpsoft.rewrite.servlet.config.Method;
 import org.ocpsoft.rewrite.servlet.config.Path;
 import org.ocpsoft.rewrite.servlet.config.Redirect;
@@ -26,6 +31,8 @@ import org.ocpsoft.rewrite.servlet.config.SendStatus;
 import org.ocpsoft.rewrite.servlet.config.ServletMapping;
 import org.ocpsoft.rewrite.servlet.config.URL;
 import org.ocpsoft.rewrite.servlet.config.rule.Join;
+import org.ocpsoft.rewrite.servlet.event.OutboundServletRewrite;
+import org.ocpsoft.rewrite.servlet.http.event.HttpServletRewrite;
 
 /**
  * @author <a href="mailto:lincolnbaxter@gmail.com">Lincoln Baxter, III</a>
@@ -41,7 +48,7 @@ public class RouteConfiguration extends HttpConfigurationProvider
                .begin()
 
                .addRule()
-               .when(Direction.isInbound().and(DispatchType.isRequest()).and(URL.captureIn("url")))
+               .when(new False().and(Direction.isInbound().and(DispatchType.isRequest()).and(URL.captureIn("url"))))
                .perform(Subset.evaluate(ConfigurationBuilder.begin()
 
                         .addRule()
@@ -63,7 +70,36 @@ public class RouteConfiguration extends HttpConfigurationProvider
                         )
                )
 
+               .addRule()
+               .when(Direction.isOutbound().andNot(Path.matches("/{*}javax.faces.resource{*}")))
+               .perform(new HttpOperation()
+               {
+                  @Override
+                  public void performHttp(HttpServletRewrite event, EvaluationContext context)
+                  {
+                     if (event instanceof OutboundServletRewrite)
+                        Log.message(Level.INFO, "OUTBOUND: " + event + "").perform(event, context);
+                  }
+               })
+
+               /*
+                * Page specific routes
+                */
                .addRule(Join.path("/").to("/faces/index.xhtml"))
+
+               .addRule(Join.path("/document/{title}").to("/document").withChaining())
+               .where("title").transposedBy(new Transposition<String>()
+               {
+                  @Override
+                  public String transpose(Rewrite event, EvaluationContext context, String value)
+                  {
+                     if (Direction.isOutbound().evaluate(event, context))
+                        return value.replaceAll("\\+|\\s+", "-").toLowerCase();
+                     else
+                        return value.replaceAll("-", " ");
+                  }
+               })
+               .withId("document")
 
                /*
                 * Block direct file access.
@@ -79,18 +115,20 @@ public class RouteConfiguration extends HttpConfigurationProvider
                /*
                 * Application Routes
                 */
-               .addRule(Join.path("/{p}/").to("/faces/{p}/index.xhtml"))
+               .addRule(Join.path("/{p}/").to("/faces/{p}/index.xhtml").withChaining())
                .when(Resource.exists("/{p}/index.xhtml"))
                .where("p").matches(".*")
 
-               .addRule(Join.path("/{p}").to("/faces/{p}.xhtml"))
+               .addRule(Join.path("/{p}").to("/faces/{p}.xhtml").withChaining())
                .when(Resource.exists("/{p}.xhtml"))
                .where("p").matches(".*")
 
                .addRule()
                .when(DispatchType.isRequest().and(Direction.isInbound())
                         .and(RequestParameter.exists("ticket")).and(Path.matches("/auth")))
-               .perform(Redirect.temporary(context.getContextPath()));
+               .perform(Redirect.temporary(context.getContextPath()))
+
+      ;
    }
 
    @Override

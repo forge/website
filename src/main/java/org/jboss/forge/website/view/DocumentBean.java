@@ -80,7 +80,7 @@ public class DocumentBean implements Serializable
          List<Document> documents = service.getAllDocuments();
          for (Document document : documents)
          {
-            if (documentTitle.equals(document.getTitle()))
+            if (documentTitle.equalsIgnoreCase(document.getTitle()))
             {
                this.document = document;
                break;
