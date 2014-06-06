@@ -1,5 +1,6 @@
 package org.jboss.forge.website.view;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.enterprise.context.ConversationScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -57,9 +59,9 @@ public class DocumentBean implements Serializable
       for (Document document : documents)
       {
          if (Strings.isNullOrEmpty(searchQuery) ||
-                  (document.getTitle() != null && document.getTitle().contains(searchQuery))
-                  || (document.getSummary() != null && document.getSummary().contains(searchQuery))
-                  || (document.getAuthor() != null && document.getAuthor().contains(searchQuery)))
+                  (document.getTitle() != null && document.getTitle().toLowerCase().contains(searchQuery.toLowerCase()))
+                  || (document.getSummary() != null && document.getSummary().toLowerCase().contains(searchQuery.toLowerCase()))
+                  || (document.getAuthor() != null && document.getAuthor().toLowerCase().contains(searchQuery.toLowerCase())))
          {
             if (categoryFilter == null || categoryFilter.isEmpty() || document.getCategory() == null
                      || categoryFilter.contains(document.getCategory()))
@@ -73,7 +75,7 @@ public class DocumentBean implements Serializable
       this.setDocuments(result);
    }
 
-   public void retrieve()
+   public void retrieve() throws IOException
    {
       if (documentTitle != null)
       {
@@ -89,7 +91,13 @@ public class DocumentBean implements Serializable
       }
 
       if (document != null)
+      {
          setRelatedDocuments(service.getRelatedDocuments(document, 4));
+      }
+      else
+      {
+         FacesContext.getCurrentInstance().getExternalContext().dispatch("/404");
+      }
    }
 
    public String getSearchQuery()
@@ -114,13 +122,18 @@ public class DocumentBean implements Serializable
 
    public String getDocumentHTML() throws MalformedURLException
    {
-      Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
-               .path("/api/v1/serve")
-               .query("repo", document.getRepo())
-               .query("ref", document.getRef())
-               .query("path", document.getPath()).build();
+      String result = null;
 
-      String result = downloader.download(address.toString());
+      if (document != null)
+      {
+         Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
+                  .path("/api/v1/serve")
+                  .query("repo", document.getRepo())
+                  .query("ref", document.getRef())
+                  .query("path", document.getPath()).build();
+
+         result = downloader.download(address.toString());
+      }
 
       if (Strings.isNullOrEmpty(result))
          result = "No Content";
@@ -130,13 +143,18 @@ public class DocumentBean implements Serializable
 
    public String getDocumentToC() throws MalformedURLException
    {
-      Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
-               .path("/api/v1/serve/toc")
-               .query("repo", document.getRepo())
-               .query("ref", document.getRef())
-               .query("path", document.getPath()).build();
+      String result = null;
 
-      String result = downloader.download(address.toString());
+      if (document != null)
+      {
+         Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
+                  .path("/api/v1/serve/toc")
+                  .query("repo", document.getRepo())
+                  .query("ref", document.getRef())
+                  .query("path", document.getPath()).build();
+
+         result = downloader.download(address.toString());
+      }
 
       if (Strings.isNullOrEmpty(result))
          result = "No Content";

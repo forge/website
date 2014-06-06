@@ -1,5 +1,6 @@
 package org.jboss.forge.website.view;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.enterprise.context.ConversationScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -55,10 +57,10 @@ public class AddonBean implements Serializable
       List<Addon> addons = service.getAllAddons();
       for (Addon addon : addons)
       {
-         if (Strings.isNullOrEmpty(searchQuery) || (addon.getName() != null && addon.getName().contains(searchQuery))
-                  || (addon.getDescription() != null && addon.getDescription().contains(searchQuery))
-                  || (addon.getAuthor() != null && addon.getAuthor().contains(searchQuery))
-                  || (addon.getTags() != null && addon.getTags().contains(searchQuery)))
+         if (Strings.isNullOrEmpty(searchQuery) || (addon.getName() != null && addon.getName().toLowerCase().contains(searchQuery.toLowerCase()))
+                  || (addon.getDescription() != null && addon.getDescription().toLowerCase().contains(searchQuery.toLowerCase()))
+                  || (addon.getAuthor() != null && addon.getAuthor().toLowerCase().contains(searchQuery.toLowerCase()))
+                  || (addon.getTags() != null && addon.getTags().toLowerCase().contains(searchQuery.toLowerCase())))
          {
             if (categoryFilter == null || categoryFilter.isEmpty() || addon.getCategory() == null
                      || categoryFilter.contains(addon.getCategory()))
@@ -71,7 +73,7 @@ public class AddonBean implements Serializable
       this.setAddons(result);
    }
 
-   public void retrieve()
+   public void retrieve() throws IOException
    {
       if (addonId != null)
       {
@@ -87,7 +89,13 @@ public class AddonBean implements Serializable
       }
 
       if (addon != null)
+      {
          setRelatedDocuments(service.getRelatedDocuments(addon, 4));
+      }
+      else
+      {
+         FacesContext.getCurrentInstance().getExternalContext().dispatch("/404");
+      }
    }
 
    public String getReadmeHTML()

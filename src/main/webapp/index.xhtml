@@ -33,11 +33,11 @@
 							<div class="widget-container boxed styled">
 								<div class="inner">
 									<span class="text-left"><h5>
-											<a href="#"><h:outputText value="#{item.name}" /></a>
+											<h:link outcome="/addon"><f:param name="id" value="#{item.id}"/><h:outputText value="#{item.name}" /></h:link>
 										</h5></span> <span class="text-left">
 										<h5 class="small">
 											<h:outputText value="#{item.description}"/>
-											<br /> <a href="#"><h:outputText value="#{item.author}" /></a>
+											<br /> <a href="#{item.website}"><h:outputText value="#{item.author}" /></a>
 										</h5>
 									</span>
 									<!-- Rating Stars and downloads -->
@@ -136,7 +136,7 @@
 													<span>Download Forge for your IDE</span>
 												</div>
 												<ul>
-													<li><a href="#" class="btn btn-gray"><span>Eclipse</span></a></li>
+													<li><a href="http://tools.jboss.org/downloads/overview.html" class="btn btn-gray"><span>Eclipse</span></a></li>
 													<li><a href="#" class="btn btn-gray disabled"><span>IntelliJ</span></a></li>
 													<li><a href="#" class="btn btn-gray disabled"><span>Netbeans</span></a></li>
 												</ul>
@@ -157,18 +157,18 @@
 										<div class="price_col_body clearfix">
 											<div class="price_body_inner">
 												<div class="price_body_top">
-													<strong>Included</strong> <span>in JBoss Developer Studio</span>
+													<strong>Included</strong> <span>in <a href="http://tools.jboss.org/downloads/overview.html" class="btn btn-large btn-caps">JBoss Developer Studio</a></span>
 												</div>
 												<ul>
-													<li>Feature of note</li>
-													<li>Feature of note</li>
-													<li>Feature of note</li>
+													<li>Graphical Interface</li>
+													<li>Workspace Sync</li>
+													<li>Embedded CLI</li>
 												</ul>
 											</div>
 										</div>
 										<div class="price_col_foot">
 											<div class="sign_up">
-												<a href="#" class="btn btn-large btn-caps"><span>Download</span></a>
+												<a href="http://www.jboss.org/products/devstudio/overview/" class="btn btn-large btn-caps"><span>Download</span></a>
 											</div>
 										</div>
 									</div>
@@ -186,13 +186,13 @@
 										<div class="price_col_body clearfix">
 											<div class="price_body_inner">
 												<div class="price_body_top">
-													<strong>Windows</strong> <span>Instructions for Install</span>
+													<h:link outcome="/document"><f:param name="title" value="windows-installation-guide"/><strong>Windows</strong> <span>Instructions for Install</span></h:link>
 												</div>
 												<div class="price_body_top">
-													<strong>MacOS</strong> <span>Instructions for Install</span>
+													<h:link outcome="/document"><f:param name="title" value="osx-installation-guide"/><strong>MacOS</strong> <span>Instructions for Install</span></h:link>
 												</div>
 												<div class="price_body_top">
-													<strong>Linux</strong> <span>Instructions for Install</span>
+													<h:link outcome="/document"><f:param name="title" value="linux-installation-guide"/><strong>Linux</strong> <span>Instructions for Install</span></h:link>
 												</div>
 											</div>
 										</div>
