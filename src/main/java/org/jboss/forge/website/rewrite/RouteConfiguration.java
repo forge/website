@@ -37,9 +37,9 @@ public class RouteConfiguration extends HttpConfigurationProvider
       public String transpose(Rewrite event, EvaluationContext context, String value)
       {
          if (Direction.isOutbound().evaluate(event, context))
-            return value.replaceAll("\\+|\\s+", "-").toLowerCase();
+            return value.replaceAll("\\+|\\s+", "-").replaceAll("[-]+", "-").toLowerCase();
          else
-            return value.replaceAll("-", " ");
+            return value.replaceAll("-", " ").replaceAll("\\s+", " ");
       }
    }
 

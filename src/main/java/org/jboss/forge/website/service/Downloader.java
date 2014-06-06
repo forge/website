@@ -52,9 +52,13 @@ public class Downloader implements Serializable
                throw new IllegalStateException("failed! (server returned status code: "
                         + response.getStatusLine().getStatusCode() + ")");
          }
+         catch (IllegalStateException e)
+         {
+            throw e;
+         }
          catch (Exception e)
          {
-            throw new RuntimeException("Failed to download: " + url, e);
+            throw new IllegalStateException("Failed to download: " + url, e);
          }
 
       }

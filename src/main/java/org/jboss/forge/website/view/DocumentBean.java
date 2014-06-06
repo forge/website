@@ -58,10 +58,13 @@ public class DocumentBean implements Serializable
 
       for (Document document : documents)
       {
-         if (Strings.isNullOrEmpty(searchQuery) ||
+         if (Strings.isNullOrEmpty(searchQuery)
+                  ||
                   (document.getTitle() != null && document.getTitle().toLowerCase().contains(searchQuery.toLowerCase()))
-                  || (document.getSummary() != null && document.getSummary().toLowerCase().contains(searchQuery.toLowerCase()))
-                  || (document.getAuthor() != null && document.getAuthor().toLowerCase().contains(searchQuery.toLowerCase())))
+                  || (document.getSummary() != null && document.getSummary().toLowerCase()
+                           .contains(searchQuery.toLowerCase()))
+                  || (document.getAuthor() != null && document.getAuthor().toLowerCase()
+                           .contains(searchQuery.toLowerCase())))
          {
             if (categoryFilter == null || categoryFilter.isEmpty() || document.getCategory() == null
                      || categoryFilter.contains(document.getCategory()))
@@ -132,7 +135,14 @@ public class DocumentBean implements Serializable
                   .query("ref", document.getRef())
                   .query("path", document.getPath()).build();
 
-         result = downloader.download(address.toString());
+         try
+         {
+            result = downloader.download(address.toString());
+         }
+         catch (IllegalStateException e)
+         {
+            System.out.println("Failed to download document: " + address);
+         }
       }
 
       if (Strings.isNullOrEmpty(result))
@@ -153,7 +163,14 @@ public class DocumentBean implements Serializable
                   .query("ref", document.getRef())
                   .query("path", document.getPath()).build();
 
-         result = downloader.download(address.toString());
+         try
+         {
+            result = downloader.download(address.toString());
+         }
+         catch (IllegalStateException e)
+         {
+            System.out.println("Failed to download document TOC: " + address);
+         }
       }
 
       if (Strings.isNullOrEmpty(result))
