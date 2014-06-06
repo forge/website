@@ -11,11 +11,15 @@
    </mime-mapping>
    <context-param>
       <param-name>org.ocpsoft.rewrite.config.CONFIG_RELOADING</param-name>
-      <param-value>true</param-value>
+      <param-value>false</param-value>
    </context-param>
    <context-param>
       <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
       <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+      <param-value>server</param-value>
    </context-param>
    <welcome-file-list>
       <welcome-file>index.html</welcome-file>

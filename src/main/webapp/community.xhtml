@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/mainTemplate.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/mainTemplate.xhtml">
 	<ui:param name="pageTitle" value="Download | JBoss Forge" />
 	<ui:define name="main">
 		<!--/ Intro -->
 		<div class="row">
 			<div class="col-sm-12">
 				<!-- Main Call to Action -->
-				<h1 class="margin-100">JBoss is an open source, community project. We love it when our users become contributors!</h1>
+				<h1 class="margin-100">Forge is an open source, community project. We love it when our users become contributors!</h1>
 			</div>
 		</div>
 
@@ -19,35 +19,32 @@
 					<div class="col-sm-3 col-equal">
 						<div class="widget-container widget-image boxed styled">
 							<div class="inner">
-								<span>
-									<h5>
-										<a href="#"> Build an Addon </a>
-									</h5></span>
+								<span><h5><h:link outcome="/document"><f:param name="title" value="develop-an-addon"/> Build an Addon </h:link></h5></span>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-equal">
 						<div class="widget-container widget-image boxed styled">
 							<div class="inner">
-								<span><h5>Discussion in the forums</h5></span>
+								<span><h5><a href="https://community.jboss.org/en/forge">Discussion in the forums</a></h5></span>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-equal">
 						<div class="widget-container widget-image boxed styled">
 							<div class="inner">
-								<span><h5>Submit Bugs</h5></span>
+								<span><h5><a href="https://issues.jboss.org/browse/FORGE">Submit Bugs</a></h5></span>
 								<hr />
-								<span><h5>Improve Forge Code</h5></span>
+								<span><h5><a href="http://github.com/forge">Improve Forge Code</a></h5></span>
 								<hr />
-								<span><h5>Attend an Event</h5></span>
+								<span><h5><h:link outcome="/events">Attend an Event</h:link></h5></span>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-equal">
 						<div class="widget-container widget-image boxed styled">
 							<div class="inner">
-								<span><h5>Attend an Event</h5></span>
+								<span><h5><h:link outcome="/events">Attend an Event</h:link></h5></span>
 							</div>
 						</div>
 					</div>
@@ -57,10 +54,10 @@
 		<div class="row">
 			<div class="col-sm-12 pull-center">
 				<p>
-					<a href="#">Our community governance statement</a>
+					<a href="#" class="disabled">Our community governance statement</a>
 				</p>
 				<p>
-					<a href="#">Our roadmap</a>
+					<a href="#" class="disabled">Our roadmap</a>
 				</p>
 			</div>
 		</div>

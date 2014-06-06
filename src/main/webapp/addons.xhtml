@@ -37,53 +37,55 @@
 						</div>
 					</div>
 					<!--/ Search -->
+					<!-- Filters -->
+					<div class="row">
+						<div class="col-sm-8 pull-center margin-30">
+							<h:selectManyCheckbox id="category" value="#{addonBean.categoryFilter}" converter="addonCategoryConverter">
+			    				<f:selectItems value="#{addonBean.categories}" />
+			    				<f:ajax execute="@this searchInput" event="click" listener="#{addonBean.load}" render="searchResults" />
+							</h:selectManyCheckbox>
+						</div>
+					</div>
+					<!--/Filters -->
 				</div>
 			</div>
-			<!-- Filters -->
-			<div class="row">
-				<div class="col-sm-8 pull-center margin-30">
-					<h:selectManyCheckbox id="category" value="#{addonBean.categoryFilter}" converter="addonCategoryConverter">
-	    				<f:selectItems value="#{addonBean.categories}" />
-	    				<f:ajax execute="@this searchInput" event="click" listener="#{addonBean.load}" render="searchResults" />
-					</h:selectManyCheckbox>
-				</div>
-			</div>
-			<!--/Filters -->
 			<!--/ Search -->
 
 			<!-- Addons -->
-			<div class="row">
-				<ui:repeat var="item" value="#{addonBean.addons}" varStatus="v">
-					
-					<h:panelGroup rendered="#{v.index ne 0 and v.index mod 3 eq 0}" layout="block" style="clear: both;">
-						&nbsp;
-					</h:panelGroup>
-					
-					<!-- Addon -->
-					<div class="col-sm-4">
-						<div class="widget-container widget-document boxed">
-							<div class="inner clearfix">
-								<h5><h:link outcome="/addon"><f:param name="id" value="#{item.id}" /><h:outputText value="#{item.name}"/></h:link></h5>
-								<span class="subtitle">
-								<p>
-									<br /> 
-									<h:link outcome="/addon"><f:param name="id" value="#{item.id}" />
-										<h:outputText value="#{item.description}" />
-										<br/>
-										<h:outputText value="#{item.author}" />
-									</h:link>
-								</p></span>
-								<!-- Rating Stars and downloads -->
-								<div class="rating">
-									<span class="star on" rel="1"></span> <span class="star on" rel="2"></span> <span class="star on" rel="3"></span> <span class="star off" rel="4"></span> <span class="star off" rel="5"></span> <span><p>154 downloads</p></span>
+			<h:panelGroup id="searchResults">
+				<div class="row">
+					<ui:repeat var="item" value="#{addonBean.addons}" varStatus="v">
+						
+						<h:panelGroup rendered="#{v.index ne 0 and v.index mod 3 eq 0}" layout="block" style="clear: both;">
+							&nbsp;
+						</h:panelGroup>
+						
+						<!-- Addon -->
+						<div class="col-sm-4">
+							<div class="widget-container widget-document boxed">
+								<div class="inner clearfix">
+									<h5><h:link outcome="/addon"><f:param name="id" value="#{item.id}" /><h:outputText value="#{item.name}"/></h:link></h5>
+									<span class="subtitle">
+									<p>
+										<br /> 
+										<h:link outcome="/addon"><f:param name="id" value="#{item.id}" />
+											<h:outputText value="#{item.description}" />
+											<br/>
+											<h:outputText value="#{item.author}" />
+										</h:link>
+									</p></span>
+									<!-- Rating Stars and downloads -->
+									<div class="rating">
+										<span class="star on" rel="1"></span> <span class="star on" rel="2"></span> <span class="star on" rel="3"></span> <span class="star off" rel="4"></span> <span class="star off" rel="5"></span> <span><p>154 downloads</p></span>
+									</div>
+									<!--/ Rating Stars and downloads -->
 								</div>
-								<!--/ Rating Stars and downloads -->
 							</div>
 						</div>
-					</div>
-					<!--/ Addon -->
-				</ui:repeat>
-			</div>
+						<!--/ Addon -->
+					</ui:repeat>
+				</div>
+			</h:panelGroup>
 			<!-- Addons -->
 		</h:form>
 	</ui:define>

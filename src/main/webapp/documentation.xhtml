@@ -48,31 +48,33 @@
 			</div>
 			<!--/ Search -->
 
-			<div class="row">	
-				<ui:repeat var="item" value="#{documentBean.documents}" varStatus="v">
-					
-					<h:panelGroup rendered="#{v.index ne 0 and v.index mod 3 eq 0}" layout="block" style="clear: both;">
-						&nbsp;
-					</h:panelGroup>
-					
-					<!-- Doc -->
-					<div class="col-sm-4">
-						<div class="widget-container widget-document boxed">
-							<div class="inner clearfix">
-								<h5><h:outputText value="#{item.title}"/></h5>
-								<span class="subtitle"><p><h:outputText value="#{item.summary}"/></p></span>
-								<div class="btn btn-caps">
-									<h:link outcome="/document">
-										<f:param name="title" value="#{item.title}" />
-										<span>Read this &rarr;</span>
-									</h:link>
+			<h:panelGroup id="searchResults">
+				<div class="row">	
+					<ui:repeat var="item" value="#{documentBean.documents}" varStatus="v">
+						
+						<h:panelGroup rendered="#{v.index ne 0 and v.index mod 3 eq 0}" layout="block" style="clear: both;">
+							&nbsp;
+						</h:panelGroup>
+						
+						<!-- Doc -->
+						<div class="col-sm-4">
+							<div class="widget-container widget-document boxed">
+								<div class="inner clearfix">
+									<h5><h:outputText value="#{item.title}"/></h5>
+									<span class="subtitle"><p><h:outputText value="#{item.summary}"/></p></span>
+									<div class="btn btn-caps">
+										<h:link outcome="/document">
+											<f:param name="title" value="#{item.title}" />
+											<span>Read this &rarr;</span>
+										</h:link>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!--/ Doc -->
-				</ui:repeat>
-			</div>
+						<!--/ Doc -->
+					</ui:repeat>
+				</div>
+			</h:panelGroup>
 		</h:form>
 	</ui:define>
 </ui:composition>
