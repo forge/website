@@ -179,4 +179,31 @@ public class RepositoryService implements Serializable
       return result;
    }
 
+   public List<Document> getRelatedDocuments(Addon addon, int count)
+   {
+      List<Document> result = new ArrayList<Document>();
+
+      String tagString = addon.getTags();
+      List<String> tags = null;
+      if (tagString != null && !tagString.isEmpty())
+         tags = Arrays.asList(tagString.split(","));
+
+      if (tags != null)
+      {
+         for (String tag : tags)
+         {
+            tag = tag.trim();
+            for (Document doc : getAllDocuments())
+            {
+               if ((doc.getSummary() != null && doc.getSummary().contains(tag))
+                        || (doc.getSummary() != null && doc.getTitle().contains(tag)))
+               {
+                  result.add(doc);
+               }
+            }
+         }
+      }
+      return new ArrayList<Document>();
+   }
+
 }

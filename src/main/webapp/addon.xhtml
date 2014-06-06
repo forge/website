@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" template="/resources/scaffold/mainTemplate.xhtml">
+	<f:metadata>
+		<f:viewParam name="id" value='#{addonBean.addonId}' />
+		<f:event type="preRenderView" listener='#{addonBean.retrieve}' />
+	</f:metadata>
+	<ui:param name="pageTitle" value="#{addonBean.addon.name} Addon| JBoss Forge" />
+	<ui:define name="main">
+
+		<!-- Code highlighter -->
+		<h:outputStylesheet library="css" name="highlightstyle.css" />
+		<h:outputScript library="js" name="highlight.min.js" />
+		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+		<!-- Breadcrumbs -->
+		<div class="row text-left">
+			<div class="col-sm-10 margin-20">
+				<h:link outcome="/index">JBoss Forge</h:link> &rsaquo;
+				<h:link outcome="/addons">Addons</h:link>
+				&rsaquo; <h:outputText value="#{addonBean.addon.name}"/>
+			</div>
+		</div>
+
+		<div class="row text-left">
+			<!-- Search Doc -->
+			<div class="col-sm-3">
+				
+				<h4>About this addon</h4>
+				<ul>
+					<li>Id: #{addonBean.addon.id}</li>
+					<li>Author: <a href="mailto:#{addonBean.addon.email}">#{addonBean.addon.author}</a></li>
+					<li>Website: <a href="#{addonBean.addon.website}">#{addonBean.addon.website}</a></li>
+					<li>Tags: #{addonBean.addon.tags}</li>
+				</ul>
+				<br/>
+				<br/>
+				<!-- Recommended Docs -->
+				<h:panelGroup rendered="#{not empty addonBean.relatedDocuments}">
+				<h4>Related Documents</h4>
+					<p>
+						<ui:repeat var="item" value="#{addonBean.relatedDocuments}">
+							<li><h:link outcome="/document.xhtml" value="#{item.title}">
+								<f:param name="title" value="#{item.title}" />
+							</h:link></li>
+						</ui:repeat>
+					</p>
+				</h:panelGroup>
+
+				<!-- Contribute -->
+				<h4>Contribute to this addon</h4>
+				<p>
+					<a href="#{addonBean.addon.repo}">#{addonBean.addon.repo}</a>
+				</p>
+
+			</div>
+			
+			<div class="col-sm-9">
+				<div class="widget-container widget-doc boxed preview">
+					<h1>#{addonBean.addon.name}</h1>
+					<h2>Installation</h2>
+					<ul>
+						<li>
+							From the system command line:
+							<code class="xml language-bash hljs ">
+							forge --install #{addonBean.addon.id}
+							</code>
+						</li>
+						<li>
+							From Forge CLI:
+							<code class="xml language-bash hljs ">
+								addon-install-from-git --url #{addonBean.addon.repo} --branch #{addonBean.addon.branch} --coordinate #{addonBean.addon.id}
+							</code>
+						</li>
+					</ul>
+				</div>
+
+			<!-- Doc -->
+				<div class="widget-container widget-doc boxed preview">
+					<h2>Usage &amp; Development</h2>
+					<h:outputText escape="false" value="#{addonBean.getReadmeHTML()}" />
+				</div>
+			</div>
+			<!--/ Doc -->
+		</div>
+	</ui:define>
+</ui:composition>

@@ -30,7 +30,7 @@ public class Downloader implements Serializable
    // TODO Cache this on disk or dcp.jboss.org instead of in memory.
    private final Map<String, CacheEntry> cache = new ConcurrentHashMap<>();
 
-   public String download(String url)
+   public String download(String url) throws IllegalStateException
    {
       String content = getContentFromCache(url);
 

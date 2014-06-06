@@ -10,10 +10,15 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.forge.website.SiteConstants;
 import org.jboss.forge.website.model.Addon;
 import org.jboss.forge.website.model.Addon.Category;
+import org.jboss.forge.website.model.Document;
+import org.jboss.forge.website.service.Downloader;
 import org.jboss.forge.website.service.RepositoryService;
 import org.ocpsoft.common.util.Strings;
+import org.ocpsoft.urlbuilder.Address;
+import org.ocpsoft.urlbuilder.AddressBuilder;
 
 /**
  * Backing bean for Addon entities.
@@ -27,10 +32,17 @@ import org.ocpsoft.common.util.Strings;
 @ConversationScoped
 public class AddonBean implements Serializable
 {
-   private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = -6749406839031709443L;
 
    @Inject
    private RepositoryService service;
+
+   @Inject
+   private transient Downloader downloader;
+
+   private String addonId;
+   private Addon addon;
+   private List<Document> relatedDocuments;
 
    private List<Addon> addons;
    private String searchQuery;
@@ -59,6 +71,41 @@ public class AddonBean implements Serializable
       this.setAddons(result);
    }
 
+   public void retrieve()
+   {
+      if (addonId != null)
+      {
+         List<Addon> addons = service.getAllAddons();
+         for (Addon addon : addons)
+         {
+            if (addonId.equalsIgnoreCase(addon.getId()))
+            {
+               this.addon = addon;
+               break;
+            }
+         }
+      }
+
+      if (addon != null)
+         setRelatedDocuments(service.getRelatedDocuments(addon, 4));
+   }
+
+   public String getReadmeHTML()
+   {
+      Address address = AddressBuilder.begin().scheme("http").domain(SiteConstants.REDOCULOUS_DOMAIN)
+               .path("/api/v1/serve")
+               .query("repo", addon.getRepo())
+               .query("ref", addon.getBranch())
+               .query("path", "/README").build();
+
+      String result = downloader.download(address.toString());
+
+      if (Strings.isNullOrEmpty(result))
+         result = "No Content";
+
+      return result;
+   }
+
    public String getSearchQuery()
    {
       return searchQuery;
@@ -67,6 +114,26 @@ public class AddonBean implements Serializable
    public void setSearchQuery(String searchQuery)
    {
       this.searchQuery = searchQuery;
+   }
+
+   public String getAddonId()
+   {
+      return addonId;
+   }
+
+   public void setAddonId(String addonId)
+   {
+      this.addonId = addonId;
+   }
+
+   public Addon getAddon()
+   {
+      return addon;
+   }
+
+   public void setAddon(Addon addon)
+   {
+      this.addon = addon;
    }
 
    public List<Addon> getAddons()
@@ -97,5 +164,15 @@ public class AddonBean implements Serializable
    public void setCategoryFilter(Set<Category> categoryFilter)
    {
       this.categoryFilter = categoryFilter;
+   }
+
+   public List<Document> getRelatedDocuments()
+   {
+      return relatedDocuments;
+   }
+
+   public void setRelatedDocuments(List<Document> relatedDocuments)
+   {
+      this.relatedDocuments = relatedDocuments;
    }
 }
