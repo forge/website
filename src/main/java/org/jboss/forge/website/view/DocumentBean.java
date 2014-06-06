@@ -85,7 +85,7 @@ public class DocumentBean implements Serializable
          List<Document> documents = service.getAllDocuments();
          for (Document document : documents)
          {
-            if (documentTitle.equalsIgnoreCase(document.getTitle()))
+            if (documentTitle.equalsIgnoreCase(document.getTitle().replaceAll("-+", " ").replaceAll("\\s+", " ")))
             {
                this.document = document;
                break;
