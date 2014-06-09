@@ -38,13 +38,11 @@
 					</div>
 					<!--/ Search -->
 					<!-- Filters -->
-					<div class="row">
-						<div class="col-sm-8 pull-center margin-30">
-							<h:selectManyCheckbox id="category" value="#{addonBean.categoryFilter}" converter="addonCategoryConverter">
-			    				<f:selectItems value="#{addonBean.categories}" />
-			    				<f:ajax execute="@this searchInput" event="click" listener="#{addonBean.load}" render="searchResults" />
-							</h:selectManyCheckbox>
-						</div>
+					<div class="col-sm-8 pull-center margin-30">
+						<h:selectManyCheckbox id="category" value="#{addonBean.categoryFilter}" converter="addonCategoryConverter" styleClass="pull-center filter">
+							<f:selectItems value="#{addonBean.categories}" />
+							<f:ajax execute="@this searchInput" event="click" listener="#{addonBean.load}" render="searchResults" />
+						</h:selectManyCheckbox>
 					</div>
 					<!--/Filters -->
 				</div>

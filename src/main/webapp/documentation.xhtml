@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://xmlns.jcp.org/jsf/passthrough" template="/resources/scaffold/mainTemplate.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough" template="/resources/scaffold/mainTemplate.xhtml">
 	<f:metadata>
 		<f:event type="preRenderView" listener='#{documentBean.load}' />
 	</f:metadata>
@@ -13,7 +15,7 @@
 					<h1 class="margin-100">JBoss Forge is fast and extensible. Learn more about what you can do with Forge.</h1>
 				</div>
 			</div>
-	
+
 			<!-- Search -->
 			<div class="row">
 				<div class="col-sm-12">
@@ -21,7 +23,8 @@
 					<div class="row">
 						<div class="col-sm-6 pull-center">
 							<div class="widget-container widget-search styled">
-								<span class="btn btn-middle btn-caps"> <h:commandButton id="submit" type="submit" value="Search" actionListener="#{documentBean.load}">
+								<span class="btn btn-middle btn-caps"> <h:commandButton id="submit" type="submit" value="Search"
+										actionListener="#{documentBean.load}">
 										<f:ajax execute="searchInput" render="searchResults" />
 									</h:commandButton>
 								</span>
@@ -35,13 +38,12 @@
 					</div>
 					<!--/ Search -->
 					<!-- Filters -->
-					<div class="row">
-						<div class="col-sm-8 pull-center margin-30">
-							<h:selectManyCheckbox id="category" value="#{documentBean.categoryFilter}" converter="documentCategoryConverter">
-			    				<f:selectItems value="#{documentBean.categories}" />
-			    				<f:ajax execute="@this searchInput" event="click" listener="#{documentBean.load}" render="searchResults" />
-							</h:selectManyCheckbox>
-						</div>
+					<div class="col-sm-8 pull-center margin-30">
+						<h:selectManyCheckbox id="category" value="#{documentBean.categoryFilter}" converter="documentCategoryConverter" 
+							styleClass="pull-center filter" >
+							<f:selectItems value="#{documentBean.categories}"/>
+							<f:ajax execute="@this searchInput" event="click" listener="#{documentBean.load}" render="searchResults" />
+						</h:selectManyCheckbox>
 					</div>
 					<!--/Filters -->
 				</div>
@@ -49,19 +51,23 @@
 			<!--/ Search -->
 
 			<h:panelGroup id="searchResults">
-				<div class="row">	
+				<div class="row">
 					<ui:repeat var="item" value="#{documentBean.documents}" varStatus="v">
-						
+
 						<h:panelGroup rendered="#{v.index ne 0 and v.index mod 3 eq 0}" layout="block" style="clear: both;">
 							&nbsp;
 						</h:panelGroup>
-						
+
 						<!-- Doc -->
 						<div class="col-sm-4">
 							<div class="widget-container widget-document boxed">
 								<div class="inner clearfix">
-									<h5><h:outputText value="#{item.title}"/></h5>
-									<span class="subtitle"><p><h:outputText value="#{item.summary}"/></p></span>
+									<h5>
+										<h:outputText value="#{item.title}" />
+									</h5>
+									<span class="subtitle"><p>
+											<h:outputText value="#{item.summary}" />
+										</p></span>
 									<div class="btn btn-caps">
 										<h:link outcome="/document">
 											<f:param name="title" value="#{item.title}" />

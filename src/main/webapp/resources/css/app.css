@@ -21,3 +21,8 @@
 	color: white;
 	text-shadow: none;
 }
+
+.filter label {
+	padding-left: 3px;
+	padding-right: 5px;
+}
