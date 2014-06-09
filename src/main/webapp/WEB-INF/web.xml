@@ -25,31 +25,6 @@
    <welcome-file-list>
       <welcome-file>index.html</welcome-file>
    </welcome-file-list>
-   <!-- CAS Specific Filters -->
-   <filter>
-      <filter-name>CAS Authentication Filter</filter-name>
-      <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
-      <init-param>
-         <param-name>casServerLoginUrl</param-name>
-         <param-value>https://sso.jboss.org/login</param-value>
-      </init-param>
-      <init-param>
-         <param-name>serverName</param-name>
-         <param-value>http://website-forge.rhcloud.com</param-value>
-      </init-param>
-   </filter>
-   <filter-mapping>
-      <filter-name>CAS Authentication Filter</filter-name>
-      <url-pattern>/auth</url-pattern>
-   </filter-mapping>
-   <filter>
-      <filter-name>CAS User Principal Filter</filter-name>
-      <filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
-   </filter>
-   <filter-mapping>
-      <filter-name>CAS User Principal Filter</filter-name>
-      <url-pattern>/*</url-pattern>
-   </filter-mapping>
    <error-page>
       <error-code>404</error-code>
       <location>/faces/404.xhtml</location>
