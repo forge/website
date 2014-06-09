@@ -62,8 +62,13 @@
 						<div class="col-sm-4">
 							<div class="widget-container widget-document boxed">
 								<div class="inner clearfix">
-									<h5>									
-									<h:link outcome="/addon"><f:param name="id" value="#{item.id}" /><h:outputText value="#{item.name}"/></h:link></h5>
+									<h:graphicImage styleClass="addon-logo" value="#{item.logo}" />
+									<h5 class="text-left">									
+										<h:link outcome="/addon">
+											<f:param name="id" value="#{item.id}" />
+											<h:outputText value="#{item.name}"/>
+										</h:link>
+									</h5>
 									<span class="subtitle">
 									<p>
 										<br /> 

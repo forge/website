@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.ocpsoft.common.util.Strings;
+
 @XmlRootElement
 public class Addon implements Serializable
 {
@@ -23,6 +25,7 @@ public class Addon implements Serializable
    private String repo;
    private String branch;
    private String tags;
+   private String logo;
    private Category category;
 
    public String getId()
@@ -113,6 +116,16 @@ public class Addon implements Serializable
    public void setTags(String tags)
    {
       this.tags = tags;
+   }
+   
+   public String getLogo()
+   {
+      return Strings.isNullOrEmpty(logo) ? "resources/images/forge-logo.png" : logo;
+   }
+   
+   public void setLogo(String logo)
+   {
+      this.logo = logo;
    }
 
    public Category getCategory()
