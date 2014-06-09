@@ -58,8 +58,6 @@ public class RouteConfiguration extends HttpConfigurationProvider
                .where("title").transposedBy(new SpacesToDashes())
                
                .addRule(Join.path("/addon/{id}").to("/addon").withChaining())
-               .where("id").transposedBy(new SpacesToDashes())
-               
 
                /*
                 * Block direct file access.
