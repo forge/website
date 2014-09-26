@@ -1,0 +1,114 @@
+/* STYLES JUST FOR THE PARALLAX LAYER(S) */
+
+
+#parallaxContainer {
+    padding:0;
+    margin:0;
+    /*Testing*/
+    /*border:1px solid green;*/
+}
+
+.parallax-scene {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+
+.parallax-scene li {
+    position: absolute;
+    padding:0;
+    margin:-10% 0 0 -15%;
+    left:5%;
+    right:5%;
+    bottom:5%;
+    top:5%;
+    list-style: none;
+    width:120%;
+    height:120%;
+}
+
+.parallax-scene li img {
+    width:110%;
+    height:auto;
+}
+
+.parallax-scene li#pLayer1 img {
+    height:115%;
+}
+
+.fill {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    left: 5%;
+    top: 5%;
+}
+
+.expand-width {
+    width: 100%;
+}
+
+.border {
+   /* border: 2px dashed #00FFAA;*/
+}
+
+
+.aspect {
+    opacity: 1;
+}
+
+.layer:nth-child(1) {
+    opacity: 1;
+}
+.layer:nth-child(1) button {
+    -webkit-transform: rotate(150deg);
+}
+
+
+/*
+
+.aspect {
+    opacity: 0.2;
+}
+
+.layer:nth-child(1) {
+    opacity: 0.15;
+}
+.layer:nth-child(1) button {
+    -webkit-transform: rotate(150deg);
+}
+
+.layer:nth-child(2) {
+    opacity: 0.30;
+}
+.layer:nth-child(2) button {
+    -webkit-transform: rotate(120deg);
+}
+
+.layer:nth-child(3) {
+    opacity: 0.45;
+}
+.layer:nth-child(3) button {
+    -webkit-transform: rotate(90deg);
+}
+
+.layer:nth-child(4) {
+    opacity: 0.60;
+}
+.layer:nth-child(4) button {
+    -webkit-transform: rotate(60deg);
+}
+
+.layer:nth-child(5) {
+    opacity: 0.75;
+}
+.layer:nth-child(5) button {
+    -webkit-transform: rotate(30deg);
+}
+
+.layer:nth-child(6) {
+    opacity: 0.90;
+}
+.layer:nth-child(6) button {
+}
+*/

@@ -1,0 +1,782 @@
+/* ALL CUSTOM CSS FOR FORGE WEBSITE */
+
+/*===============================================================================
+ CUSTOM FONT IMPORTS
+===============================================================================*/
+
+/* Archivo Narrow (Regular and Bold) */
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300,700|Montserrat:400,700);
+
+/*
+font-family: 'Archivo Narrow', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+
+/* Template copy for manual insertion (if needed) */
+
+/*
+@font-face {
+    font-family: 'DiscipuliBritannica';
+    src: url('fonts/DiscipuliBritannica.eot');
+    *//* IE9 Compat Modes *//*
+    src: url('fonts/DiscipuliBritannica.eot?#iefix') format('embedded-opentype'),
+    *//* IE6-IE8 *//*
+    url('fonts/DiscipuliBritannica.woff') format('woff'),
+    *//* Modern Browsers *//*
+    url('fonts/DiscipuliBritannica.ttf')  format('truetype'),
+    *//* Safari, Android, iOS *//*
+    url('fonts/DiscipuliBritannica.svg#DiscipuliBritannica') format('svg');
+    *//* Legacy iOS *//*
+}
+
+/*===============================================================================
+ GENERAL CUSTOM TAGS
+===============================================================================*/
+body {
+    background:#ccc;
+    color:white;
+    /* Default font */
+    font-family: "Open Sans",Helvetica, sans-serif;
+    font-size:16px;
+}
+
+a {
+    color:#222243;
+}
+
+a:hover,
+a:active,
+a:visited {
+    color:#ee3327;
+    text-decoration:none;
+}
+
+header,
+div.container,
+div.container-fluid,
+.page-section {
+    /* Border for testing */
+   /* border:1px dotted red;*/
+}
+
+h1,.h1,
+h3,.h3,
+h4,.h4,
+h5,.h5,
+h6,.h6 {
+    font-family: "Open Sans",Helvetica, sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+}
+h1 strong,
+h1 b {
+    font-weight:700;
+}
+
+
+h2,.h2 {
+    font-family: "Montserrat",sans-serif;
+    font-size:26px;
+    text-transform: uppercase;
+    font-weight:700;
+}
+
+h4,.h4,
+h5,.h5,
+h6,.h6 {
+    font-weight: 300;
+}
+
+
+.page-section {
+    position: relative;
+    width:100%;
+    clear:both;
+}
+
+/* Any page section besides the parallax */
+.static {
+    padding:3em 0;
+}
+
+/* Background colors for sections */
+.white {
+    background:#ffffff;
+    color:#131726;
+}
+
+.blue {
+    background:#222243;
+    color:white;
+}
+
+.blue a {
+    color:#222243;
+}
+
+
+
+
+.forge-btn {
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+    display:block;
+    border-radius:          5px;
+    -moz-border-radius:     5px;
+    -webkit-border-radius:  5px;
+    color:white;
+    box-shadow:         0px 0px 5px #333333;
+    -moz-box-shadow:    0px 0px 5px #333333;
+    color:white;
+}
+
+.forge-btn:hover,
+.forge-btn:active,
+.forge-btn:link,
+.forge-btn:visited {
+    text-decoration:none;
+    color:white;
+}
+
+.forge-btn:hover,
+.forge-btn:active {
+    box-shadow:         0px 0px 8px black;
+    -moz-box-shadow:    0px 0px 8px black;
+}
+
+
+
+.btn-lrg {
+    font-size: 22px;
+    padding:15px 0;
+}
+
+.btn-med {
+    font-size:16px;
+    padding:8px 3px;
+}
+
+.btn-red {
+    background: #ee3327;
+}
+
+.btn-blue {
+    background: #222243;
+}
+
+.btn-half-width {
+    width:50%;
+}
+
+.btn-center {
+    margin:0 auto;
+}
+
+/*===============================================================================
+ HEADER
+===============================================================================*/
+
+
+div.header,
+header {
+    background:#222243;
+    color:white;
+    height:auto;
+    min-height:80px !important;
+    padding:0;
+
+}
+header.navbar {
+    margin:0;
+}
+
+a.forge-main-logo {
+    display: block;
+    width:215px;
+    height:60px;
+    background: url(../images/forge_logo_215x60.png) no-repeat;
+    background-size: cover;
+   /* border:1px solid red;*/
+}
+
+header .header-container {
+    width:96%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+
+}
+
+div[role="navigation"] {
+    position: relative;
+    height:100%;
+    margin-top:30px;
+   /* border:1px dotted gold;*/
+}
+
+button.navbar-toggle {
+    float:right;
+}
+
+button.navbar-toggle,
+button.navbar-toggle span.icon-bar {
+    border:1px solid white;
+}
+
+div[role="navigation"] ul {
+    vertical-align: bottom;
+    margin-bottom:0;
+}
+
+
+.navbar-nav > li {
+    padding:0 5px;
+}
+
+.navbar-nav.login-register-btns > li {
+    padding:0;
+}
+
+.navbar-nav > li > a {
+    padding:4px 15px;
+    border-radius:          15px;
+    -moz-border-radius:     15px;
+    -webkit-border-radius:  15px;
+    outline:none;
+}
+
+.navbar-nav > li > a,
+.navbar-nav > li > a:hover {
+    text-shadow: none;
+}
+
+.navbar-nav > li > a:hover {
+    text-decoration:none;
+    background:#414181;
+}
+
+ul.nav a {
+    color:white;
+}
+
+
+
+ul.login-register-btns {
+
+}
+
+ul.login-register-btns li a {
+    background: white;
+    color: #222243;
+    text-align: center;
+    outline:none;
+}
+
+/* Reset radii for login/register buttons before applying changes */
+ul.login-register-btns li:first-child a,
+ul.login-register-btns li:last-child a {
+    border-radius:          0;
+    -moz-border-radius:     0;
+    -webkit-border-radius:  0;
+}
+
+ul.login-register-btns li:first-child a:hover,
+ul.login-register-btns li:last-child a:hover {
+    background: #cccccc;
+}
+
+ul.login-register-btns li:first-child a:active,
+ul.login-register-btns li:last-child a:active,
+ul.login-register-btns li:first-child a:visited,
+ul.login-register-btns li:last-child a:visited {
+    outline:none;
+}
+
+/* Need a pixel value for this */
+ul.login-register-btns li:first-child a {
+    border-top-left-radius:   15px;
+    border-bottom-left-radius:15px;
+    -moz-border-radius-bottomleft: 15px;
+    -moz-border-radius-topleft: 15px;
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    border-right:1px solid #222243;
+}
+
+ul.login-register-btns li:last-child a {
+    border-top-right-radius:   15px;
+    border-bottom-right-radius:15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-topright: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+}
+
+
+ul.nav {
+    font-family: "Archivo Narrow",Helvetica,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+
+/*===============================================================================
+PAGE SECTIONS
+===============================================================================*/
+
+
+/*============== DOWNLOAD SECTION (WITH PARALLAX BACKGROUND ==============*/
+
+/* See parallax-styles.css for parallax-specific tags */
+
+.parallax-download {
+    width:100%;
+    height:670px;
+    overflow: hidden;
+}
+
+.parallax-download .container-fluid.content-holder {
+    position:absolute;
+    /*Testing
+    border:1px dotted yellow;*/
+    width:100%;
+    padding:0;
+    margin:0;
+    height:670px;
+}
+
+
+.forge-download-row {
+    margin:180px auto 0 auto;
+    width:100%;
+}
+
+.blue-back-div {
+    background-color:rgba(34,34,67,.9);
+    height:270px;
+    position: relative;
+}
+
+.forge-anvil-main-logo {
+    text-align: center;
+    display:block;
+    width:180px;
+    height:180px;
+    padding:20px 0 0 0;
+    background-color:white;
+    border:3px solid #ee3327;
+    margin:-120px auto 0 auto;
+    z-index: 100;
+    box-shadow:         0 1px 5px #333333;
+    -moz-box-shadow:    0 1px 5px #333333;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.forge-anvil-main-logo img {
+    margin:0 auto;
+}
+
+.forge-headline {
+    text-align: center;
+    font-size:33px;
+    font-family: "Open Sans", sans-serif;
+    color:white;
+    padding:1em 0 0 0;
+    line-height: 1.2em;
+}
+
+.forge-marquee-text {
+    font-size:16px;
+    color:white;
+}
+
+.download-btn  {
+    width:170px;
+    margin:65px auto 0 auto;
+    z-index: 200;
+}
+
+.marquee-text-row {
+    margin-top:3em;
+}
+
+.marquee-text-row div h4 {
+    text-align: center;
+    margin:1em 0;
+}
+
+.marquee-text-row div h4 a {
+    color:white;
+    outline:none;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.marquee-text-row div h4 a:hover {
+    color:#ee3327;
+}
+
+
+
+/*============== ADDONS SECTION ==============*/
+
+.addons-section {
+
+}
+
+.main-addons-section {
+
+}
+
+.forge-image-graphic-div {
+    width:70%;
+    margin:0 auto;
+}
+
+.forge-image-graphic-div img {
+    margin:0 auto;
+    width:100%;
+    height:auto;
+}
+
+/* Unlike the main emblem above, the emblem here shows the image as as background property. */
+.forge-anvil-addons-emblem {
+    background-image: url(../images/anvil_download_section_150x132.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right:10%;
+    bottom:0;
+    text-align: center;
+    display:block;
+    width:200px;
+    height:200px;
+    padding:20px;
+    background-color:white;
+    border:3px solid #ee3327;
+    z-index: 100;
+    box-shadow:         0 1px 5px #333333;
+    -moz-box-shadow:    0 1px 5px #333333;
+    border-radius:          50%;
+    -moz-border-radius:     50%;
+    -webkit-border-radius:  50%;
+}
+/*
+.forge-anvil-addons-emblem img {
+    margin:0 auto;
+}
+*/
+
+
+
+
+/*============== JOIN US/CONTRIBUTE SECTION ==============*/
+div.page-section.join-us-section {
+    background-image:url(../images/white_sparks_med_res.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 50%;
+}
+
+div.network-graphic-div-container {
+    margin-right:0;
+    padding-right:0;
+    float:right;
+}
+
+div.network-graphic-div {
+    float:right;
+    /*border:1px solid green;*/
+    width:100%;
+    height:auto;
+}
+
+div.network-graphic-div img {
+    float: right;
+    margin:0;
+}
+
+/*============== WORKS IN ENVIRONMENT/OS SECTION ==============*/
+
+div.environment-os-section {
+
+}
+.os-first-section {
+    padding-bottom:2em;
+}
+
+.download-os-divs {
+    position: relative;
+    margin-top:2em;
+}
+
+.grey-div {
+    text-align:center;
+    vertical-align: baseline;
+}
+
+.grey-div.left-div {
+
+}
+
+.grey-div.left-div,
+.grey-div.right-div  {
+    background:#bdbbc5;
+}
+
+.grey-div.right-div h2 {
+    text-align: right;
+}
+
+.grey-div.center-div {
+    background: #dbdadf;
+    width:96%;
+    margin-left:2%
+}
+
+.grey-div div p,
+p.link-p {
+    font-family:"Montserrat",sans-serif;
+    font-size:15px;
+    letter-spacing: 1px;
+    padding:.8em 0;
+    clear:both;
+}
+
+p.link-p a {
+    color:#222243;
+}
+
+p.link-div a:hover {
+    color:#ee3327;
+}
+
+a.download-arrow {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    background:url(../images/down-arrow-124x248.png) no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    margin-bottom:-5px;
+    outline:none;
+}
+
+a.download-arrow:hover,
+a.download-arrow:active {
+    background-position: 0 bottom;
+    outline:none;
+}
+
+/*============== FOOTER SECTION (BLUE SECTION W/LINKS) ==============*/
+.footer-links-support {
+
+}
+
+.footer-first-section .jboss-forge-logo {
+    background:url(../images/forge_logo_no_anvil_138x60.png) no-repeat;
+    display:block;
+    width:92px;
+    height:40px;
+    background-size: cover;
+}
+
+.footer-first-section,
+.footer-link-div {
+    font-family: "open sans",helvetica,sans-serif;
+    font-size:10px;
+    letter-spacing: 1px;
+}
+
+.footer-first-section h3,
+.footer-link-div h3 {
+    font-family:"Montserrat", sans-serif;
+    font-weight:bold;
+    font-size:1.5em;
+    letter-spacing:1px;
+    border-bottom:1px solid #999;
+    text-transform: uppercase;
+    padding:0 0 .6em 0;
+    margin:0 0 1em 0;
+}
+
+
+.footer-first-section ul,
+.footer-link-div ul {
+    margin:0;
+    padding:0;
+    list-style-position: inside;
+    color:white;
+    text-transform: uppercase;
+}
+
+.footer-first-section ul li,
+.footer-link-div ul li {
+    margin:1em 0;
+    padding:0;
+    line-height:1.5em;
+}
+
+
+.footer-first-section a,
+ .footer-link-div a {
+     color:white;
+ }
+
+.footer-first-section a:hover,
+.footer-link-div a:hover,
+.footer-first-section a:active,
+.footer-link-div a:active {
+    color:white;
+    text-decoration:underline;
+    outline:none;
+}
+
+
+.footer-link-div input.search-input {
+    background:#ffffff;
+    border:1px solid #cccccc;
+    color:#333333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size:10px;
+    margin-top:-1px;
+}
+
+span.search-box,
+a.search-box,
+input.submit-footer-search {
+    width:18px;
+    height:18px;
+    border:none;
+    outline:none;
+    padding:2px 0 0 4px;
+    display:inline-block;
+    background-color:#cccccc;
+    color:white;
+}
+
+span.search-box:hover,
+a.search-box:hover,
+input.submit-footer-search:hover,
+span.search-box:active,
+a.search-box:active,
+input.submit-footer-search:active {
+    outline:none;
+    background-color:#999999;
+}
+
+
+/*============== FOOTER SECTION (BOTTOM DARK-GREY PORTION) ==============*/
+
+footer,
+div.footer {
+    background:#24242d;
+    color:white;
+    padding:2em 0;
+
+}
+
+.footer-medallion {
+    display:block;
+    width:100px;
+    height:100px;
+    background:url(../images/anvil_medallion_170x170.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    float:right;
+    margin-top:-50px;
+}
+
+
+
+/*===============================================================================
+ OTHER TAGS
+===============================================================================*/
+.section-divider {
+    background:#ee3327;
+    font-size:1px;
+    height:3px;
+    width:100%;
+    clear:both;
+}
+
+div.space,div.spacer {
+    height:1px;
+    clear:both;
+    width:100%;
+}
+
+
+/* This is the width test box */
+/*
+div#widthBox {
+    position:fixed;
+    color:red;
+    font-size:10px;
+    width:25px;
+    height:12px;
+    top:5px;
+    text-align: right;
+    left:5px;
+    border:1px dotted purple;
+    z-index:9000;
+    padding:0px 0 2px 1px;
+    line-height: 1;
+    margin:0;
+}
+/*
+
+
+
+/*===============================================================================
+ SCREEN SIZE/MEDIA CHANGES
+===============================================================================*/
+
+/* Large devices (desktops, 1200px and up: -lg-) */
+@media (min-width: 1200px) { }
+
+@media (max-width: 1100px) {
+    .navbar-nav > li > a {
+        font-size:13px;
+        padding:2px 10px;
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up: -md-) */
+@media (min-width: 992px) { }
+
+
+/* Small devices (tablets, 768px and up: -sm- ) */
+@media (min-width: 768px) { }
+
+@media print { }
+
+/*===============================================================================
+ SCREEN RESOLUTION CHANGES HERE (SOME GRAPHICS)
+===============================================================================*/
+
+
+/* Retina-specific */
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    /* Large screen, retina, stuff to override above media query */
+    a.forge-main-logo {
+        background: url(../images/forge_logo_645x180.png) no-repeat;
+        background-size: contain;
+    }
+
+}
