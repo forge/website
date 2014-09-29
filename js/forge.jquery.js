@@ -1,10 +1,19 @@
 // CUSTOM JS FOR FORGE WEBSITE
+
+
 $(function() {
     // Only use widthBox() during testing
     //widthBox();
 
     // Function to give a uniform height and alignment to grey boxes in download/os section
     alignGreyBoxes();
+
+    // Check width for parallax use:
+    runParallax();
+
+    // Maintain position of emblem if viewing on a phone-size screen
+    smallScreenWidthMgr();
+
 });
 
 
@@ -18,8 +27,8 @@ function widthBox() {
 
          $('#widthBox').html($(window).outerWidth());
          $(window).resize(function() {
-         $('#widthBox').html($(window).outerWidth());
-     });
+            $('#widthBox').html($(window).outerWidth());
+         });
 }
 
 
@@ -40,4 +49,59 @@ function alignGreyBoxes() {
 
     // Apply CSS
     $('.grey-div.center-div').css({'marginTop':'-'+newMargin+'px'});
+}
+
+
+// Function to check screen width for parallax effect use.
+function runParallax() {
+    // On load, check screen width for parallax
+    if( $(window).outerWidth() > 767) {
+        $('#sparkScene').parallax();
+    }
+
+    // Run same function on any window resize.
+    $(window).resize(function() {
+       // Show parallax
+       if( $(window).outerWidth() > 767) {
+           $('#sparkScene').parallax();
+       }
+    });
+}
+
+
+// This function maintains the position of the logo emblem and other items on smaller screens
+function smallScreenWidthMgr() {
+    var w = $(window).outerWidth();
+    if( w < 767) {
+        $('div[role="navigation"]').css({'marginTop':'73px','position':'absolute'});
+
+        // Correct logo placement
+        $logo = $('.forge-logo-smaller');
+        $logo.css({'marginLeft':((w/2) - 75)+'px'});
+        // Add a border to dropdown menu
+        $('#navBarMain').css({'border':'1px solid white'});
+    }
+
+    // Run same function on any window resize.
+    $(window).resize(function() {
+        var rW = $(window).outerWidth();
+        if(rW < 767) {
+            $('div[role="navigation"]').css({'marginTop':'73px','position':'absolute'});
+
+            // Correct logo placement
+            $logo = $('.forge-logo-smaller');
+            $logo.css({'marginLeft':((rW/2)- 75)+'px'});
+
+            // Add a border to dropdown menu
+            $('#navBarMain').css({'border':'1px solid white'});
+
+        } else
+        if(rW >= 767) {
+            $('div[role="navigation"]').css({'marginTop':'30px','position':'relative'});
+
+            // Remove border from dropdown menu, if present
+            $('#navBarMain').css({'border':'none'});
+
+        }
+    });
 }

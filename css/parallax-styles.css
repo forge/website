@@ -37,11 +37,11 @@
 }
 
 .fill {
-    position: absolute;
+ /*   position: absolute;
     bottom: 5%;
     right: 5%;
     left: 5%;
-    top: 5%;
+    top: 5%;*/
 }
 
 .expand-width {
@@ -62,6 +62,13 @@
 }
 .layer:nth-child(1) button {
     -webkit-transform: rotate(150deg);
+}
+
+#pLayer1 {
+/*    background-image: url(../images/sparks_med_res.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;*/
 }
 
 
@@ -112,3 +119,28 @@
 .layer:nth-child(6) button {
 }
 */
+
+
+
+/*===============================================================================
+ SCREEN SIZE/MEDIA CHANGES
+===============================================================================*/
+
+
+/* Change size of <img> within the layer */
+@media (max-width: 850px) {
+    .parallax-scene li  {
+
+        position: absolute;
+        padding:0;
+        margin:-15% 0 0 -30%;
+        left:5%;
+        right:5%;
+        bottom:0;
+        top:0;
+        list-style: none;
+        width:150%;
+        height:160%;
+    }
+}
+
