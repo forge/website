@@ -24,13 +24,13 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.58290726">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.68944097">
+        <splitter split-orientation="vertical" split-proportion="0.25465837">
           <split-first>
             <leaf>
               <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="316" column="44" selection-start="11447" selection-end="11467" vertical-scroll-proportion="10.9216585" vertical-offset="0" max-vertical-offset="6030">
+                    <state line="142" column="63" selection-start="5498" selection-end="5498" vertical-scroll-proportion="2.1785715" vertical-offset="1886" max-vertical-offset="6030">
                       <folding />
                     </state>
                   </provider>
@@ -39,10 +39,10 @@
               <file leaf-file-name="forge.css" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/css/forge.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15000">
+                    <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15090">
                       <folding>
-                        <marker date="1411973477000" expanded="true" signature="14890:17998" placeholder="{...}" />
-                        <marker date="1411973477000" expanded="true" signature="18324:18530" placeholder="{...}" />
+                        <marker date="1412001399000" expanded="true" signature="14890:18095" placeholder="{...}" />
+                        <marker date="1412001399000" expanded="true" signature="18421:18627" placeholder="{...}" />
                       </folding>
                     </state>
                   </provider>
@@ -55,7 +55,7 @@
               <file leaf-file-name="forge.jquery.js" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="5" column="6" selection-start="96" selection-end="96" vertical-scroll-proportion="0.37128714" vertical-offset="0" max-vertical-offset="1680">
+                    <state line="88" column="9" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.8097826" vertical-offset="873" max-vertical-offset="1815">
                       <folding />
                     </state>
                   </provider>
@@ -70,7 +70,7 @@
           <file leaf-file-name="forge.css" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/forge.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="966" column="35" selection-start="17931" selection-end="17931" vertical-scroll-proportion="0.81707317" vertical-offset="13887" max-vertical-offset="15000">
+                <state line="953" column="17" selection-start="17647" selection-end="17647" vertical-scroll-proportion="2.894309" vertical-offset="12159" max-vertical-offset="15090">
                   <folding />
                 </state>
               </provider>
@@ -276,24 +276,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="44" selection-start="11447" selection-end="11467" vertical-scroll-proportion="10.9216585" vertical-offset="0" max-vertical-offset="6030">
+        <state line="142" column="63" selection-start="5498" selection-end="5498" vertical-scroll-proportion="2.1785715" vertical-offset="1886" max-vertical-offset="6030">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15000">
+        <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15090">
           <folding>
-            <marker date="1411973477000" expanded="true" signature="14890:17998" placeholder="{...}" />
-            <marker date="1411973477000" expanded="true" signature="18324:18530" placeholder="{...}" />
+            <marker date="1412001399000" expanded="true" signature="14890:18095" placeholder="{...}" />
+            <marker date="1412001399000" expanded="true" signature="18421:18627" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="96" selection-end="96" vertical-scroll-proportion="0.37128714" vertical-offset="0" max-vertical-offset="1680">
+        <state line="88" column="9" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.8097826" vertical-offset="873" max-vertical-offset="1815">
           <folding />
         </state>
       </provider>

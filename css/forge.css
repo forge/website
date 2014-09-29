@@ -948,6 +948,12 @@ div#widthBox {
         text-align: center;
     }
 
+    /* Addons Section */
+    .grey-div.center-div {
+        width:100%;
+        margin:0;
+    }
+
 
     /* Footer links */
     .footer-links-support {
