@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
-     This can be activated to disable zooming.
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-    <title></title>
+
+    <title>JBoss Forge</title>
     <!--CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="all" />
@@ -22,7 +20,7 @@
         <div class="alt-header-row col-xs-2 visible-xs row-fluid">
             <div class="col-xs-12">
                 <a href="#" class="forge-logo-smaller visible-xs">
-                    <img src="images/anvil_download_section_150x132.png" border="0" />
+                    <img alt="Download Forge"  src="images/anvil_download_section_150x132.png" />
                 </a>
             </div>
 
@@ -74,15 +72,18 @@
 </header>
 
 
-<!-- PAGE SECTION -- DOWNLOADS -->
+<!-- PAGE SECTION DOWNLOADS -->
 <div class="page-section intro-download-section">
     <!-- Parallax Element -->
+    <!--
     <div id="parallaxContainer" class="container-fluid hidden-xs">
         <ul id="sparkScene" class="parallax-scene">
-            <li class="layer" id="pLayer1" data-depth="1.00"><img src="images/sparks_med_res.jpg"></li>
+            <li class="layer" id="pLayer1" data-depth="1.00"><img alt="Sparks" src="images/sparks_med_res.jpg"></li>
         </ul>
     </div>
+    -->
     <!-- / End Parallax Element -->
+
 
     <!-- Main content within parallax element -->
     <div class="container-fluid content-holder">
@@ -92,12 +93,10 @@
 
                 <div class="col-xs-12 blue-back-div">
                     <div class="row">
-                        <div class="forge-anvil-main-logo hidden-xs">
-                            <img src="images/anvil_download_section_150x132.png" border="0" />
-                        </div>
+                        <div class="forge-anvil-main-logo hidden-xs"> </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 col-xs-12 forge-headline">
+                        <div class="col-sm-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 forge-headline">
                             JBoss Forge is the <strong>Fastest</strong> way to build
                             Maven-Based Java EE projects.
 
@@ -105,7 +104,7 @@
                         </div><!-- /.forge-headline-->
                     </div><!-- /.row -->
 
-                    <a href="#" class="forge-btn btn btn-primary download-btn btn-lrg btn-red">Download</a>
+                    <a href="#" class="forge-btn btn  download-btn btn-lrg btn-red top-download-btn">Download</a>
                 </div><!-- / .blue-back-div -->
                 <!-- Download Button -->
 
@@ -114,14 +113,16 @@
         </div><!-- / .row.forge-download-row -->
 
         <div class="row marquee-text-row" >
-            <div class="col-sm-8 col-sm-offset-2 col-xs-12" >
-
+            <div class="col-sm-10 col-sm-offset-1 hidden-xs">
                 <h4>JBoss Forge is a tool that will make your work less like work. <a href="#">Learn More</a></h4>
                 <h4>Plenty of tutorials to kickstart your use of JBoss Forge. <a href="#">Get Started</a></h4>
                 <h4>Want to add to JBoss Forge?  Join our community. <a href="#">Get Involved</a></h4>
 
+            </div><!-- / .col-sm-8 col-offset-2 col-xs-12 -->
 
-
+            <div class="col-xs-8 col-xs-offset-2 visible-xs">
+                <h4>JBoss Forge is a tool that will make your work less like work.</h4>
+                <span class="chevron-down-scroll"></span>
 
             </div><!-- / .col-sm-8 col-offset-2 col-xs-12 -->
         </div><!-- / .row marque-text-row -->
@@ -134,17 +135,17 @@
 </div><!-- / .page-section for Download and headline text -->
 
 
-<!-- PAGE SECTION -- ADD-ONS -->
+<!-- PAGE SECTION ADD-ONS -->
 <div class="page-section addons-section static white">
     <div class="container-fluid main-addons-section">
         <div class="row-fluid">
             <!-- Left side -->
             <div class="col-sm-6 col-xs-12">
-                <div class="forge-anvil-addons-emblem hidden-xs">
+                <div class="forge-anvil-addons-emblem ">
 
                 </div>
                 <div class="forge-image-graphic-div ">
-                    <img src="images/anvil_image500x493.png" border="0" />
+                    <img alt="Forge" src="images/anvil_image500x493.png"  />
                 </div>
 
             </div>
@@ -154,7 +155,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>
-                           <strong>Add</strong>  to your toolbox &amp; get the job done <strong>Quick</strong>.
+                           <strong>Add</strong> to your toolbox & get the job done <strong>Quick</strong>.
                         </h1>
                         <h2>Get Addons</h2>
                         <p>
@@ -185,22 +186,30 @@
 
 
 
-<!-- PAGE SECTION -- JOIN US -->
+<!-- PAGE SECTION JOIN US -->
 <div class="page-section static white join-us-section">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-sm-6 visible-xs network-graphic-div-container">
+                <div class="network-graphic-div ">
+                    <img alt="Network" src="images/network_temp_580x394.png"  />
+                </div>
+
+            </div>
             <!-- Left Side -->
+
+
             <div class="col-sm-6  col-xs-12">
                 <div class="row">
-                    <div class="col-sm-10 col-sm-offset-2 col-xs-12">
+                    <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2">
                         <h1>
-                            Join us in<br />making it <strong>Great.</strong>
+                            Join us in<br>making it <strong>Great.</strong>
                         </h1>
                         <h2>
                             Contribute
                         </h2>
                         <p>
-                            JBoss Forge is growing. Community contributors keep expanding its capabilities.
+                            JBoss Forge is growing. Community contributors keep expanding its capabilitiess.
                         </p>
                         <br />
 
@@ -211,14 +220,14 @@
                     </div><!-- / .col-sm-10 col-sm-10 col-sm-offset-2 col-xs-12 -->
                 </div><!-- /.row -->
 
-            </div><!-- / .col-sm-4 -- Left Column -->
+            </div><!-- / .col-sm-4 Left Column -->
 
             <!-- End  Left Side -->
 
             <!-- Right Side -->
-            <div class="col-sm-6 col-xs-12 network-graphic-div-container">
-                <div class="network-graphic-div hidden-xs">
-                    <img src="images/network_temp_580x394.png" border="0" />
+            <div class="col-sm-6 hidden-xs network-graphic-div-container">
+                <div class="network-graphic-div ">
+                    <img alt="Network" src="images/network_temp_580x394.png"  />
                 </div>
 
             </div>
@@ -236,11 +245,11 @@
 
 
 
-<!-- PAGE SECTION -- ADDITIONAL DOWNLOADS FOR ENVIRONMENTS -->
+<!-- PAGE SECTION ADDITIONAL DOWNLOADS FOR ENVIRONMENTS -->
 <div class="page-section static white environment-os-section">
     <div class="row os-first-section">
-        <div class="col-xs-12">
-            <h1 align="center">Works in the environment you <strong>Use.</strong></h1>
+        <div class="col-sm-12 col-xs-8 col-xs-offset-2">
+            <h1 class="environment-os-section-heading">Works in the environment you <strong>Use.</strong></h1>
 
         </div>
     </div><!-- / .row -->
@@ -252,7 +261,7 @@
                 <div class="col-sm-4 col-xs-12" >
 
                         <div class="row grey-div left-div">
-                            <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                                 <h2>Developer<br />Studio</h2>
                                 <a href="#" class="forge-btn btn-lrg btn-blue hidden-xs">Download</a>
                                 <a href="#" class="forge-btn btn-lrg btn-blue visible-xs">Learn More</a>
@@ -265,25 +274,50 @@
                 </div><!-- /. col-sm-4 -->
 
                 <div class="col-sm-4 col-xs-12">
-                        <div class="row grey-div center-div">
-                            <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+                        <!-- Shown in Phone Version Only -->
+                        <div class="visible-xs row grey-div center-div eclipse-intellij-row">
+                            <div class="col-xs-6">
                                 <h2>For Eclipse</h2>
-                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Download</a>
+                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Learn More</a>
+                            </div>
+                            <div class="col-xs-6">
                                 <h2>For Intellij</h2>
-                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Download</a>
-                                <p class="link-p">Get Forge for your IDE</p>
+                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Learn More</a>
+
+                            </div>
+
+                            <div class="col-xs-12 get-forge">
+                                Get Forge for your IDE
                             </div>
                         </div><!-- / .row.grey-div.center-div -->
+                        <!-- / End Phone Version -->
+
+                        <!-- Tablet/Desktop -->
+                        <div class="hidden-xs row grey-div center-div">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+                                <h2>For Eclipse</h2>
+                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Learn More</a>
+                                <h2>For Intellij</h2>
+                                <a href="#" class="forge-btn  btn-center btn-lrg btn-red">Learn More</a>
+                                <p class="link-p">Get Forge for your IDE</p>
+                            </div>
+                        </div>
+                        <!-- / .row.grey-div.center-div -->
+                        <!-- / End Tablet/Desktop -->
 
                 </div><!-- /. col-sm-4 -->
 
                 <div class="col-sm-4 col-xs-12">
                         <div class="row grey-div right-div ">
-                            <div class="col-sm-7 col-sm-offset-1 col-xs-12 download-links-for-os">
-                                <h2>OSX <a href="#" class="download-arrow"> </a></h2>
-                                <h2>Linux <a href="#" class="download-arrow"> </a></h2>
-                                <h2>Windows <a href="#" class="download-arrow"> </a></h2>
-                                <p class="link-p" align="right">Get Forge for your OS</p>
+                            <div class="col-sm-9 col-sm-offset-1 col-xs-12 download-links-for-os">
+                                <div class="hidden-sm hidden-md hidden-lg displayed-computer">
+                                    <img src="images/computer_396x216.png" alt="Operating Systems" />
+                                </div>
+                                <p class="visible-xs link-p get-forge" >All Operating Systems</p>
+                                <h2>OSX <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <h2>Linux <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <h2>Windows <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <p class="hidden-xs link-p get-forge" >Get Forge for your OS</p>
                             </div>
                         </div>
                 </div><!-- /. col-sm-4 -->
@@ -292,9 +326,9 @@
         </div><!-- / .contiainer-fluid -->
     </div>
 
-    <div class="row">
+    <div class="row hidden-xs">
         <div class="col-xs-12">
-           <p align="center" class="link-p" >
+           <p class="link-p need-forge" >
                <br />
                NEED FORGE 1X? <a href="#">Get it here.</a>
            </p>
@@ -310,7 +344,7 @@
 </div><!-- / .page-section static -->
 
 
-<!-- PAGE SECTION -- LINKS AND SUPPORT -->
+<!-- PAGE SECTION LINKS AND SUPPORT -->
 
 <div class="page-section static blue footer-links-support">
     <div class="container">
@@ -348,6 +382,30 @@
 
             <div class="col-sm-3 col-xs-12 footer-link-div">
                 <h3>Contact</h3>
+                <div class="row">
+                    <!-- Icon display for desktop/tablet -->
+                    <div class="col-md-12 col-sm-12 hidden-xs footer-social-container">
+                        <ul class="footer-social-icons">
+                            <li><a href="#" target="_blank" class="facebook-link"></a></li>
+                            <li><a href="#" target="_blank" class="twitter-link"></a></li>
+                            <li><a href="#" target="_blank" class="linkedin-link"></a></li>
+                            <li><a href="#" target="_blank" class="googleplus-link"></a></li>
+                            <li><a href="#" target="_blank" class="youtube-link"></a></li>
+                        </ul>
+                    </div><!-- / End desktop/tablet size -->
+
+                    <!-- Icon display for phone -->
+                    <div class="col-xs-12 hidden-sm hidden-lg hidden-md hidden-print footer-social-container">
+                        <div class="footer-social-icons-inline">
+                            <a href="#" target="_blank" class="facebook-link"></a>
+                            <a href="#" target="_blank" class="twitter-link"></a>
+                            <a href="#" target="_blank" class="linkedin-link"></a>
+                            <a href="#" target="_blank" class="googleplus-link"></a>
+                            <a href="#" target="_blank" class="youtube-link"></a>
+                        </div>
+                    </div><!-- / End phone size -->
+
+                </div><!-- /.row -->
 
                 <ul>
                     <li><a href="#">Email</a></li>
@@ -364,7 +422,7 @@
 
 </div><!-- / .page-section static blue  -->
 
-<!---------------- FOOTER ---------------->
+<!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="row">
@@ -381,16 +439,16 @@
 
 
 
-<!--==================  / END PAGE CONTENT  ==================-->
+<!-- / END PAGE CONTENT -->
 
 <!--JS-->
-<script type="text/javascript" language="javascript" src="js/jquery-1.11.1.min.js"              ></script>
-<script type="text/javascript" language="javascript" src="js/bootstrap.min.js"                  ></script>
-<script type="text/javascript" language="javascript" src="js/forge.jquery.js"                   ></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"              ></script>
+<script type="text/javascript" src="js/bootstrap.min.js"                  ></script>
+<script type="text/javascript" src="js/forge.jquery.js"                   ></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script type="text/javascript" language="javascript" src="js/ie10-viewport-bug-workaround.js"   ></script>
+<script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"   ></script>
 <!-- Parallax -->
-<script type="text/javascript" language="javascript" src="js/jquery.parallax.min.js"            ></script>
+<script type="text/javascript" src="js/jquery.parallax.min.js"            ></script>
 
 
 </body>
