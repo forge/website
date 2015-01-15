@@ -5,15 +5,31 @@ $(function() {
     // Only use widthBox() during testing
     //widthBox();
 
-
-
     // Check width for parallax use:
-    runParallax();
+    //runParallax();
+
+    // Use vertical-only parallax
+    runVertParallax();
 
     // Maintain position of emblem if viewing on a phone-size screen
     smallScreenWidthMgr();
 
+
+
 });
+
+
+// This function launches the modal from script. Use it to bind to other page events.
+function productModal() {
+    $('#productModal').modal();
+}
+
+// Vertically-oriented parallax
+// Initially designed to deactivate for smaller screens but that happens automatically
+function runVertParallax() {
+    $('.intro-download-section').parallax({imageSrc: 'images/sparks_med_res.jpg'});
+}
+
 
 
 /* ONLY USE DURING TESTING */

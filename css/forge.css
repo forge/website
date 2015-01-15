@@ -34,6 +34,12 @@ font-family: 'Montserrat', sans-serif;
 /*===============================================================================
  GENERAL CUSTOM TAGS
 ===============================================================================*/
+html , body {
+    width:100%;
+    max-width:100%;
+    overflow-x: hidden;
+}
+
 body {
     background:#ccc;
     color:#ffffff;
@@ -49,7 +55,6 @@ a {
 a:hover,
 a:active,
 a:visited {
-    /*color:#ee3327;*/
     text-decoration:none;
     outline:none;
     border-width:0;
@@ -102,7 +107,8 @@ h6,.h6 {
 
 /* Any page section besides the parallax */
 .static {
-    padding:3em 0;
+    padding-top:3em;
+    padding-bottom:3em;
 }
 
 /* Background colors for sections */
@@ -161,7 +167,12 @@ h6,.h6 {
     background: #ee3327;
 }
 
-.btn-red:hover {
+.btn-orange {
+    background:#ee4627;
+}
+
+.btn-red:hover,
+.btn-orange:hover {
     background: #f75649;
 }
 
@@ -380,17 +391,19 @@ PAGE SECTIONS
 
 .intro-download-section {
     width:100%;
-    height:670px;
-    overflow: hidden;
-    position: relative;
+    min-height:670px;
+    margin:-15px 0;
+    /*overflow: hidden;*/
     /* Static Background */
+    /*
     background-image:url(../images/sparks_med_res.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    */
 }
 
 .intro-download-section .container-fluid.content-holder {
-    position:absolute;
+
     /*Testing
     border:1px dotted yellow;*/
     width:100%;
@@ -858,6 +871,249 @@ div.footer {
 }
 
 
+/*===============================================================================
+ MODAL
+===============================================================================*/
+.modal-dialog  {
+    width:70%;
+}
+
+.modal-header .product-nav-row {
+    position:relative;
+    text-align: center;
+}
+
+.modal-header .product-nav-row a {
+    display:inline-block;
+    text-transform: uppercase;
+    font-family:"Montserrat",sans-serif;
+    letter-spacing: 1px;
+    font-size:.8em;
+    border-right:1px solid #d0d2d3;
+    box-sizing: border-box;
+    text-align: center;
+    padding:.8em .5em;
+}
+
+.modal-header .product-nav-row a,
+.modal-header .product-nav-row a:hover,
+.modal-header .product-nav-row a:active {
+    outline:none;
+    text-decoration:none;
+}
+
+.modal-header .product-nav-row a:last-child {
+    border-right:none;
+    padding-right:0;
+}
+
+
+.modal-header .product-nav-row a:first-child {
+    padding-left:0;
+}
+
+
+
+.modal-body {
+    background-color: #9e9baa;
+    min-height:250px;
+    box-shadow:inset 0 0 40px #898693;
+    -moz-box-shadow:inset 0 0 40px #898693;
+    -webkit-box-shadow:inset 0 0 40px #898693;
+}
+
+.modal-body {
+   font-family:"Open Sans",sans-serif;
+}
+
+.modal-body .tab-content {
+    padding:.5em 0;
+}
+
+
+.modal-body h2 {
+    font-weight:bold;
+    font-size:1.4em;
+    text-transform: none;
+    margin:0 0 .3em 0;
+}
+
+.modal-body h3 {
+    font-size:13px;
+    font-family:"Montserrat",sans-serif;
+    margin:0 0 .3em 0;
+    letter-spacing:1px;
+}
+
+.modal-body .main-content p {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-weight:300;
+}
+
+.modal-body p.notice-text {
+    font-style:normal;
+    font-weight:bold;
+    font-size:10px;
+    padding:.5em 0;
+}
+
+
+.modal-content {
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.modal-footer {
+    padding-top:1.5em;
+    padding-bottom:1.5em;
+}
+
+.modal-social-icons {
+    position: relative;
+    padding:0;
+    text-align: left;
+    border-right:2px solid #d0d2d3;
+    border-left:2px solid #d0d2d3;
+}
+
+.tab-content .tab-pane {
+    height:auto;
+}
+
+.modal-social-icons,
+.modal-social-icons ul,
+.modal-social-icons ul li,
+.modal-social-icons a,
+.share-div,
+.share-label {
+    line-height:1;
+}
+
+.modal-social-icons {
+    position: relative;
+    text-align: center;
+}
+
+.modal-social-icons ul {
+    text-align: center;
+    float:none;
+    margin:0 auto;
+    padding:0;
+}
+
+.modal-social-icons ul li {
+    float:left;
+    list-style: none;
+    padding:0 .8em;
+}
+
+.modal-social-icons ul li:first-child {
+    padding-left:1.5em;
+}
+
+.modal-social-icons ul li:last-child {
+    padding-right:0;
+}
+
+.share-label {
+    display:block;
+    padding:11px 0;
+    text-align: center;
+}
+
+.share-label,
+.community-contributed {
+    font-size:13px;
+    font-family: 'Montserrat', sans-serif;
+    color:#20182c;
+}
+
+.community-contributed {
+    margin-top:-.2em;
+    display:block;
+    text-align:left;
+    line-height:1.1;
+    background:url(../images/community-contrib-heart_100x100.png) no-repeat;
+    background-size: contain;
+    padding:.5em 0 .4em 3.6em;
+}
+
+.modal-left-button-div button {
+    margin:0 auto;
+}
+
+.modal-social-icons a {
+    display:block;
+    text-align: center;
+    width:35px;
+    height:35px;
+}
+
+.modal-social-icons a:first-child {
+    margin-left:0;
+}
+
+.modal-social-icons a,
+.modal-social-icons a:hover,
+.modal-social-icons a:active {
+    outline:none;
+}
+
+.modal-social-icons a.facebook-link {
+    background-image:url(../images/facebook_color_60x60.png);
+}
+
+.modal-social-icons a.twitter-link {
+    background-image:url(../images/twitter_color_60x60.png);
+}
+
+.modal-social-icons a.linkedin-link {
+    background-image: url(../images/linkedin_color_60x60.png);
+}
+
+.modal-social-icons a.googleplus-link {
+    background-image: url(../images/google_color_60x60.png);
+}
+
+.modal-social-icons a.youtube-link {
+    background-image: url(../images/youtube_color_60x60.png);
+}
+
+.modal-social-icons a {
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+button.close.modal-forge-close {
+    /* Resets */
+    margin:0;
+    padding:0;
+    text-shadow: none;
+    opacity: 1.0;
+    line-height: 1;
+    width:52px;
+    height:52px;
+    outline:none;
+    /* Position */
+    margin:-30px -30px 0 0;
+    background-image:url(../images/close_x_108x216.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+
+button.close.modal-forge-close:hover {
+    background-position: 0 bottom;
+}
+
+button.close.modal-forge-close span {
+    display:none;
+}
+
+
+
 
 /*===============================================================================
  OTHER TAGS
@@ -895,6 +1151,12 @@ div#widthBox {
     margin:0;
 }
 
+.no-shadow {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    text-shadow: none;
+
+}
 
 
 
@@ -906,13 +1168,20 @@ div#widthBox {
 /* Large devices (desktops, 1200px and up: -lg-) */
 
 /* Large Size */
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {
+    html, body {
+        max-width:100%;
+        width:100%;
+
+    }
+}
 
 
 /* Medium MD */
 @media(min-width:992px) and (max-width:1200px) {
     body {
-        border:1px dotted pink;
+    /*    border:1px dotted pink;*/
+        min-width: 100%;
     }
 
     .navbar-nav li {
@@ -928,6 +1197,10 @@ div#widthBox {
         padding-top:4px;
         padding-bottom:4px;
     }
+
+    .modal-dialog  {
+        width:80%;
+    }
 }
 
 
@@ -935,7 +1208,7 @@ div#widthBox {
 /* Small SM */
 @media(min-width:768px) and (max-width:992px) {
     body {
-        border:1px solid yellow;
+      /*  border:1px solid yellow;*/
     }
 
     .intro-download-section {
@@ -1004,17 +1277,39 @@ div#widthBox {
         font-size:14px;
     }
 
+    /* MODAL */
+
+    .modal-dialog  {
+        width:90%;
+    }
+
+    .modal-header .product-nav-row a {
+        display:inline-block;
+        text-transform: uppercase;
+        font-family:"Montserrat",sans-serif;
+        letter-spacing: 1px;
+        font-size:.8em;
+        border-right:1px solid #d0d2d3;
+        box-sizing: border-box;
+        text-align: center;
+        padding:.2em .3em;
+    }
+
+    .community-contributed {
+        font-size:.8em;
+        padding:.3em 0 .3em 3.6em;
+    }
+
+    .modal-social-icons ul li {
+        padding:0 .4em;
+    }
+
 
 }
 
 
 /* Small (XS) max */
 @media (max-width: 767px) {
-
-    .intro-download-section {
-        height:400px;
-    }
-
     .marquee-text-row {
         margin-top: 1em;
     }
@@ -1061,7 +1356,7 @@ div#widthBox {
        border-radius: 50%;
        -moz-border-radius: 50%;
        -webkit-border-radius: 50%;
-       border:3px solid #ee3327;
+       /*border:3px solid #ee3327;*/
        margin:0;
     }
 
@@ -1268,7 +1563,12 @@ div#widthBox {
 /* This is typically the smallest size (XS) but not currently in use for Forge */
 @media(min-width:480px) and (max-width:768px) {
     body {
-        border:1px solid lime;
+       /* border:1px solid lime;*/
+    }
+
+    .intro-download-section  {
+        min-height:auto;
+        height:450px;
     }
 
     div > ul.footer-social-icons {
@@ -1299,16 +1599,53 @@ div#widthBox {
         margin-right:0;
     }
 
+
+    /* MODAL */
+    .modal-dialog  {
+        width:90%;
+        margin:2em auto 0 auto;
+    }
+
+    .modal-header .product-nav-row a {
+        display:inline-block;
+        text-transform: uppercase;
+        font-family:"Montserrat",sans-serif;
+        letter-spacing: 0px;
+        font-size:.6em;
+        border-right:1px solid #d0d2d3;
+        box-sizing: border-box;
+        text-align: center;
+        padding:.1em .2em;
+    }
+
+    .community-contributed {
+        font-size:.6em;
+        margin:1.5em auto 0 auto;
+        padding:.3em 0 .3em 3.6em;
+    }
+
+    .modal-social-icons ul li {
+        padding:0 .4em;
+    }
+
+    button.close.modal-forge-close {
+        width:30px;
+        height:30px;
+        margin-top:-10px;
+        margin-right:-10px;
+    }
+
 }
 
 @media(max-width:480px) {
     body {
-        border:1px solid orange;
+      /*  border:1px solid orange;*/
     }
 
 
-    .intro-download-section {
-        height:450px;
+    .intro-download-section  {
+        min-height:auto;
+        height:440px;
     }
 
     .btn-lg,
@@ -1343,6 +1680,56 @@ div#widthBox {
 
     ul.footer-social-icons li:last-child > a {
         margin-right:0;
+    }
+
+
+    /* MODAL */
+    .modal-dialog  {
+        width:90%;
+        margin:2em auto 0 auto;
+    }
+
+    .modal-header .product-nav-row a {
+        display:inline-block;
+        text-transform: uppercase;
+        font-family:"Montserrat",sans-serif;
+        letter-spacing: 0px;
+        font-size:.6em;
+        border-right:none;
+        box-sizing: border-box;
+        text-align: center;
+        padding:0 .3em;
+    }
+
+    .community-contributed {
+        font-size:.6em;
+        margin:1.5em auto 0 auto;
+        padding:.3em 0 .3em 3.6em;
+    }
+
+    .modal-social-icons {
+        border:none;
+    }
+
+    .modal-social-icons ul li {
+        padding:0 .3em;
+    }
+
+    .modal-social-icons ul li a {
+        padding:0;
+        width:30px;
+        height:30px;
+    }
+
+    button.close.modal-forge-close {
+        width:30px;
+        height:30px;
+        margin-top:-10px;
+        margin-right:-10px;
+    }
+
+    .share-label {
+        display:none;
     }
 }
 
