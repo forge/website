@@ -96,6 +96,15 @@
     padding:0px;
 }
 
+span.white-chevron-down-outline {
+    display:block;
+    margin:.5em auto;
+    background-image:url(../images/white-chevron-down-outline_120x72.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+}
+
 
 /* Rounding & Shadows */
 .search-bar-row input[type="text"].addon_search {
@@ -186,7 +195,7 @@ input[type="checkbox"].search-checkbox:checked + label span {
 /* COMPONENT SECTION */
 .addon-section {
     background-color:#e9e8ec;
-    padding:3em 0;
+    padding:4em 0 6em 0;
     min-height:300px;
     box-shadow:         inset 0px 30px 30px #9d9d9d;
     -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;
@@ -199,21 +208,45 @@ input[type="checkbox"].search-checkbox:checked + label span {
     line-height:28px;
     padding:8px 0 5px 80px;
     margin:0;
+    color:#20182c;
+    font-family:"Montserrat", sans-serif;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.section-title.community-contributed {
+    background-image:url(../images/community-contrib-heart_100x100.png);
+}
+
+.section-title.core-addons {
+    background-image: url(../images/core_addons_100x100.png);
+}
+
+.section-title.sponsored-addons {
+    background-image: url(../images/sponsored_addons_100x100.png);
 }
 
 .section-line-divider {
-    background-image: url(../images/bg-block-orange.png);
     background-repeat: repeat-x;
     background-position: center;
     padding-top:36px;
 }
 
 .section-line-divider.red {
+    background-image: url(../images/bg-block-orange.png);
+}
 
+.section-line-divider.dark-blue {
+    background-image: url(../images/bg-block-darkblue.png);
+}
+
+.section-line-divider.grey {
+    background-image: url(../images/bg-block-grey.png);
 }
 
 .addon-title-row {
-    margin-bottom:2em;
+    margin:3em 0 1.5em 0;
 }
 
 row.addon-boxes {
@@ -303,6 +336,7 @@ row.addon-boxes {
 .star-row  {
     text-align: center;
     display:inline-block;
+    clear:both;
 }
 
 .star-row span.glyphicon.glyphicon-star {
@@ -315,3 +349,108 @@ row.addon-boxes {
     color:#ec7e3c;
 }
 
+/*===============================================================================
+ SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
+===============================================================================*/
+
+
+/* Large LG */
+@media (min-width: 1200px) {
+
+}
+
+/* Medium MD */
+@media(min-width:992px) and (max-width:1200px) {
+
+}
+
+
+/* Max. Size SM (767px and under) */
+@media(max-width:767px) {
+    .addon-marquee .marquee-content h2 {
+        font-size:24px;
+        width:60%;
+        text-align: center;
+        margin:1em auto;
+        line-height:1.4em;
+    }
+
+    .search-bar-row input.addon_search[type="text"],
+    .search-bar-row input.addon_search_submit[type="submit"] {
+        font-size:14px;
+    }
+
+    .search-bar-row input.addon_search[type="text"] {
+        box-shadow:      none;
+        -moz-box-shadow: none;
+    }
+
+
+    .section-title {
+        background:none;
+        background-image:none;
+        padding:1em;
+        text-align:center;
+        margin:0;
+    }
+
+    .section-line-divider {
+        padding:.3em 0;
+    }
+
+    .section-title.community-contributed,
+    .section-title.core-addons,
+    .section-title.sponsored-addons {
+        background:none;
+    }
+
+    .small-width-icons {
+        text-align: center;
+    }
+
+    .small-width-icons img {
+        width:80px;
+        height:auto;
+    }
+
+}
+
+/* Small SM */
+@media(min-width:768px) and (max-width:992px) {
+    .checkbox-row {
+        font-size:11px;
+    }
+
+}
+/* This is typically the smallest size (XS) but not currently in use for Forge */
+@media(min-width:480px) and (max-width:768px) {
+}
+
+@media(max-width:480px) {
+    /* Widen the overall content container for the marquee */
+    .marquee-content-container-div {
+        margin-left:10%;
+        width:80%;
+    }
+
+
+    .search-bar-row input.addon_search[type="text"],
+    .search-bar-row input.addon_search_submit[type="submit"] {
+        font-size:11px;
+        padding:5px;
+    }
+
+
+    .checkbox-row {
+        font-size:11px;
+    }
+
+
+    .addon-boxes div.addon .img-div {
+        width:70px;
+        height:70px;
+        padding:10px;
+    }
+
+
+}

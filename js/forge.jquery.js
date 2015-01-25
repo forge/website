@@ -138,15 +138,15 @@ function alignGreyBoxes() {
 // Function to set a standard size for all the addon box descriptions (and by extension all the addon divs) based on largest description.
 function uniformAddonSizes() {
 
-    var heightArr = new Array();
+    var pHeightArr = new Array(); // For all the <p> tags in the rows.
 
     // Gather heights of all <p> elements
     $('.addon').each(function(i,e) {
-       heightArr.push($(this).children('p').height());
+       pHeightArr.push($(this).children('p').height());
     });
 
     // Determine the largest height
-    var allHeight = Math.max.apply(Math,heightArr);
+    var allHeight = Math.max.apply(Math,pHeightArr);
 
     // Set the height to all <p> tags
     $('.addon').each(function(i,e) {
