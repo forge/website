@@ -1310,6 +1310,11 @@ div#widthBox {
 
 /* Small (XS) max */
 @media (max-width: 767px) {
+
+    header.navbar {
+        border-bottom:4px solid #ee3327;
+    }
+
     .marquee-text-row {
         margin-top: 1em;
     }
@@ -1356,7 +1361,7 @@ div#widthBox {
        border-radius: 50%;
        -moz-border-radius: 50%;
        -webkit-border-radius: 50%;
-       /*border:3px solid #ee3327;*/
+       border:3px solid #ee3327;
        margin:0;
     }
 

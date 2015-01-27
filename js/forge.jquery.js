@@ -14,11 +14,28 @@ $(function() {
     // Maintain position of emblem if viewing on a phone-size screen
     smallScreenWidthMgr();
 
+
+    // Init Rating Star display script
     if($('.star-row').length) {
         uniformAddonSizes();
         addStars();
-
     }
+
+    // Init Contribute page column sizing – works in the larger (lg or md) breakpoints only
+    if($('.contribute-columns').length && $(window).outerWidth() > 768) {
+        sizeContributeSection();
+        $(window).resize(function(){
+            sizeContributeSection();
+        });
+    }
+
+    // Init community grid row "connection bar" row column sizing
+    // As of this setup, the vertical bar row and its two <span> objects must be present
+    if($('.community-grid-row').length && $('.vertical-bar-row').length) {
+       // communityVertBars();
+    }
+
+
 
 });
 
@@ -181,6 +198,80 @@ function addStars() {
         }
 
     });
+}
 
 
+// Sizing of Contribute row sections. Make sure left & right cols are the same height and displayed in the vertical center relative tot he middle two columns
+function  sizeContributeSection() {
+
+    // FAR LEFT AND FAR RIGHT COLUMN SIZING/SPACING...
+
+    // Far Left / Far Right Display divs
+    $lCol =  $('.display-div.left-col'); // Far Left Col Display
+    $rCol =  $('.display-div.right-col'); // Far Right Col Display
+
+    var lColH = parseInt($lCol.outerHeight());
+    var rColH = parseInt($rCol.outerHeight());
+    var finColHeight; // This var is set for the outer-inner height align below
+
+    // Size .display-divs
+    if(lColH != rColH) {
+        if(lColH > rColH ) {
+            $rCol.css({'height':lColH + 'px'});
+
+            finColHeight = lColH;
+        } else {
+            $lCol.css({'height':rColH + 'px'});
+            finColHeight = rColH;
+        }
+    }
+
+
+    // INTERIOR LEFT/RIGHT COLUMN SIZING/SPACING
+
+    // This assumes that the right-inner column is the larger height of the two.
+    var intRightColHeight = $('.three-row-col-div').outerHeight();
+    $('.build-an-addon').css({'height':intRightColHeight + 'px' });
+
+
+    if($(window).width() > 992) {
+        // Now the outer and inner pairs of columns should be aligned vertically
+        var diff = (Math.abs(intRightColHeight - finColHeight)) / 2;
+
+        var arr = [$lCol,$rCol];
+        $(arr).each(function(i,e) {
+            $(this).css({'marginTop':diff + 'px'});
+        });
+    }
+
+}
+
+
+// Function sizes and spaces out the vertical bar connections for the
+function communityVertBars() {
+    // Count the number of member <div>'s in the first row
+    var ct = $('.community-grid-row:first-child').children().length;
+
+    // Insert as many vert-bar <div>'s in each vertical-bar-row <div>
+    $('.vertical-bar-row').each(function(i,e) {
+        var txt = '<div class="vert-bar">&nbsp;</div>';
+
+        // Insert <div>'s
+        for(i=0;i<ct;i++) {
+            if(i==0) {  $(this).html(txt);
+            } else
+            if(i>0) {   $(this).children('div:last-child').after(txt); }
+        }
+    });
+
+
+}
+
+// Function to sum up numerical values of an array (all values must be numbers).
+function sumArray(x) {
+    var t = 0;
+    $(x).each(function(i,e) {
+        t += e;
+    });
+    return t;
 }

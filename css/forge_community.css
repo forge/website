@@ -1,0 +1,492 @@
+/**
+* THESE STYLES ARE USED FOR THE ADDONS PAGE
+*/
+
+/* FIRST SECTION - ADDON MARQUEE */
+.community-marquee {
+    background:url(../images/community-flame_2000x1120.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100px;
+    position: relative;
+    padding:6em 0;
+}
+
+.community-marquee .marquee-content {
+    padding:0;
+}
+
+.community-marquee .marquee-content h2 {
+    font-family:"Open Sans", sans-serif;
+    font-size:34px;
+    text-align: center;
+    font-weight:200;
+    text-transform: none;
+    margin:0;
+}
+
+.community-marquee .marquee-content h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size:22px;
+    margin:1.5em auto;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 400;
+    text-transform: none;
+}
+
+span.white-chevron-down {
+    display:block;
+    margin:.5em auto;
+    background-image:url(../images/white-chevron-down_120x72.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+}
+
+
+span.white-chevron-down-outline {
+    display:block;
+    margin:.5em auto;
+    background-image:url(../images/white-chevron-down-outline_120x72.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+}
+
+
+/* CONTRIBUTE SECTION */
+.page-section.contribute-section {
+    border-top:4px solid #ee3327;
+    padding:3em 0 8em 0;
+}
+
+.page-section.contribute-section h1 {
+    text-align: center;
+    color:#222243;
+    font-weight:200;
+    padding:.5em 0;
+    margin:0;
+    font-size:30px;
+}
+
+.contribute-columns {
+    margin:1em 0;
+    padding:0;
+}
+
+
+/* Left Column & Right Columns */
+.contribute-columns .left-col-container,
+.contribute-columns .right-col-container {
+    height:100%;
+}
+
+.contribute-columns .left-col-container {
+    padding-left:0;
+}
+
+.contribute-columns .right-col-container {
+    padding-right:0;
+}
+
+.display-div.left-col,
+.display-div.right-col {
+    background-color: #bdbbc5;
+    padding:20px 35px;
+}
+
+
+
+/* Special adjustment to right side to make spacing more even.
+This assumes this section's content will remain the same */
+.display-div.right-col  h2 {
+    margin:1.5em 0 1em 0;
+}
+
+
+/* Middle section (middle-right and middle-left) */
+.contribute-columns div.middle-section  div {
+    padding:0;
+}
+
+.contribute-columns div.middle-section  div.display-div {
+    padding:20px 35px;
+}
+
+.display-div h2,
+.display-div a {
+    font-family: "Montserrat",sans-serif;
+    font-weight:200;
+    font-size:24px;
+    text-align:center;
+
+}
+
+/* Contribute Sub-Divs, made indiviually with unique classes */
+div.build-an-addon,
+div.three-row-col-div div.display-div {
+    background-color:#dbdadf;
+    width:95%;
+}
+
+/* Like the far-right column, the margin for this <h2> assumes the current content will stay relatively constant */
+div.build-an-addon h2 {
+    margin:2.5em 0 1em 0;
+}
+
+.contribute-columns div.middle-section div.three-row-col-div div.display-div
+ {
+    float:right;
+    margin-bottom:1em;
+    padding:10px 10px 20px 10px;
+}
+
+ .contribute-columns div.middle-section div.three-row-col-div div.display-div:last-child {
+    margin-bottom: 0;
+}
+div.three-row-col-div div.display-div a {
+    display: block;
+    width:80%;
+    line-height: 1;
+    height:auto;
+    margin:.5em auto;
+    padding:0;
+    outline:none;
+    text-transform: uppercase;
+}
+
+
+div.three-row-col-div div.display-div a span.text {
+    float:left;
+    width:60%;
+    text-align: right;
+    line-height: 1.1;
+}
+
+div.three-row-col-div div.display-div a span.right-arrow {
+    text-align:left;
+    float:left;
+    width:2em;
+    height:2em;
+    padding:0;
+    display:block;
+    margin-left:.8em;
+    background-image: url(../images/right-arrow-124x248.png);
+    background-repeat: no-repeat;
+    background-position: right 0;
+    background-size: cover;
+}
+div.three-row-col-div div.display-div a:hover span.right-arrow {
+    background-position: 0 bottom;
+}
+
+.display-div h2 {
+    line-height: 1.2em;
+    margin-top:0;
+}
+
+.display-div a.forge-btn {
+    font-size:18px;
+    margin:1em auto;
+    width:70%;
+}
+
+
+/* COMMUNITY PEOPLE SECTION */
+.community-people {
+    background:#ccc;
+    padding:0 0 5em 0;
+    background:url('../images/sparks-bg-white-overlay.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.community-logo-row {
+    text-align: center;
+}
+
+.community-logo {
+    padding:0;
+    margin:-100px auto 0 auto;
+    background-color: white;
+    width:200px;
+    height:200px;
+    padding:20px;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border:10px solid #ee3327;
+    text-align: center;
+    float: none;
+}
+
+.community-logo img {
+    width:100%;
+    height:auto;
+}
+
+.community-people h1 {
+    font-size:30px;
+    padding:.5em 0;
+    margin:0;
+}
+
+.orange-line-row {
+    background:url(../images/bg-block-orange-ver_4x20.png) repeat-y;
+    background-position: center 0;
+    height:2em;
+    padding:0;
+    margin:0;
+}
+
+/* Community images */
+/* 5-column rows with vertical-line rows in between */
+.community-grid-row {
+    text-align:center;
+    position: relative;
+    padding:0;
+}
+
+.community-grid-row div {
+    display:inline-block;
+    margin-left:-3px;
+    margin-right:-3px;
+    padding:0 1em;
+    width:auto;
+    background:url(../images/bg-block-orange-horiz_20x10.png) repeat-x;
+    background-position: 0 center;
+}
+
+.community-grid-row div:first-child {
+    padding-left:0;
+}
+
+.community-grid-row div:last-child {
+    padding-right:0;
+}
+
+.community-grid-row div img {
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius:50%;
+    border:10px solid #ee3327;
+
+}
+
+.vertical-bar-row {
+    border:none;
+    position: relative;
+    padding:0;
+    margin:0;
+    height:1em;
+}
+
+
+.vert-bar {
+    display:inline-block;
+    margin-left:-3px;
+    margin-right:-3px;
+    height:20px;
+    padding:0 1em;
+
+}
+
+.vert-bar.first-col,
+.vert-bar.last-col {
+    background:url(../images/bg-block-orange-ver_10x20.png) repeat-y;
+    background-position: 50% 0;
+}
+
+
+/* GOVERNANCE SECTION */
+
+.join-now-section {
+    padding:3em 0;
+}
+
+.page-section.join-now-section .container {
+    padding:5em 0;
+    min-height:200px;
+    background-image:url('../images/fire-icon-faded.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.page-section.join-now-section .container h1 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing:2px;
+    font-size:12px;
+    text-transform: uppercase;
+}
+
+.join-now-button-row a.forge-btn {
+    margin-top:-4em;
+}
+
+
+/*===============================================================================
+ SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
+===============================================================================*/
+
+
+/* Large LG */
+@media (min-width: 1200px) {
+
+}
+
+/* Medium MD */
+@media(min-width:992px) and (max-width:1200px) {
+
+}
+
+
+/* Small SM */
+@media(min-width:768px) and (max-width:992px) {
+    .community-marquee .marquee-content h2 {
+        font-size:26px;
+        padding:.3em 0;
+    }
+
+    .display-div,
+    .display-div a {
+        font-size:16px;
+    }
+
+    div.build-an-addon h2 {
+        margin-top:1em;
+    }
+
+    .contribute-columns div.middle-section div.display-div {
+        padding-top:20px;
+    }
+
+}
+
+/* Max. Size SM (767px and under) */
+@media(max-width:767px) {
+
+    .community-marquee {
+        padding:3em 0;
+    }
+
+    .community-marquee .marquee-content h2 {
+        font-size:24px;
+        width:100%;
+        text-align: center;
+        margin:.3em auto;
+        line-height:1.4em;
+    }
+
+    .contribute-section {
+        padding-top:2em;
+    }
+
+    .contribute-section h1 {
+        padding:.2em 0;
+    }
+
+    .contribute-columns {
+        padding:0;
+    }
+
+    .contribute-columns div.col-sm-3,
+    .contribute-columns div.col-sm-6 {
+        padding:0;
+        margin:1em 0;
+    }
+
+    div.middle-section div.col-sm-6 {
+        padding:0;
+    }
+
+
+    div.build-an-addon,
+    div.three-row-col-div div.display-div {
+        width:100%;
+        padding:0;
+    }
+
+    div.build-an-addon h2,
+    .display-div.right-col h2 {
+        margin:0;
+    }
+
+    /* Align and center link contents */
+    .contribute-columns div.middle-section div.three-row-col-div div.display-div,
+    div.three-row-col-div div.display-div {
+        padding:1.5em 0;
+    }
+
+    .three-row-col-div .display-div a {
+        text-align: center;
+        padding:0;
+        margin:0;
+    }
+
+    div.three-row-col-div div.display-div a span.text {
+        width:100%;
+        text-align: center;
+        padding:0;
+        margin:0 0 .5em 0;
+    }
+
+    div.three-row-col-div div.display-div a span.right-arrow {
+        clear:both;
+        text-align: center;
+        padding:0;
+        margin:1em auto 0 auto;
+        float:none;
+    }
+
+    /* Change community grid row to only show two per line */
+    .community-grid-row {
+        margin:0;
+        padding:0;
+        /* Margin will be added to each img */
+    }
+
+    .community-grid-row div {
+        width:50%;
+        padding:0;
+        background:none;
+    }
+
+    .community-grid-row div img {
+        width:80%;
+        height:auto;
+        margin:1em 0;
+    }
+
+    /* Reduce join-now section padding */
+    .join-now-section {
+        padding:2em 0;
+    }
+
+    .join-now-button-row a.forge-btn {
+        margin-top:-3em;
+    }
+
+
+}
+
+
+/* This is typically the smallest size (XS) but not currently in use for Forge */
+@media(min-width:480px) and (max-width:768px) {
+
+    .display-div a.forge-btn {
+        width:40%;
+    }
+}
+
+@media(max-width:480px) {
+    .display-div a.forge-btn {
+        width:50%;
+    }
+
+
+
+}

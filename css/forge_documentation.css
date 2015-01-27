@@ -1,0 +1,501 @@
+/**
+* THESE STYLES ARE USED FOR THE DOCUMENTATION PAGE BUT INCORPORATE MANY OF THE SAME ELEMENTS AS THE ADDON PAGE
+*/
+
+/* FIRST SECTION - ADDON MARQUEE */
+.addon-marquee {
+   /* background:url(../images/forge_anvil_1020x592.jpg) no-repeat;*/
+
+    min-height: 350px;
+    position: relative;
+    padding:0;
+}
+.addon-marquee.documentation {
+    background:url(../images/documentation-welding-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.addon-marquee .marquee-content {
+    z-index: 1000;
+    padding:3em 0;
+
+}
+
+.addon-marquee.documentation .marquee-content h2 {
+    font-family:"Open Sans", sans-serif;
+    font-size:30px;
+    text-align: center;
+    font-weight:200;
+    text-transform: none;
+}
+
+.addon-marquee .marquee-content h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size:22px;
+    margin:1.5em auto;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.addon-marquee .dark-blue-overlay {
+    position: absolute;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background-image:url(../images/dark-blue-overlay-75percent.png);
+    background-repeat: repeat;
+
+}
+
+.search-bar-row {
+    text-align:center;
+}
+
+.search-bar-row.documentation {
+    padding-top:2em;
+}
+
+.search-bar-row input[type="text"].addon_search,
+.search-bar-row input[type="submit"].addon_search_submit {
+    /* Reset */
+    border:none;
+    font-size:22px;
+    margin:0;
+    line-height:1.3em;
+    padding:.5em 1em;
+}
+
+.search-bar-row input[type="text"].addon_search {
+    color:#666666;
+}
+
+
+.advanced-search {
+    text-align: center;
+    position: relative;
+    padding:1.5em 0 0 0;
+}
+
+.advanced-search span {
+    display:inline-block;
+    text-align: center;
+    padding:5px;
+}
+
+
+.advanced-search span.text-block {
+    font-size:20px;
+    font-family:"Open Sans",sans-serif;
+    font-size:20px;
+    font-weight:100;
+}
+
+.advanced-search span.white-chevron-up {
+    background-image:url(../images/white-chevron-up.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    height:20px;
+    width:50px;
+    padding:0px;
+}
+
+span.white-chevron-down-outline {
+    display:block;
+    margin:.5em auto;
+    background-image:url(../images/white-chevron-down-outline_120x72.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+}
+
+
+/* Rounding & Shadows */
+.search-bar-row input[type="text"].addon_search {
+    box-shadow:inset -5px 0 3px #cccccc;
+    -moz-box-shadow: -5px 0 3px #cccccc;
+
+    border-top-left-radius:             6px;
+    border-bottom-left-radius:          6px;
+    -moz-border-radius-topleft:         6px;
+    -moz-border-radius-bottomleft:      6px;
+    -webkit-border-bottom-left-radius:  6px;
+    -webkit-border-top-left-radius:     6px;
+}
+
+.search-bar-row input[type="submit"].addon_search_submit {
+    border-top-right-radius:             10px;
+    border-bottom-right-radius:          10px;
+    -moz-border-radius-topright:         10px;
+    -moz-border-radius-bottomright:      10px;
+    -webkit-border-bottom-right-radius:  10px;
+    -webkit-border-top-right-radius:     10px;
+}
+
+/* ADVANCED SEARCH AREA */
+.advanced-search-section {
+    border-top:     5px solid #ee3327;
+    border-bottom:  5px solid #ee3327;
+    padding:1em 0;
+}
+
+.advanced-search-button-area {
+    font-size:20px;
+    font-family:"Open Sans",sans-serif;
+    font-size:20px;
+    font-weight:100;
+    text-align: center;
+}
+
+.advanced-search-section .forge-btn {
+    box-shadow:none;
+    -moz-box-shadow: none;
+    margin:.5em 0;
+}
+
+/* Checkbox Inputs */
+.advanced-search-checkbox-area {
+    padding:0;
+    margin:0;
+}
+
+
+.checkbox-columns {
+
+}
+
+.checkbox-row {
+    padding:.4em 0;
+    width:100%;
+}
+
+input[type="checkbox"].search-checkbox {
+    display:none;
+}
+
+label.checkbox-label {
+    font-weight:normal;
+    text-transform: none;
+    text-transform: uppercase;
+}
+
+input[type="checkbox"].search-checkbox + label span {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-4px 5px 0 0;
+    vertical-align:middle;
+    background:url(../images/checkbox_92x46.png) left top no-repeat;
+    cursor:pointer;
+    background-size:cover;
+}
+input[type="checkbox"].search-checkbox:checked + label span {
+    background:url(../images/checkbox_92x46.png) -19px top no-repeat;
+    background-size:cover;
+}
+
+
+
+/* DOCUMENTATION <DIV> SECTION */
+.documentation-section {
+    background-color:#e9e8ec;
+    padding:4em 0 6em 0;
+    min-height:300px;
+    box-shadow:         inset 0px 30px 30px #9d9d9d;
+    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;
+}
+
+
+
+
+row.documentation-boxes {
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
+.documentation-boxes div {
+    margin:1em auto;
+    text-align: center;
+}
+
+.documentation-boxes div:first-child {
+
+}
+
+.documentation-boxes div.doc-div {
+    background:white;
+    color:#333;
+    padding:3em 0 1em 0;
+    margin:0;
+    min-height:200px;
+    border-radius:          15px;
+    -moz-border-radius:     15px;
+    -webkit-border-radius:  15px;
+
+    box-shadow:      0 0 5px #616161;
+    -moz-box-shadow: 0 0 5px #616161;
+
+}
+
+.documentation-boxes div.doc-div,
+.documentation-boxes div.doc-div p {
+    font-family:"Open Sans",sans-serif;
+    text-align: center;
+}
+
+.documentation-boxes div.doc-div .info-row h2 {
+    font-family:"Montserrat",sans-serif;
+    font-size:15px;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.documentation-boxes div.doc-div {
+    font-size:11px;
+    line-height:1.1;
+}
+
+.documentation-boxes div.doc-div .img-div {
+    background:#f1f1f2;
+    width:120px;
+    height:120px;
+    clear:both;
+    padding:2em;
+    border-radius:50%;
+
+}
+
+.documentation-boxes div.doc-div .img-div img {
+    width:100%;
+    height:auto;
+}
+
+ .info-row {
+    background:#9e9baa;
+    color:white;
+    padding:2em;
+     box-shadow:         inset 0px 10px 10px #817d8d;
+     -moz-box-shadow:    inset 0px 10px 10px #817d8d;
+}
+
+.documentation-boxes div.doc-div h2 {
+    font-weight:bold;
+    font-size:12px;
+    margin:0;
+    padding:.2em 0;
+}
+
+.documentation-boxes div.doc-div h3,
+.documentation-boxes div.doc-div p {
+    font-weight:100;
+    font-style:italic;
+    margin:0;
+    padding:.3em 0;
+}
+
+.documentation-boxes div.doc-div h3 {
+    font-size:11px;
+}
+
+.documentation-boxes div.doc-div p {
+    font-size:10px;
+    line-height:1.2em;
+    height:auto;
+}
+
+div.medal {
+    height:70px;
+    width:70px;
+    clear:both;
+    margin-top:-5em;
+    background-color: #f1f1f2;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center 0;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius:50%;
+    border:5px solid #f1f1f2;
+    box-shadow:         0 0 1px #666;
+    -moz-box-shadow: 0 0 1px #666;
+}
+
+div.medal.beginner {
+    background-image:url('../images/level-one-beginner_73x73.png');
+
+}
+
+div.medal.intermediate {
+    background-image:url('../images/level-two-intermediate.png');
+}
+
+div.medal.advanced {
+    background-image:url('../images/level-three-advanced.png');
+}
+
+.row.info-links {
+    padding:0;
+}
+
+.row.info-links div {
+    margin:0;
+    padding:1em .5em;
+}
+
+.row.info-links div.mid-col {
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    text-align: center;
+}
+
+.row.info-links div.contrib {
+    text-transform: uppercase;
+    font-size:9px;
+    line-height: 1.5em;
+    font-weight:bold;
+    text-align:center;
+    padding:0;
+    position: relative;
+}
+
+.contrib-icons {
+    margin:-15px 0 5px 0;
+    width:100%;
+    height:30px;
+    padding:0;
+}
+.contrib-icons.core-icon {
+    background:url('../images/core_addons_100x100.png') no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+}
+
+.contrib-icons.community-icon {
+    background:url('../images/community-contrib-heart_100x100.png') no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+}
+
+.author-img img {
+    margin:-10px auto 0 auto;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+/* This could be a span or <a href> link. */
+.usage-icons {
+    width:32px;
+    height:32px;
+    display:block;
+    background-size: cover;
+    margin:-10px auto 0 auto;
+}
+
+.usage-icons.notebook {
+    background: url('../images/small-icon-notebook_32x32.png') no-repeat;
+}
+
+
+.usage-icons.notepaper {
+    background: url('../images/small-icon-notepaper_32x32.png') no-repeat;
+}
+
+.usage-icons.talk-bubble {
+    background: url('../images/small-icon-talk-bubble_32x32.png') no-repeat;
+}
+/*===============================================================================
+ SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
+===============================================================================*/
+
+
+/* Large LG */
+@media (min-width: 1200px) {
+
+}
+
+/* Medium MD */
+@media(min-width:992px) and (max-width:1200px) {
+
+}
+
+
+/* Max. Size SM (767px and under) */
+@media(max-width:767px) {
+    .addon-marquee .marquee-content h2 {
+        font-size:24px;
+        width:60%;
+        text-align: center;
+        margin:1em auto;
+        line-height:1.4em;
+    }
+
+    .search-bar-row input.addon_search[type="text"],
+    .search-bar-row input.addon_search_submit[type="submit"] {
+        font-size:14px;
+    }
+
+    .search-bar-row input.addon_search[type="text"] {
+        box-shadow:      none;
+        -moz-box-shadow: none;
+    }
+
+
+
+
+    .small-width-icons {
+        text-align: center;
+    }
+
+    .small-width-icons img {
+        width:80px;
+        height:auto;
+    }
+
+}
+
+/* Small SM */
+@media(min-width:768px) and (max-width:992px) {
+    .checkbox-row {
+        font-size:11px;
+    }
+
+}
+/* This is typically the smallest size (XS) but not currently in use for Forge */
+@media(min-width:480px) and (max-width:768px) {
+}
+
+@media(max-width:480px) {
+    /* Widen the overall content container for the marquee */
+    .marquee-content-container-div {
+        margin-left:10%;
+        width:80%;
+    }
+
+
+    .search-bar-row input.addon_search[type="text"],
+    .search-bar-row input.addon_search_submit[type="submit"] {
+        font-size:11px;
+        padding:5px;
+    }
+
+    .checkbox-row {
+        font-size:11px;
+    }
+
+
+    .documentation-boxes div.addon .img-div {
+        width:70px;
+        height:70px;
+        padding:10px;
+    }
+
+
+}

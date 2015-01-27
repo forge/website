@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+
+    <title>JBoss Forge</title>
+    <!--CSS-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="all" />
+    <link href="css/forge.css" rel="stylesheet" media="all" />
+    <link href="css/forge_documentation.css" rel="stylesheet" media="all" />
+    <!--<link href="css/parallax-styles.css" rel="stylesheet" media="screen" />-->
+    <!--<link href="css/testing.css" rel="stylesheet" media="screen" />-->
+</head>
+<body>
+<!--==================  BEGIN PAGE CONTENT  ==================-->
+<header class="navbar navbar-static-top">
+    <div class="container-fluid header-container">
+
+        <div class="alt-header-row col-xs-2 visible-xs row-fluid">
+            <div class="col-xs-12">
+                <a href="#" class="forge-logo-smaller visible-xs">
+                    <img alt="Download Forge"  src="images/anvil_download_section_150x132.png" />
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="navbar-header col-md-2 com-sm-1 col-xs-2" >
+                <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navBarMain">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Main Logo -->
+                <a href="#" class="forge-main-logo hidden-xs"> </a>
+
+
+
+            </div><!-- / .navbar-header -->
+            <!-- Login and register buttons -->
+            <div class="col-md-2 col-sm-2 col-xs-3 login-register-button-div pull-right">
+                <ul class="nav navbar-nav navbar-right login-register-btns ">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+            <!-- / End Login and register buttons -->
+
+            <div class="col-md-7 col-sm-5 col-xs-6 navbar-collapse collapse pull-right" role="navigation" id="navBarMain" >
+                <!-- Insert to the left of main nav in order to display these to the far right -->
+
+                <ul class="nav navbar-nav pull-right  ">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Addons</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div><!-- /. navbar-collapse -->
+
+
+
+        </div><!-- /.row-fluid -->
+    </div><!-- / .container-fluid -->
+
+</header>
+
+
+
+
+
+
+<!-- PAGE SECTION DOCUMENT MARQUEE SECTION -->
+<div class="page-section static blue addon-marquee documentation"><div class="dark-blue-overlay">&nbsp;</div>
+   <div class="container">
+        <div class="row marquee-content">
+            <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
+                <h2>JBoss Forge is <strong>Fast</strong> and <strong>Extensible</strong>.</h2>
+                <h2 class="hidden-xs"><strong>Learn More</strong> about what you can do with Forge.</h2>
+               <div class="row search-bar-row documentation">
+                    <div class="col-xs-12">
+                        <input type="text" name="addon_search" class="addon_search" ><input type="submit" value="Search" class="btn-red addon_search_submit">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 advanced-search">
+                            <span class="text-block hidden-xs">
+                                 Advanced Search
+                            </span>
+                            <span class="text-block visible-xs">
+                                 Advanced<br>Search
+                            </span>
+                            <span class="white-chevron-up hidden-xs">&nbsp;</span>
+                    </div>
+                    <div class="row visible-xs">
+                        <div class="col-xs-12">
+                            <span class="white-chevron-down-outline">&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- / .row.marquee-content -->
+   </div><!-- /.container -->
+</div><!-- / .page-section -->
+
+
+<!-- PAGE SECTION ADVANCED SEARCH -->
+<div class="page-section white advanced-search-section">
+    <div class="container">
+        <div class="row">
+            <!-- / Left Side with search button -->
+            <div class="col-sm-3 col-xs-12">
+                <div class="row advanced-search-button-area">
+                    Advanced Search
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-xs-4 col-xs-offset-4">
+                        <a href="#" class="forge-btn btn-red btn-med reset-button">Reset Options</a>
+                    </div>
+                 </div>
+            </div><!-- / End Left Side -->
+
+            <!-- Right side with checkbox items -->
+            <div class="col-sm-9 col-xs-12">
+                <div class="row advanced-search-checkbox-area">
+
+                    <!-- Begin Checkboxes -->
+
+                    <!-- Main Column 1 -->
+                    <div class="col-sm-6 col-sm-offset-0 col-xs-5 col-xs-offset-1 checkbox-columns">
+
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="blog"> <label class="checkbox-label" for="blog"><span></span>Blog</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="video"> <label class="checkbox-label" for="video"><span></span>Video</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="article"> <label class="checkbox-label" for="article"><span></span>Article</label>
+                                    </div>
+
+                                </div><!-- /.col-sm-6 col-xs-12 -->
+
+
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="beginner"> <label class="checkbox-label" for="beginner"><span></span>Beginner</label>
+                                    </div>
+                                    <div class="checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="intermediate"> <label class="checkbox-label" for="intermediate"><span></span>Intermediate</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="advanced"> <label class="checkbox-label" for="advanced"><span></span>Advanced</label>
+                                    </div>
+
+                                </div><!-- /.col-sm-6 col-xs-12 -->
+
+
+                            </div><!-- /.row -->
+                    </div><!-- / End Main Column 1 -->
+
+                    <!-- Main Column 2 -->
+                    <div class="col-sm-6 col-xs-6 checkbox-columns">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="popular"> <label class="checkbox-label" for="popular"><span></span>Popular</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="community"> <label class="checkbox-label" for="community"><span></span>Community</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="core"> <label class="checkbox-label" for="core"><span></span>Core</label>
+                                    </div>
+
+                                </div><!-- /.col-sm-6 col-xs-12 -->
+
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="option_4"> <label class="checkbox-label" for="option_4"><span></span>Option 4</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="option_5"> <label class="checkbox-label" for="option_5"><span></span>Option 5</label>
+                                    </div>
+                                    <div class=" checkbox-row">
+                                        <input type="checkbox" class="search-checkbox" id="option_6"> <label class="checkbox-label" for="option_6"><span></span>Option 6</label>
+                                    </div>
+
+                                </div><!-- /.col-sm-6 col-xs-12 -->
+
+                            </div><!-- /.row -->
+                    </div><!-- / End Main Column 2 -->
+                    <!-- / End Checkboxes -->
+
+
+
+                </div><!-- /.row (.advanced-search-checkbox-area) -->
+            </div>
+            <!-- / End Right side -->
+
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+</div><!-- / .page-section -->
+
+
+
+<!-- PAGE SECTION DOCUMENTATION SECTION -->
+<div class="page-section documentation-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+
+
+                    <div class="row documentation-boxes">
+
+						<!-- Item -->
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="doc-div">
+                                <div class="info-row">
+                                    <div class="medal beginner"> </div>
+                                    <h2>Installation Guide</h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+                                    </p>
+                                </div>
+                                <div class="row info-links">
+
+                                    <!-- Group Type -->
+                                    <div class="col-xs-4 contrib">
+                                       <div class="contrib-icons core-icon">&nbsp;</div>Core
+                                    </div>
+                                    <!-- / End Group Type -->
+
+                                    <!-- Usage Icon -->
+                                    <div class="col-xs-4 mid-col">
+										<span class="usage-icons notebook">&nbsp;</span>
+                                    </div>
+                                    <!-- /End Usage Icon -->
+
+                                    <!-- Author Image -->
+                                    <div class="col-xs-4 author-img">
+									<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+                                    </div>
+                                    <!-- / End Author Image -->
+                                </div><!-- / .info-links -->
+                            </div><!-- / .documentation -->
+                        </div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+						<!-- Item -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="doc-div">
+								<div class="info-row">
+									<div class="medal beginner"> </div>
+									<h2>Installation Guide</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+									</p>
+								</div>
+								<div class="row info-links">
+
+									<!-- Group Type -->
+									<div class="col-xs-4 contrib">
+										<div class="contrib-icons core-icon">&nbsp;</div>Core
+									</div>
+									<!-- / End Group Type -->
+
+									<!-- Usage Icon -->
+									<div class="col-xs-4 mid-col">
+										<span class="usage-icons notebook">&nbsp;</span>
+									</div>
+									<!-- /End Usage Icon -->
+
+									<!-- Author Image -->
+									<div class="col-xs-4 author-img">
+										<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+									</div>
+									<!-- / End Author Image -->
+								</div><!-- / .info-links -->
+							</div><!-- / .documentation -->
+						</div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+						<!-- Item -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="doc-div">
+								<div class="info-row">
+									<div class="medal beginner"> </div>
+									<h2>Installation Guide</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+									</p>
+								</div>
+								<div class="row info-links">
+
+									<!-- Group Type -->
+									<div class="col-xs-4 contrib">
+										<div class="contrib-icons core-icon">&nbsp;</div>Core
+									</div>
+									<!-- / End Group Type -->
+
+									<!-- Usage Icon -->
+									<div class="col-xs-4 mid-col">
+										<span class="usage-icons notebook">&nbsp;</span>
+									</div>
+									<!-- /End Usage Icon -->
+
+									<!-- Author Image -->
+									<div class="col-xs-4 author-img">
+										<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+									</div>
+									<!-- / End Author Image -->
+								</div><!-- / .info-links -->
+							</div><!-- / .documentation -->
+						</div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+						<!-- Item -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="doc-div">
+								<div class="info-row">
+									<div class="medal intermediate"> </div>
+									<h2>Installation Guide</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+									</p>
+								</div>
+								<div class="row info-links">
+
+									<!-- Group Type -->
+									<div class="col-xs-4 contrib">
+										<div class="contrib-icons community-icon">&nbsp;</div>Core
+									</div>
+									<!-- / End Group Type -->
+
+									<!-- Usage Icon -->
+									<div class="col-xs-4 mid-col">
+										<span class="usage-icons notepaper">&nbsp;</span>
+									</div>
+									<!-- /End Usage Icon -->
+
+									<!-- Author Image -->
+									<div class="col-xs-4 author-img">
+										<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+									</div>
+									<!-- / End Author Image -->
+								</div><!-- / .info-links -->
+							</div><!-- / .documentation -->
+						</div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+
+						<!-- Item -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="doc-div">
+								<div class="info-row">
+									<div class="medal advanced"> </div>
+									<h2>Installation Guide</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+									</p>
+								</div>
+								<div class="row info-links">
+
+									<!-- Group Type -->
+									<div class="col-xs-4 contrib">
+										<div class="contrib-icons core-icon">&nbsp;</div>Core
+									</div>
+									<!-- / End Group Type -->
+
+									<!-- Usage Icon -->
+									<div class="col-xs-4 mid-col">
+										<span class="usage-icons talk-bubble">&nbsp;</span>
+									</div>
+									<!-- /End Usage Icon -->
+
+									<!-- Author Image -->
+									<div class="col-xs-4 author-img">
+										<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+									</div>
+									<!-- / End Author Image -->
+								</div><!-- / .info-links -->
+							</div><!-- / .documentation -->
+						</div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+						<!-- Item -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="doc-div">
+								<div class="info-row">
+									<div class="medal advanced"> </div>
+									<h2>Installation Guide</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
+									</p>
+								</div>
+								<div class="row info-links">
+
+									<!-- Group Type -->
+									<div class="col-xs-4 contrib">
+										<div class="contrib-icons community-icon">&nbsp;</div>Core
+									</div>
+									<!-- / End Group Type -->
+
+									<!-- Usage Icon -->
+									<div class="col-xs-4 mid-col">
+										<span class="usage-icons notebook">&nbsp;</span>
+									</div>
+									<!-- /End Usage Icon -->
+
+									<!-- Author Image -->
+									<div class="col-xs-4 author-img">
+										<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+
+									</div>
+									<!-- / End Author Image -->
+								</div><!-- / .info-links -->
+							</div><!-- / .documentation -->
+						</div><!-- / col-sm-4 col-xs-12 -->
+						<!-- / End  Item -->
+
+
+
+
+
+
+
+					</div><!-- / .row.addon-boxes -->
+
+
+
+            </div><!-- /.col-sm-8 col-sm-offset-1 col-xs-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- / .page-section -->
+
+
+
+
+
+
+
+
+
+<!-- PAGE SECTION LINKS AND SUPPORT -->
+
+<div class="page-section static blue footer-links-support">
+    <div class="container">
+        <div class="row link-section-columns">
+            <div class="col-sm-3 col-xs-12 footer-first-section">
+                <div class="jboss-forge-logo">&nbsp;</div>
+                <ul>
+                    <li><a href="#">Item One</a></li>
+                    <li><a href="#">Item Two</a></li>
+                    <li><a href="#">Item Three</a></li>
+                    <li><a href="#">Item Four</a></li>
+                </ul>
+            </div><!-- / .col-sm-3 -->
+
+            <div class="col-sm-3 col-xs-12 footer-link-div">
+                <h3>Support</h3>
+                <p>Sed rutrum quis mauris id consequat. Duis non pellentesque urna. </p>
+
+                <form action="#" class="search-form-footer">
+                    <fieldset>
+                        <input type="search" class="search-input" size="20" /><a class="search-box" href="#"><span class="glyphicon glyphicon-search"></span></a>
+                    </fieldset>
+                </form>
+            </div><!-- / .col-sm-3 -->
+
+            <div class="col-sm-3 col-xs-12 footer-link-div">
+                <h3>Careers</h3>
+                <ul>
+
+                    <li><a href="#">Item One</a></li>
+                    <li><a href="#">Item Two</a></li>
+                    <li><a href="#">Item Three</a></li>
+                </ul>
+            </div><!-- / .col-sm-3 -->
+
+            <div class="col-sm-3 col-xs-12 footer-link-div">
+                <h3>Contact</h3>
+                <div class="row">
+                    <!-- Icon display for desktop/tablet -->
+                    <div class="col-md-12 col-sm-12 hidden-xs footer-social-container">
+                        <ul class="footer-social-icons">
+                            <li><a href="#" target="_blank" class="facebook-link"></a></li>
+                            <li><a href="#" target="_blank" class="twitter-link"></a></li>
+                            <li><a href="#" target="_blank" class="linkedin-link"></a></li>
+                            <li><a href="#" target="_blank" class="googleplus-link"></a></li>
+                            <li><a href="#" target="_blank" class="youtube-link"></a></li>
+                        </ul>
+                    </div><!-- / End desktop/tablet size -->
+
+                    <!-- Icon display for phone -->
+                    <div class="col-xs-12 hidden-sm hidden-lg hidden-md hidden-print footer-social-container">
+                        <div class="footer-social-icons-inline">
+                            <a href="#" target="_blank" class="facebook-link"></a>
+                            <a href="#" target="_blank" class="twitter-link"></a>
+                            <a href="#" target="_blank" class="linkedin-link"></a>
+                            <a href="#" target="_blank" class="googleplus-link"></a>
+                            <a href="#" target="_blank" class="youtube-link"></a>
+                        </div>
+                    </div><!-- / End phone size -->
+
+                </div><!-- /.row -->
+
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Address</a></li>
+                    <li><a href="#">Phone</a></li>
+                </ul>
+            </div><!-- / .col-sm-3 -->
+
+
+        </div><!-- / .row -->
+
+    </div><!-- / container -->
+
+</div><!-- / .page-section static blue  -->
+
+
+
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                &copy; JBoss Forge All Rights Reserved.
+                <span class="footer-medallion hidden-xs"> </span>
+            </div>
+        </div><!-- / .row -->
+    </div><!-- / .container -->
+
+
+</footer>
+<!-- / END PAGE CONTENT -->
+
+<!--JS-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"              ></script>
+<script type="text/javascript" src="js/bootstrap.min.js"                  ></script>
+<script type="text/javascript" src="js/forge.jquery.js"                   ></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"   ></script>
+<!-- Parallax -->
+<!--<script type="text/javascript" src="js/jquery.parallax.min.js"            ></script>-->
+<script type="text/javascript" src="js/parallax.min.js"            ></script>
+
+
+</body>
+</html>
