@@ -265,6 +265,111 @@ p.author-names-bottom {
     font-style: italic;
 }
 
+
+
+/*===============================================================================
+ NEWS PAGE TEMPLATE TAGS
+===============================================================================*/
+.news-page-article-col {
+    padding-top:1.9em;
+}
+
+.news-headline {
+    padding-top:0;
+    margin-top:0;
+}
+
+.doc-right-main-col.news-page-article-col h3 {
+    text-align: left;
+}
+
+.news-article-img {
+    padding:0;
+}
+.news-article-img img {
+    width:100%;
+    height:auto;
+    border-radius:2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+}
+
+.doc-right-main-col h3.article-date {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color:#999999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.article-author-div {
+    border-top:4px solid #ee3327;
+    border-bottom:4px solid #ee3327;
+    margin:1em auto;
+    padding:1em 0;
+}
+
+.author-img {
+    text-align: center;
+}
+
+.author-img img {
+    width:100%;
+    height:auto;
+    margin:0 auto;
+    border-radius:          50%;
+    -moz-border-radius:     50%;
+    -webkit-border-radius:  50%;
+}
+
+.author-name-title,
+.author-name-title h1,
+.author-name-title p {
+    text-align: center;
+}
+
+.author-name-title {
+    padding-top:1em;
+}
+
+.author-name-title h1 {
+    text-transform: uppercase;
+    font-size:1em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding:0;
+    margin:0;
+}
+
+.author-name-title p {
+    font-size:.8em;
+    font-style: italic;
+    font-weight: 200;
+    padding:0;
+}
+
+.news-social-icons {
+    padding-top:.8em;
+}
+
+.news-share {
+    text-transform: uppercase;
+    font-size:1em;
+    padding-top:1.8em;
+}
+.news-social-icons {
+    text-align: center;
+}
+
+/* Most of the social icons here inherit their properties from the main forge.css at around line 1080 */
+.news-social-icons a {
+    display:inline-block;
+    width:40px;
+    height:40px;
+}
+
+
+
 div.doc-content-social-media {
     clear:both;
     padding:.5em;
@@ -343,6 +448,10 @@ div.doc-content-social-media a.youtube-link {
     input[type="submit"].doc_search_submit {
         padding:8px;
     }
+
+
+    /* News Section */
+
 }
 
 

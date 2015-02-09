@@ -1044,7 +1044,7 @@ div.footer {
     margin:0 auto;
 }
 
-.modal-social-icons a {
+.modal-social-icons a  {
     display:block;
     text-align: center;
     width:35px;
@@ -1057,31 +1057,40 @@ div.footer {
 
 .modal-social-icons a,
 .modal-social-icons a:hover,
-.modal-social-icons a:active {
+.modal-social-icons a:active,
+.news-social-icons a,
+.news-social-icons a:hover,
+.news-social-icons a:active {
     outline:none;
 }
 
-.modal-social-icons a.facebook-link {
+.modal-social-icons a.facebook-link,
+.news-social-icons a.facebook-link {
     background-image:url(../images/facebook_color_60x60.png);
 }
 
-.modal-social-icons a.twitter-link {
+.modal-social-icons a.twitter-link,
+.news-social-icons a.twitter-link {
     background-image:url(../images/twitter_color_60x60.png);
 }
 
-.modal-social-icons a.linkedin-link {
+.modal-social-icons a.linkedin-link,
+.news-social-icons a.linkedin-link {
     background-image: url(../images/linkedin_color_60x60.png);
 }
 
-.modal-social-icons a.googleplus-link {
+.modal-social-icons a.googleplus-link,
+.news-social-icons a.googleplus-link {
     background-image: url(../images/google_color_60x60.png);
 }
 
-.modal-social-icons a.youtube-link {
+.modal-social-icons a.youtube-link,
+.news-social-icons a.youtube-link {
     background-image: url(../images/youtube_color_60x60.png);
 }
 
-.modal-social-icons a {
+.modal-social-icons a,
+.news-social-icons a  {
     background-size:cover;
     background-repeat: no-repeat;
 }
