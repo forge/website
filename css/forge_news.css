@@ -262,6 +262,36 @@ div.news-item {
     margin:-50px 0 0 0;
 }
 
+/*** News Item With Photo Header */
+
+/* This is like the above header, but fills up the entire top portion with blue
+and can contain a photo */
+.news-item.photo-version {
+    padding-top:0;
+}
+
+.news-item.photo-version .date-header {
+    padding-top:1em;
+    border-top:none;
+    border-bottom:4px solid #ee3327;
+}
+
+.news-item.photo-version .photo-row {
+    margin:1em 0;
+    padding:0;
+
+}
+
+.news-item.photo-version .photo-row img {
+    width:100%;
+    height:auto;
+    border-radius:          15px;
+    -moz-border-radius:     15px;
+    -webkit-border-radius:  15px;
+}
+
+
+
 div.news-item .news-main-content {
     margin:2em auto;
     text-align: left;
@@ -304,6 +334,11 @@ div.news-item .news-item-footer {
     -webkit-border-radius:  50%;
 }
 
+.news-author-img-container-box,
+.news-social-icons-box  {
+    border-right:2px solid #d0d2d3;
+}
+
 .news-author-title-box h3 {
     font-family: "Open Sans",sans-serif;
     font-weight: bold;
@@ -328,17 +363,20 @@ div.news-item .news-item-footer .news-read-more {
 }
 div.news-item .news-item-footer .news-read-more {
     padding:0;
+    text-align: right;
 }
 
 .news-read-more a {
     display:block;
     padding-top:.5em;
     margin:0;
+    text-align: right;
+    float: right;
 }
 
 .news-social-icons-box,
 .news-read-more-main {
-    padding:1em 0 0 0;
+    padding:1em 0;
 }
 
 
@@ -346,7 +384,7 @@ div.news-item .news-item-footer .news-social-icons a {
     display:inline-block;
     width:40px;
     height:40px;
-    margin:0 5px;
+    margin:0;
 }
 
 
@@ -436,9 +474,43 @@ div.news-item .news-item-footer .news-social-icons a {
 
 /* Medium MD */
 @media(min-width:992px) and (max-width:1200px) {
+    .checkbox-row {
+        font-size:12px;
+    }
 
+    div.news-item .news-item-footer .news-social-icons a {
+        display:inline-block;
+        width:35px;
+        height:35px;
+        margin:0 2px;
+    }
 }
 
+
+/* Small SM */
+@media(min-width:768px) and (max-width:992px) {
+    .checkbox-row {
+        font-size:11px;
+    }
+
+    input[type="checkbox"].search-checkbox + label {
+        font-size:9px;
+    }
+
+    input[type="checkbox"].search-checkbox + label span {
+
+        margin:-4px 2px 0 0;
+    }
+
+    div.news-item .news-item-footer .news-social-icons a {
+        display:inline-block;
+        width:32px;
+        height:32px;
+        margin:0 2px;
+    }
+
+
+}
 
 /* Max. Size SM (767px and under) */
 @media(max-width:767px) {
@@ -461,8 +533,6 @@ div.news-item .news-item-footer .news-social-icons a {
     }
 
 
-
-
     .small-width-icons {
         text-align: center;
     }
@@ -472,17 +542,45 @@ div.news-item .news-item-footer .news-social-icons a {
         height:auto;
     }
 
-}
 
-/* Small SM */
-@media(min-width:768px) and (max-width:992px) {
     .checkbox-row {
         font-size:11px;
     }
 
+
+
+    div.news-item .news-item-footer .news-social-icons a {
+        display:inline-block;
+        width:35px;
+        height:35px;
+        margin:0 2px;
+    }
+
+    .news-read-more {
+        width:90%;
+    }
+
+    .news-read-more a.read-more-link {
+        font-size:1.3em;
+    }
+
+
 }
+
+
 /* This is typically the smallest size (XS) but not currently in use for Forge */
 @media(min-width:480px) and (max-width:768px) {
+
+    .news-item-forge-emblem {
+        width:40px;
+        height:40px;
+        padding:35px;
+        margin:-30px 0 0 0;
+    }
+
+    .news-read-more-main .news-read-more a {
+        padding-top:0;
+    }
 }
 
 @media(max-width:480px) {
@@ -508,6 +606,30 @@ div.news-item .news-item-footer .news-social-icons a {
         width:70px;
         height:70px;
         padding:10px;
+    }
+
+    .news-read-more-main {
+        padding-top:0;
+    }
+
+    .news-author-img-box {
+        display:none;
+    }
+
+    .news-author-title-box {
+        padding-left:1em;
+    }
+
+    .news-read-more a.read-more-link {
+        font-size:1.1em;
+        padding-top:1em;
+    }
+
+    .news-item-forge-emblem {
+        width:40px;
+        height:40px;
+        padding:40px;
+        margin:-30px 0 0 -20px;
     }
 
 
