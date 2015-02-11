@@ -39,7 +39,7 @@ $(function() {
     if($('.doc-content').length && $(window).outerWidth() > 768) {
        docContentHeightFix();
        $(window).resize(function(){
-           if($(window).outerWidth() < 768) {
+           if($(window).outerWidth() > 768) {
                docContentHeightFix();
            }
        });

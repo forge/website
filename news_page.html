@@ -77,30 +77,14 @@
 
 
 <!-- PAGE SECTION NEWS/NAV TOP BAR -->
-<div class="page-section static white nav-news-bar">
+<div class="page-section static white nav-news-bar hidden-xs">
    <div class="container">
         <div class="row hidden-xs page-navigation-line">
-			Documentation / Installation
+			News / Forge 2.12.10.1 is here
         </div><!-- / .row -->
-
-	   <!-- Heading for smaller device window widths -->
-	   <div class="row visible-xs phone-width">
-		   <h1>Installation & Getting Started</h1>
-	   </div>
-	   <!-- / End heading for smaller device window widths -->
-
-
-
    </div><!-- /.container -->
 </div><!-- / .page-section -->
 
-<!-- Smaller Device Window Language Selector Menu -->
-<div class="row language-select-bar visible-xs">
-	<div class="row">
-		Language Selector Here
-	</div>
-</div>
-<!-- / End Smaller Device Window Language Selector Menu -->
 
 
 <!-- PAGE SECTION CONTENT SECTION-->
@@ -196,18 +180,15 @@
 						<!-- AUTHOR IMAGE AND TITLE -->
 						<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 author-info-div">
 							<div class="row">
-								<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 author-img">
+								<div class="col-lg-3 col-md-4 col-sm-5 col-xs-2 author-img">
 									<img src="images/place-img-300x300.jpg" alt="Lincoln Baxter">
 								</div><!-- / .author-info-div -->
 
-								<div class="col-lg-4 col-md-5 col-sm-5 col-xs-12 author-name-title">
+								<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 author-name-title">
 										<h1>Authors</h1>
 									<p>Lincoln Baxter</p>
 								</div><!-- / .author-name-title -->
 							</div><!-- / .row -->
-
-
-
 						</div>
 						<!-- / END AUTHOR IMAGE AND TITLE -->
 
@@ -245,30 +226,50 @@
 </div><!-- / .page-section -->
 
 
-<!-- PAGE SECTION AUTHOR AND SOCIAL MEDIA FOR SMALLER DEVICES -->
-<div class="page-section white bottom-author-section visible-xs">
+<!-- PAGE SECTION TABLE OF CONTENTS AND SEARCH FOR SMALLER DEVICE SCREENS -->
+<div class="page-section  white bottom-toc-section visible-xs">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 author-bottom-image-box-images">
-				<img src="images/place-img-300x300.jpg" alt="Lincoln Baxter">
-				<img src="images/place-img-300x300.jpg" alt="Second Author">
 
+			<div class="row doc-search-bar-row ">
+				<div class="col-xs-12">
+					<input type="text" placeholder="Search Blog" name="doc_search" class="doc_search" ><input type="submit" value="&nbsp;" class="btn-red doc_search_submit">
+				</div>
+			</div>
+
+
+
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 table-of-contents">
+					<h2>Categories</h2>
+					<ul>
+						<li><a href="#">Installation</a></li>
+						<li><a href="#">Getting Help</a></li>
+						<li><a href="#">HTML</a></li>
+						<li><a href="#">Community Involvement</a></li>
+					</ul>
+				</div><!-- /.table-of-contents -->
 
 			</div>
-			<h3>Authors</h3>
-			<p class="author-names-bottom">Lincoln Baxter</p>
-			<p class="author-names-bottom">Second Author Name</p>
 
-
-			<h3>Share</h3>
-			<div class="doc-content-social-media">
-				<a href="#" target="_blank" class="facebook-link"> </a>
-				<a href="#" target="_blank" class="twitter-link"></a>
-				<a href="#" target="_blank" class="linkedin-link"></a>
-				<a href="#" target="_blank" class="googleplus-link"></a>
-				<a href="#" target="_blank" class="youtube-link"></a>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 related-documents">
+					<h2>Related Posts</h2>
+					<ul>
+						<li><a href="#">JBoss Forge Reference Sheet</a></li>
+						<li><a href="#">Scaffolding</a></li>
+						<li><a href="#">Writing a basic Java EE app</a></li>
+						<li><a href="#">Testing with Forge</a></li>
+						<li><a href="#">UI Scaffolding</a></li>
+						<li><a href="#">Further samples</a></li>
+						<li><a href="#">Creating a Forge Plugin</a></li>
+					</ul>
+				</div><!-- /.related-documents -->
 
 			</div>
+
+
+
 
 		</div><!-- / .row -->
 	</div><!-- /.container -->

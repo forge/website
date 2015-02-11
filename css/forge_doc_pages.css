@@ -223,41 +223,6 @@ blockquote code {
 }
 
 
-/* Smaller device width author and social media display */
-.bottom-author-section {
-    border-top:4px solid #ee3327;
-    border-bottom:4px solid #ee3327;
-    min-height: 100px;
-}
-
-.bottom-author-section div.row {
-    text-align: center;
-    padding:.3em 2em;
-}
-
-.bottom-author-section h3 {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "open sans",sans-serif;
-    font-weight:bold;
-    font-size: 16px;
-}
-
-
-.author-bottom-image-box-images {
-    padding:1em 0;
-    position: relative;
-    text-align: center;
-}
-
-.author-bottom-image-box-images img {
-    display: inline-block;
-    width:45px;
-    height:45px;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-}
 
 p.author-names-bottom {
     font-size:12px;
@@ -436,13 +401,14 @@ div.doc-content-social-media a.youtube-link {
         margin:0;
         line-height: 18px;
         display:inline-block;
-        font-size:12px;
+
     }
 
     input[type="text"].doc_search {
         width:70%;
         box-shadow:none;
         -moz-box-shadow: none;
+        font-size:12px;
     }
 
     input[type="submit"].doc_search_submit {
@@ -452,17 +418,29 @@ div.doc-content-social-media a.youtube-link {
 
     /* News Section */
 
+
+    /* Author Footer */
+    /* Desktop/Tablet Author Section */
+    .author-name-title p {
+        font-size:10px;
+    }
+
+    .share-label.news-share {
+        padding-top:1.5em;
+    }
+
+    .news-social-icons a {
+        width:30px;
+        height:30px;
+    }
 }
 
 
 /* Max. Size SM (767px and under) */
 @media(max-width:767px) {
-    .search-bar-row input.addon_search[type="text"],
-    .search-bar-row input.addon_search_submit[type="submit"] {
-        font-size:14px;
-    }
 
-    .search-bar-row input.addon_search[type="text"] {
+
+    input.addon_search[type="text"] {
         box-shadow:      none;
         -moz-box-shadow: none;
     }
@@ -484,7 +462,6 @@ div.doc-content-social-media a.youtube-link {
     }
 
 
-
     div.row.language-select-bar {
         background-color: #ee3327;
         padding:.5em 1em 1em 1em;
@@ -495,8 +472,7 @@ div.doc-content-social-media a.youtube-link {
 
 
     div.doc-right-main-col {
-        padding-left:0;
-        padding-right:0;
+        padding:1em 0;
     }
 
     /* Anything contained in the right col must have its padding adjusted so as not to run up against the edge of the device window */
@@ -510,21 +486,107 @@ div.doc-content-social-media a.youtube-link {
     div.doc-right-main-col blockquote code {
         padding:.5em 2em;
     }
+
+
+    /* Main News Article Column Content */
+    div.doc-right-main-col.news-page-article-col h1 {
+        text-align: center;
+        padding: 1em;
+    }
+
+
+
+    .news-article-img {
+        padding:0 2em;
+    }
+
+    .news-article-img img {
+        border-radius:          1em;
+        -webkit-border-radius:  1em;
+        -moz-border-radius:     1em;
+    }
+
+    /* Desktop/Tablet Author Section */
+    .author-name-title p {
+        font-size:10px;
+    }
+
+    .author-img {
+        float:none;
+        clear:both;
+        text-align: center;
+        margin:0 auto;
+    }
+    div.doc-right-main-col.news-page-article-col .author-name-title h1
+     {
+        padding:0;
+    }
+
+    .author-name-title p {
+        padding-top:0;
+    }
+    .news-share {
+        padding-top:0;
+    }
+
+
+    /* Smaller device width author and social media display */
+    .bottom-toc-section {
+        background:#e9e8ec;
+        min-height: 100px;
+        padding-top:2em;
+        padding-bottom:2em;
+    }
+
+    .bottom-toc-section div.row {
+        text-align: center;
+        padding:.3em 2em;
+    }
+
+    .bottom-toc-section h3 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: "open sans",sans-serif;
+        font-weight:bold;
+        font-size: 16px;
+    }
+
+    .bottom-toc-section .table-of-contents ul ,
+    .bottom-toc-section .related-documents ul {
+        font-size:14px;
+    }
+
+
+    .bottom-toc-section .table-of-contents ul li,
+    .bottom-toc-section .related-documents ul li
+    {
+        text-align: left;
+    }
+
 }
 
 
 /* This is typically the smallest size (XS) but not currently in use for Forge */
 @media(min-width:480px) and (max-width:768px) {
+
+    input.doc_search[type="text"],
+    input.doc_search_submit[type="submit"] {
+
+    }
 }
 
 @media(max-width:480px) {
 
-
-
-    .search-bar-row input.addon_search[type="text"],
-    .search-bar-row input.addon_search_submit[type="submit"] {
-        font-size:11px;
+    input.doc_search[type="text"] {
+        font-size:10px;
         padding:5px;
+    }
+
+
+    input.doc_search_submit[type="submit"] {
+        padding:10px 15px;
+        line-height:1;
+        font-size:12px;
     }
 
 
