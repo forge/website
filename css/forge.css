@@ -391,7 +391,7 @@ PAGE SECTIONS
 
 .intro-download-section {
     width:100%;
-    min-height:670px;
+    /*min-height:670px;*/
     margin:-15px 0;
     /*overflow: hidden;*/
     /* Static Background */
@@ -409,7 +409,7 @@ PAGE SECTIONS
     width:100%;
     padding:0;
     margin:0;
-    height:670px;
+   /* height:670px;*/
 }
 
 
@@ -421,7 +421,7 @@ PAGE SECTIONS
 
 .blue-back-div {
     background-color:rgba(34,34,67,.9);
-    height:270px;
+    height:250px;
     position: relative;
 }
 
@@ -456,6 +456,7 @@ PAGE SECTIONS
     color:white;
     padding:1em 0 0 0;
     line-height: 1.2em;
+
 }
 
 .forge-headline strong {
@@ -469,12 +470,19 @@ PAGE SECTIONS
 
 .download-btn  {
     width:170px;
-    margin:65px auto 0 auto;
-    z-index: 200;
+    position: relative;
+    top:-25px;
+    float:none;
+    color:#ffffff;
+    margin:0 auto;
+    z-index: 9000;
+    text-align: center;
+    vertical-align: middle;
+    padding:10px 20px;
 }
 
 .marquee-text-row {
-    margin-top:3em;
+    margin-top:1.5em 0 0 2em;
 }
 
 .marquee-text-row div h4 {
@@ -870,6 +878,43 @@ div.footer {
     margin-top:-50px;
 }
 
+/*===============================================================================
+BASE CSS CODE FOR CHECKBOXES
+===============================================================================*/
+
+.checkbox-row {
+    padding:.4em 0;
+    width:100%;
+}
+
+input[type="checkbox"].search-checkbox {
+    display:none;
+}
+
+label.checkbox-label {
+    font-weight:normal;
+    text-transform: none;
+    text-transform: uppercase;
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size:12px;
+}
+
+input[type="checkbox"].search-checkbox + label span {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-4px 5px 0 0;
+    vertical-align:middle;
+    background:url(../images/checkbox_92x46.png) left top no-repeat;
+    cursor:pointer;
+    background-size:cover;
+}
+input[type="checkbox"].search-checkbox:checked + label span {
+    background:url(../images/checkbox_92x46.png) -19px top no-repeat;
+    background-size:cover;
+}
+
 
 /*===============================================================================
  MODAL
@@ -1168,6 +1213,55 @@ div#widthBox {
 }
 
 
+/*===============================================================================
+GRADIENT BACKGROUNDS
+===============================================================================*/
+.grey-to-light-grey-background,
+.news-item-section,
+.addon-section,
+.documentation-section
+{
+    /*background: rgb(189,189,191); *//* Old browsers *//*
+    *//* IE9 SVG, needs conditional override of 'filter' to 'none' *//*
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JkYmRiZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTllOGVjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-linear-gradient(top,  rgba(189,189,191,1) 0%, rgba(233,232,236,1) 2%); *//* FF3.6+ *//*
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(189,189,191,1)), color-stop(2%,rgba(233,232,236,1))); *//* Chrome,Safari4+ *//*
+    background: -webkit-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 2%); *//* Chrome10+,Safari5.1+ *//*
+    background: -o-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 2%); *//* Opera 11.10+ *//*
+    background: -ms-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 2%); *//* IE10+ *//*
+    background: linear-gradient(to bottom,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 2%); *//* W3C *//*
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdbdbf', endColorstr='#e9e8ec',GradientType=0 ); *//* IE6-8 *//*
+*/
+
+    /* Same as below but with pixels substituted in */
+    background: rgb(189,189,191); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JkYmRiZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTllOGVjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-linear-gradient(top,  rgba(189,189,191,1) 0%, rgba(233,232,236,1) 35px); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(189,189,191,1)), color-stop(35px,rgba(233,232,236,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 35px); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 35px); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 35px); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(189,189,191,1) 0%,rgba(233,232,236,1) 35px); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdbdbf', endColorstr='#e9e8ec',GradientType=0 ); /* IE6-8 */
+
+}
+
+.doc-left-main-col,
+.grey-to-light-grey-horiz-bg {
+    background: rgb(233,232,236); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI5MCUiIHN0b3AtY29sb3I9IiNlOWU4ZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjY2FjOGNlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-linear-gradient(left,  rgba(233,232,236,1) 90%, rgba(202,200,206,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(90%,rgba(233,232,236,1)), color-stop(100%,rgba(202,200,206,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(233,232,236,1) 90%,rgba(202,200,206,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(233,232,236,1) 90%,rgba(202,200,206,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(233,232,236,1) 90%,rgba(202,200,206,1) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(233,232,236,1) 90%,rgba(202,200,206,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9e8ec', endColorstr='#cac8ce',GradientType=1 ); /* IE6-8 */
+
+}
+
 
 /*===============================================================================
  SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
@@ -1224,8 +1318,12 @@ div#widthBox {
         height:550px;
     }
 
+    .intro-download-section .container-fluid.content-holder {
+        height:auto
+    }
+
     .blue-back-div {
-        height:auto;
+        height:200px;
     }
 
     .forge-download-row {
@@ -1271,14 +1369,16 @@ div#widthBox {
         margin-bottom:1em;
     }
 
-    a.top-download-btn {
-        margin:0 auto -20px auto;
-    }
+
 
 
     .forge-anvil-addons-emblem {
         width:130px;
         height:130px;
+    }
+
+    .addons-link-btns a {
+        font-size:11px;
     }
 
 
@@ -1311,6 +1411,18 @@ div#widthBox {
 
     .modal-social-icons ul li {
         padding:0 .4em;
+    }
+
+    .checkbox-row {
+        font-size:11px;
+    }
+    label.checkbox-label {
+        font-size:11px;
+        letter-spacing: 0;
+    }
+
+    input.search-checkbox[type="checkbox"] + label span {
+        margin-right:2px;
     }
 
 
@@ -1481,6 +1593,7 @@ div#widthBox {
     .forge-download-row .top-download-btn {
         margin:0 auto -55px auto;
         font-size:16px;
+        top:-20px;
     }
 
     .network-graphic-div-container,
@@ -1518,8 +1631,13 @@ div#widthBox {
 
     .footer-links-support .link-section-columns  div.col-xs-12 {
         margin:1em auto;
+        float:none;
     }
 
+    footer .container .row .col-xs-12 {
+
+       text-align: center;
+   }
     .footer-links-support .link-section-columns  h3 {
         padding:.5em 0;
         border-top:1px solid white;
@@ -1581,8 +1699,8 @@ div#widthBox {
     }
 
     .intro-download-section  {
-        min-height:auto;
-        height:450px;
+        /*min-height:auto;*/
+        height:400px;
     }
 
     div > ul.footer-social-icons {
@@ -1613,6 +1731,9 @@ div#widthBox {
         margin-right:0;
     }
 
+    .intro-download-section .forge-btn.btn-lrg {
+        width:25%;
+    }
 
     /* MODAL */
     .modal-dialog  {
@@ -1744,6 +1865,10 @@ div#widthBox {
 
     .share-label {
         display:none;
+    }
+
+    .checkbox-row {
+        font-size:11px;
     }
 }
 

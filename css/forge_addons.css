@@ -159,7 +159,7 @@ span.white-chevron-down-outline {
 .checkbox-columns {
 
 }
-
+/*
 .checkbox-row {
     padding:.4em 0;
     width:100%;
@@ -188,7 +188,7 @@ input[type="checkbox"].search-checkbox + label span {
 input[type="checkbox"].search-checkbox:checked + label span {
     background:url(../images/checkbox_92x46.png) -19px top no-repeat;
     background-size:cover;
-}
+}*/
 
 
 
@@ -197,8 +197,8 @@ input[type="checkbox"].search-checkbox:checked + label span {
     background-color:#e9e8ec;
     padding:4em 0 6em 0;
     min-height:300px;
-    box-shadow:         inset 0px 30px 30px #9d9d9d;
-    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;
+    /*box-shadow:         inset 0px 30px 30px #9d9d9d;
+    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;*/
 }
 
 
@@ -245,6 +245,10 @@ input[type="checkbox"].search-checkbox:checked + label span {
     background-image: url(../images/bg-block-grey.png);
 }
 
+.core-addons-divider {
+    padding-top:18px;
+}
+
 .addon-title-row {
     margin:3em 0 1.5em 0;
 }
@@ -286,6 +290,8 @@ row.addon-boxes {
     text-align: center;
 }
 
+
+
 .addon-boxes div.addon {
     font-size:11px;
     line-height:1.1;
@@ -293,11 +299,12 @@ row.addon-boxes {
 
 .addon-boxes div.addon .img-div {
     background:#f1f1f2;
-    width:120px;
-    height:120px;
+    width:90px;
+    height:90px;
     clear:both;
-    padding:2em;
+    padding:1.5em;
     border-radius:50%;
+    border:1px solid #dfdfdf;
 
 }
 
@@ -319,17 +326,20 @@ row.addon-boxes {
     font-weight:100;
     font-style:italic;
     margin:0;
-    padding:.3em 0;
+
 }
 
 .addon-boxes div.addon h3 {
     font-size:11px;
+    padding:.3em 0;
 }
 
 .addon-boxes div.addon p {
     font-size:10px;
     line-height:1.2em;
     height:auto;
+    padding:1em 0 1.5em 0;
+    margin-bottom:1em;
 }
 
 /* Stars */
@@ -337,6 +347,7 @@ row.addon-boxes {
     text-align: center;
     display:inline-block;
     clear:both;
+    margin-top:.5em;
 }
 
 .star-row span.glyphicon.glyphicon-star {
@@ -361,7 +372,9 @@ row.addon-boxes {
 
 /* Medium MD */
 @media(min-width:992px) and (max-width:1200px) {
-
+    .core-addons-divider {
+        padding-top:36px;
+    }
 }
 
 
@@ -417,8 +430,12 @@ row.addon-boxes {
 
 /* Small SM */
 @media(min-width:768px) and (max-width:992px) {
-    .checkbox-row {
+    /*.checkbox-row {
         font-size:11px;
+    }*/
+
+    .core-addons-divider {
+        padding-top:18px;
     }
 
 }
@@ -452,5 +469,12 @@ row.addon-boxes {
         padding:10px;
     }
 
+    .advanced-search-checkbox-area .col-xs-offset-2 {
+        margin-left:8%;
+    }
+
+    .star-row span.glyphicon.glyphicon-star {
+        font-size:14px;
+    }
 
 }

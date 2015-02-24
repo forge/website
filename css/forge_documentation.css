@@ -206,8 +206,8 @@ input[type="checkbox"].search-checkbox:checked + label span {
     background-color:#e9e8ec;
     padding:4em 0 6em 0;
     min-height:300px;
-    box-shadow:         inset 0px 30px 30px #9d9d9d;
-    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;
+    /*box-shadow:         inset 0px 30px 30px #9d9d9d;
+    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;*/
 }
 
 

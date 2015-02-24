@@ -40,9 +40,11 @@ h2 {
 }
 
 .doc-left-main-col {
+/*
      background:#d4d3d9;
      box-shadow:        inset -20px 0 20px #c1c0c6;
      -moz-box-shadow:   inset -20px 0 20px #c1c0c6;
+*/
 }
 
 .doc-left-main-col div.row {
