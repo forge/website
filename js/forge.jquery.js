@@ -105,7 +105,7 @@ function smallScreenWidthMgr() {
         $logo = $('.forge-logo-smaller');
         $logo.css({'marginLeft':((w/2) - 75)+'px'});
         // Add a border to dropdown menu
-        $('#navBarMain').css({'border':'1px solid white'});
+        //$('#navBarMain').css({'border':'1px solid white'});
     } else
     if(w >= 767) {
         // Function to give a uniform height and alignment to grey boxes in download/os section
