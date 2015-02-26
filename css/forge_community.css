@@ -364,6 +364,27 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
         padding-top:20px;
     }
 
+    .contribute-columns  .left-col-container .display-div h2,
+    .contribute-columns  .right-col-container .display-div h2,
+    .contribute-columns  .interior-left-column .display-div h2 {
+        font-size:20px;
+    }
+
+
+    .contribute-columns  .interior-left-column .display-div h2 {
+        padding-top:12px;
+    }
+
+    .contribute-columns  .interior-left-column .display-div a {
+        font-size:15px;
+    }
+
+
+    .contribute-columns  .left-col-container .display-div a,
+    .contribute-columns  .right-col-container .display-div a {
+        font-size:15px;
+    }
+
 }
 
 /* Max. Size SM (767px and under) */
@@ -443,11 +464,13 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
     }
 
     /* Change community grid row to only show two per line */
-    .community-grid-row {
-        margin:0;
+    /*.community-grid-row {
+        margin-left:15%;
         padding:0;
-        /* Margin will be added to each img */
-    }
+        width:70%;
+
+        *//* Margin will be added to each img *//*
+    }*/
 
     .community-grid-row div {
         width:50%;
@@ -480,11 +503,29 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
     .display-div a.forge-btn {
         width:40%;
     }
+
+
+    .community-grid-row {
+        margin-left:15%;
+        padding:0;
+        width:70%;
+
+        /* Margin will be added to each img */
+    }
 }
 
 @media(max-width:480px) {
     .display-div a.forge-btn {
         width:50%;
+    }
+
+
+    .community-grid-row {
+        margin-left:0;
+        padding:0;
+        width:100%;
+
+        /* Margin will be added to each img */
     }
 
 

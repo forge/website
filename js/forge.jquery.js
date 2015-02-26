@@ -243,7 +243,8 @@ function  sizeContributeSection() {
     $('.build-an-addon').css({'height':intRightColHeight + 'px' });
 
 
-    if($(window).width() > 992) {
+    //if($(window).width() > 992) {
+    if($(window).width() > 768) {
         // Now the outer and inner pairs of columns should be aligned vertically
         var diff = (Math.abs(intRightColHeight - finColHeight)) / 2;
 

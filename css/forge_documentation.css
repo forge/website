@@ -179,7 +179,7 @@ input[type="checkbox"].search-checkbox {
 }
 
 label.checkbox-label {
-    font-weight:normal;
+    /*font-weight:normal;*/
     text-transform: none;
     text-transform: uppercase;
 }
@@ -312,7 +312,7 @@ div.medal {
     height:70px;
     width:70px;
     clear:both;
-    margin-top:-5em;
+    margin-top:-58px;
     background-color: #f1f1f2;
     background-repeat: no-repeat;
     background-size:contain;
@@ -344,8 +344,14 @@ div.medal.advanced {
 
 .row.info-links div {
     margin:0;
-    padding:1em .5em;
+    padding:1em .5em .4em .5em;
 }
+
+.documentation-boxes div.info-links {
+    margin:0;
+    padding:0 .5em;
+}
+
 
 .row.info-links div.mid-col {
     border-left:1px solid #ccc;
