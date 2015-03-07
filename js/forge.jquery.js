@@ -167,7 +167,7 @@ function uniformAddonSizes() {
     var pHeightArr = new Array(); // For all the <p> tags in the rows.
 
     // Gather heights of all <p> elements
-    $('.addon').each(function(i,e) {
+    $('.click-modal').each(function(i,e) {
        pHeightArr.push($(this).children('p').height());
     });
 
@@ -175,7 +175,7 @@ function uniformAddonSizes() {
     var allHeight = Math.max.apply(Math,pHeightArr);
 
     // Set the height to all <p> tags
-    $('.addon').each(function(i,e) {
+    $('.click-modal').each(function(i,e) {
         $(this).children('p').css({'height':allHeight+'px'});
     });
 }

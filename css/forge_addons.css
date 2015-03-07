@@ -263,6 +263,26 @@ row.addon-boxes {
     text-align: center;
 }
 
+.addon-boxes div.click-modal {
+    margin:0;
+    cursor:pointer;
+    padding:.5em 0 1em 0;
+    border-radius:          10px;
+    -webkit-border-radius:  10px;
+    -moz-border-radius:     10px;
+}
+
+.addon-boxes div.click-modal:hover {
+    background: #f5f5f5;
+}
+
+.addon-boxes div.click-modal:active {
+    background: #fbfbfb;
+    box-shadow:         inset 0px 0px 10px #cccccc;
+    -moz-box-shadow:    inset 0px 0px 10px #cccccc;
+
+}
+
 .addon-boxes div:first-child {
 
 }
@@ -305,12 +325,14 @@ row.addon-boxes {
     padding:1.5em;
     border-radius:50%;
     border:1px solid #dfdfdf;
+    margin-top:0;
 
 }
 
 .addon-boxes div.addon .img-div img {
     width:100%;
     height:auto;
+
 
 }
 
@@ -338,8 +360,7 @@ row.addon-boxes {
     font-size:10px;
     line-height:1.2em;
     height:auto;
-    padding:1em 0 1.5em 0;
-    margin-bottom:1em;
+    padding:0;
 }
 
 /* Stars */
