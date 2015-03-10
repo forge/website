@@ -1,6 +1,60 @@
 // CUSTOM JS FOR FORGE WEBSITE
 
 
+// Array of language choices for documents page (since this is a demo version, the 'english' item will be used as the default).
+var langObj = {
+    0: {type :"english",
+        label:"English",
+        class:"language-usa"
+    },
+    1:{
+        type :"francais",
+        label:"Francais",
+        class:"language-francais"
+    },
+    2:{
+        type :"japanese",
+        label:"日本の",
+        class:"language-japanese"
+    },
+   3:{   type:"german",
+        label:"Deutsch",
+        class:"language-german"
+    },
+    4:{
+        type: "espanol",
+        label:"Espa&ntilde;ol",
+        class:"language-espanol"
+    }
+};
+
+var langObj = {
+    "english": {type :"english",
+        label:"English",
+        class:"language-usa"
+    },
+    "francais":{
+        type :"francais",
+        label:"Fran&ccedil;ais",
+        class:"language-francais"
+    },
+    "japanese":{
+        type :"japanese",
+        label:"日本の",
+        class:"language-japanese"
+    },
+    "german":{   type:"german",
+        label:"Deutsch",
+        class:"language-german"
+    },
+    "espanol":{
+        type: "espanol",
+        label:"Espa&ntilde;ol",
+        class:"language-espanol"
+    }
+};
+
+
 $(function() {
     // Only use widthBox() during testing
     //widthBox();
@@ -45,8 +99,15 @@ $(function() {
        });
     }
 
+    // Determine whether the language selection menu is present
+    if($('.language-select-container').length) {
+       languageSelectMenu();
+    }
+
 
 });
+
+
 
 
 // This function launches the modal from script. Use it to bind to other page events.
@@ -302,4 +363,110 @@ function sumArray(x) {
         t += e;
     });
     return t;
+}
+
+
+// Function to control the display and selection of different languages on each page.
+function languageSelectMenu() {
+
+    var defaultSelectee = "english"; // 'english' might be split into UK English and USA English, too (for now, image is USA flag)
+    // Now populate the remaining choices with a standard function
+    populateLanguageOptions(defaultSelectee);
+
+
+    // Selection Variables
+    $l = $('.language-select-container');
+    $al = $('.alternate-languages');
+
+    $('a.lang-control-btn').click(function(e) {
+        e.preventDefault();
+        // Show or hide dropdown menu
+        controlLanguageBox();
+
+    });
+
+    // Determine mouse entry to show or hide list.
+    $al.mouseenter(function(e){
+        $al.mouseleave(function(r){
+            r.preventDefault();
+            // Show or hide dropdown menu
+            controlLanguageBox();
+        });
+    });
+}
+
+// This shows/hides the dropdown.
+function controlLanguageBox() {
+    $al = $('.alternate-languages');
+    var c = $al.hasClass('hidden');
+    (c === true) ? $al.removeClass('hidden') : $al.addClass('hidden');
+}
+
+
+// This function populates the language selection menu
+function populateLanguageOptions(sel) {
+
+
+    // Establish selected language
+    $selectee = langObj[sel];
+    // Start with the selectee
+    $('span.language-label').html($selectee['label']);
+    $('.selected-language').children().find('.language-img').attr('data-language-img',$selectee['class']);
+    $('.lang-control-btn').attr('data-selected-lang',sel); // This needs to be known so the previously selected item can be added to the list.
+
+
+    // Now fill in other language options.
+    // Figure out keys and then loop through those that aren't selected.
+    var lKeys = Object.keys(langObj);
+
+    var lastI = lKeys.slice(-1); // Don't place a divider after this item.
+
+    var rMenu = ''; // Object to be placed inside the dropdown options box.
+
+    for(var i=0;i<lKeys.length;i++) {
+
+        // Get specific item
+        var e = langObj[lKeys[i]];
+
+        if(e.type != sel) {
+            // Build the remaining items
+            rMenu += '<a href="#" data-language="'+ e.type +'">';
+            rMenu +=  e.label + '<span class="language-img" data-language-img="'+e.class+'"></span>';
+            rMenu += '</a>';
+            rMenu += '<div class="language-divider"></div>';
+        }
+
+    }
+
+    // Add last line
+    rMenu += '<a href="#" data-language="add-new">Add Language<span class="language-img language-new"></span>';
+
+    // Insert Object
+    $('.alternate-languages').html(rMenu);
+
+    // Lastly, add the hidden class back to the language option box.
+    $al = $('.alternate-languages');
+    if( $al.hasClass('hidden') !== true) {$al.addClass('hidden')};
+
+    // Assign button selection functions
+    $('.alternate-languages').children('a').click(function(e) {
+        e.preventDefault();
+        // Find which item this is
+        var s = $(this).attr('data-language');
+        if(s == 'add-new') {
+            // Begin the functionality to add new language here
+            alert('This is where a function to add a new language would commence');
+        } else {
+            // Proceed to switch the selected boxes
+            populateLanguageOptions(s);
+
+            // ** FUNCTION TO RUN THE LANGUAGE CHANGE FOR THE DISPLAYED PAGE WOULD OCCUR HERE **
+
+
+            // Now hide the alternate language dropdown
+            $al.addClass('hidden');
+        }
+
+    });
+
 }

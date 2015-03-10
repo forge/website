@@ -92,14 +92,26 @@ h2 {
 .language-select-container a:visited,
 .language-select-container a:link {
     outline:none;
+    text-decoration: none;
 }
 
+.language-selector div.alternate-languages.hidden {
+    display:none;
+}
 
 .language-selector div.alternate-languages a {
     display:block;
     padding:.5em 0;
     width:90%;
     margin:0 auto;
+}
+
+.language-selector div.alternate-languages a:hover {
+    color:#cccccc
+}
+
+.language-selector div.alternate-languages a:hover span.language-img {
+    border-color:#333333;
 }
 
 
@@ -126,7 +138,8 @@ h2 {
     background-size: cover;
 }
 
-a.select-new-language {
+a.lang-control-btn {
+    background-color:#cdcbd3;
     display:inline-block;
     border:1px solid #cdcbd3;
     width:20px;
@@ -135,11 +148,15 @@ a.select-new-language {
     float:none;
     background-image:url(../images/dark-blue-chevron-down-w-padding.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: 50% 50%;
+    border:1px solid #cdcbd3;
+    border-radius:          50%;
+    -moz-border-radius:     50%;
+    -webkit-border-radius:  50%;
 }
 
-a.select-new-language:hover {
+a.lang-control-btn:hover {
     background-color: #f1eff8;
 }
 
@@ -150,23 +167,26 @@ a.select-new-language:hover {
     padding-top:2px;
 }
 
-.language-img.language-usa {
+span[data-language-img='language-usa'] {
     background-image:url(../images/flag-usa.png);
 }
 
-.language-img.language-espanol {
+span[data-language-img='language-espanol']
+/*.language-img.language-espanol*/ {
     background-image:url(../images/flag-spanish.png);
 }
 
-.language-img.language-francais {
+span[data-language-img='language-francais']
+/*.language-img.language-francais*/ {
     background-image:url(../images/flag-french.png);
 }
-
-.language-img.language-japanese {
+span[data-language-img='language-japanese']
+/*.language-img.language-japanese*/ {
     background-image:url(../images/flag-japanese.png);
 }
 
-.language-img.language-german {
+span[data-language-img='language-german']
+/*.language-img.language-german*/ {
     background-image:url(../images/flag-german.png);
 }
 
@@ -634,6 +654,21 @@ div.doc-content-social-media a.youtube-link {
         line-height:1.5em;
         text-align: center;
         color:white;
+    }
+
+    /* Nav news bar and language selector */
+
+    /* Make room for selected lang. box */
+    .doc-content {
+        padding-top:3em;
+    }
+
+    /* Language selector change */
+    .language-selector {
+        /* Margins manually entered to simulate col-xs-offset-2 */
+        margin-left:16.6667%;
+        margin-right:16.667%;
+        float:none;
     }
 
 
