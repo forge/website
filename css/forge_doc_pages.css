@@ -16,6 +16,7 @@ h2 {
 /* FIRST SECTION - NAV/NEWS BAR */
 
 .nav-news-bar {
+    font-size:13px;
     padding:1.5em 0;
     line-height:1;
     border-top:     5px solid #ee3327;
@@ -24,13 +25,12 @@ h2 {
     font-family:"Montserrat",sans-serif;
 }
 
-
 /* LANGUAGE SELECTOR */
 .language-select-container {
     position: absolute;
     left:0;
     width:100%;
-    z-index: 2000;
+    z-index: 1800;
 }
 
 .language-selector {
@@ -44,8 +44,6 @@ h2 {
     font-family: "Montserrat",sans-serif;
     font-size:13px;
     letter-spacing:1px;
-
-
 }
 
 .language-selector div.alternate-languages {
@@ -142,9 +140,9 @@ a.lang-control-btn {
     background-color:#cdcbd3;
     display:inline-block;
     border:1px solid #cdcbd3;
-    width:20px;
-    height:20px;
-    margin-left:8px;
+    width:15px;
+    height:15px;
+    margin:4px 0 0 8px;
     float:none;
     background-image:url(../images/dark-blue-chevron-down-w-padding.png);
     background-repeat: no-repeat;
@@ -160,7 +158,9 @@ a.lang-control-btn:hover {
     background-color: #f1eff8;
 }
 
-
+a.lang-control-btn:active {
+    background-color: #f4f2fb;
+}
 
 .language-label {
     float:left;
@@ -194,10 +194,6 @@ span[data-language-img='language-german']
     background-color: #d8d6de;
 }
 
-
-
-
-
 div.language-divider {
     height:1px;
     background:#a4a4b2;
@@ -209,11 +205,120 @@ div.language-divider {
 
 
 
+/* SIBLING SWITCH MENU IN TOP LINE (Us */
+ol.breadcrumb.sibling-switch-menu {
+    padding:0;
+    margin:0;
+    background:none;
+}
+
+ol.breadcrumb.sibling-switch-menu a,
+ol.breadcrumb.sibling-switch-menu a:hover,
+ol.breadcrumb.sibling-switch-menu a:visited {
+    outline:none;
+}
+
+ol.breadcrumb.sibling-switch-menu li {
+    position:relative;
+
+}
+
+ol.breadcrumb.sibling-switch-menu li span {
+    margin-left:2em;
+}
+
+ol.breadcrumb.sibling-switch-menu li:before {
+    color:	#131726;
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu {
+    background:white;
+    position:absolute;
+    z-index: 2000;
+    font-size:13px;
+    top:-2.2em;
+    left:30px;
+    margin-top:-8px;
+    margin-left:0;
+    padding:10px 12px;
+    box-shadow: 0px 2px 3px #cccccc;
+    -moz-box-shadow: 0px 2px 3px #cccccc;
+    border-radius:      10px;
+    -moz-border-radius:  10px;
+    -webkit-border-radius:  10px;
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li {
+    list-style:none;
+    padding:0;
+    margin:0;
+    border-top:1px solid #a4a4b2;
+
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li a {
+    display:block;
+    padding:.5em 0;
+    min-width:200px;
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li a:hover {
+    color:#cccccc;
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li:first-child a {
+    padding-top:0;
+}
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li:last-child a {
+    padding-bottom:0;
+}
+
+ol.breadcrumb.sibling-switch-menu li ol.sub-menu li:first-child {
+    border:none;
+}
+
+ol.breadcrumb.sibling-switch-menu li a.sibling-switch-ctrl {
+    background-color:#cdcbd3;
+    display:inline-block;
+    border:1px solid #cdcbd3;
+    width:15px;
+    height:15px;
+    margin-left:8px;
+    float:none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    border:1px solid #cdcbd3;
+    border-radius:          50%;
+    -moz-border-radius:     50%;
+    -webkit-border-radius:  50%;
+}
+
+ol.breadcrumb.sibling-switch-menu li a.sibling-switch-ctrl:hover {
+    background-color: #f1eff8;
+}
+
+
+ol.breadcrumb.sibling-switch-menu li a.sibling-switch-ctrl.closed {
+    background-image:url(../images/dark-blue-chevron-down-w-padding.png);
+}
+
+ol.breadcrumb.sibling-switch-menu li a.sibling-switch-ctrl {
+    background-image:url(../images/dark-blue-chevron-up-w-padding.png);
+}
+
+ol.breadcrumb.sibling-switch-menu li a.sibling-switch-ctrl,
+a.sibling-switch-ctrl {
+    z-index:4000;
+    position:absolute;
+    margin-left:0;
+}
+
+
 /* MAIN DOCUMENT CONTENT*/
 .doc-content {
     padding:0;
     height:100%;
-
 }
 
 .doc-left-main-col,
@@ -245,7 +350,7 @@ div.language-divider {
 }
 
 input[type="text"].doc_search,
- input[type="submit"].doc_search_submit {
+input[type="submit"].doc_search_submit {
     /* Reset */
     border:none;
     margin:0;

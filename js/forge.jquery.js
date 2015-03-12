@@ -105,6 +105,10 @@ $(function() {
     }
 
 
+    if($('.sibling-switch-menu').length) {
+        siblingSwitchMenu();
+    }
+
 });
 
 
@@ -406,7 +410,6 @@ function controlLanguageBox() {
 // This function populates the language selection menu
 function populateLanguageOptions(sel) {
 
-
     // Establish selected language
     $selectee = langObj[sel];
     // Start with the selectee
@@ -469,4 +472,84 @@ function populateLanguageOptions(sel) {
 
     });
 
+}
+
+// This manages the sibling switch menu(s) on the documentation_page.html template
+// Each sibling menu must have its own data-menu-level number.
+
+/*
+<a href> links in each sub menu are assumed to pull up a new page and thus
+don't need any special functionality, but it could be added fairly easily if
+content is changed via ajax calls instead of a new HTML page being pulled up.
+*/
+
+function siblingSwitchMenu() {
+    // By default, menus should be hidden on a page load.
+    if($('ol.sub-menu').hasClass('hidden') === false) {
+        $('ol.sub-menu').addClass('hidden');
+    }
+
+    if($('a.sibling-switch-ctrl').hasClass('closed') === false) {
+        $('a.sibling-switch-ctrl').addClass('closed');
+    }
+
+    // Assign button function
+    $('a.sibling-switch-ctrl').click(function(e) {
+        e.preventDefault();
+        openControlMenu($(this).attr('data-menu-level'));
+    });
+}
+
+// Function to control whichever menu is open; levelNumber identifies the menu's location in the hierarchy
+function openControlMenu(levelNumber) {
+    $tar = $('a.sibling-switch-ctrl[data-menu-level="'+levelNumber+'"]');
+
+    // Change appearance of menu control
+    $tar.removeClass('closed');
+
+    // Show menu at this level
+    $menu = $tar.parent().children('ol.sub-menu');
+    $menu.removeClass('hidden');
+
+    // Change z-index
+    $tar.parent().css({'zIndex':5000});
+
+    // Assign function to close via control link
+    $tar.click(function(e) {
+        e.preventDefault();
+        closeControlMenu(levelNumber);
+    });
+
+    // Assign same function to close via mouseenter/mouseleave of actual menu
+    $menu.mouseenter(function(e) {
+        e.preventDefault();
+        $(this).mouseleave(function() {
+           closeControlMenu(levelNumber);
+        });
+    });
+}
+
+// Function to control whichever menu is open; levelNumber identifies the menu's location in the hierarchy
+function closeControlMenu(levelNumber) {
+    $tar = $('a.sibling-switch-ctrl[data-menu-level="'+levelNumber+'"]');
+
+    // Change appearance of menu control
+    if($tar.hasClass('closed') === false) {
+        $tar.addClass('closed');
+    }
+
+    // Change z-index
+    $tar.parent().css({'zIndex':0});
+
+    // Hide menu at this level
+    $menu = $tar.parent().children('ol.sub-menu');
+    if($menu.hasClass('hidden') === false) {
+        $menu.addClass('hidden');
+    }
+
+    // Reassign open function
+    $tar.click(function(e) {
+        e.preventDefault();
+        openControlMenu(levelNumber);
+    });
 }
