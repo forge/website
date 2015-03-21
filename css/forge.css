@@ -54,7 +54,8 @@ a {
 
 a:hover,
 a:active,
-a:visited {
+a:visited,
+a:focus {
     text-decoration:none;
     outline:none;
     border-width:0;
@@ -98,6 +99,87 @@ h6,.h6 {
     font-weight: 300;
 }
 
+/* Flyover Menu */
+.flyover-menu {
+    position:absolute;
+    width:180px;
+    height:100%;
+    background: #16162c;
+    box-shadow:0px 0px 5px #181818;
+    z-index:4020;
+    /* Starting Position is a -margin of width + 15px (to account for the Bootstrap padding) */
+    margin-left:-195px;
+}
+
+.flyover-menu ul {
+    padding:1em 0 0 0;
+    margin:0;
+    width:90%;
+    float:right;
+    padding-right:10%;
+}
+
+.flyover-menu ul li {
+    list-style:none;
+    color:white;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow",sans-serif;
+    text-align:right;
+    padding:0;
+    margin:0;
+}
+
+.flyover-menu ul li a {
+    color:white;
+    display:block;
+    padding:.5em .8em;
+    margin:.2em 0;
+    font-size:1em;
+    line-height: 1;
+}
+
+.flyover-menu ul li a:hover {
+
+    background: #212146;
+    border-radius:15px;
+}
+
+.flyover-menu ul li a:active {
+    color: #b2b2b2;
+    background: #3b3b7d;
+}
+
+.flyover-menu ul li a,
+.flyover-menu ul li a:hover,
+.flyover-menu ul li a:active,
+.flyover-menu ul li a:focus,
+.flyover-menu ul li a:visited {
+    outline:none;
+}
+
+
+.flyover-backdrop {
+    display:none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4000;
+    background-color: #000;
+    width:100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    /*filter: alpha(opacity=50);
+    opacity: .5;*/
+}
+
+.flyover-backdrop.active {
+    display:block;
+}
+
+
+
 
 .page-section {
     position: relative;
@@ -130,6 +212,10 @@ h6,.h6 {
 
 
 .forge-btn {
+    /* Kept for reference */
+}
+
+.btn {
     font-family: 'Montserrat',sans-serif;
     text-align: center;
     display:block;
@@ -137,12 +223,14 @@ h6,.h6 {
     -moz-border-radius:     5px;
     -webkit-border-radius:  5px;
     color:#ffffff;
-    box-shadow:   0px 0px 5px #333333;
-
+    border:none;
+    box-shadow:   0px 0px 2px #333333;
 }
 
-.btn {
-    border:none;
+/* This tag might be included in one or two instances */
+.btn.no-shadow {
+    box-shadow: none;
+    -moz-box-shadow: none;
 }
 
 .forge-btn:hover,
@@ -150,7 +238,7 @@ h6,.h6 {
     text-decoration:none;
     outline:none;
     color:#ffffff;
-    box-shadow:         0px 0px 8px black;
+    box-shadow:         0px 0px 3px black;
 }
 
 .btn-lrg {
@@ -160,7 +248,7 @@ h6,.h6 {
 
 .btn-med {
     font-size:16px;
-    padding:8px 3px;
+    padding:9px 3px 8px 3px;
 }
 
 .btn-red {
@@ -480,14 +568,15 @@ PAGE SECTIONS
     float:none;
     color:#ffffff;
     margin:0 auto;
-    z-index: 9000;
+    z-index: 2500;
     text-align: center;
     vertical-align: middle;
     padding:10px 20px;
 }
 
 .marquee-text-row {
-    margin-top:1.5em 0 0 2em;
+   /* margin-top:1.5em 0 0 2em;*/
+    margin-top:1.5em;
 }
 
 .marquee-text-row div h4 {
@@ -1539,10 +1628,7 @@ GRADIENT BACKGROUNDS
         float:none;
     }
 
-    .forge-anvil-addons-emblem {
-        width:140px;
-        height:140px;
-    }
+
 
     /* Create a static bg image for the top-most 'download button' section (normally where parallax goes) */
     .page-section.intro-download-section {
@@ -1559,7 +1645,7 @@ GRADIENT BACKGROUNDS
     }
 
     ul.login-register-btns {
-        background:white;
+        background:none;
         margin:0;
         padding:0;
         border-radius: 5px;
@@ -1572,7 +1658,7 @@ GRADIENT BACKGROUNDS
     }
 
     ul.login-register-btns li a {
-        background:none;
+        background:white;
         padding:2px 5px;
         margin:0;
         border:none;
@@ -1588,6 +1674,35 @@ GRADIENT BACKGROUNDS
         width:100%;
         border:none;
     }
+
+    ul.login-register-btns li:first-child a,
+    ul.login-register-btns li:first-child a:hover,
+    ul.login-register-btns li:first-child a:active,
+    ul.login-register-btns li:first-child a:focus,
+    ul.login-register-btns li:first-child a:visited {
+        border-top-left-radius: 5px;
+        border-top-right-radius:5px;
+        -webkit-border-top-left-radius:  5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft:5px;
+        -moz-border-radius-topright: 5px;
+    }
+
+    ul.login-register-btns li:last-child a,
+    ul.login-register-btns li:last-child a:hover,
+    ul.login-register-btns li:last-child a:active,
+    ul.login-register-btns li:last-child a:focus,
+    ul.login-register-btns li:last-child a:visited {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius:5px;
+        -webkit-border-bottom-left-radius:  5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft:5px;
+        -moz-border-radius-bottomright: 5px;
+    }
+
+
+
 
     .forge-download-row {
         margin-top:0;
@@ -1763,6 +1878,13 @@ GRADIENT BACKGROUNDS
         width:25%;
     }
 
+    .forge-anvil-addons-emblem {
+        width:140px;
+        height:140px;
+    }
+
+
+
     /* MODAL */
     .modal-dialog  {
         width:90%;
@@ -1816,6 +1938,9 @@ GRADIENT BACKGROUNDS
         font-size:12px;
     }
 
+    ul.login-register-btns {
+        font-size:11px;
+    }
 
     div > ul.footer-social-icons {
 
@@ -1843,6 +1968,11 @@ GRADIENT BACKGROUNDS
 
     ul.footer-social-icons li:last-child > a {
         margin-right:0;
+    }
+
+    .forge-anvil-addons-emblem {
+        width:90px;
+        height:90px;
     }
 
 
@@ -1897,6 +2027,11 @@ GRADIENT BACKGROUNDS
 
     .checkbox-row {
         font-size:11px;
+    }
+
+    .chevron-down-scroll {
+        width:50px;
+        height:31px;
     }
 }
 

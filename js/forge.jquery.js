@@ -55,6 +55,7 @@ var langObj = {
 };
 
 
+// INIT FUNCTIONS
 $(function() {
     // Only use widthBox() during testing
     //widthBox();
@@ -76,7 +77,7 @@ $(function() {
     }
 
     // Init Contribute page column sizing – works in the larger (lg or md) breakpoints only
-    if($('.contribute-columns').length && $(window).outerWidth() > 768) {
+    if($('.contribute-columns').length && $(window).outerWidth() > 767) {
         sizeContributeSection();
         $(window).resize(function(){
             sizeContributeSection();
@@ -90,10 +91,10 @@ $(function() {
     }
 
     // If this is a document page, init column sizing for tablet/desktop size screens
-    if($('.doc-content').length && $(window).outerWidth() > 768) {
+    if($('.doc-content').length && $(window).outerWidth() > 767) {
        docContentHeightFix();
        $(window).resize(function(){
-           if($(window).outerWidth() > 768) {
+           if($(window).outerWidth() > 767) {
                docContentHeightFix();
            }
        });
@@ -104,17 +105,120 @@ $(function() {
        languageSelectMenu();
     }
 
-
+    // Init sibling switch menu
     if($('.sibling-switch-menu').length) {
         siblingSwitchMenu();
     }
 
+    // Init flyover menu functionality – assumes this menu will be on every page (no .class check)
+    initFlyOver();
 });
 
+// Inits Fly Over Menu
+function initFlyOver() {
+
+    var flyDivs = '<div class="flyover-menu"></div><div class="flyover-backdrop"></div>';
+    $('body').prepend(flyDivs);
+
+    // Backdrop overlay layer
+    $b = $('.flyover-backdrop');
+    // Flyover menu
+    $f = $('.flyover-menu');
+
+    // On load: obtain whatever main menu <li>'s and duplicate to the fly-over container.
+    var navClone = $('.main-menu-ul').clone().html();
+    $('.flyover-menu').html('<ul>'+navClone+'</ul>');
+
+
+    // Resize the fly-over content to match the full height of the current page content (with resize() changes)
+    sizeFlyoverMenus();
+    $(window).resize(function(){
+        sizeFlyoverMenus();
+    });
 
 
 
-// This function launches the modal from script. Use it to bind to other page events.
+    $('#btnFlyOver').click(function(e) {
+        e.preventDefault();
+        if($f.hasClass('active') === false) {
+            activateFlyOver();
+        }
+    });
+
+    // Allows a left swipe on the side flyover menu
+    $f.swipe({
+        swipeLeft:function(){
+            deActivateFlyOver();
+        }
+    });
+
+    // Bind deactivation to any touch to the main area overlay
+    $b.click(function(e) {
+        deActivateFlyOver();
+    } );
+}
+
+// Shows Fly Over Menu & transparent page overlay div
+function activateFlyOver() {
+    // Backdrop overlay layer
+    $b = $('.flyover-backdrop');
+    // Flyover menu
+    $f = $('.flyover-menu');
+
+    // Add 'active' classes
+    $b.addClass('active');
+    $f.addClass('active');
+
+    // Animate overlay opacity. This and the fly-over should give the appearance of animating concurrently.
+    $b.animate({'opacity':.5},200);
+
+    // Animate fly-over
+    $f.animate({'marginLeft':0},{duration:400});
+}
+
+// Shows Fly Over Menu & transparent page overlay div
+function deActivateFlyOver() {
+    // Backdrop overlay layer
+    $b = $('.flyover-backdrop');
+    // Flyover menu
+    $f = $('.flyover-menu');
+
+    // Animate overlay opacity. This and the fly-over should give the appearance of animating concurrently.
+    $b.animate({'opacity':.5},400);
+
+    // Animate fly-over
+    $f.animate({'marginLeft':'-195px'},{duration:200});
+
+    // Add 'active' classes
+    $b.removeClass('active');
+    $f.removeClass('active');
+}
+
+
+// Function to resize the flyover menu and window overlay
+function sizeFlyoverMenus() {
+    // Backdrop overlay layer
+    $b = $('.flyover-backdrop');
+    // Flyover menu
+    $f = $('.flyover-menu');
+
+    var h = $('body').outerHeight();
+
+    // Array of each fly-over var
+    var arr = [$b,$f];
+
+    $(arr).each(function(i,e) {
+        $(this).css({'height':h+'px'});
+    });
+
+}
+
+
+
+
+
+
+// This function launches the modal from script. It's used with other page events as needed.
 function productModal() {
     $('#productModal').modal();
 }

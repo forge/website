@@ -22,63 +22,71 @@
     <favorites_list name="Site" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.58290726">
-      <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.25465837">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/index.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="142" column="63" selection-start="5498" selection-end="5498" vertical-scroll-proportion="2.1785715" vertical-offset="1886" max-vertical-offset="6030">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="forge.css" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/css/forge.css">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15090">
-                      <folding>
-                        <marker date="1412001399000" expanded="true" signature="14890:18095" placeholder="{...}" />
-                        <marker date="1412001399000" expanded="true" signature="18421:18627" placeholder="{...}" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="forge.jquery.js" pinned="false" current="true" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="88" column="9" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.8097826" vertical-offset="873" max-vertical-offset="1815">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="forge.css" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/css/forge.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="953" column="17" selection-start="17647" selection-end="17647" vertical-scroll-proportion="2.894309" vertical-offset="12159" max-vertical-offset="15090">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="community.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/community.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="5625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="documentation.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/documentation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8760">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="documentation_page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/documentation_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="6870">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.9" vertical-offset="0" max-vertical-offset="9765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news_main.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8220">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news_page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="4725">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addons.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addons.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="4.4352794" vertical-offset="0" max-vertical-offset="13350">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -89,18 +97,31 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/css/parallax-styles.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/forge.css" />
         <option value="$PROJECT_DIR$/js/forge.jquery.js" />
+        <option value="$PROJECT_DIR$/css/forge_documentation.css" />
+        <option value="$PROJECT_DIR$/css/forge_addons.css" />
+        <option value="$PROJECT_DIR$/css/forge_news.css" />
+        <option value="$PROJECT_DIR$/js/jquery.2.1.3.min.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/addons.html" />
+        <option value="$PROJECT_DIR$/news_page.html" />
+        <option value="$PROJECT_DIR$/news_main.html" />
+        <option value="$PROJECT_DIR$/documentation_page.html" />
+        <option value="$PROJECT_DIR$/documentation.html" />
+        <option value="$PROJECT_DIR$/community.html" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" max_simultaneous_connections="5" />
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="XDebug" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="XDebug">
+    <include_path>
+      <path value="." />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1600" />
-    <option name="height" value="874" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -132,59 +153,17 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
+              <option name="myItemId" value="JBoss Forge 2015" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
+              <option name="myItemId" value="JBoss Forge 2015" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="website-design-2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -194,11 +173,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -211,12 +191,29 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="85954af6-8fc9-47ca-8608-ce1b2bf06725" server_name="Forge 2015 Localhost">
       <method />
     </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0362124e-96e3-4d1d-babd-1e694c6fc4c9" name="Default" comment="" />
@@ -226,25 +223,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1600" height="874" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.144375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16041666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13247362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -267,33 +264,169 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/parallax-styles.css">
+    <entry file="file://$PROJECT_DIR$/css/forge.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="42" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.22554348" vertical-offset="1852" max-vertical-offset="2280">
+        <state line="8" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0" vertical-offset="1935" max-vertical-offset="30930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_documentation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="7695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="5" selection-start="3278" selection-end="3326" vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="7590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="63" selection-start="5498" selection-end="5498" vertical-scroll-proportion="2.1785715" vertical-offset="1886" max-vertical-offset="6030">
+        <state line="142" column="0" selection-start="7677" selection-end="7677" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="9" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="9135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="874" column="11" selection-start="15846" selection-end="15846" vertical-scroll-proportion="0.0" vertical-offset="13110" max-vertical-offset="29235">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="0" selection-start="7677" selection-end="7677" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="9" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="9135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="874" column="11" selection-start="15846" selection-end="15846" vertical-scroll-proportion="0.0" vertical-offset="13110" max-vertical-offset="29235">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/parallax-styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="42" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.22554348" vertical-offset="1852" max-vertical-offset="2280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5395" column="45" selection-start="115963" selection-end="116261" vertical-scroll-proportion="0.35125" vertical-offset="80644" max-vertical-offset="93135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="39" selection-start="5436" selection-end="5436" vertical-scroll-proportion="0.653897" vertical-offset="2655" max-vertical-offset="9960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.2.1.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="19834" selection-start="84116" selection-end="84116" vertical-scroll-proportion="0.05897772" vertical-offset="0" max-vertical-offset="763">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="5" selection-start="3278" selection-end="3326" vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="7590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_documentation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="7695">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="874" column="11" selection-start="16102" selection-end="16102" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="15090">
-          <folding>
-            <marker date="1412001399000" expanded="true" signature="14890:18095" placeholder="{...}" />
-            <marker date="1412001399000" expanded="true" signature="18421:18627" placeholder="{...}" />
-          </folding>
+        <state line="8" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="-2.378768" vertical-offset="1935" max-vertical-offset="30930">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/forge.jquery.js">
+    <entry file="file://$PROJECT_DIR$/community.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="9" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.8097826" vertical-offset="873" max-vertical-offset="1815">
+        <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="5625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="6870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.9" vertical-offset="0" max-vertical-offset="9765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="4725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="4.4352794" vertical-offset="0" max-vertical-offset="13350">
           <folding />
         </state>
       </provider>

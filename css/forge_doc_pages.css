@@ -2,7 +2,11 @@
 * THIS STYLESHEET IS USED FOR THE SUB-PAGES & TOPIC PAGES (LIKE DOCUMENTATION ITEM PAGES AND NEWS PAGES)
 */
 
+
+
 /* GEN. PAGE ELEMENTS */
+
+
 h1,h2,h3,h4,h5 {
     font-family: "Open Sans", sans-serif;
 }
@@ -873,7 +877,7 @@ div.doc-content-social-media a.youtube-link {
 
 
 /* This is typically the smallest size (XS) but not currently in use for Forge */
-@media(min-width:480px) and (max-width:768px) {
+@media(min-width:480px) and (max-width:767px) {
 
     input.doc_search[type="text"],
     input.doc_search_submit[type="submit"] {

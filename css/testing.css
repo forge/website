@@ -1,0 +1,14 @@
+/* TESTING ONLY  - DO NOT LOAD INTO PRODUCTION */
+
+/* Large LG */
+@media (min-width: 1200px) {  body {  border:1px solid yellow; }}
+
+/* Medium MD */
+@media(min-width:992px) and (max-width:1200px) { body {   border:1px dotted lime; } }
+
+/* Small SM */
+@media(min-width:768px) and (max-width:992px) { body {  border:1px solid lightseagreen; } }
+/* This is typically the smallest size (XS) but not currently in use for Forge */
+@media(min-width:480px) and (max-width:768px) {  body {  border:1px solid blue;  }}
+
+@media(max-width:480px) { body {    border:1px solid purple; } }

@@ -154,8 +154,8 @@ span.white-chevron-down-outline {
 }
 
 .advanced-search-section .forge-btn {
-    box-shadow:none;
-    -moz-box-shadow: none;
+    /*box-shadow:none;
+    -moz-box-shadow: none;*/
     margin:.5em 0;
 }
 
