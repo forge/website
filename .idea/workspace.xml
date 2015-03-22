@@ -26,25 +26,7 @@
       <file leaf-file-name="community.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/community.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="5625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="documentation.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/documentation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8760">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="documentation_page.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/documentation_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="6870">
+            <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="-0.0" vertical-offset="225" max-vertical-offset="5625">
               <folding />
             </state>
           </provider>
@@ -53,34 +35,25 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.9" vertical-offset="0" max-vertical-offset="9765">
+            <state line="485" column="102" selection-start="20498" selection-end="20498" vertical-scroll-proportion="-109.74" vertical-offset="1788" max-vertical-offset="9795">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news_main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8220">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news_page.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="4725">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addons.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="addons.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="4.4352794" vertical-offset="0" max-vertical-offset="13350">
+            <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="-31.875" vertical-offset="2730" max-vertical-offset="13350">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forge_addons.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="488" column="16" selection-start="9724" selection-end="9724" vertical-scroll-proportion="0.71549" vertical-offset="6641" max-vertical-offset="7590">
               <folding />
             </state>
           </provider>
@@ -100,16 +73,16 @@
         <option value="$PROJECT_DIR$/css/forge.css" />
         <option value="$PROJECT_DIR$/js/forge.jquery.js" />
         <option value="$PROJECT_DIR$/css/forge_documentation.css" />
-        <option value="$PROJECT_DIR$/css/forge_addons.css" />
         <option value="$PROJECT_DIR$/css/forge_news.css" />
         <option value="$PROJECT_DIR$/js/jquery.2.1.3.min.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/addons.html" />
         <option value="$PROJECT_DIR$/news_page.html" />
         <option value="$PROJECT_DIR$/news_main.html" />
         <option value="$PROJECT_DIR$/documentation_page.html" />
         <option value="$PROJECT_DIR$/documentation.html" />
         <option value="$PROJECT_DIR$/community.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/forge_addons.css" />
       </list>
     </option>
   </component>
@@ -120,8 +93,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -164,6 +137,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="website-design-2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBoss Forge 2015" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="website-design-2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,7 +210,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -232,7 +219,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16041666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16011904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -264,6 +251,104 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/community.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="6870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="9765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="0.0" vertical-offset="3495" max-vertical-offset="13350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/community.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="6870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="9765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="0.0" vertical-offset="3495" max-vertical-offset="13350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/forge.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0" vertical-offset="1935" max-vertical-offset="30930">
@@ -273,23 +358,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge_documentation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="7695">
-          <folding />
-        </state>
+        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="7695" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="5" selection-start="3278" selection-end="3326" vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="7590">
-          <folding />
-        </state>
+        <state line="146" column="5" selection-start="3278" selection-end="3326" vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="7590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge_news.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615">
-          <folding />
-        </state>
+        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -347,32 +426,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery.2.1.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19834" selection-start="84116" selection-end="84116" vertical-scroll-proportion="0.05897772" vertical-offset="0" max-vertical-offset="763">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="3" column="19834" selection-start="84116" selection-end="84116" vertical-scroll-proportion="0.05897772" vertical-offset="0" max-vertical-offset="763" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge_news.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="5" selection-start="3278" selection-end="3326" vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="7590">
-          <folding />
-        </state>
+        <state line="154" column="28" selection-start="3451" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="9615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge_documentation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="7695">
-          <folding />
-        </state>
+        <state line="156" column="6" selection-start="3562" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="7695" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/forge.css">
@@ -382,51 +446,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/community.html">
+    <entry file="file://$PROJECT_DIR$/news_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="5625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documentation_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="6870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.9" vertical-offset="0" max-vertical-offset="9765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documentation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8760">
+        <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4725">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news_main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="8220">
+        <state line="58" column="52" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8220">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news_page.html">
+    <entry file="file://$PROJECT_DIR$/documentation_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="66" selection-start="2492" selection-end="2492" vertical-scroll-proportion="-36.25" vertical-offset="0" max-vertical-offset="4725">
+        <state line="58" column="65" selection-start="2491" selection-end="2491" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="6870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="8760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/community.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="7" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="5625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="485" column="102" selection-start="20498" selection-end="20498" vertical-scroll-proportion="-109.74" vertical-offset="1788" max-vertical-offset="9795">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="4.4352794" vertical-offset="0" max-vertical-offset="13350">
+        <state line="233" column="66" selection-start="9264" selection-end="9264" vertical-scroll-proportion="-31.875" vertical-offset="2730" max-vertical-offset="13350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/forge_addons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="488" column="16" selection-start="9724" selection-end="9724" vertical-scroll-proportion="0.71549" vertical-offset="6641" max-vertical-offset="7590">
           <folding />
         </state>
       </provider>
