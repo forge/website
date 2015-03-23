@@ -266,20 +266,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 advanced-search">
-                            <span class="text-block hidden-xs">
-                                 Advanced Search
-                            </span>
-                            <span class="text-block visible-xs">
-                                 Advanced<br>Search
-                            </span>
-                            <span class="white-chevron-up hidden-xs">&nbsp;</span>
-                    </div>
-                    <div class="row visible-xs">
-                        <div class="col-xs-12">
-                            <span class="white-chevron-down-outline">&nbsp;</span>
+                    <!-- Advanced Search Panel Collapse Button -->
+                    <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                       aria-controls="searchOptionsPanel" aria-expanded="false">
+                        <div class="col-xs-12 advanced-search">
+                                <span class="text-block hidden-xs">
+                                     Advanced Search
+                                </span>
+                                <span class="text-block visible-xs">
+                                     Advanced<br>Search
+                                </span>
+
+                            <span class="white-chevron hidden-xs">&nbsp;</span>
                         </div>
-                    </div>
+                        <div class="row visible-xs">
+                            <div class="col-xs-12">
+                                <span class="white-chevron-outline">&nbsp;</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End Advanced Search Panel Collapse Button -->
                 </div>
             </div>
         </div><!-- / .row.marquee-content -->
@@ -288,8 +294,9 @@
 
 
 <!-- PAGE SECTION ADVANCED SEARCH -->
-<div class="page-section white advanced-search-section">
-    <div class="container">
+<div class="page-section white advanced-search-section collapse"
+     id="searchOptionsPanel" aria-expanded="false">
+    <div class="container main">
         <div class="row">
             <!-- / Left Side with search button -->
             <div class="col-sm-3 col-xs-12">

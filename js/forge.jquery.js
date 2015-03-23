@@ -80,7 +80,9 @@ $(function() {
     if($('.contribute-columns').length && $(window).outerWidth() > 767) {
         sizeContributeSection();
         $(window).resize(function(){
-            sizeContributeSection();
+            if($(window).outerWidth() > 767) {
+                sizeContributeSection();
+            }
         });
     }
 
@@ -112,7 +114,42 @@ $(function() {
 
     // Init flyover menu functionality – assumes this menu will be on every page (no .class check)
     initFlyOver();
+
+   // This .class check assumes that since there's an advanced search area, there will also be a 'reset options' button so that event is assigned here as well.
+   if($('.advanced-search-button-link').length) {
+       // Add functionality to control the appearance of the up/down arrows
+       $('.advanced-search-button-link').click(function(e) {
+           e.preventDefault();
+           initAriaCollapseDetect();
+       });
+
+       // Add the 'reset' functionality to the reset checkboxes button
+       $('.reset-button').click(function(e) {
+           e.preventDefault();
+
+           $s = $('.advanced-search-checkbox-area');
+           $s.children().find('input[type="checkbox"]').attr('checked',false);
+
+       });
+   }
+
 });
+
+// Since the aria-expanded attribute wasn't working, this function detects the button state and changes the expansion button from an up-arrow to a down-arrow and vice versa.
+function initAriaCollapseDetect() {
+    // Check to see if associated button's panel is opening or closing
+    $a = $('.advanced-search-button-link').children().find('span.white-chevron');
+    $o = $('.advanced-search-button-link').children().find('span.white-chevron-outline');
+
+    $s = $('.advanced-search-section');
+    // The button appearance change waits a split-second until after the slide-out/slide-in is complete.
+    setTimeout(function(e){
+        var c = $s.hasClass('in');
+        (c === true) ? $a.addClass('up') : $a.removeClass('up');
+        (c === true) ? $o.addClass('up') : $o.removeClass('up');
+    },400)
+}
+
 
 // Inits Fly Over Menu
 function initFlyOver() {
@@ -404,7 +441,6 @@ function  sizeContributeSection() {
         }
     }
 
-
     // INTERIOR LEFT/RIGHT COLUMN SIZING/SPACING
 
     // This assumes that the right-inner column is the larger height of the two.
@@ -413,13 +449,13 @@ function  sizeContributeSection() {
 
 
     //if($(window).width() > 992) {
-    if($(window).width() > 768) {
+    if($(window).width() > 767) {
         // Now the outer and inner pairs of columns should be aligned vertically
         var diff = (Math.abs(intRightColHeight - finColHeight)) / 2;
 
         var arr = [$lCol,$rCol];
         $(arr).each(function(i,e) {
-            $(this).css({'marginTop':diff + 'px'});
+            $(e).css({'marginTop':diff + 'px'});
         });
     }
 

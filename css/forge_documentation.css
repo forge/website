@@ -5,10 +5,10 @@
 /* FIRST SECTION - DOCUMENT MARQUEE */
 .addon-marquee {
    /* background:url(../images/forge_anvil_1020x592.jpg) no-repeat;*/
-
     min-height: 350px;
     position: relative;
     padding:0;
+    border-bottom:     5px solid #ee3327;
 }
 .addon-marquee.documentation {
     background:url(../images/documentation-welding-bg.jpg) no-repeat;
@@ -18,7 +18,7 @@
 
 .addon-marquee .marquee-content {
     z-index: 1000;
-    padding:3em 0;
+    padding:3em 0 2em 0;
 
 }
 
@@ -76,45 +76,6 @@
 }
 
 
-.advanced-search {
-    text-align: center;
-    position: relative;
-    padding:1.5em 0 0 0;
-}
-
-.advanced-search span {
-    display:inline-block;
-    text-align: center;
-    padding:5px;
-}
-
-
-.advanced-search span.text-block {
-    font-size:20px;
-    font-family:"Open Sans",sans-serif;
-    font-size:20px;
-    font-weight:100;
-}
-
-.advanced-search span.white-chevron-up {
-    background-image:url(../images/white-chevron-up.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-    height:20px;
-    width:50px;
-    padding:0px;
-}
-
-span.white-chevron-down-outline {
-    display:block;
-    margin:.5em auto;
-    background-image:url(../images/white-chevron-down-outline_120x72.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50% 0;
-}
-
 
 /* Rounding & Shadows */
 .search-bar-row input[type="text"].addon_search {
@@ -138,32 +99,6 @@ span.white-chevron-down-outline {
     -webkit-border-top-right-radius:     10px;
 }
 
-/* ADVANCED SEARCH AREA */
-.advanced-search-section {
-    border-top:     5px solid #ee3327;
-    border-bottom:  5px solid #ee3327;
-    padding:1em 0;
-}
-
-.advanced-search-button-area {
-    font-size:20px;
-    font-family:"Open Sans",sans-serif;
-    font-size:20px;
-    font-weight:100;
-    text-align: center;
-}
-
-.advanced-search-section .forge-btn {
-    /*box-shadow:none;
-    -moz-box-shadow: none;*/
-    margin:.5em 0;
-}
-
-/* Checkbox Inputs */
-.advanced-search-checkbox-area {
-    padding:0;
-    margin:0;
-}
 
 
 .checkbox-columns {

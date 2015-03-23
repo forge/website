@@ -973,6 +973,100 @@ div.footer {
 }
 
 /*===============================================================================
+CSS FOR COLLAPSIBLE PANELS (ON MULTIPLE PAGES) WITH ADVANCED SEARCH BUTTONS
+===============================================================================*/
+
+/* BUTTON */
+.advanced-search {
+    text-align: center;
+    position: relative;
+    padding:3em 0 0 0;
+    color:white;
+}
+
+.advanced-search span {
+    display:inline-block;
+    text-align: center;
+    padding:5px;
+}
+
+
+.advanced-search span.text-block {
+    font-size:20px;
+    font-family:"Open Sans",sans-serif;
+    font-size:20px;
+    font-weight:100;
+}
+
+/* White Chevron Span */
+.advanced-search span.white-chevron {
+    height:20px;
+    width:50px;
+    padding:0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+/* Expand */
+span.white-chevron,
+span.white-chevron.down {
+    background-image: url(../images/white-chevron-down_120x72.png);
+}
+/* Collapse */
+span.white-chevron.up {
+    background-image: url(../images/white-chevron-up.png);
+}
+/*.advanced-search span.white-chevron-up {
+    background-image:url(../images/white-chevron-up.png);
+}*/
+
+span.white-chevron-outline,
+span.white-chevron-outline.down {
+    display:block;
+    margin:.5em auto;
+    background-image:url(../images/white-chevron-down-outline_120x72.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 0;
+}
+
+
+span.white-chevron-outline.up {
+    background-image:url(../images/white-chevron-up-outline_120x72.png);
+}
+
+
+/* ADVANCED SEARCH AREA */
+.advanced-search-section {
+    border-bottom:  5px solid #ee3327;
+}
+
+.advanced-search-section .container.main {
+    padding-top:1em;
+    padding-bottom:1em;
+}
+.advanced-search-button-area {
+    font-size:20px;
+    font-family:"Open Sans",sans-serif;
+    font-size:20px;
+    font-weight:100;
+    text-align: center;
+}
+
+.advanced-search-section .forge-btn {
+    /*box-shadow:none;
+    -moz-box-shadow: none;*/
+    margin:.5em 0;
+}
+
+/* Checkbox Inputs */
+.advanced-search-checkbox-area {
+    padding:0;
+    margin:0;
+}
+
+
+/*===============================================================================
 BASE CSS CODE FOR CHECKBOXES
 ===============================================================================*/
 
