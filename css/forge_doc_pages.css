@@ -321,7 +321,8 @@ a.sibling-switch-ctrl {
 
 /* MAIN DOCUMENT CONTENT*/
 .doc-content {
-    padding:0;
+    padding-top:0;
+    padding-bottom:0;
     height:100%;
 }
 
@@ -486,11 +487,13 @@ ul.author-ul li span.author-line {
 }
 
 .doc-right-main-col ol {
-    margin-left:-1.5em;
+    padding:1em 1em 0 1em;
 }
 
 .doc-right-main-col ol li {
-    margin:1em 0;
+    margin-top:1em;
+    margin-bottom:1em;
+    padding:0;
 }
 
 
@@ -500,11 +503,19 @@ ul.author-ul li span.author-line {
 
 blockquote {
     margin:1em 0;
-    padding:1em 0em;
+    padding:1em;
     text-align:left;
     background-color: #e9e8ec;
     border:none;
 
+}
+
+ol blockquote {
+    margin:1em;
+    padding:1em;
+    text-align:left;
+    background-color: #e9e8ec;
+    border:none;
 }
 
 blockquote code {
@@ -782,7 +793,8 @@ div.doc-content-social-media a.youtube-link {
 
 
     div.doc-right-main-col {
-        padding:1em 0;
+        padding-top:1em;
+        padding-bottom:1em;
     }
 
     /* Anything contained in the right col must have its padding adjusted so as not to run up against the edge of the device window */
@@ -794,7 +806,7 @@ div.doc-content-social-media a.youtube-link {
     div.doc-right-main-col ul,
     div.doc-right-main-col ol,
     div.doc-right-main-col blockquote code {
-        padding:.5em 2em;
+        padding:.5em 0;
     }
 
 
@@ -803,8 +815,6 @@ div.doc-content-social-media a.youtube-link {
         text-align: center;
         padding: 1em;
     }
-
-
 
     .news-article-img {
         padding:0 2em;
@@ -871,6 +881,16 @@ div.doc-content-social-media a.youtube-link {
     .bottom-toc-section .related-documents ul li
     {
         text-align: left;
+    }
+    div.doc-right-main-col ol,
+    .doc-right-main-col ol {
+        margin:1em;
+    }
+
+    div.doc-right-main-col ol li,
+    .doc-right-main-col ol li {
+    margin:0;
+        padding:0;
     }
 
 }
