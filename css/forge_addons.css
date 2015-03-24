@@ -9,6 +9,7 @@
     min-height: 350px;
     position: relative;
     padding:0;
+    border-bottom:  5px solid #ee3327;
 }
 
 .addon-marquee .marquee-content {
