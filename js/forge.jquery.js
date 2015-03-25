@@ -58,7 +58,7 @@ var langObj = {
 // INIT FUNCTIONS
 $(function() {
     // Only use widthBox() during testing
-    //widthBox();
+    widthBox();
 
     // Check width for parallax use:
     //runParallax();
@@ -115,8 +115,8 @@ $(function() {
     // Init flyover menu functionality – assumes this menu will be on every page (no .class check)
     initFlyOver();
 
-   // This .class check assumes that since there's an advanced search area, there will also be a 'reset options' button so that event is assigned here as well.
-   if($('.advanced-search-button-link').length) {
+    // This .class check assumes that since there's an advanced search area, there will also be a 'reset options' button so that event is assigned here as well.
+    if($('.advanced-search-button-link').length) {
        // Add functionality to control the appearance of the up/down arrows
        $('.advanced-search-button-link').click(function(e) {
            e.preventDefault();
@@ -131,9 +131,27 @@ $(function() {
            $s.children().find('input[type="checkbox"]').attr('checked',false);
 
        });
-   }
+    }
 
-});
+    // Padding fix
+    initBodyPaddingFix();
+
+}); // Close init functions
+
+
+// This function attempts to correct an issue in some browsers, where right padding is added to the <body> tag.
+function initBodyPaddingFix() {
+    // Detect Body CSS
+    $b = $('body');
+    var p = $b.css('paddingRight');
+    if(p == '15px') {
+        $b.css({"paddingRight":"0"});
+    }
+
+
+}
+
+
 
 // Since the aria-expanded attribute wasn't working, this function detects the button state and changes the expansion button from an up-arrow to a down-arrow and vice versa.
 function initAriaCollapseDetect() {
@@ -496,6 +514,7 @@ function docContentHeightFix() {
     $(cols).each(function(i,e) {
        $(this).css({'height':useHeight + 'px'});
     });
+
 
 }
 

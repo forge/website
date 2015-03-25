@@ -323,13 +323,14 @@ a.sibling-switch-ctrl {
 .doc-content {
     padding-top:0;
     padding-bottom:0;
-    height:100%;
+    height:auto;
+    min-height:100% !important;
 }
 
 .doc-left-main-col,
 .doc-right-main-col {
     min-height:500px;
-    padding:2em 30px 3em 30px;
+    padding:2em 30px 4em 30px;
     height:auto;
 }
 

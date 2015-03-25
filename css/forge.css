@@ -576,7 +576,8 @@ PAGE SECTIONS
 
 .marquee-text-row {
    /* margin-top:1.5em 0 0 2em;*/
-    margin-top:1.5em;
+    margin-top:0;
+    margin-bottom:3em;
 }
 
 .marquee-text-row div h4 {
@@ -761,6 +762,7 @@ a.download-arrow:active {
 
 /*============== FOOTER SECTION (BLUE SECTION W/LINKS) ==============*/
 .footer-links-support {
+    padding-top:1.3em;
 
 }
 
@@ -1537,9 +1539,9 @@ GRADIENT BACKGROUNDS
 
 
     .forge-anvil-main-logo {
-        width:150px;
-        height:150px;
-        margin:-90px auto 0 auto;
+        width:140px;
+        height:140px;
+        margin:-80px auto 0 auto;
     }
 
 
@@ -1635,6 +1637,7 @@ GRADIENT BACKGROUNDS
 
     .marquee-text-row {
         margin-top: 1em;
+        margin-bottom:0;
     }
 
     .chevron-down-scroll {
@@ -1683,6 +1686,13 @@ GRADIENT BACKGROUNDS
        margin:0;
     }
 
+    .forge-logo-smaller:hover,
+    .forge-logo-smaller:active,
+    .forge-logo-smaller:visited {
+        border:3px solid #ee3327;
+    }
+
+
     .forge-headline {
         width:60%;
         margin:1.5em auto;
@@ -1692,7 +1702,6 @@ GRADIENT BACKGROUNDS
     .forge-logo-smaller img {
         width:100%;
     }
-
 
 
     div[role="navigation"] {
@@ -1860,6 +1869,7 @@ GRADIENT BACKGROUNDS
     /* Footer links */
     .footer-links-support {
         text-align: center;
+
     }
 
     .footer-links-support .jboss-forge-logo {
@@ -1937,7 +1947,7 @@ GRADIENT BACKGROUNDS
 
     .intro-download-section  {
         /*min-height:auto;*/
-        height:400px;
+        height:380px;
     }
 
     div > ul.footer-social-icons {
