@@ -48,13 +48,16 @@
 
 }
 
+/*
 .search-bar-row {
     text-align:center;
 }
 
 .search-bar-row input[type="text"].addon_search,
 .search-bar-row input[type="submit"].addon_search_submit {
-    /* Reset */
+    */
+/* Reset *//*
+
     border:none;
     font-size:22px;
     margin:0;
@@ -65,10 +68,12 @@
 .search-bar-row input[type="text"].addon_search {
     color:#666666;
 }
+*/
 
 
 
 /* Rounding & Shadows */
+/*
 .search-bar-row input[type="text"].addon_search {
     box-shadow:inset -5px 0 3px #cccccc;
     -moz-box-shadow: -5px 0 3px #cccccc;
@@ -89,6 +94,7 @@
     -webkit-border-bottom-right-radius:  10px;
     -webkit-border-top-right-radius:     10px;
 }
+*/
 
 /*
 .checkbox-row {
@@ -340,7 +346,7 @@ row.addon-boxes {
         line-height:1.4em;
     }
 
-    .search-bar-row input.addon_search[type="text"],
+   /* .search-bar-row input.addon_search[type="text"],
     .search-bar-row input.addon_search_submit[type="submit"] {
         font-size:14px;
     }
@@ -348,7 +354,7 @@ row.addon-boxes {
     .search-bar-row input.addon_search[type="text"] {
         box-shadow:      none;
         -moz-box-shadow: none;
-    }
+    }*/
 
 
     .section-title {
@@ -403,12 +409,12 @@ row.addon-boxes {
     }
 
 
-    .search-bar-row input.addon_search[type="text"],
+    /*.search-bar-row input.addon_search[type="text"],
     .search-bar-row input.addon_search_submit[type="submit"] {
         font-size:11px;
         padding:5px;
     }
-
+*/
 
     .checkbox-row {
         font-size:11px;

@@ -53,7 +53,7 @@
 }
 
 
-.search-bar-row {
+/*.search-bar-row {
     text-align:center;
 }
 
@@ -63,7 +63,7 @@
 
 .search-bar-row input[type="text"].addon_search,
 .search-bar-row input[type="submit"].addon_search_submit {
-    /* Reset */
+    *//* Reset *//*
     border:none;
     font-size:22px;
     margin:0;
@@ -73,12 +73,12 @@
 
 .search-bar-row input[type="text"].addon_search {
     color:#666666;
-}
+}*/
 
 
 
 /* Rounding & Shadows */
-.search-bar-row input[type="text"].addon_search {
+/*.search-bar-row input[type="text"].addon_search {
     box-shadow:inset -5px 0 3px #cccccc;
     -moz-box-shadow: -5px 0 3px #cccccc;
 
@@ -97,7 +97,7 @@
     -moz-border-radius-bottomright:      10px;
     -webkit-border-bottom-right-radius:  10px;
     -webkit-border-top-right-radius:     10px;
-}
+}*/
 
 
 
@@ -368,6 +368,33 @@ div.medal.advanced {
 
 }
 
+@media(min-width:768px) and (max-width:991px) {
+    /* Small Search Bar */
+    /*input[type="text"].doc_search,
+    input[type="submit"].doc_search_submit {
+        *//* Reset *//*
+        border:none;
+        margin:0;
+        line-height: 18px;
+        display:inline-block;
+
+    }
+
+    input[type="text"].doc_search {
+        width:70%;
+        box-shadow:none;
+        -moz-box-shadow: none;
+        font-size:12px;
+    }
+
+    input[type="submit"].doc_search_submit {
+        padding:8px;
+    }*/
+
+
+
+}
+
 
 /* Max. Size SM (767px and under) */
 @media(max-width:767px) {
@@ -379,7 +406,7 @@ div.medal.advanced {
         line-height:1.4em;
     }
 
-    .search-bar-row input.addon_search[type="text"],
+    /*.search-bar-row input.addon_search[type="text"],
     .search-bar-row input.addon_search_submit[type="submit"] {
         font-size:14px;
     }
@@ -388,7 +415,7 @@ div.medal.advanced {
         box-shadow:      none;
         -moz-box-shadow: none;
     }
-
+*/
 
 
 
@@ -422,11 +449,11 @@ div.medal.advanced {
     }
 
 
-    .search-bar-row input.addon_search[type="text"],
+   /* .search-bar-row input.addon_search[type="text"],
     .search-bar-row input.addon_search_submit[type="submit"] {
         font-size:11px;
         padding:5px;
-    }
+    }*/
 
     .checkbox-row {
         font-size:11px;
