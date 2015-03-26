@@ -59,24 +59,6 @@
 .search-bar-row.documentation {
     padding-top:2em;
 }
-/*
-
-.search-bar-row input[type="text"].search,
-.search-bar-row input[type="submit"].search_submit {
-    */
-/* Reset *//*
-
-    border:none;
-    font-size:22px;
-    margin:0;
-    line-height:1.3em;
-    padding:.5em 1em;
-}
-
-.search-bar-row input[type="text"].search {
-    color:#666666;
-}
-*/
 
 
 .advanced-search {
@@ -120,31 +102,6 @@ span.white-chevron-down-outline {
 
 
 /* Rounding & Shadows */
-/*
-
-.search-bar-row input[type="text"].search {
-    box-shadow:inset -5px 0 3px #cccccc;
-    -moz-box-shadow: -5px 0 3px #cccccc;
-
-    border-top-left-radius:             6px;
-    border-bottom-left-radius:          6px;
-    -moz-border-radius-topleft:         6px;
-    -moz-border-radius-bottomleft:      6px;
-    -webkit-border-bottom-left-radius:  6px;
-    -webkit-border-top-left-radius:     6px;
-}
-
-.search-bar-row input[type="submit"].search_submit {
-    border-top-right-radius:             10px;
-    border-bottom-right-radius:          10px;
-    -moz-border-radius-topright:         10px;
-    -moz-border-radius-bottomright:      10px;
-    -webkit-border-bottom-right-radius:  10px;
-    -webkit-border-top-right-radius:     10px;
-}
-*/
-
-
 
 /* DOCUMENTATION <DIV> SECTION */
 .news-item-section {
@@ -469,16 +426,6 @@ div.news-item .news-item-footer .news-social-icons a {
         line-height:1.4em;
     }
 
-   /* .search-bar-row input.search[type="text"],
-    .search-bar-row input.search_submit[type="submit"] {
-        font-size:14px;
-    }
-
-    .search-bar-row input.search[type="text"] {
-        box-shadow:      none;
-        -moz-box-shadow: none;
-    }*/
-
 
     .small-width-icons {
         text-align: center;
@@ -537,12 +484,6 @@ div.news-item .news-item-footer .news-social-icons a {
         width:80%;
     }
 
-
-   /* .search-bar-row input.search[type="text"],
-    .search-bar-row input.search_submit[type="submit"] {
-        font-size:11px;
-        padding:5px;
-    }*/
 
     .checkbox-row {
         font-size:11px;

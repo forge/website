@@ -334,93 +334,12 @@ a.sibling-switch-ctrl {
     height:auto;
 }
 
-.doc-left-main-col {
-/*
-     background:#d4d3d9;
-     box-shadow:        inset -20px 0 20px #c1c0c6;
-     -moz-box-shadow:   inset -20px 0 20px #c1c0c6;
-*/
-}
 
 .doc-left-main-col div.row {
    padding:.3em 1em;
 }
 
 /* LEFT COLUMN CONTENT */
-
-/* Search Bar */
-/*.doc-left-main-col div.doc_search-bar-row  {
-    text-align: center;
-    padding-top:2em;
-    margin-top:2em;
-}
-
-input[type="text"].doc_search,
-input[type="submit"].doc_search_submit {
-    *//* Reset *//*
-    border:none;
-    margin:0;
-    line-height: 21px;
-    display:inline-block;
-    font-size:16px;
-    outline:none;
-    *//* Shadows *//*
-    box-shadow:0 0 3px #5f5f5f;
-    -moz-box-shadow:0 0 3px #5f5f5f;
-}
-
-
-input[type="submit"].doc_search_submit {
-    padding:10px 20px 13px 20px;
-    line-height: 1em;
-    *//* Button Image *//*
-    background-image: url(../images/magnifying-glass.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
-input[type="text"].doc_search {
-    width:80%;
-    color:#666666;
-    padding:8px 15px;
-}
-
-*//* ** Firefox Search Bar Adjustments ** *//*
-@-moz-document url-prefix() {
-
-    input[type="submit"].doc_search_submit {
-        padding:10px 20px 11px 20px;
-    }
-
-    input[type="text"].doc_search {
-        font-size:15px;
-        width:80%;
-        color:#666666;
-        padding:8px 15px 8px 15px;
-    }
-}
-
-
-*//* Rounding *//*
-input[type="text"].doc_search {
-    border-top-left-radius:             6px;
-    border-bottom-left-radius:          6px;
-    -moz-border-radius-topleft:         6px;
-    -moz-border-radius-bottomleft:      6px;
-    -webkit-border-bottom-left-radius:  6px;
-    -webkit-border-top-left-radius:     6px;
-
-}
-
-input[type="submit"].doc_search_submit {
-    border-top-right-radius:             10px;
-    border-bottom-right-radius:          10px;
-    -moz-border-radius-topright:         10px;
-    -moz-border-radius-bottomright:      10px;
-    -webkit-border-bottom-right-radius:  10px;
-    -webkit-border-top-right-radius:     10px;
-}*/
 
 .author-div h2,
 .table-of-contents h2,
@@ -701,27 +620,7 @@ div.doc-content-social-media a.youtube-link {
 
 /* Small SM */
 @media(min-width:768px) and (max-width:991px) {
-    /*input[type="text"].doc_search,
-    input[type="submit"].doc_search_submit {
-        *//* Reset *//*
-        border:none;
-        margin:0;
-        line-height: 18px;
-        display:inline-block;
 
-    }
-
-    input[type="text"].doc_search {
-        width:70%;
-        box-shadow:none;
-        -moz-box-shadow: none;
-        font-size:12px;
-    }
-
-    input[type="submit"].doc_search_submit {
-        padding:8px;
-    }
-*/
 
     /* News Section */
 
@@ -746,13 +645,6 @@ div.doc-content-social-media a.youtube-link {
 /* Max. Size SM (767px and under) */
 @media(max-width:767px) {
 
-/*
-
-    input.addon_search[type="text"] {
-        box-shadow:      none;
-        -moz-box-shadow: none;
-    }
-*/
 
     .nav-news-bar {
         border-top: none;
@@ -909,29 +801,6 @@ div.doc-content-social-media a.youtube-link {
 
 
 /* This is typically the smallest size (XS) but not currently in use for Forge */
-@media(min-width:480px) and (max-width:767px) {
-/*
-    input.doc_search[type="text"],
-    input.doc_search_submit[type="submit"] {
+@media(min-width:480px) and (max-width:767px) { }
 
-    }*/
-}
-
-@media(max-width:480px) {
-
-   /* input.doc_search[type="text"] {
-        font-size:10px;
-        padding:5px;
-    }
-
-
-    input.doc_search_submit[type="submit"] {
-        padding:10px 15px;
-        line-height:1;
-        font-size:12px;
-    }*/
-
-
-
-
-}
+@media(max-width:480px) { }
