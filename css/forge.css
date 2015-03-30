@@ -199,6 +199,11 @@ h6,.h6 {
     color:#131726;
 }
 
+.light-grey {
+    background:#e8e8ea;
+    color:#131726;
+}
+
 .blue {
     background:#222243;
     color:white;
@@ -599,14 +604,6 @@ PAGE SECTIONS
 
 
 /*============== ADDONS SECTION ==============*/
-
-.addons-section {
-
-}
-
-.main-addons-section {
-
-}
 
 .forge-image-graphic-div {
     width:70%;
@@ -2011,6 +2008,26 @@ GRADIENT BACKGROUNDS
     .grey-div.center-div {
         width:100%;
         margin:0;
+    }
+    .addons-section {
+        text-align: center;
+    }
+
+    .addons-section h1 {
+        margin:1.5em 0;
+        font-size:1.5em;
+    }
+
+    .addons-section h2 {
+        margin:1.5em 0;
+        font-size:1em;
+    }
+
+    .addons-section p {
+        font-size:.75em;
+        line-height:1.5em;
+        margin:0;
+        padding:0;
     }
 
 

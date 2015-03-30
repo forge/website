@@ -58,7 +58,7 @@ var langObj = {
 // INIT FUNCTIONS
 $(function() {
     // Only use widthBox() during testing
-    widthBox();
+    //widthBox();
 
     // Check width for parallax use:
     //runParallax();
