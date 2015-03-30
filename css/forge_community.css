@@ -79,7 +79,7 @@ span.white-chevron-down-outline {
 /* Left Column & Right Columns */
 .contribute-columns .left-col-container,
 .contribute-columns .right-col-container {
-    height:100%;
+    line-height:0;
 }
 
 .contribute-columns .left-col-container {
@@ -93,15 +93,19 @@ span.white-chevron-down-outline {
 .display-div.left-col,
 .display-div.right-col {
     background-color: #bdbbc5;
-    padding:20px 35px;
+    padding:0 35px;
 }
 
+.left-col-container .left-col {
+   ;
+}
 
 
 /* Special adjustment to right side to make spacing more even.
 This assumes this section's content will remain the same */
+
 .display-div.right-col  h2 {
-    margin:1.5em 0 1em 0;
+    margin:0 0 1em 0;
 }
 
 
@@ -111,7 +115,7 @@ This assumes this section's content will remain the same */
 }
 
 .contribute-columns div.middle-section  div.display-div {
-    padding:20px 35px;
+    padding:0px 35px;
 }
 
 .display-div h2,
@@ -120,7 +124,6 @@ This assumes this section's content will remain the same */
     font-weight:200;
     font-size:24px;
     text-align:center;
-
 }
 
 /* Contribute Sub-Divs, made indiviually with unique classes */
@@ -132,7 +135,7 @@ div.three-row-col-div div.display-div {
 
 /* Like the far-right column, the margin for this <h2> assumes the current content will stay relatively constant */
 div.build-an-addon h2 {
-    margin:2.5em 0 1em 0;
+    margin:0 0 1em 0;
 }
 
 .contribute-columns div.middle-section div.three-row-col-div div.display-div
@@ -189,7 +192,28 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
 .display-div a.forge-btn {
     font-size:18px;
     margin:1em auto;
-    width:70%;
+    width:100%;
+}
+
+
+
+.build-an-addon.display-div a.forge-btn {
+    margin-bottom:0;
+}
+
+/* Change far-right col to remove vertical padding,
+which will be added via JS */
+.attend-event {
+    padding-top:0;
+    padding-bottom:0;
+}
+
+.attend-event.display-div.right-col  h2 {
+    margin-top:0;
+}
+
+.attend-event a.forge-btn {
+    margin-bottom:0;
 }
 
 
@@ -335,11 +359,28 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
 
 /* Large LG */
 @media (min-width: 1200px) {
+    .display-div a.forge-btn {
+        width:70%;
+    }
 
 }
 
 /* Medium MD */
 @media(min-width:992px) and (max-width:1200px) {
+    /* Left/Right Contribute Divs */
+    .display-div.left-col {
+
+        margin:0;
+    }
+
+    .display-div.right-col {
+        margin:0;
+        padding:0 25px;
+    }
+
+    .display-div a.forge-btn {
+        width:90%;
+    }
 
 }
 
@@ -357,11 +398,11 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
     }
 
     div.build-an-addon h2 {
-        margin-top:1em;
+
     }
 
     .contribute-columns div.middle-section div.display-div {
-        padding-top:20px;
+
     }
 
     .contribute-columns  .left-col-container .display-div h2,
@@ -372,7 +413,7 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
 
 
     .contribute-columns  .interior-left-column .display-div h2 {
-        padding-top:12px;
+       /* padding-top:12px;*/
     }
 
     .contribute-columns  .interior-left-column .display-div a {
@@ -417,19 +458,24 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
     .contribute-columns div.col-sm-3,
     .contribute-columns div.col-sm-6 {
         padding:0;
-        margin:1em 0;
+        margin:0 0 1em 0;
     }
 
     div.middle-section div.col-sm-6 {
         padding:0;
     }
 
+    .build-an-addon.display-div {
+        height:auto;
+    }
 
     div.build-an-addon,
     div.three-row-col-div div.display-div {
         width:100%;
         padding:0;
     }
+
+
 
     div.build-an-addon h2,
     .display-div.right-col h2 {

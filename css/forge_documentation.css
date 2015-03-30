@@ -19,7 +19,10 @@
 .addon-marquee .marquee-content {
     z-index: 1000;
     padding:3em 0 2em 0;
+}
 
+.search-bar-row.documentation {
+    margin-top:2em;
 }
 
 .addon-marquee.documentation .marquee-content h2 {

@@ -1183,7 +1183,6 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
 
 /* ** Firefox Search Bar Adjustments ** */
 
-
 @-moz-document url-prefix() {
    /* Larger Search Bar */
     .search-bar-row.large input {
@@ -1204,7 +1203,7 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
     .search-bar-row.small input[type="text"] {
             font-size:15px;
             color:#666666;
-            padding:8px 15px;
+            padding:8px 15px 7px 15px;
     }
 }
 
@@ -2112,6 +2111,8 @@ GRADIENT BACKGROUNDS
     .search-bar-row.large input[type="text"] {
         width:60%
     }
+
+
 }
 
 /* This is typically the smallest size (XS) but not currently in use for Forge */
@@ -2120,11 +2121,6 @@ GRADIENT BACKGROUNDS
        /* border:1px solid lime;*/
     }
 
-
-    .search-bar-row.large input.addon_search[type="text"],
-    .search-bar-row.large input.addon_search_submit[type="submit"] {
-        font-size:14px;
-    }
 
 
     .intro-download-section  {
@@ -2320,9 +2316,15 @@ GRADIENT BACKGROUNDS
         height:31px;
     }
 
-    .search-bar-row.large input {
-        font-size:11px;
-        padding:5px;
+
+    /* ** Firefox Search Bar Adjustments ** */
+
+    @-moz-document url-prefix() {
+        /* Larger Search Bar */
+        .search-bar-row.large input {
+            line-height:1.5em;
+            font-size:12px;
+        }
     }
 
 }

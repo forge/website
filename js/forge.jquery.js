@@ -77,11 +77,15 @@ $(function() {
     }
 
     // Init Contribute page column sizing – works in the larger (lg or md) breakpoints only
-    if($('.contribute-columns').length && $(window).outerWidth() > 767) {
+    if($('.contribute-columns').length && $(window).width() > 767) {
         sizeContributeSection();
         $(window).resize(function(){
-            if($(window).outerWidth() > 767) {
+            if($(window).width() > 767) {
                 sizeContributeSection();
+            } else
+            // This has been added to remove a gap that was showing up in the bottom of the "Build An Addon" box.
+            if($(window).width() <= 767) {
+                $('.build-an-addon').css({'height':'auto','paddingTop':'1em','paddingBottom':'1em'});
             }
         });
     }
@@ -89,7 +93,7 @@ $(function() {
     // Init community grid row "connection bar" row column sizing
     // As of this setup, the vertical bar row and its two <span> objects must be present
     if($('.community-grid-row').length && $('.vertical-bar-row').length) {
-       // communityVertBars();
+       //communityVertBars();
     }
 
     // If this is a document page, init column sizing for tablet/desktop size screens
@@ -434,6 +438,65 @@ function addStars() {
 }
 
 
+// Updated version of this function
+/* New version of this assumes that there are two sets of columns (inner two and outer two)
+and that of the inner two, the default height of the left column is shorter than the right
+and that of the outer two, the default height of the left column is higher than the far-right column.
+ */
+function sizeContributeSection() {
+
+    // 1. Inner Columns
+
+    // Inner Left/Right display divs
+    $iLCol = $('.build-an-addon');
+    $iRCol = $('.three-row-col-div');
+
+    // To Start, get the height of the right box and set the padding on the left to result in a matching height
+
+    // Determine difference in heights
+    var iDiff = ($iRCol.height() - $iLCol.height()) / 2;
+
+    // Now add iDiff to the top padding of first item and bottom padding of last item
+    $iLCol.first().css({'paddingTop':iDiff+'px'});
+    $iLCol.last().css({'paddingBottom':iDiff+'px'});
+
+
+    // 2. Outer Columns
+
+    // Far Left / Far Right Display divs
+    $oLCol =  $('.display-div.left-col'); // Far Left Col Display
+    $oRCol =  $('.display-div.right-col'); // Far Right Col Display
+
+    // Match the heights of the outer right/left columns. This assumes the far-right col will always be shorter than far-left by default
+    var oDiff = ($oLCol.height() - $oRCol.height()) / 2;
+
+    // This is extra padding that's added to the far-left col, then combined with the far-right diff padding
+    var extraPad = 10;
+    $oLCol.css({'paddingTop':extraPad+'px','paddingBottom':extraPad+'px'});
+
+    var combinedDiff = oDiff + extraPad;
+
+    $oRCol.first().css({'paddingTop':combinedDiff+'px'});
+    $oRCol.last().css({'paddingBottom':combinedDiff+'px'});
+
+
+    // 3. Apply difference in height as padding to outer columns
+    $innerContainer = $('.three-row-col-div');
+    $outerContainer = $('.left-col-container');
+
+    if($innerContainer.height() > $outerContainer.height()) {
+        var outerInnerDiff = ($innerContainer.height() - $outerContainer.height()) / 2;
+
+        // Apply difference as padding to both outer containers
+        var outer = [$('.left-col-container'),$('.right-col-container')];
+        $(outer).each(function(i,e) {
+            $(this).css({'paddingTop':outerInnerDiff+'px'});
+        });
+    }
+
+}
+
+/*
 // Sizing of Contribute row sections. Make sure left & right cols are the same height and displayed in the vertical center relative tot he middle two columns
 function  sizeContributeSection() {
 
@@ -477,7 +540,7 @@ function  sizeContributeSection() {
         });
     }
 
-}
+}*/
 
 
 // Function sizes and spaces out the vertical bar connections for the
