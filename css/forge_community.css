@@ -130,7 +130,8 @@ This assumes this section's content will remain the same */
 div.build-an-addon,
 div.three-row-col-div div.display-div {
     background-color:#dbdadf;
-    width:95%;
+    /*width:95%;*/
+    width:97%;
 }
 
 /* Like the far-right column, the margin for this <h2> assumes the current content will stay relatively constant */
@@ -361,6 +362,10 @@ which will be added via JS */
 @media (min-width: 1200px) {
     .display-div a.forge-btn {
         width:70%;
+    }
+
+    div.build-an-addon {
+        width:98%;
     }
 
 }

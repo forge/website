@@ -60,14 +60,33 @@ $(function() {
     // Only use widthBox() during testing
     //widthBox();
 
-    // Check width for parallax use:
-    //runParallax();
-
     // Use vertical-only parallax
     runVertParallax();
 
     // Maintain position of emblem if viewing on a phone-size screen
     smallScreenWidthMgr();
+
+    // If this is the front page, manage height/alignment of download boxes
+    if($('.grey-div.right-div').length && $('.grey-div.left-div').length) {
+        // Manage vert. aligns
+        if($(window).width() > 767) {
+            alignGreyBoxes();
+        } else
+        // Manage box display in single-column mode
+        if($(window).width() <= 767) {
+            smallerDivHeightMain();
+        }
+        $(window).resize(function(e){
+            // Manage vert. aligns
+            if($(window).width() > 767) {
+                alignGreyBoxes();
+            } else
+            // Manage box display in single-column mode
+            if($(window).width() <= 767) {
+                smallerDivHeightMain();
+            }
+        });
+    }
 
 
     // Init Rating Star display script
@@ -151,8 +170,6 @@ function initBodyPaddingFix() {
     if(p == '15px') {
         $b.css({"paddingRight":"0"});
     }
-
-
 }
 
 
@@ -194,8 +211,6 @@ function initFlyOver() {
     $(window).resize(function(){
         sizeFlyoverMenus();
     });
-
-
 
     $('#btnFlyOver').click(function(e) {
         e.preventDefault();
@@ -326,7 +341,7 @@ function runParallax() {
 // This function maintains the position of the logo emblem and other items on smaller screens
 function smallScreenWidthMgr() {
     var w = $(window).outerWidth();
-    if( w < 767) {
+    if( w <= 767) {
         $('div[role="navigation"]').css({'marginTop':'73px','position':'absolute'});
 
         // Correct logo placement
@@ -334,10 +349,6 @@ function smallScreenWidthMgr() {
         $logo.css({'marginLeft':((w/2) - 75)+'px'});
         // Add a border to dropdown menu
         //$('#navBarMain').css({'border':'1px solid white'});
-    } else
-    if(w >= 767) {
-        // Function to give a uniform height and alignment to grey boxes in download/os section
-        alignGreyBoxes();
     }
 
     // Run same function on any window resize.
@@ -367,25 +378,47 @@ function smallScreenWidthMgr() {
 
 
 // Function to give a uniform height and alignment to grey boxes in download/os section
+// This function assumes the center div is always the tallest of the three.
 function alignGreyBoxes() {
-    var _greyLtRt = [$('.grey-div.left-div').outerHeight(),$('.grey-div.right-div').outerHeight()];
-
+    // Two left/right divs
+    var greyLtRtDivs    = [$('.grey-div.left-div'),$('.grey-div.right-div')];
 
     // Only perform size change if the two checked heights aren't equal
-        // Whichever height is greater will become the height for both (+10 add'l px)
-        var newHeight = (Math.max.apply(Math,_greyLtRt)) + 10;
+    // Whichever height is greater will become the height for both (+10 add'l px)
+    if($('.grey-div.left-div').hasClass('height-matched') === false) {
+        var greyLtRtHts     = [$('.grey-div.left-div').height(),$('.grey-div.right-div').height()];
 
+        var newHeight = (Math.max.apply(Math,greyLtRtHts)) + 10;
         // Apply height to left and right div's
         $('.grey-div.left-div').css({'height':newHeight+'px'});
         $('.grey-div.right-div').css({'height':newHeight+'px'});
 
-        // Get the diff. between the center box & the new height; make 1/2 diff of that the neg. top margin of center
-        var centerHeight = $('.grey-div.center-div').outerHeight();
-        var newMargin = (centerHeight - newHeight) / 2;
+        $(greyLtRtDivs).each(function(i,e){
+            $(this).addClass('height-matched');
+        });
+    }
 
-        // Apply CSS
-        $('.grey-div.center-div').css({'marginTop':'-'+newMargin+'px'});
+    var centerHeight = $('.center-contain-div').height();
+    var newMargin = (centerHeight - $('.grey-div.left-div').height() ) / 2;
 
+    // Apply CSS
+    $(greyLtRtDivs).each(function(i,e){
+        $(this).css({'marginTop':newMargin+'px'})
+    });
+}
+
+// This manages the div height as visible at any width below 767 (the phone breakpoint)
+function smallerDivHeightMain() {
+    $l = $('.grey-div.left-div');
+    $r = $('.grey-div.right-div');
+    var lR = [$l,$r];
+    if($l.hasClass('height-matched') === true) {
+        $(lR).each(function(i,e) {
+            $(this).removeClass('height-matched');
+            $(this).css({'height':'auto','marginTop':'0'});
+
+        });
+    }
 }
 
 
@@ -495,53 +528,6 @@ function sizeContributeSection() {
     }
 
 }
-
-/*
-// Sizing of Contribute row sections. Make sure left & right cols are the same height and displayed in the vertical center relative tot he middle two columns
-function  sizeContributeSection() {
-
-    // FAR LEFT AND FAR RIGHT COLUMN SIZING/SPACING...
-
-    // Far Left / Far Right Display divs
-    $lCol =  $('.display-div.left-col'); // Far Left Col Display
-    $rCol =  $('.display-div.right-col'); // Far Right Col Display
-
-    var lColH = parseInt($lCol.outerHeight());
-    var rColH = parseInt($rCol.outerHeight());
-    var finColHeight; // This var is set for the outer-inner height align below
-
-    // Size .display-divs
-    if(lColH != rColH) {
-        if(lColH > rColH ) {
-            $rCol.css({'height':lColH + 'px'});
-
-            finColHeight = lColH;
-        } else {
-            $lCol.css({'height':rColH + 'px'});
-            finColHeight = rColH;
-        }
-    }
-
-    // INTERIOR LEFT/RIGHT COLUMN SIZING/SPACING
-
-    // This assumes that the right-inner column is the larger height of the two.
-    var intRightColHeight = $('.three-row-col-div').outerHeight();
-    $('.build-an-addon').css({'height':intRightColHeight + 'px' });
-
-
-    //if($(window).width() > 992) {
-    if($(window).width() > 767) {
-        // Now the outer and inner pairs of columns should be aligned vertically
-        var diff = (Math.abs(intRightColHeight - finColHeight)) / 2;
-
-        var arr = [$lCol,$rCol];
-        $(arr).each(function(i,e) {
-            $(e).css({'marginTop':diff + 'px'});
-        });
-    }
-
-}*/
-
 
 // Function sizes and spaces out the vertical bar connections for the
 function communityVertBars() {

@@ -1768,6 +1768,9 @@ GRADIENT BACKGROUNDS
         margin-right:2px;
     }
 
+    .download-os-divs h2 {
+        font-size:22px;
+    }
 
 }
 
@@ -1993,6 +1996,9 @@ GRADIENT BACKGROUNDS
     }
 
 
+    .grey-div.right-div {
+        height:auto;
+    }
 
 
     .grey-div.right-div > .download-links-for-os h2 {
