@@ -112,7 +112,7 @@ $(function() {
     // Init community grid row "connection bar" row column sizing
     // As of this setup, the vertical bar row and its two <span> objects must be present
     if($('.community-grid-row').length && $('.vertical-bar-row').length) {
-       //communityVertBars();
+       communityVertBars();
     }
 
     // If this is a document page, init column sizing for tablet/desktop size screens

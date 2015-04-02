@@ -490,7 +490,12 @@ which will be added via JS */
     /* Align and center link contents */
     .contribute-columns div.middle-section div.three-row-col-div div.display-div,
     div.three-row-col-div div.display-div {
-        padding:1.5em 0;
+        padding:24px 0;
+    }
+    .contribute-columns div.middle-section div.display-div.build-an-addon,
+    .display-div.right-col.attend-event
+    {
+        padding:24px 0;
     }
 
     .three-row-col-div .display-div a {

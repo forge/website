@@ -208,13 +208,12 @@ row.addon-boxes {
 .addon-boxes div.addon p {
     font-weight:100;
     font-style:italic;
-    margin:0;
-
 }
 
 .addon-boxes div.addon h3 {
     font-size:11px;
     padding:.3em 0;
+    margin:0;
 }
 
 .addon-boxes div.addon p {
@@ -222,6 +221,7 @@ row.addon-boxes {
     line-height:1.2em;
     height:auto;
     padding:0;
+    margin:1em 0 0 0;
 }
 
 /* Stars */
