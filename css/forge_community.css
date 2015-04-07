@@ -232,91 +232,168 @@ which will be added via JS */
 }
 
 .community-logo {
-    padding:0;
-    margin:-100px auto 0 auto;
-    background-color: white;
-    width:200px;
-    height:200px;
-    padding:20px;
-    border-radius:50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border:10px solid #ee3327;
     text-align: center;
     float: none;
+    margin-top:-100px;
 }
 
 .community-logo img {
-    width:100%;
-    height:auto;
+    width:200px;
+    height:200px;
+    border:8px solid #ee3327;
+    background: white;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
 
 .community-people h1 {
     font-size:30px;
-    padding:.5em 0;
-    margin:0;
+    padding-top:.5em;
+    padding-bottom:.5em;
+
 }
 
 .orange-line-row {
-    background:url(../images/bg-block-orange-ver_4x20.png) repeat-y;
+    background:url(../images/bg-block-orange-ver_5x40.png) repeat-y;
     background-position: center 0;
     height:2em;
-    padding:0;
-    margin:0;
 }
 
 /* Community images */
 /* 5-column rows with vertical-line rows in between */
-.community-grid-row {
-    text-align:center;
-    position: relative;
+.community-images-holder {
+    display:none;
+}
+
+.community-grid .row {
     padding:0;
 }
 
-.community-grid-row div {
-    display:inline-block;
-    margin-left:-3px;
-    margin-right:-3px;
-    padding:0 1em;
-    width:auto;
-    background:url(../images/bg-block-orange-horiz_20x10.png) repeat-x;
-    background-position: 0 center;
+.community-grid .row div {
+    /* Reset */
+    padding:.4em 0;
 }
 
-.community-grid-row div:first-child {
-    padding-left:0;
+.community-grid .row:first-child div {
+    padding-top:0;
 }
 
-.community-grid-row div:last-child {
-    padding-right:0;
-}
-
-.community-grid-row div img {
-    width:150px;
-    height:150px;
+.community-grid .row div img {
+    width:120px;
+    height:120px;
     border-radius:50%;
     -moz-border-radius: 50%;
     -webkit-border-radius:50%;
-    border:10px solid #ee3327;
+    border:5px solid #ee3327;
+}
 
+
+/* Connecting line background settings */
+
+/* Top Left */
+.community-grid .row:first-child div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: right 50%, 50% bottom;
+}
+
+/* Bottom Left */
+.community-grid .row:last-child div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: right 50%, 50% top;
+}
+
+/* Top Right */
+.community-grid .row:first-child div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: left 50%, 50% bottom;
+}
+
+/* Bottom Right */
+.community-grid .row:last-child div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: left 50%, 50% top;
+}
+
+/* Left Columns */
+.community-grid .row div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat,repeat-y;
+    background-position: right 50%, 50%;
+}
+
+/* Right Columns */
+.community-grid .row div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x40.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat,repeat-y;
+    background-position: left 50%, 50%;
+}
+
+.community-grid .row div {
+    background:url(../images/bg-block-orange-horiz_5x40.png);
+    background-repeat:repeat-x;
+    background-position: 50%;
+}
+
+
+/* Phone Display */
+
+.phone-display .row div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png) ;
+    background-repeat:no-repeat, repeat-y;
+    background-position: right 50%, center;
+
+}
+
+.phone-display .row div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat, repeat-y;
+    background-position: left 50%, center;
+}
+
+
+.phone-display .row:first-child div {
+    padding-top:10px;
+}
+
+.phone-display .row:first-child div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x110.png), url(../images/bg-block-orange-ver_5x110.png);
+    background-repeat:no-repeat;
+    background-position: right 50%, right top, center bottom;
+}
+
+.phone-display .row:first-child div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: left 50%, center bottom;
+}
+
+.phone-display .row:last-child div:last-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: left 50%, center top;
+}
+
+
+.phone-display .row:last-child div:first-child {
+    background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png);
+    background-repeat:no-repeat;
+    background-position: right 50%, center top;
 }
 
 .vertical-bar-row {
     border:none;
     position: relative;
-    padding:0;
-    margin:0;
     height:1em;
 }
 
-
 .vert-bar {
     display:inline-block;
-    margin-left:-3px;
-    margin-right:-3px;
     height:20px;
-    padding:0 1em;
-
 }
 
 .vert-bar.first-col,
@@ -431,6 +508,13 @@ which will be added via JS */
         font-size:15px;
     }
 
+    /* Image rows */
+    .community-grid .row div img {
+        width:100px;
+        height:100px;
+        border:5px solid #ee3327;
+    }
+
 }
 
 /* Max. Size SM (767px and under) */
@@ -528,6 +612,11 @@ which will be added via JS */
         *//* Margin will be added to each img *//*
     }*/
 
+    .community-people h1 {
+        margin-top:0;
+        margin-bottom:0;
+    }
+
     .community-grid-row div {
         width:50%;
         padding:0;
@@ -538,6 +627,15 @@ which will be added via JS */
         width:80%;
         height:auto;
         margin:1em 0;
+    }
+
+    .community-grid .row div img {
+        width:200px;
+        height:200px;
+        border-radius:50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius:50%;
+        border:5px solid #ee3327;
     }
 
     /* Reduce join-now section padding */
@@ -584,6 +682,23 @@ which will be added via JS */
         /* Margin will be added to each img */
     }
 
+}
 
+@media(max-width:445px) {
+    .community-grid .row div img {
+        width:120px;
+        height:120px;
+    }
 
+    .phone-display .row:first-child div:first-child {
+        background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x70.png), url(../images/bg-block-orange-ver_5x40.png);
+        background-repeat:no-repeat;
+        background-position: right 50%, right top, center bottom;
+    }
+
+    .phone-display .row:first-child div:last-child {
+        background:url(../images/bg-block-orange-horiz_5x120.png), url(../images/bg-block-orange-ver_5x40.png);
+        background-repeat:no-repeat;
+        background-position: left 50%, center bottom;
+    }
 }

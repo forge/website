@@ -156,10 +156,297 @@ $(function() {
        });
     }
 
+
+    if($('.network-graphic-grid-container').length) {
+        // Activate this if you'd like the network display images to appear in a random order upon each page load.
+        // Otherwise, deactivate and fill in images manually
+        runRandomNetworkImgLoader();
+
+        // This makes a copy of the network graphic from the reg. display size and places it in the phone breakpoint display.
+        sizeLocNetworkGraphic();
+    }
+
+    // Manage the network page 'network' graphic display
+    if($('.network-grid').length) {
+        managePhoneNetworkPhoneWidths();
+        $(window).resize(function(e) {
+            managePhoneNetworkPhoneWidths();
+        });
+    }
+
+    // Manage the community page image grid display
+    if($('.community-grid').length) {
+        manageCommunityGridDisplay();
+    }
+
     // Padding fix
     initBodyPaddingFix();
 
 }); // Close init functions
+
+
+
+// This function loads the community grid display (at both sizes) with images in a hidden container
+/*
+Like the Network page template grid function, the content to be loaded could
+also be swapped for a JSON object. Note that this function will limit
+the quantities of images – for the laptop/desktop monitor setting, it'll only show
+groups of slides that are counted in multiples of 5 (5 images per row)
+for the smaller phone-widths, multiples of two (2 images per row)
+*/
+
+// *This display assumes there will be at least enough images for 1 row (currently 5 images per row at regular display)
+function manageCommunityGridDisplay() {
+    // Hidden image holder
+    $c = $('.community-images-holder');
+    // Regular (ie laptop/desktop) display grid (visible @ larger breakpoints)
+    $rG = $('.community-grid.reg-display');
+    // Phone-friendly display grid (visible @ smaller-width breakpoints)
+    $pG = $('.community-grid.phone-display');
+
+    var imgArr = new Array();
+    // Insert all present images into array
+    $c.children().each(function(i,e) {
+        imgArr.push($(this));
+    });
+
+    // Shuffle array with shuffle() function
+    shuffleArray(imgArr);
+
+
+    // FILL REGULAR DISPLAY GRID
+
+    // The regular/laptop display will have rows of 5 (exactly 5 cols per row – no more, no less).
+    var rCols = 5;
+
+    // Turn the main Array into a group that's divisible only by 5
+    var regArr = imgArr;
+
+    // Slice off the remaining divs that can't fill an entire row
+    regArr.slice(0,setToMultiple(imgArr.length,rCols));
+
+    // Begin HTML content that will be filled into the display area on the page
+    var rLen = regArr.length;
+
+    var rContent = '';
+    for(var i = 0; i< rLen ;i++) {
+        // Modulo for this item
+        var modq = i % rCols ;
+
+        var u = regArr[i][0].outerHTML; // current array key
+
+        if(i == 0) {
+            rContent += '<div class="row"><div>'+ u +'</div>';
+        }
+        if(i > 0 && modq > 0  && i < rLen) {
+            rContent += '<div>'+ u +'</div>';
+        } else
+        if(i > 0 && modq == 0  && (i + 1) < rLen) {
+            rContent += '</div><div class="row"><div>'+ u +'</div>';
+        } else
+        if(i > 0 && modq == 0 && (i+1) == rLen) {
+            rContent += '<div>'+ u +'</div></div>';
+        }
+    }
+    // Place content in page
+    $rG.html(rContent);
+
+    // Now that HTML is in place, assign the necessary class types
+    $rG.children('.row').children('div').each(function(i,e) {
+        $(this).addClass('col-sm-2');
+    });
+
+    $rG.children('.row').children('div.col-sm-2:first-child').addClass('col-sm-offset-1');
+
+
+    // FILL PHONE DISPLAY GRID
+
+    // The phone display will have rows of 3 (exactly 3 cols per row – no more, no less).
+    var pCols = 2;
+
+    // Turn the main Array into a group that's divisible only by 5
+    var pArr = imgArr;
+
+    // Slice off the remaining divs that can't fill an entire row
+    pArr.slice(0,setToMultiple(pArr.length,pCols));
+
+    // Begin HTML content that will be filled into the display area on the page
+    var pLen = pArr.length;
+
+    var pContent = '';
+    for(var i = 0; i< pLen ;i++) {
+        // Modulo for this item
+        var modq = i % pCols ;
+
+
+        var u = pArr[i][0].outerHTML; // current array key
+
+        // Only three types of div's for this row dislay: left, center, right
+        switch(modq) {
+            case 0:
+                pContent += '<div class="row"><div class="col-xs-6">'+ u +'</div>';
+                break;
+            case 1:
+              //  pContent += '<div class="center col-xs-1">&nbsp;</div>';
+              // break;
+            case 2:
+                pContent += '<div class="col-xs-6">'+ u +'</div></div>';
+
+        }
+    }
+    // Place content in page
+    $pG.html(pContent);
+
+    // Make all center
+
+}
+
+
+
+
+// Used with the community grid to round the array count up or down to a multiple of 5
+// x = array total length, m = multiple to set to
+function setToMultiple(x,m) {
+    // var to return
+    var r;
+    // Determine if there's a remainder
+    var modq = x % m;
+
+    // If the value is already a multiple of m, then return it
+    if(modq == 0) {
+        r = x;
+    } else
+    // If value isn't a multiple of m, then find the next lower multiple of m
+    if(modq != 0) {
+        var r = Math.floor(x/5)*5;
+    }
+    return r;
+}
+
+
+
+// This function calculates the correct proportions for the network grid display based on given width/height
+function managePhoneNetworkPhoneWidths() {
+    /*
+      // Proportion of total height for each of the 4 rows
+      Row 1 height:19.11%
+      Row 2 height:22.06%
+      Row 3 height:35.29%
+      Row 4 height:23.53%
+     */
+    // This the phone-friendly grid var (displays at smaller breakpoints)
+    $p = $('.network-div-phone-width-container .network-grid');
+    // This is the laptop/desktop display grid (displays at larger breakpoints)
+    $g = $('.network-graphic-grid-container .network-grid');
+
+    // This is the height of the desktop/laptop display grid
+    var gH = $g.height();
+    // This is the height of the phone-friendly display grid
+    var pH = $p.height();
+
+
+   
+    // Set Row heights (both sets)
+
+    // Desktop/laptop
+    $p.children('.network-row-1').css({'height': (pH * .1911) +'px'});
+    $p.children('.network-row-2').css({'height': (pH * .2206) +'px'});
+    $p.children('.network-row-3').css({'height': (pH * .3529) +'px'});
+    $p.children('.network-row-4').css({'height': (pH * .2353) +'px'});
+
+    // Phone
+    $g.children('.network-row-1').css({'height': (gH * .1911) +'px'});
+    $g.children('.network-row-2').css({'height': (gH * .2206) +'px'});
+    $g.children('.network-row-3').css({'height': (gH * .3529) +'px'});
+    $g.children('.network-row-4').css({'height': (gH * .2353) +'px'});
+
+    // Circular image containers
+
+    // Proportions
+    var small = .138;
+    var med   = .185;
+    var large = .224;
+
+    // Laptop/Desktop grid circle heights
+    var gS =    gH * small;
+    var gM =    gH * med;
+    var gL =    gH * large;
+
+    // Phone-friendly grid circle heights
+    var pS =    pH * small;
+    var pM =    pH * med;
+    var pL =    pH * large;
+
+    // Set circle heights (both sets)
+
+    // Reg. display grid circle heights
+    $g.children().find('.sml img').css({'width':gS+'px','height':gS+'px'});
+    $g.children().find('.med img').css({'width':gM+'px','height':gM+'px'});
+    $g.children().find('.lrg img').css({'width':gL+'px','height':gL+'px'});
+
+
+    // Phone display heights
+    $p.children().find('.sml img').css({'width':pS+'px','height':pS+'px'});
+    $p.children().find('.med img').css({'width':pM+'px','height':pM+'px'});
+    $p.children().find('.lrg img').css({'width':pL+'px','height':pL+'px'});
+
+}
+
+
+// This takes a copy of the network-div from the reg.display and places it in the phone breakpoint container div, then adds a class
+function sizeLocNetworkGraphic() {
+    $p = $('.network-div-phone-width-container'); // Phone breakpoint div
+    $c = $('.network-graphic-grid-container');    // Reg. Width display
+
+    // Make a copy of the .network-grid div in the main container (which should already have images loaded), place in phone break, add class name
+    var cl = $c.children('.network-grid').clone();
+    $p.html(cl);
+
+    // Now add the class tag to the phone-width version
+    $p.children('.network-grid').addClass('phone-display');
+}
+
+
+// This pulls images from the display container for the network graphic loader and places them randomly in the network grpahic on the main page.
+function runRandomNetworkImgLoader() {
+    $c = $('.network-img-holder'); // Hidden container
+    var imgArr = new Array();
+    $c.children().each(function(i,e) {
+        imgArr.push($(this));
+    });
+
+    // Length of imgArr (should be 10)
+    var l = imgArr.length
+
+    // Randomize the order of the objects in the container
+    shuffleArray(imgArr);
+    // Now load each item into the display container
+    for(var i = 0;i < l; i++) {
+        $('div[data-img-pos="'+i+'"]').html(imgArr[i]);
+    }
+}
+// This is used in the runRandomNetworkImgLoader() and manageCommunityGridDisplay() functions
+function shuffleArray(array) {
+    var currIndex = array.length, temVal, randIndex ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currIndex) {
+
+        // Pick a remaining element...
+        randIndex = Math.floor(Math.random() * currIndex);
+        currIndex -= 1;
+
+        // And swap it with the current element.
+        tempVal = array[currIndex];
+        array[currIndex] = array[randIndex];
+        array[randIndex] = tempVal;
+    }
+
+    return array;
+}
+
+
+
 
 
 // This function attempts to correct an issue in some browsers, where right padding is added to the <body> tag.
