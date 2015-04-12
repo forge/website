@@ -299,11 +299,30 @@ h6,.h6 {
 .forge-btn:active
 .forge-btn:visited {
     outline:none;
+    color:white;
 }
 
 .btn,
+.btn:focus,
+.btn:hover,
+.btn:link,
+.btn:active,
+.forge-btn:active,
+.forge-btn:focus,
+.forge-btn:link,
 .forge-btn:focus {
     color:white;
+    outline:none;
+}
+
+a,
+a:hover,
+a:link,
+a:active,
+a:focus,
+a:link,
+.btn:active:focus,
+.btn.active:focus {
     outline:none;
 }
 
@@ -682,6 +701,40 @@ div.network-graphic-grid-container .network-grid {
         border:4px solid #ee3327;
     }
 }
+
+/*
+@media (min-width:1000px) and (max-width:1089px) {
+    */
+/* Sizes 60% of original (rounded down) *//*
+
+
+    .network-grid {
+        width:490px;
+        height:408px;
+    }
+
+    .network-grid img {
+        border:3px solid #ee3327;
+    }
+}
+
+
+@media (min-width:960px) and (max-width:999px) {
+    */
+/* Sizes 55% of original (rounded down) *//*
+
+
+    .network-grid {
+        width:449px;
+        height:374px;
+    }
+
+    .network-grid img {
+        border:3px solid #ee3327;
+    }
+}
+*/
+
 
 @media (min-width:960px) and (max-width:1089px) {
     /* Sizes 60% of original (rounded down) */
@@ -1908,7 +1961,7 @@ GRADIENT BACKGROUNDS
     }
 
     .modal-social-icons ul li {
-        padding:0 .4em;
+        padding:0 .5em;
     }
 
     .checkbox-row {
@@ -2106,9 +2159,6 @@ GRADIENT BACKGROUNDS
         -moz-border-radius-bottomright: 5px;
     }
 
-
-
-
     .forge-download-row {
         margin-top:0;
     }
@@ -2273,6 +2323,10 @@ GRADIENT BACKGROUNDS
         width:60%
     }
 
+    .modal-social-icons {
+        padding-left:15px;
+    }
+
 
 }
 
@@ -2353,7 +2407,7 @@ GRADIENT BACKGROUNDS
     }
 
     .modal-social-icons ul li {
-        padding:0 .4em;
+        padding:0 .2em;
     }
 
     button.close.modal-forge-close {
@@ -2448,7 +2502,7 @@ GRADIENT BACKGROUNDS
     }
 
     .modal-social-icons ul li {
-        padding:0 .3em;
+        padding:0 .1em;
     }
 
     .modal-social-icons ul li a {
@@ -2486,6 +2540,10 @@ GRADIENT BACKGROUNDS
             line-height:1.5em;
             font-size:12px;
         }
+    }
+
+    .modal-social-icons ul li a {
+        width:25px;height:25px;
     }
 
 }

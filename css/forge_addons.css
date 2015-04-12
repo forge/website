@@ -242,6 +242,194 @@ row.addon-boxes {
     color:#ec7e3c;
 }
 
+/* SPECIAL CSS FOR THE ADDON SUB-PAGE **/
+
+/** This is the special sub-page designed for phone viewing, but its tags will display content at all screen sizes without issue,
+in case the page is viewed on something larger than a phone-width screen. */
+
+body {
+    background: rgb(158,155,170);
+}
+
+.phone-addon-title-section {
+    padding-top:2em;
+}
+
+.phone-addon-title-section h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.phone-addon-icon-link-section {
+    padding-top:1.5em;
+    padding-bottom:1.5em;
+    background: #9e9baa;
+    /* Grad: 888592 */
+}
+
+.get-addon-icon {
+    text-align: center;
+}
+
+
+.phone-get-addon-btn-div {
+    width:40%;
+    margin:2.5em auto 1em auto;
+}
+
+
+/* Collapsible Accordian Group */
+.addon-panel-group {
+    margin-bottom:0;
+}
+
+
+.addon-panel-group .panel-heading {
+    background: white;
+}
+
+.addon-panel-group .panel-title {
+    text-align: center;
+
+    padding-top:.8em;
+    padding-bottom:.8em;
+}
+
+.addon-panel-group .panel-title a {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+
+
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+    border:none;
+}
+
+.panel {
+    border:none;
+}
+
+.panel-body {
+    font-family:"Open Sans",sans-serif;
+    font-weight:lighter;
+    font-size:1em;
+    font-style: italic;
+    padding-bottom:2em;
+    padding-top:3em;
+    text-align: center;
+}
+
+.panel-body.author-section {
+    padding-top:0;
+}
+.panel-body h2 {
+    font-style:normal;
+    font-weight:normal;
+    text-align: center;
+    font-size:1.4em;
+    letter-spacing:1px;
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:0;
+    padding-bottom:1em;
+}
+
+.panel-body.author-section {
+    text-align: center;
+}
+
+.panel-body .disclaimer {
+    font-size:.8em;
+    font-style:normal;
+    font-weight:bold;
+}
+
+
+.panel-author-row {
+    text-align: center;
+}
+
+.panel-author-row .panel-author-display p {
+    font-size:12px;
+    padding:0;
+    margin:.3em 0;
+    line-height:1em;
+}
+
+.panel-author-display p.plugin-count {
+    text-transform: uppercase;
+}
+
+.panel-author-display p:first-child {
+
+}
+
+.panel-author-display img {
+    margin-bottom:.5em;
+}
+
+.author-section .panel-author-row img,
+.panel-community-contributed img {
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.panel-community-contributed {
+    padding-top:2em;
+    padding-bottom:1em;
+}
+
+.panel-community-contributed h3 {
+    font-family:"Montserrat",sans-serif;
+    font-size:11px;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height:1.2em;
+    padding-top:0;
+    margin-top:.5em;
+}
+
+
+.lavender-grad,
+.panel-collapse {
+    /* These are minimal values to properly display the gradient without overlapping content */
+
+
+    background: rgb(130,128,139); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgyODA4YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iIzllOWJhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg1JSIgc3RvcC1jb2xvcj0iIzllOWJhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4MjgwOGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(130,128,139,1) 0%, rgba(158,155,170,1) 15%, rgba(158,155,170,1) 85%, rgba(130,128,139,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(130,128,139,1)), color-stop(15%,rgba(158,155,170,1)), color-stop(85%,rgba(158,155,170,1)), color-stop(100%,rgba(130,128,139,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%,rgba(130,128,139,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%,rgba(130,128,139,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%,rgba(130,128,139,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%,rgba(130,128,139,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82808b', endColorstr='#82808b',GradientType=0 ); /* IE6-8 */
+}
+
+/* Gradient goes from top to bottom instead of from both top & bottom */
+.open-panel-grad {
+    background: rgb(130,128,139); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgyODA4YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iIzllOWJhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg1JSIgc3RvcC1jb2xvcj0iIzllOWJhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(top,  rgba(130,128,139,1) 0%, rgba(158,155,170,1) 15%, rgba(158,155,170,1) 85%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(130,128,139,1)), color-stop(15%,rgba(158,155,170,1)), color-stop(85%,rgba(158,155,170,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(130,128,139,1) 0%,rgba(158,155,170,1) 15%,rgba(158,155,170,1) 85%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82808b', endColorstr='#9e9baa',GradientType=0 ); /* IE6-8 */
+
+}
+
+
+
 /*===============================================================================
  SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
 ===============================================================================*/
@@ -340,6 +528,41 @@ row.addon-boxes {
 
     .star-row span.glyphicon.glyphicon-star {
         font-size:14px;
+    }
+
+}
+
+
+/**
+* ADDON SUB-PAGE – USED AT PHONE DISPLAY WIDTHS ONLY (MAX. 767PX)
+*/
+
+@media(max-width:767px) {
+
+
+    /* This CSS tag can be used with the assumption that each img icon will be roughly evenly square and comport to a circle shape */
+    .get-addon-icon img {
+        background:white;
+        border-radius:          50%;
+        -moz-border-radius:     50%;
+        -webkit-border-radius:  50%;
+        margin-left:auto;
+        margin-right:auto;
+        padding:15px;
+        width:90px;
+        height:90px;
+    }
+
+    .phone-get-addon-btn-div {
+        width:40%;
+        margin:2.5em auto 1em auto;
+    }
+
+}
+
+@media(max-width:480px) {
+    .phone-get-addon-btn-div {
+        width:60%;
     }
 
 }
