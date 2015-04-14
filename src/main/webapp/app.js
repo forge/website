@@ -8,6 +8,11 @@ angular.module('jboss-forge', ['ngRoute','routeStyles'])
       templateUrl: 'views/addons.html',
       css: 'css/forge_addons.css'
   })
+
+  .when('/addons/mobile/:id',{
+      templateUrl: 'views/addon_phone_template.html',
+      css: 'css/forge_addons.css'
+  })
   
   .when('/documentation',{
       templateUrl: 'views/documentation.html',
