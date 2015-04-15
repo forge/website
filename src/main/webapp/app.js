@@ -8,12 +8,13 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   $stateProvider
   .state('home', {
     url: "/",
-    templateUrl: "views/home.html"
+    templateUrl: "views/home.html",
+    css: 'css/parallax-styles.css'
   })
   .state('addons', {
     url: "/addons",
     templateUrl: "views/addons.html",
-    css: 'css/forge_addons.css'
+    css: ['css/forge_addons.css', 'css/parallax-styles.css']
   })
   .state('addon_detail',{
     url: '/addons/mobile/{addonId}',
@@ -28,7 +29,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('community', {
     url: "/community",
     templateUrl: "views/community.html",
-    css: 'css/forge_community.css',
+    css: ['css/forge_community.css','css/parallax-styles.css'],
     controller: 'CommunityController'
   })
   .state('news', {
