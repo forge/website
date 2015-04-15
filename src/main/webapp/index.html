@@ -47,10 +47,10 @@
                     <!-- Insert to the left of main nav in order to display these to the far right -->
                     <ul class="nav navbar-nav pull-right main-menu-ul">
                         <li><a href="#">Download</a></li>
-                        <li><a href="#/addons">Addons</a></li>
-                        <li><a href="#/news">News</a></li>
-                        <li><a href="#/documentation">Documentation</a></li>
-                        <li><a href="#/community">Community</a></li>
+                        <li><a ui-sref="addons">Addons</a></li>
+                        <li><a ui-sref="news">News</a></li>
+                        <li><a ui-sref="documentation">Documentation</a></li>
+                        <li><a ui-sref="community">Community</a></li>
                         <li><a href="#">Resources</a></li>
                     </ul>
                 </div><!-- /. navbar-collapse -->
@@ -60,7 +60,8 @@
     </header>
 
 <!-- This is where the main content will be placed -->
-<div ng-view></div>
+<div ui-view></div>
+
 
 <!-- PAGE SECTION LINKS AND SUPPORT -->
 <div class="page-section  blue footer-links-support">
@@ -165,9 +166,9 @@
 <script type="text/javascript" src="lib/forge.jquery.js"></script>
 
 <!-- AngularJS -->
-<script type="text/javascript" src="lib/angular.min.js"></script>
-<script type="text/javascript" src="lib/angular-route.min.js"></script>
-<script type="text/javascript" src="lib/route-styles.js"></script>
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="lib/ui-route-styles.js"></script>
 
 <!-- AngularJS Controllers-->
 <script type="text/javascript" src="app.js"></script>

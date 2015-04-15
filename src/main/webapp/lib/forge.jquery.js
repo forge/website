@@ -186,7 +186,6 @@ function initializeUI() {
 } 
 // Close init functions
 
-
 // This function loads the community grid display (at both sizes) with images in a hidden container
 /*
 Like the Network page template grid function, the content to be loaded could
