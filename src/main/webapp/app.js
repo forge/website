@@ -9,7 +9,8 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('home', {
     url: "/",
     templateUrl: "views/home.html",
-    css: 'css/parallax-styles.css'
+    css: 'css/parallax-styles.css',
+    controller: 'RootController'
   })
   .state('addons', {
     url: "/addons",
