@@ -183,7 +183,7 @@ function initializeUI() {
 
     // Padding fix
     initBodyPaddingFix();
-} 
+}
 // Close init functions
 
 // This function loads the community grid display (at both sizes) with images in a hidden container
