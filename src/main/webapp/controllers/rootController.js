@@ -1,3 +1,5 @@
 angular.module('jboss-forge').controller('RootController', function($scope){
-	runVertParallax();
+	$scope.$on('$stateChangeSuccess', function(event) {
+		initializeUI();
+	})
 });
