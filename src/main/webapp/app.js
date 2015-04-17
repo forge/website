@@ -1,20 +1,23 @@
 //Add the necessary routes here
 angular.module('jboss-forge', ['ui.router','routeStyles'])
 .config(function($stateProvider, $urlRouterProvider){
-
-  $urlRouterProvider.otherwise('/');
-  
   // Set up the states
   $stateProvider
+  .state('/', {
+    url: '/',
+    templateUrl: 'views/home.html',
+    css: 'css/parallax-styles.css',
+    controller: 'RootController'
+  })
   .state('home', {
-    url: "/",
-    templateUrl: "views/home.html",
+    url: '/',
+    templateUrl: 'views/home.html',
     css: 'css/parallax-styles.css',
     controller: 'RootController'
   })
   .state('addons', {
-    url: "/addons",
-    templateUrl: "views/addons.html",
+    url: '/addons',
+    templateUrl: 'views/addons.html',
     css: ['css/forge_addons.css', 'css/parallax-styles.css'],
     controller: 'AddonController'
   })
@@ -24,29 +27,29 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     css: 'css/forge_addons.css'
   })
   .state('documentation', {
-    url: "/documentation",
-    templateUrl: "views/documentation.html",
+    url: '/documentation',
+    templateUrl: 'views/documentation.html',
     css: 'css/forge_documentation.css'
   })
   .state('community', {
-    url: "/community",
-    templateUrl: "views/community.html",
+    url: '/community',
+    templateUrl: 'views/community.html',
     css: ['css/forge_community.css','css/parallax-styles.css'],
     controller: 'CommunityController'
   })
   .state('news', {
-    url: "/news",
-    templateUrl: "views/news.html",
+    url: '/news',
+    templateUrl: 'views/news.html',
     css: 'css/forge_news.css',
     controller: 'NewsController'
   })
   .state('news_detail', {
-    url: "/news/{newsId}",
+    url: '/news/{newsId}',
     templateUrl: 'views/news_page.html',
     css: 'css/forge_doc_pages.css'      
   })
   .state('documentation_detail',{
-    url: "/documentation/{docId}",
+    url: '/documentation/{docId}',
     templateUrl: 'views/documentation_page.html',
     css: 'css/forge_doc_pages.css'
   })
