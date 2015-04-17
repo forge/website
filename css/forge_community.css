@@ -196,6 +196,10 @@ div.three-row-col-div div.display-div a:hover span.right-arrow {
     width:100%;
 }
 
+.display-div.left-col a.forge-btn:last-child {
+    margin-bottom:0;
+}
+
 
 
 .build-an-addon.display-div a.forge-btn {

@@ -96,7 +96,7 @@ $(function() {
     }
 
     // Init Contribute page column sizing – works in the larger (lg or md) breakpoints only
-    if($('.contribute-columns').length && $(window).width() > 767) {
+    if($('.contribute-columns').length && $(window).outerWidth() > 767) {
         sizeContributeSection();
         $(window).resize(function(){
             if($(window).width() > 767) {
@@ -787,32 +787,74 @@ function sizeContributeSection() {
     $oLCol =  $('.display-div.left-col'); // Far Left Col Display
     $oRCol =  $('.display-div.right-col'); // Far Right Col Display
 
-    // Match the heights of the outer right/left columns. This assumes the far-right col will always be shorter than far-left by default
-    var oDiff = ($oLCol.height() - $oRCol.height()) / 2;
 
-    // This is extra padding that's added to the far-left col, then combined with the far-right diff padding
-    var extraPad = 10;
-    $oLCol.css({'paddingTop':extraPad+'px','paddingBottom':extraPad+'px'});
+    // Match the heights of the outer right/left columns. This assumes the far-right col will always be shorter than far-left.
+    // This only acts if the heights aren't already matched; otherwise it causes the heights to be applied incorrectly.
 
-    var combinedDiff = oDiff + extraPad;
+    // Pad outer-left column
 
-    $oRCol.first().css({'paddingTop':combinedDiff+'px'});
-    $oRCol.last().css({'paddingBottom':combinedDiff+'px'});
+    // Establish the placement of the outer-left div first, since it will be larger.
+    $oLCol.css({'paddingTop':'10px','paddingBottom':'20px'});
+    var lch     = $oLCol.outerHeight();
+    var lchPad  = (lch - $oRCol.outerHeight()) / 2;
+    // Now determine the difference between the right and left outer cols; apply difference in padding to right-outer col padding.
 
+    if($oLCol.outerHeight() != $oRCol.outerHeight()) {
+        $oRCol.css({'paddingTop':lchPad + 'px','paddingBottom':lchPad+'px'});
+    }
 
-    // 3. Apply difference in height as padding to outer columns
+    // Adjust Top Margin
+
+    // Now apply a padding to the outer container to vertically center align with inner cols
+    $outerContainer = $('.outer-container');
+    // At this point the inner cols should be height-aligned so height can be taken from one.
     $innerContainer = $('.three-row-col-div');
+    var outPad = ($innerContainer.outerHeight() - $outerContainer.outerHeight()) / 2;
+
+    $outerContainer.css({'paddingTop':outPad+'px'})
+
+
+
+
+
+    // Get the difference in height between the inner and outer cols
+   /* $innerContainer = $('.three-row-col-div');
     $outerContainer = $('.left-col-container');
 
-    if($innerContainer.height() > $outerContainer.height()) {
-        var outerInnerDiff = ($innerContainer.height() - $outerContainer.height()) / 2;
+    var diffPad = $outerContainer.outerHeight() - $innerContainer.outerHeight();
 
-        // Apply difference as padding to both outer containers
-        var outer = [$('.left-col-container'),$('.right-col-container')];
-        $(outer).each(function(i,e) {
-            $(this).css({'paddingTop':outerInnerDiff+'px'});
-        });
-    }
+*/
+
+
+
+    /* $oLCol =  $('.display-div.left-col'); // Far Left Col Display
+     $oRCol =  $('.display-div.right-col'); // Far Right Col Display
+
+     // Match the heights of the outer right/left columns. This assumes the far-right col will always be shorter than far-left.
+     var oDiff = ($oLCol.height() - $oRCol.height()) / 2;
+
+     // This is extra padding that's added to the far-left col, then combined with the far-right diff padding
+     var extraPad = 10;
+     $oLCol.css({'paddingTop':extraPad+'px','paddingBottom':'20px'});
+
+     var combinedDiff = oDiff + extraPad;
+
+     $oRCol.first().css({'paddingTop':combinedDiff+'px'});
+     $oRCol.last().css({'paddingBottom':combinedDiff+'px'});
+
+     // 3. Apply difference in height as padding to outer columns
+     $innerContainer = $('.three-row-col-div');
+     $outerContainer = $('.left-col-container');
+
+     if($innerContainer.height() > $outerContainer.height()) {
+         var outerInnerDiff = ($innerContainer.height() - $outerContainer.height()) / 2;
+
+         // Apply difference as padding to both outer containers
+         var outer = [$('.left-col-container'),$('.right-col-container')];
+         $(outer).each(function(i,e) {
+             $(this).css({'paddingTop':outerInnerDiff+'px'});
+         });
+     }*/
 
 }
 
