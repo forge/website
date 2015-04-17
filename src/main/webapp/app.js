@@ -1,6 +1,9 @@
 //Add the necessary routes here
 angular.module('jboss-forge', ['ui.router','routeStyles'])
 .config(function($stateProvider, $urlRouterProvider){
+
+  $urlRouterProvider.otherwise('/');
+  
   // Set up the states
   $stateProvider
   .state('home', {
@@ -47,5 +50,4 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     templateUrl: 'views/documentation_page.html',
     css: 'css/forge_doc_pages.css'
   })
-  ;
 });

@@ -6,13 +6,13 @@
 				<button type="button" class="close modal-forge-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<div class="row">
 					<div class="product-nav-row col-xs-12">
-						<a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
-						<a href="#stats" aria-controls="stats" role="tab" data-toggle="tab">Stats</a>
-						<a href="#reviews" aria-controls="stats" role="tab" data-toggle="tab">Reviews</a>
-						<a href="#installation" aria-controls="stats" role="tab" data-toggle="tab">Installation</a>
-						<a href="#changelog" aria-controls="stats" role="tab" data-toggle="tab">Changelog</a>
-						<a href="#documentation" aria-controls="stats" role="tab" data-toggle="tab">Documentation</a>
-						<a href="#support" aria-controls="stats" role="tab" data-toggle="tab">Support</a>
+						<a href="#overview_detail" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+						<a href="#stats_detail" aria-controls="stats" role="tab" data-toggle="tab">Stats</a>
+						<a href="#reviews_detail" aria-controls="stats" role="tab" data-toggle="tab">Reviews</a>
+						<a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab">Installation</a>
+						<a href="#changelog_detail" aria-controls="stats" role="tab" data-toggle="tab">Changelog</a>
+						<a href="#documentation_detail" aria-controls="stats" role="tab" data-toggle="tab">Documentation</a>
+						<a href="#support_detail" aria-controls="stats" role="tab" data-toggle="tab">Support</a>
 
 					</div>
 
@@ -21,13 +21,12 @@
 			<div class="modal-body product-panel">
 				<div class="tab-content">
 					<!-- Overview Panel -->
-					<div role="tabpanel" class="tab-pane active" id="overview">
+					<div role="tabpanel" class="tab-pane active" id="overview_detail">
 						<div class="row">
 							<div class="col-sm-9 col-xs-12">
-								<h2>JBoss AS 7</h2>
+								<h2>{{selectedAddon.name}}</h2>
 								<div class="main-content">
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementum enim. Donec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque dapibus sem, eget luctus purus congue vel. Cras mollis mi vitae justo egestas, ac congue velit molestie. Pellentesque convallis ullamcorper est sed dictum. Sed rutrum quis mauris id consequat. Duis non pellentesque urna.
+									<p>{{selectedAddon.description}}
 									</p>
 
 								</div>
@@ -54,7 +53,7 @@
 
 
 					<!-- Stats Panel -->
-					<div role="tabpanel" class="tab-pane" id="stats">
+					<div role="tabpanel" class="tab-pane" id="stats_detail">
 						<div class="row">
 							<div class="col-xs-12">
 								<h2>
@@ -86,7 +85,7 @@
 
 
 					<!-- Reviews Panel -->
-					<div role="tabpanel" class="tab-pane" id="reviews">
+					<div role="tabpanel" class="tab-pane" id="reviews_detail">
 						This is the reviews panel
 
 
@@ -95,7 +94,7 @@
 
 
 					<!-- Installation Panel -->
-					<div role="tabpanel" class="tab-pane" id="installation">
+					<div role="tabpanel" class="tab-pane" id="installation_detail">
 						This is the installation panel
 
 
@@ -104,7 +103,7 @@
 
 
 					<!-- Changelog Panel -->
-					<div role="tabpanel" class="tab-pane" id="changelog">
+					<div role="tabpanel" class="tab-pane" id="changelog_detail">
 						This is the changelog panel
 
 
@@ -113,7 +112,7 @@
 
 
 					<!-- Documentation Panel -->
-					<div role="tabpanel" class="tab-pane" id="documentation">
+					<div role="tabpanel" class="tab-pane" id="documentation_detail">
 						This is the documentation panel
 
 
@@ -122,7 +121,7 @@
 
 
 					<!-- Support Panel -->
-					<div role="tabpanel" class="tab-pane" id="support">
+					<div role="tabpanel" class="tab-pane" id="support_detail">
 						This is the support panel
 
 
@@ -156,8 +155,8 @@
                         <span class="community-contributed ">
                             COMMUNITY<br>CONTRIBUTED
                         </span>
-					</div>
-				</div>
+                    </div>
+                </div>
 				<!--
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				<button type="button" class="btn btn-primary">Save changes</button>-->
@@ -171,144 +170,144 @@
 
 <!-- PAGE SECTION MARQUEE SECTION -->
 <div class="page-section static blue addon-marquee"><div class="dark-blue-overlay">&nbsp;</div>
-   <div class="container">
-        <div class="row marquee-content">
-            <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
-                <h2><strong>Add</strong> to your toolbox & get the job done <strong>Quick</strong>.</h2>
-                <h3 class="display-sm hidden-xs">Three categories of Addons to enhance your <br />usage of JBoss Forge are available below.</h3>
-                <div class="row search-bar-row large">
-                    <div class="col-xs-12">
-                        <input type="text" name="addon_search" class="addon_search" ><input type="submit" value="Search" class="btn-red addon_search_submit">
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Advanced Search Panel Collapse Button -->
-                    <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
-                       aria-controls="searchOptionsPanel" aria-expanded="false">
-                        <div class="col-xs-12 advanced-search">
-                                <span class="text-block hidden-xs">
-                                     Advanced Search
-                                </span>
-                                <span class="text-block visible-xs">
-                                     Advanced<br>Search
-                                </span>
-
-                            <span class="white-chevron hidden-xs">&nbsp;</span>
-                        </div>
-                        <div class="row visible-xs">
-                            <div class="col-xs-12">
-                                <span class="white-chevron-outline">&nbsp;</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- End Advanced Search Panel Collapse Button -->
+<div class="container">
+    <div class="row marquee-content">
+        <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
+            <h2><strong>Add</strong> to your toolbox & get the job done <strong>Quick</strong>.</h2>
+            <h3 class="display-sm hidden-xs">Three categories of Addons to enhance your <br />usage of JBoss Forge are available below.</h3>
+            <div class="row search-bar-row large">
+                <div class="col-xs-12">
+                    <input type="text" name="addon_search" class="addon_search" ng-model="searchBox" ><input type="submit" value="Search" class="btn-red addon_search_submit">
                 </div>
             </div>
-        </div><!-- / .row.marquee-content -->
-   </div><!-- /.container -->
+            <div class="row">
+                <!-- Advanced Search Panel Collapse Button -->
+                <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                aria-controls="searchOptionsPanel" aria-expanded="false">
+                <div class="col-xs-12 advanced-search">
+                    <span class="text-block hidden-xs">
+                       Advanced Search
+                   </span>
+                   <span class="text-block visible-xs">
+                       Advanced<br>Search
+                   </span>
+
+                   <span class="white-chevron hidden-xs">&nbsp;</span>
+               </div>
+               <div class="row visible-xs">
+                <div class="col-xs-12">
+                    <span class="white-chevron-outline">&nbsp;</span>
+                </div>
+            </div>
+        </a>
+        <!-- End Advanced Search Panel Collapse Button -->
+    </div>
+</div>
+</div><!-- / .row.marquee-content -->
+</div><!-- /.container -->
 </div><!-- / .page-section -->
 
 
 <!-- PAGE SECTION ADVANCED SEARCH -->
 <div class="page-section white advanced-search-section collapse"
-     id="searchOptionsPanel" aria-expanded="false">
-    <div class="container main">
-        <div class="row">
-            <!-- / Left Side with search button -->
-            <div class="col-sm-3 col-xs-12">
-                <div class="row advanced-search-button-area">
-                    Advanced Search
-                </div>
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 col-xs-4 col-xs-offset-4">
-                        <a href="#" class="forge-btn btn btn-red btn-med reset-button">Reset Options</a>
-                    </div>
-                 </div>
-            </div><!-- / End Left Side -->
-
-            <!-- Right side with checkbox items -->
-            <div class="col-sm-9 col-xs-12">
-                <div class="row advanced-search-checkbox-area">
-
-                    <!-- Begin Checkboxes -->
-
-                    <!-- Main Column 1 -->
-                    <div class="col-sm-6 col-sm-offset-0 col-xs-5 col-xs-offset-2 checkbox-columns">
-
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="html5"> <label class="checkbox-label" for="html5"><span></span>HTML5</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="java_ee"> <label class="checkbox-label" for="java_ee"><span></span>Java EE</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="security"> <label class="checkbox-label" for="security"><span></span>Security</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="database"> <label class="checkbox-label" for="database"><span></span>Database</label>
-                                    </div>
-                                    <div class="checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="code_quality"> <label class="checkbox-label" for="code_quality"><span></span>Code Quality</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="mobile"> <label class="checkbox-label" for="mobile"><span></span>Mobile</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-
-                            </div><!-- /.row -->
-                    </div><!-- / End Main Column 1 -->
-
-                    <!-- Main Column 2 -->
-                    <div class="col-sm-6 col-xs-5  checkbox-columns">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_1"> <label class="checkbox-label" for="option_1"><span></span>Option 1</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_2"> <label class="checkbox-label" for="option_2"><span></span>Option 2</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_3"> <label class="checkbox-label" for="option_3"><span></span>Option 3</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_4"> <label class="checkbox-label" for="option_4"><span></span>Option 4</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_5"> <label class="checkbox-label" for="option_5"><span></span>Option 5</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_6"> <label class="checkbox-label" for="option_6"><span></span>Option 6</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-                            </div><!-- /.row -->
-                    </div><!-- / End Main Column 2 -->
-                    <!-- / End Checkboxes -->
-
-
-
-                </div><!-- /.row (.advanced-search-checkbox-area) -->
+id="searchOptionsPanel" aria-expanded="false">
+<div class="container main">
+    <div class="row">
+        <!-- / Left Side with search button -->
+        <div class="col-sm-3 col-xs-12">
+            <div class="row advanced-search-button-area">
+                Advanced Search
             </div>
-            <!-- / End Right side -->
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-xs-4 col-xs-offset-4">
+                    <a href="#" class="forge-btn btn btn-red btn-med reset-button">Reset Options</a>
+                </div>
+            </div>
+        </div><!-- / End Left Side -->
+
+        <!-- Right side with checkbox items -->
+        <div class="col-sm-9 col-xs-12">
+            <div class="row advanced-search-checkbox-area">
+
+                <!-- Begin Checkboxes -->
+
+                <!-- Main Column 1 -->
+                <div class="col-sm-6 col-sm-offset-0 col-xs-5 col-xs-offset-2 checkbox-columns">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="html5"> <label class="checkbox-label" for="html5"><span></span>HTML5</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="java_ee"> <label class="checkbox-label" for="java_ee"><span></span>Java EE</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="security"> <label class="checkbox-label" for="security"><span></span>Security</label>
+                            </div>
+
+                        </div><!-- /.col-sm-6 col-xs-12 -->
 
 
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="database"> <label class="checkbox-label" for="database"><span></span>Database</label>
+                            </div>
+                            <div class="checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="code_quality"> <label class="checkbox-label" for="code_quality"><span></span>Code Quality</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="mobile"> <label class="checkbox-label" for="mobile"><span></span>Mobile</label>
+                            </div>
+
+                        </div><!-- /.col-sm-6 col-xs-12 -->
+
+
+                    </div><!-- /.row -->
+                </div><!-- / End Main Column 1 -->
+
+                <!-- Main Column 2 -->
+                <div class="col-sm-6 col-xs-5  checkbox-columns">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_1"> <label class="checkbox-label" for="option_1"><span></span>Option 1</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_2"> <label class="checkbox-label" for="option_2"><span></span>Option 2</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_3"> <label class="checkbox-label" for="option_3"><span></span>Option 3</label>
+                            </div>
+
+                        </div><!-- /.col-sm-6 col-xs-12 -->
+
+                        <div class="col-sm-6 col-xs-12">
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_4"> <label class="checkbox-label" for="option_4"><span></span>Option 4</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_5"> <label class="checkbox-label" for="option_5"><span></span>Option 5</label>
+                            </div>
+                            <div class=" checkbox-row">
+                                <input type="checkbox" class="search-checkbox" id="option_6"> <label class="checkbox-label" for="option_6"><span></span>Option 6</label>
+                            </div>
+
+                        </div><!-- /.col-sm-6 col-xs-12 -->
+
+                    </div><!-- /.row -->
+                </div><!-- / End Main Column 2 -->
+                <!-- / End Checkboxes -->
+
+
+
+            </div><!-- /.row (.advanced-search-checkbox-area) -->
+        </div>
+        <!-- / End Right side -->
+
+
+    </div><!-- /.row -->
+</div><!-- /.container -->
 
 </div><!-- / .page-section -->
 
@@ -320,375 +319,103 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 
-                    <!-- BEGIN COMMUNITY-CONTRIBUTED SECTION -->
-                    <div class="row addon-title-row">
-                        <div class="col-xs-12 visible-xs small-width-icons">
-                             <img src="images/community-contrib-heart_100x100.png" alt="Community Contributed">
-                        </div>
-                        <div class="col-md-4 col-sm-5 col-xs-12 section-title community-contributed">
-                            Community Contributed
-                        </div>
-                        <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider red">
-                            &nbsp;
-                        </div>
-
-                    </div><!-- /.row .addon-title-row -->
-
-                    <div class="row addon-boxes">
-
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal" data-toggle="modal" data-target="#productModal">
-									<div class="img-div">
-										<img src="images/jboss_as_120x120.png" alt="JBoss AS">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-
-                                <div class="star-row" data-rating="3">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/forge_120x120.png" alt="Forge">
-									</div>
-									<h2>Forge</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="5">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>Lorem. Just lorem.</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="0">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="4">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                    </div><!-- / .row.addon-boxes -->
+                <!-- BEGIN COMMUNITY-CONTRIBUTED SECTION -->
+                <div class="row addon-title-row" ng-show="(addons['community']| filter:searchBox).length > 0">
+                    <div class="col-xs-12 visible-xs small-width-icons">
+                        <img src="images/community-contrib-heart_100x100.png" alt="Community Contributed">
+                    </div>
+                    <div class="col-md-4 col-sm-5 col-xs-12 section-title community-contributed">Community Contributed</div>
+                    <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider red">&nbsp;</div>
+                </div><!-- /.row .addon-title-row -->
 
                 <div class="row addon-boxes">
-                    <div class="col-sm-3 col-xs-12">
+                    <div class="col-sm-3 col-xs-12" ng-repeat="addon in addons['community'] | filter: searchBox" >
                         <div class="addon">
-							<div class="click-modal">
-								<div class="img-div">
-									<img src="images/jboss_as_120x120.png" alt="JBoss AS">
-								</div>
-								<h2>JBoss AS7</h2>
-								<h3>Lincoln Baxter</h3>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-								</p>
-							</div><!-- / end .click-modal -->
-                            <div class="star-row" data-rating="3">
-
-                            </div>
-                        </div><!-- / .addon -->
-                    </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                    <div class="col-sm-3 col-xs-12">
-                        <div class="addon">
-							<div class="click-modal">
-								<div class="img-div">
-									<img src="images/forge_120x120.png" alt="Forge">
-								</div>
-								<h2>Forge</h2>
-								<h3>Lincoln Baxter</h3>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-								</p>
-							</div><!-- / end .click-modal -->
-                            <div class="star-row" data-rating="5">
-
-                            </div>
-                        </div><!-- / .addon -->
-                    </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                    <div class="col-sm-3 col-xs-12">
-                        <div class="addon">
-							<div class="click-modal">
-								<div class="img-div">
-									<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-								</div>
-								<h2>JBoss DeltaSpike</h2>
-								<h3>Lincoln Baxter</h3>
-								<p>Lorem. Just lorem.</p>
-							</div><!-- / end .click-modal -->
-                            <div class="star-row" data-rating="1">
-
-                            </div>
-                        </div><!-- / .addon -->
-                    </div><!-- / col-sm-3 col-xs-12 -->
-
-                    <div class="col-sm-3 col-xs-12">
-                        <div class="addon">
-							<div class="click-modal">
-								<div class="img-div">
-									<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-								</div>
-								<h2>JBoss AS7</h2>
-								<h3>Lincoln Baxter</h3>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								</p>
-							</div><!-- / end .click-modal -->
-                            <div class="star-row" data-rating="4">
-
-                            </div>
+                            <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                                <div class="img-div">
+                                   <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                </div>
+                                <h2>{{addon.name}}</h2>
+                                <h3>{{addon.author}}</h3>
+                                <p>{{addon.description}}</p>
+                            </div><!-- / end .click-modal -->
+                            <div class="star-row" data-rating="{{addon.rating}}"></div>
                         </div><!-- / .addon -->
                     </div><!-- / col-sm-3 col-xs-12 -->
                 </div><!-- / .row.addon-boxes -->
-            <!-- END COMMUNITY-CONTRIBUTED SECTION -->
+             <!-- END COMMUNITY-CONTRIBUTED SECTION -->
 
 
 
 
-                <!-- BEGIN CORE ADDONS -->
-                <div class="row addon-title-row">
-                    <div class="col-xs-12 visible-xs small-width-icons">
-                        <img src="images/core_addons_100x100.png" alt="Core Addons">
-                    </div>
-                    <div class="col-md-4 col-sm-5 col-xs-12 section-title core-addons">
-                        Core Addons
-                    </div>
-                    <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider core-addons-divider dark-blue">
-                        &nbsp;
-                    </div>
-
-                </div><!-- /.row .addon-title-row -->
-
-
-                    <div class="row addon-boxes">
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/jboss_as_120x120.png" alt="JBoss AS">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="3">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
+            <!-- BEGIN CORE ADDONS -->
+            <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox).length > 0">
+                <div class="col-xs-12 visible-xs small-width-icons">
+                    <img src="images/core_addons_100x100.png" alt="Core Addons">
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 section-title core-addons">
+                    Core Addons
+                </div>
+                <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider core-addons-divider dark-blue">
+                    &nbsp;
+                </div>
+            </div><!-- /.row .addon-title-row -->
 
 
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/forge_120x120.png" alt="Forge">
-									</div>
-									<h2>Forge</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="5">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
+            <div class="row addon-boxes">
+                <div class="col-sm-3 col-xs-12" ng-repeat="addon in addons['core'] | filter: searchBox" >
+                    <div class="addon">
+                        <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                            <div class="img-div">
+                                <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                            </div>
+                            <h2>{{addon.name}}</h2>
+                            <h3>{{addon.author}}</h3>
+                            <p>{{addon.description}}</p>
+                        </div><!-- / end .click-modal -->
+                        <div class="star-row" data-rating="{{addon.rating}}"></div>
+                     </div><!-- / .addon -->
+                 </div><!-- / col-sm-3 col-xs-12 -->
+             </div><!-- / .row.addon-boxes -->
 
 
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss DeltaSpike</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>Lorem. Just lorem.</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="1">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="4">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-                    </div><!-- / .row.addon-boxes -->
-
-
-                <!-- / END CORE ADDONS -->
+            <!-- / END CORE ADDONS -->
 
 
 
-                    <!-- BEGIN SPONSORED ADDONS -->
-                    <div class="row addon-title-row">
-                        <div class="col-xs-12 visible-xs small-width-icons">
-                            <img src="images/sponsored_addons_100x100.png" alt="Sponsored Addons">
-                        </div>
-                        <div class="col-md-4 col-sm-5 col-xs-12 section-title sponsored-addons">
-                            Sponsored Addons
-                        </div>
-                        <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider grey">
-                            &nbsp;
-                        </div>
-
-                    </div><!-- /.row .addon-title-row -->
-
-
-                    <div class="row addon-boxes">
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/jboss_as_120x120.png" alt="JBoss AS">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="3">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
+            <!-- BEGIN SPONSORED ADDONS -->
+            <div class="row addon-title-row" ng-show="(addons['sponsored']| filter:searchBox).length > 0">
+                <div class="col-xs-12 visible-xs small-width-icons">
+                    <img src="images/sponsored_addons_100x100.png" alt="Sponsored Addons">
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 section-title sponsored-addons">
+                    Sponsored Addons
+                </div>
+                <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider grey">
+                    &nbsp;
+                </div>
+            </div><!-- /.row .addon-title-row -->
 
 
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/forge_120x120.png" alt="Forge">
-									</div>
-									<h2>Forge</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed elementumtDonec eget elementum justo. Aliquam in turpis magna. Vivamus scelerisque
-									</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="5">
+            <div class="row addon-boxes">
+                <div class="col-sm-3 col-xs-12" ng-show="(addons['sponsored']| filter:searchBox).length > 0" ng-repeat="addon in addons['sponsored'] | filter: searchBox" >
+                    <div class="addon">
+                        <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                            <div class="img-div">
+                                <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                            </div>
+                            <h2>{{addon.name}}</h2>
+                            <h3>{{addon.author}}</h3>
+                            <p>{{addon.description}}</p>
+                        </div><!-- / end .click-modal -->
+                        <div class="star-row" data-rating="{{addon.rating}}"></div>
+                     </div><!-- / .addon -->
+                 </div><!-- / col-sm-3 col-xs-12 -->
+            </div><!-- / .row.addon-boxes -->
+            <!-- / END SPONSORED ADDONS -->
 
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss DeltaSpike</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>Lorem. Just lorem.</p>
-								</div><!-- / end .click-modal -->
-                                <div class="star-row" data-rating="1">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-
-                        <div class="col-sm-3 col-xs-12">
-                            <div class="addon">
-								<div class="click-modal">
-									<div class="img-div">
-										<img src="images/deltaspike_120x120.png" alt="DeltaSpike">
-									</div>
-									<h2>JBoss AS7</h2>
-									<h3>Lincoln Baxter</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									</p>
-								</div><!-- / end .click-modal -->
-
-                                <div class="star-row" data-rating="4">
-
-                                </div>
-                            </div><!-- / .addon -->
-                        </div><!-- / col-sm-3 col-xs-12 -->
-                    </div><!-- / .row.addon-boxes -->
-
-
-                    <!-- / END SPONSORED ADDONS -->
-
-
-
-            </div><!-- /.col-sm-8 col-sm-offset-1 col-xs-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+        </div><!-- /.col-sm-8 col-sm-offset-1 col-xs-12 -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
 </div><!-- / .page-section -->
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#productModal">
-    Modal (Button Launch)
-</button> <a data-toggle="modal" data-target="#productModal">Regular Link to Modal</a>
-
-
 <!-- / END PAGE CONTENT -->
