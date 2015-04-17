@@ -1,10 +1,7 @@
 //Add the necessary routes here
 angular.module('jboss-forge', ['ui.router','routeStyles'])
 .config(function($stateProvider, $urlRouterProvider){
-  // For any unmatched url, redirect to /
-  $urlRouterProvider.otherwise("/");
-
-  // Now set up the states
+  // Set up the states
   $stateProvider
   .state('home', {
     url: "/",
