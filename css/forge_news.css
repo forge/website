@@ -130,7 +130,7 @@ div.news-item {
     -webkit-border-radius:  15px;
     box-shadow:      0 0 5px #616161;
     -moz-box-shadow: 0 0 5px #616161;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .date-header {
