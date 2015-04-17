@@ -3,12 +3,6 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
 .config(function($stateProvider, $urlRouterProvider){
   // Set up the states
   $stateProvider
-  .state('/', {
-    url: '/',
-    templateUrl: 'views/home.html',
-    css: 'css/parallax-styles.css',
-    controller: 'RootController'
-  })
   .state('home', {
     url: '/',
     templateUrl: 'views/home.html',
