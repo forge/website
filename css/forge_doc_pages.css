@@ -520,7 +520,7 @@ p.author-names-bottom {
 }
 
 .author-name-title {
-    padding-top:1em;
+    padding-top:12px;
 }
 
 .author-name-title h1 {
@@ -536,7 +536,7 @@ p.author-names-bottom {
     font-size:.8em;
     font-style: italic;
     font-weight: 200;
-    padding:0;
+    padding:6px 0 0 0;
 }
 
 .news-social-icons {
@@ -548,6 +548,10 @@ p.author-names-bottom {
     font-size:1em;
     padding-top:1.8em;
 }
+.share-label.news-share {
+    padding-top:1.5em;
+}
+
 .news-social-icons {
     text-align: center;
 }
@@ -627,12 +631,24 @@ div.doc-content-social-media a.youtube-link {
 
     /* Author Footer */
     /* Desktop/Tablet Author Section */
+
+
+    .author-name-title  {
+        padding-top:16px;
+    }
+
+
     .author-name-title p {
         font-size:10px;
+        padding-top:2px;
     }
 
     .share-label.news-share {
-        padding-top:1.5em;
+        padding-top:25px;
+        font-size: 14px;
+    }
+    .news-social-icons {
+        padding-top:18px;
     }
 
     .news-social-icons a {
