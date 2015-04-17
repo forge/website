@@ -7,7 +7,7 @@
 					We want to keep you up to speed, with our news and with your work..</h2>
                <div class="row search-bar-row large documentation">
                     <div class="col-xs-12">
-                        <input type="text" name="search" class="search" ><input type="submit" value="Search" class="btn-red search_submit">
+                        <input type="text" name="search" class="search" ng-model="searchBox"><input type="submit" value="Search" class="btn-red search_submit">
                     </div>
                 </div>
                 <div class="row">
@@ -154,7 +154,7 @@
 				<div class="row news-item-boxes">
 
 					<!-- Item 2 -->
-					<div class="col-xs-12 news-item" ng-repeat="newsItem in news" ng-class="{'photo-version': newsItem.photo}">
+					<div class="col-xs-12 news-item" ng-repeat="newsItem in news|filter:searchBox" ng-class="{'photo-version': newsItem.photo}">
 						<!-- BEGIN PHOTO HEADER -->
 						<div class="col-xs-12 date-header" ng-if="newsItem.photo">
 
