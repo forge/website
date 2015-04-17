@@ -98,7 +98,8 @@ function initializeUI() {
     }
 
     // Init Contribute page column sizing – works in the larger (lg or md) breakpoints only
-    if($('.contribute-columns').length && $(window).outerWidth() > 767) {
+    var cLen = $('.contribute-columns').length;
+    if(cLen && $(window).outerWidth() > 767) {
         sizeContributeSection();
         $(window).resize(function(){
             if($(window).width() > 767) {
@@ -109,6 +110,17 @@ function initializeUI() {
                 $('.build-an-addon').css({'height':'auto','paddingTop':'1em','paddingBottom':'1em'});
             }
         });
+    } else
+    if(cLen && $(window).outerWidth() <= 767) {
+        $dCol = $('.left-col-container .display-div.left-col');
+        // Add Padding to the .left-col-container
+        $dCol.css({'paddingTop':'24px','paddingBottom':'24px'});
+        $(window).resize(function(){
+            if($(window).outerWidth() <= 767) {
+                $dCol.css({'paddingTop':'24px','paddingBottom':'24px'});
+            }
+        });
+
     }
 
     // Init community grid row "connection bar" row column sizing
