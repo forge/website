@@ -59,7 +59,6 @@ var langObj = {
 $(initializeUI); 
 
 function initializeUI() {
-    console.log("INITIALIZE UI");
     // Only use widthBox() during testing
     //widthBox();
 
