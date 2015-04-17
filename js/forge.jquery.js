@@ -56,7 +56,9 @@ var langObj = {
 
 
 // INIT FUNCTIONS
-$(function() {
+$(initializeUI); 
+
+function initializeUI() {
     // Only use widthBox() during testing
     //widthBox();
 
@@ -181,10 +183,8 @@ $(function() {
 
     // Padding fix
     initBodyPaddingFix();
-
-}); // Close init functions
-
-
+}
+// Close init functions
 
 // This function loads the community grid display (at both sizes) with images in a hidden container
 /*
@@ -812,50 +812,6 @@ function sizeContributeSection() {
     var outPad = ($innerContainer.outerHeight() - $outerContainer.outerHeight()) / 2;
 
     $outerContainer.css({'paddingTop':outPad+'px'})
-
-
-
-
-
-    // Get the difference in height between the inner and outer cols
-   /* $innerContainer = $('.three-row-col-div');
-    $outerContainer = $('.left-col-container');
-
-    var diffPad = $outerContainer.outerHeight() - $innerContainer.outerHeight();
-
-*/
-
-
-
-    /* $oLCol =  $('.display-div.left-col'); // Far Left Col Display
-     $oRCol =  $('.display-div.right-col'); // Far Right Col Display
-
-     // Match the heights of the outer right/left columns. This assumes the far-right col will always be shorter than far-left.
-     var oDiff = ($oLCol.height() - $oRCol.height()) / 2;
-
-     // This is extra padding that's added to the far-left col, then combined with the far-right diff padding
-     var extraPad = 10;
-     $oLCol.css({'paddingTop':extraPad+'px','paddingBottom':'20px'});
-
-     var combinedDiff = oDiff + extraPad;
-
-     $oRCol.first().css({'paddingTop':combinedDiff+'px'});
-     $oRCol.last().css({'paddingBottom':combinedDiff+'px'});
-
-     // 3. Apply difference in height as padding to outer columns
-     $innerContainer = $('.three-row-col-div');
-     $outerContainer = $('.left-col-container');
-
-     if($innerContainer.height() > $outerContainer.height()) {
-         var outerInnerDiff = ($innerContainer.height() - $outerContainer.height()) / 2;
-
-         // Apply difference as padding to both outer containers
-         var outer = [$('.left-col-container'),$('.right-col-container')];
-         $(outer).each(function(i,e) {
-             $(this).css({'paddingTop':outerInnerDiff+'px'});
-         });
-     }*/
-
 }
 
 // Function sizes and spaces out the vertical bar connections for the
