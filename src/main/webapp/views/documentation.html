@@ -9,29 +9,35 @@
                    <div class="col-xs-12">
                         <input type="text" name="addon_search" class="addon_search" ><input type="submit" value="Search" class="btn-red addon_search_submit">
                     </div>
-                </div>
-                <div class="row">
+               </div>
+               <div class="row">
                     <!-- Advanced Search Panel Collapse Button -->
-                    <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
-                       aria-controls="searchOptionsPanel" aria-expanded="false">
-                        <div class="col-xs-12 advanced-search">
-                                <span class="text-block hidden-xs">
+                        <!-- Large Screen button -->
+                        <div class="col-xs-12 advanced-search hidden-xs">
+                            <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                               aria-controls="searchOptionsPanel" aria-expanded="false">
+                                <span class="text-block ">
                                      Advanced Search
                                 </span>
-                                <span class="text-block visible-xs">
-                                     Advanced<br>Search
-                                </span>
 
-                                <span class="white-chevron hidden-xs">&nbsp;</span>
+                                <span class="white-chevron filled hidden-xs">&nbsp;</span>
+                            </a>
                         </div>
-                        <div class="row visible-xs">
-                            <div class="col-xs-12">
+                        <!-- / Large Screen Button -->
+                        <!-- Small screen button -->
+                        <div class="col-xs-12 advanced-search visible-xs">
+                            <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                               aria-controls="searchOptionsPanel" aria-expanded="false">
+
+                                <span class="text-block ">
+                                     Advanced<br>Search
+                                </span><br>
                                 <span class="white-chevron-outline">&nbsp;</span>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                        <!-- / Small screen button -->
                     <!-- End Advanced Search Panel Collapse Button -->
-                </div>
+               </div><!-- End Row -->
             </div>
         </div><!-- / .row.marquee-content -->
    </div><!-- /.container -->

@@ -1191,6 +1191,14 @@ CSS FOR COLLAPSIBLE PANELS (ON MULTIPLE PAGES) WITH ADVANCED SEARCH BUTTONS
     color:white;
 }
 
+.advanced-search-button-link .text-block {
+    color:white;
+}
+
+.advanced-search-button-link:hover .text-block {
+    color:#cccccc;
+}
+
 .advanced-search span {
     display:inline-block;
     text-align: center;
@@ -1206,41 +1214,56 @@ CSS FOR COLLAPSIBLE PANELS (ON MULTIPLE PAGES) WITH ADVANCED SEARCH BUTTONS
 }
 
 /* White Chevron Span */
-.advanced-search span.white-chevron {
-    height:20px;
-    width:50px;
+.advanced-search-button-link span.white-chevron.filled {
+    height:24px;
+    width:40px;
     padding:0px;
+    background-image:url(../images/chevron-set-filled-down_120x144.png);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
+    background-position: top;
+    background-size:cover;
+    overflow:visible;
 }
-/* Expand */
-span.white-chevron,
-span.white-chevron.down {
-    background-image: url(../images/white-chevron-down_120x72.png);
-}
-/* Collapse */
-span.white-chevron.up {
-    background-image: url(../images/white-chevron-up.png);
-}
-/*.advanced-search span.white-chevron-up {
-    background-image:url(../images/white-chevron-up.png);
-}*/
 
-span.white-chevron-outline,
-span.white-chevron-outline.down {
-    display:block;
-    margin:.5em auto;
-    background-image:url(../images/white-chevron-down-outline_120x72.png);
+.advanced-search-button-link span.white-chevron-outline {
+    height:24px;
+    width:40px;
+    padding:0px;
+    background-image:url(../images/chevron-set-outlined-down_120x144.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50% 0;
+    background-position: top;
+    background-size:cover;
+    overflow:visible;
+}
+
+.advanced-search-button-link:hover span.white-chevron {
+    background-position:center bottom;
+}
+
+.advanced-search-button-link:hover span.white-chevron-outline {
+    background-position:center bottom;
 }
 
 
-span.white-chevron-outline.up {
-    background-image:url(../images/white-chevron-up-outline_120x72.png);
+.advanced-search-button-link span.white-chevron.up {
+    background-image:url(../images/chevron-set-filled-up_120x144.png);
+    background-position: top;
 }
+
+.advanced-search-button-link:hover span.white-chevron.up {
+    background-position:center bottom;
+}
+
+.advanced-search-button-link span.white-chevron-outline.up {
+    background-image:url(../images/chevron-set-outlined-up_120x144.png);
+    background-position: top;
+}
+
+.advanced-search-button-link:hover span.white-chevron-outline.up {
+    background-position:center bottom;
+}
+
+
 
 
 /* ADVANCED SEARCH AREA */
@@ -1333,7 +1356,7 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
     margin:0;
     display:inline-block;
     font-size:16px;
-    line-height:1em;
+    line-height:1;
     outline:none;
     /* Shadows */
    /* box-shadow:0 0 3px #5f5f5f;
@@ -1387,7 +1410,16 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
 }
 
 
+/* Shadows */
+.search-bar-row input {
+    box-shadow:0 0 3px #666666;
+    -moz-box-shadow: 0 0 3px #cccccc;
+}
 
+.search-bar-row input[type="submit"] {
+    box-shadow:0 0 4px #666666;
+    -moz-box-shadow: 0 0 4px #cccccc;
+}
 
 /* ** Firefox Search Bar Adjustments ** */
 
@@ -1413,14 +1445,16 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
             color:#666666;
             padding:8px 15px 7px 15px;
     }
+
+    .search-bar-row input {
+        box-shadow:0 0 3px #666666;
+        -moz-box-shadow: 0 0 3px #cccccc;
+    }
 }
 
 
-/* Rounding & Shadows */
-.search-bar-row input {
-    box-shadow:0 0 3px #666666;
-    -moz-box-shadow: 0 0 3px #cccccc;
-}
+/* Rounding */
+
 
 .search-bar-row input[type="text"] {
     background: rgb(255,255,255); /* Old browsers */

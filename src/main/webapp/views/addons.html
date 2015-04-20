@@ -181,29 +181,30 @@
                 </div>
             </div>
             <div class="row">
-                <!-- Advanced Search Panel Collapse Button -->
-                <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
-                aria-controls="searchOptionsPanel" aria-expanded="false">
-                <div class="col-xs-12 advanced-search">
-                    <span class="text-block hidden-xs">
-                       Advanced Search
-                   </span>
-                   <span class="text-block visible-xs">
-                       Advanced<br>Search
-                   </span>
 
-                   <span class="white-chevron hidden-xs">&nbsp;</span>
-               </div>
-               <div class="row visible-xs">
-                <div class="col-xs-12">
-                    <span class="white-chevron-outline">&nbsp;</span>
+                <!-- Advanced Search Panel Collapse Button -->
+                <!-- Large Screen button -->
+                <div class="col-xs-12 advanced-search hidden-xs">
+                    <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                        aria-controls="searchOptionsPanel" aria-expanded="false">
+                        <span class="text-block ">Advanced Search</span>
+                        <span class="white-chevron filled hidden-xs">&nbsp;</span>
+                    </a>
                 </div>
+                <!-- / Large Screen Button -->
+                <!-- Small screen button -->
+                <div class="col-xs-12 advanced-search visible-xs">
+                    <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                        aria-controls="searchOptionsPanel" aria-expanded="false">
+                        <span class="text-block ">Advanced<br>Search</span><br>
+                        <span class="white-chevron-outline">&nbsp;</span>
+                    </a>
+                </div>
+                <!-- / Small screen button -->
+                <!-- End Advanced Search Panel Collapse Button -->
             </div>
-        </a>
-        <!-- End Advanced Search Panel Collapse Button -->
-    </div>
-</div>
-</div><!-- / .row.marquee-content -->
+        </div>
+    </div><!-- / .row.marquee-content -->
 </div><!-- /.container -->
 </div><!-- / .page-section -->
 
@@ -333,23 +334,23 @@ id="searchOptionsPanel" aria-expanded="false">
                         <div class="addon">
                             <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                                 <div class="img-div">
-                                   <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
-                                </div>
-                                <h2>{{addon.name}}</h2>
-                                <h3>{{addon.author}}</h3>
-                                <p>{{addon.description}}</p>
-                            </div><!-- / end .click-modal -->
-                            <div class="star-row" data-rating="{{addon.rating}}"></div>
-                        </div><!-- / .addon -->
-                    </div><!-- / col-sm-3 col-xs-12 -->
-                </div><!-- / .row.addon-boxes -->
+                                 <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                             </div>
+                             <h2>{{addon.name}}</h2>
+                             <h3>{{addon.author}}</h3>
+                             <p>{{addon.description}}</p>
+                         </div><!-- / end .click-modal -->
+                         <div class="star-row" data-rating="{{addon.rating}}"></div>
+                     </div><!-- / .addon -->
+                 </div><!-- / col-sm-3 col-xs-12 -->
+             </div><!-- / .row.addon-boxes -->
              <!-- END COMMUNITY-CONTRIBUTED SECTION -->
 
 
 
 
-            <!-- BEGIN CORE ADDONS -->
-            <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox).length > 0">
+             <!-- BEGIN CORE ADDONS -->
+             <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox).length > 0">
                 <div class="col-xs-12 visible-xs small-width-icons">
                     <img src="images/core_addons_100x100.png" alt="Core Addons">
                 </div>
@@ -374,9 +375,9 @@ id="searchOptionsPanel" aria-expanded="false">
                             <p>{{addon.description}}</p>
                         </div><!-- / end .click-modal -->
                         <div class="star-row" data-rating="{{addon.rating}}"></div>
-                     </div><!-- / .addon -->
-                 </div><!-- / col-sm-3 col-xs-12 -->
-             </div><!-- / .row.addon-boxes -->
+                    </div><!-- / .addon -->
+                </div><!-- / col-sm-3 col-xs-12 -->
+            </div><!-- / .row.addon-boxes -->
 
 
             <!-- / END CORE ADDONS -->
@@ -409,8 +410,8 @@ id="searchOptionsPanel" aria-expanded="false">
                             <p>{{addon.description}}</p>
                         </div><!-- / end .click-modal -->
                         <div class="star-row" data-rating="{{addon.rating}}"></div>
-                     </div><!-- / .addon -->
-                 </div><!-- / col-sm-3 col-xs-12 -->
+                    </div><!-- / .addon -->
+                </div><!-- / col-sm-3 col-xs-12 -->
             </div><!-- / .row.addon-boxes -->
             <!-- / END SPONSORED ADDONS -->
 
