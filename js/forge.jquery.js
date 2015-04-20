@@ -59,6 +59,7 @@ var langObj = {
 $(initializeUI); 
 
 function initializeUI() {
+
     // Only use widthBox() during testing
     //widthBox();
 
@@ -476,8 +477,8 @@ function initBodyPaddingFix() {
 // Since the aria-expanded attribute wasn't working, this function detects the button state and changes the expansion button from an up-arrow to a down-arrow and vice versa.
 function initAriaCollapseDetect() {
     // Check to see if associated button's panel is opening or closing
-    $a = $('.advanced-search-button-link').children().find('span.white-chevron');
-    $o = $('.advanced-search-button-link').children().find('span.white-chevron-outline');
+    $a = $('.advanced-search-button-link').children('.white-chevron');
+    $o = $('.advanced-search-button-link').children('.white-chevron-outline');
 
     $s = $('.advanced-search-section');
     // The button appearance change waits a split-second until after the slide-out/slide-in is complete.
