@@ -1,4 +1,4 @@
-angular.module('jboss-forge').controller('AddonController', function($scope, $http){
+angular.module('jboss-forge').controller('addonCtrl', function($scope, $http){
 	// TODO: Fetch from REST service
 	$scope.addons = 
 	{ 

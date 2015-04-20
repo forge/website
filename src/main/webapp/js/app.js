@@ -7,13 +7,13 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/',
     templateUrl: 'views/home.html',
     css: 'css/parallax-styles.css',
-    controller: 'RootController'
+    controller: 'rootCtrl'
   })
   .state('addons', {
     url: '/addons',
     templateUrl: 'views/addons.html',
     css: ['css/forge_addons.css', 'css/parallax-styles.css'],
-    controller: 'AddonController'
+    controller: 'addonCtrl'
   })
   .state('addon_detail',{
     url: '/addons/mobile/{addonId}',
@@ -29,13 +29,13 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/community',
     templateUrl: 'views/community.html',
     css: ['css/forge_community.css','css/parallax-styles.css'],
-    controller: 'CommunityController'
+    controller: 'communityCtrl'
   })
   .state('news', {
     url: '/news',
     templateUrl: 'views/news.html',
     css: 'css/forge_news.css',
-    controller: 'NewsController'
+    controller: 'newsCtrl'
   })
   .state('news_detail', {
     url: '/news/{newsId}',

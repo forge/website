@@ -1,4 +1,4 @@
-angular.module('jboss-forge').controller('NewsController', function($scope){
+angular.module('jboss-forge').controller('newsCtrl', function($scope){
 	$scope.news = [
 	{ 	
 		title : "Forge 2.16.0.Final (Spear) is here",
