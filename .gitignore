@@ -43,3 +43,4 @@ Thumbs.db
 .project
 .settings/
 target/
+node_modules/
