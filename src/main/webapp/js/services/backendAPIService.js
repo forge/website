@@ -1,6 +1,6 @@
-angular.module('jboss-forge').service('backendAPI', function($http){
+angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetch = function (_contextPath, _success) { 
-		var request = $http.get("http://localhost:3412"+_contextPath);
+		var request = $http.get(config.baseUrl + _contextPath);
 		if (_success){ 
 			request.success(_success);
 		}
