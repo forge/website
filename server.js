@@ -11,6 +11,8 @@ app.use(restify.queryParser())
 app.use(restify.CORS())
 app.use(restify.fullResponse())
 
+var indexHTML = fs.readFileSync(__dirname + '/app/index.html');
+
 // Routes
 app.get('/status', function (req, res, next)
 {
@@ -19,10 +21,9 @@ app.get('/status', function (req, res, next)
 
 app.get('/', function (req, res, next)
 {
-  var data = fs.readFileSync(__dirname + '/app/index.html');
   res.status(200);
   res.header('Content-Type', 'text/html');
-  res.end(data);
+  res.end(indexHTML);
 });
 
 app.get(/\/(css|fonts|images|js|views)\/?.*/, restify.serveStatic({directory: './app/'}));
