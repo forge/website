@@ -2,10 +2,19 @@
 
 var cc          = require('config-multipaas'),
     restify     = require('restify'),
-    fs          = require('fs')
+    fs          = require('fs'),
+    fetchUrl    = require("fetch").fetchUrl,
+    yaml        = require('js-yaml')
 
 var config      = cc(),
     app         = restify.createServer()
+
+var urls =  {
+    "news" : "https://raw.githubusercontent.com/forge/website-data/master/docs-news.yaml"
+}
+var cache = {};
+
+console.log(urls["news"]);
 
 app.use(restify.queryParser())
 app.use(restify.CORS())
@@ -78,33 +87,6 @@ var docs = [
     }
 ];
 
-var news = [
-{   
-    title : "Forge 2.16.0.Final (Spear) is here",
-    summary: "JBoss Forge 2.16.0.Final is now available. Grab it while it is hot!",
-    date: new Date(),
-    repo: "https://github.com/forge/docs.git",
-    ref: "master",
-    path: "/news/2015-04-15-forge-2.16.0.final.asciidoc",
-    author: "Forge Team",
-    email: "forge-dev@lists.jboss.org",
-    photo:"http://leapingstag.wdfiles.com/local--files/the-forge/Forge%20Fire%20small.JPG"
-},
-{   
-    title : "Forge 2.15.0.Final (Morning Star) is here",
-    summary: "JBoss Forge 2.15.0.Final is now available. Grab it while it is hot!",
-    date: new Date(),
-    repo: "https://github.com/forge/docs.git",
-    ref: "master",
-    path: "/news/2015-04-15-forge-2.14.0.final.asciidoc",
-    author: "Forge Team",
-    email: "forge-dev@lists.jboss.org"
-}
-];
-
-
-
-
 app.get('/addons', function(req, res) {
   res.json(addons);
 });
@@ -114,7 +96,15 @@ app.get('/docs', function(req, res) {
 });
 
 app.get('/news', function(req, res) {
-  res.json(news);
+    // TODO: Move to another function
+    fetchUrl(urls['news'], function(error, meta, body){
+        var allEntries = [];
+        yaml.safeLoadAll(body, function (entry) {
+            if (entry)
+                allEntries.push(entry);
+        });
+        res.json(allEntries);
+    });
 });
 
 app.listen(config.get('PORT'), config.get('IP'), function () {
