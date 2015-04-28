@@ -1,0 +1,36 @@
+{
+  "name": "jboss-forge-website",
+  "version": "1.0.0",
+  "description": "JBoss Forge Website Application",
+  "keywords": [
+    "JBoss",
+    "Forge",
+    "application",
+    "openshift"
+  ],
+  "author": {
+    "name": "Forge Team",
+    "email": "forge@redhat.com",
+    "url": "http://forge.jboss.org/"
+  },
+  "homepage": "http://forge.jboss.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+  "engines": {
+    "node": ">= 0.12.0",
+    "npm": ">= 1.2.0"
+  },
+  "dependencies": {
+    "config-multipaas": "^0.1.0",
+    "restify": "^2.8.3"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
+}
