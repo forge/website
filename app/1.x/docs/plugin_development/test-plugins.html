@@ -1,0 +1,273 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Forge | Test your Plugin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="/1.x/images/favicon.ico" rel="icon">
+    <link href="/1.x/stylesheets/styles.css" rel="stylesheet" type="text/css">
+    <link href="/1.x/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="/1.x/stylesheets/prettify.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="/1.x/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/bootstrap-collapse.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/prettify.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/videoscale.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function() {
+        $("pre.prettyprint code").removeClass("prettyprint").removeClass("linenums");
+        prettyPrint();
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        var pathname = window.location.pathname;
+        console.log(pathname);
+        $("body > .navbar a[href='" + pathname + "']").closest("li").addClass("active");
+        $("body > #content ul.nav a[href='" + pathname + "#content']").closest("li").addClass("active");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="github-banner hidden-phone hidden-tablet">
+            <a href="https://github.com/forge/core">
+              <img alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" style="position:absolute;top:0;right:0;border:0;">
+            </a>
+          </div>
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/1.x/index.html">
+            <img alt="JBoss Forge" class="forge-logo" src="/1.x/images/jbossforge_icon_256px.png">
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/1.x/index.html">Home</a>
+              </li>
+              <li>
+                <a href="/">Forge 2</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/index.html">Documentation</a>
+              </li>
+              <li>
+                <a href="/1.x/team.html">Team</a>
+              </li>
+              <li>
+                <a href="https://community.jboss.org/en/forge">Forums</a>
+              </li>
+              <li>
+                <a href="https://github.com/forge/core">Source</a>
+              </li>
+              <li>
+                <a href="/1.x/plugins.html">Plugins</a>
+              </li>
+              <li>
+                <a href="https://issues.jboss.org/browse/FORGE" target="issue tracker">Issue Tracker</a>
+              </li>
+              <li>
+                <a href="https://issues.jboss.org/browse/FORGE#selectedTab=com.atlassian.jira.plugin.system.project%3Aroadmap-panel" target="roadmap">Roadmap</a>
+              </li>
+              <li>
+                <a href="/1.x/events.html">Events</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="content">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <ul class="nav nav-list">
+              <li class="nav-header">Using Forge</li>
+              <li>
+                <a href="/1.x/docs/using/#content">Installation</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/installing-new-plugins.html#content">Installing new Plugins</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/basic-javaee-app.html#content">Writing Basic Java EE App</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/samples.html#content">Samples</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/configure-proxy.html#content">Configure HTTP Proxy</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/profiling-forge.html#content">Profiling Forge</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/debugging-forge.html#content">Debugging Forge</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/faq.html#content">FAQ</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/using/affiliation.html#content">Affiliation</a>
+              </li>
+              <li class="nav-header">Get involved</li>
+              <li>
+                <a href="/1.x/docs/get_involved/contribute.html#content">Contribute or Get Involved</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/get_involved/release-guide.html#content">Release Guide</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/get_involved/write-docs.html#content">Improve our documentation</a>
+              </li>
+              <li class="nav-header">Important plugins</li>
+              <li>
+                <a href="/1.x/docs/important_plugins/arquillian-testing.html#content">Arquillian Testing</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/important_plugins/ui-scaffolding.html#content">UI Scaffolding</a>
+              </li>
+              <li class="nav-header">Developing plugins</li>
+              <li>
+                <a href="/1.x/docs/plugin_development/#content">Developing a plugin</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/reference-forge-api.html#content">Reference Forge API</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/implement-plugin-interface.html#content">Implement the Plugin interface</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/give-your-plugin-name.html#content">Give your Plugin a name</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/add-commands-to-plugin.html#content">Add Commands to your Plugin</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/add-options-to-command.html#content">Add Options to your Commands</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/enable-piping.html#content">Enable Piping between Commands</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/facets.html#content">Enable modular functionality with Facets</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/test-plugins.html#content">Test your Plugin</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/reference-libraries.html#content">Reference Libraries</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/make-plugin-available.html#content">Make your Plugin available to Forge</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/add-plugin-cpi.html#content">Add your Plugin to the Central Plugin Index</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/important-apis.html#content">Important APIs</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/plugin_development/configure-plugin-repo.html#content">Configure a plugin repository for Forge</a>
+              </li>
+            </ul>
+          </div>
+          <div class="span9">
+            <h1>Test your Plugin</h1>
+            <p>When developing plugins, it is recommended to use the provide Unit and Integration Test Harness (based on <a href="http://www.jboss.org/arquillian">Arquillian</a>.) Not only do your plugin&#8217;s Unit and Integration tests ensure that your plugin will function on your computer, but because tests are run when plugins are <em>installed</em> into a Forge runtime, they also ensure that your plugin will function on your users computers.</p>
+            <h2>Install the Test Harness</h2>
+            <p>This step should already have been completed if you used the &#8216;plugins setup&#8217; command in the section titled: [Reference the Forge APIs]. If not, paste the following dependencies into your pom.xml file.</p>
+            <pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.forge&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;forge-test-harness&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${forge.api.version}&lt;/version&gt;&#x000A;    &lt;scope&gt;test&lt;/scope&gt;&#x000A;&lt;/dependency&gt;&#x000A;&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.forge&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;forge-shell&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${forge.api.version}&lt;/version&gt;&#x000A;    &lt;scope&gt;test&lt;/scope&gt;&#x000A;&lt;/dependency&gt;</code></pre>
+            <h2>Extend AbstractShellTest or SingletonAbstractShellTest</h2>
+            <p>AbstractShellTest boots the Shell for each individual test method, while SingletonAbsractShellTest boots the Shell only once per test class, where each method operates on the same instance.</p>
+            <pre class="prettyprint linenums"><code class="prettyprint linenums">package com.example.plugin;</code>&#x000A;&#x000A;<code class="prettyprint linenums">import javax.inject.Inject;</code>&#x000A;&#x000A;<code class="prettyprint linenums">import org.jboss.arquillian.container.test.api.Deployment;&#x000A;import org.jboss.forge.project.Project;&#x000A;import org.jboss.forge.project.dependencies.DependencyResolver;&#x000A;import org.jboss.forge.test.AbstractShellTest;&#x000A;import org.jboss.shrinkwrap.api.spec.JavaArchive;&#x000A;import org.junit.Assert;&#x000A;import org.junit.Test;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class ExamplePluginTest extends AbstractShellTest&#x000A;{&#x000A;   // Notice that you may use injection to do verification of the internal state of the system.&#x000A;   // Or to perform additional operations.&#x000A;   @Inject&#x000A;   private DependencyResolver resolver;</code>&#x000A;&#x000A;<code class="prettyprint linenums">   @Deployment&#x000A;   public static JavaArchive getDeployment()&#x000A;   {&#x000A;      // The deployment method is where you must add references to your classes, packages, and&#x000A;      // configuration files, via  Arquillian.&#x000A;      return AbstractShellTest.getDeployment().addPackages(true, ExamplePlugin.class.getPackage());&#x000A;   }</code>&#x000A;&#x000A;<code class="prettyprint linenums">   @Test&#x000A;   public void testInstallPrettyfaces() throws Exception&#x000A;   {&#x000A;      // Create a new barebones Java project&#x000A;      Project p = initializeJavaProject();</code>&#x000A;&#x000A;<code class="prettyprint linenums">      // Queue input lines to be read as the Shell executes.&#x000A;      queueInputLines("y");</code>&#x000A;&#x000A;<code class="prettyprint linenums">      // Execute a command. If any input is required, it will be read from queued input.&#x000A;      getShell().execute("echo hi there");</code>&#x000A;&#x000A;<code class="prettyprint linenums">      Assert.assertNotNull(resolver);&#x000A;   }&#x000A;}</code></pre>
+            <h2>Invoking commands in your test</h2>
+            <p>In the above test, commands are invoked in the booted Shell through the invocation of <code>getShell().execute(...)</code> sequence. The <code>Shell.execute(...)</code> method accepts a shell command string with command options, as it&#8217;s parameter.</p>
+            <p>You may want to provide inputs during the execution of the command when you use the <code>ShellPrompt</code> <span class="caps">API</span> in your plugin. This is possible through the use of the <code>queueInputLines(...)</code> method. It accepts a variable number of String arguments. Each argument corresponds to an input line that is provided to the displayed prompt.</p>
+            <p>Note that queueInputLines(&#8230;) should be invoked prior to the execution of the Shell.execute(&#8230;) method. Arguments queued up before command invocation would then be provided as inputs when prompted. Queueing arguments after invoking Shell.execute(&#8230;) has no effect on the current command invocation context; the queued arguments will be used in the next command invocation.</p>
+            <h2>Add other dependencies</h2>
+            <p>Because of the modular structure of Forge, you may need to add additional test-scoped dependencies to your plugin. After all, not all commands are made available by adding the test harness artifact as a dependency.</p>
+            <p>For instance, if you want to invoke commands provided by the built-in Java EE plugin (like the persistence, entity, or rest commands), you&#8217;ll need to add the <code>org.jboss.forge:forge-javaee-impl</code> artifact as a test-scoped dependency, like so:</p>
+            <pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.forge&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;forge-javaee-impl&lt;/artifactId&gt;&#x000A;    &lt;scope&gt;test&lt;/scope&gt;&#x000A;&lt;/dependency&gt;</code></pre>
+            <p>Such dependencies are expected to be <span class="caps">CDI</span> bean archives that contain the desired Forge plugins you wish to utilize during test execution.</p>
+            <h2>Run your Build</h2>
+            <p>If done properly, you should now see your test execute during the Plugin build lifecycle.</p>
+            <pre class="command"><code class="command">$ build</code></pre>
+            <h2>Write more tests</h2>
+            <p>The more tests, the merrier! Tests make happy code.</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; JBoss 2014</p>
+      </footer>
+    </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount','UA-34467975-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <script src="http://www.redhat.com/j/elqNow/elqCfg.js" type="text/javascript"></script>
+    <script src="http://www.redhat.com/j/elqNow/elqImg.js" type="text/javascript"></script>
+    <div id="oTags">
+      <script src="http://www.redhat.com/j/s_code.js" type="text/javascript"></script>
+      <script>
+        var coreUrl = encodeURI(document.URL.split("?")[0]);
+        var urlSplit = coreUrl.toLowerCase().split(/\//);
+        var urlLast = urlSplit[urlSplit.length-1];
+        var pageNameString = "";
+        var siteName = "";
+        var minorSectionIndex = 3
+        if (urlLast == "") {
+          urlSplit.splice(-1,1);
+        }
+        if (urlLast.search(/\./) >= 0) {
+          if (urlLast == "index.html") {
+            urlSplit.splice(-1,1);
+          }
+          else {
+            urlSplit[urlSplit.length-1] = urlLast.split(".").splice(0,1);
+          }
+        }
+        siteName = urlSplit[2].split(".")[1];
+        s.prop14 = s.eVar27 = siteName || "";
+        s.prop15 = s.eVar28 = urlSplit[minorSectionIndex] || "";
+        s.prop16 = s.eVar29 = urlSplit[minorSectionIndex+1] || "";
+        pageNameString = urlSplit.splice(3).join(" | ");
+        s.pageName = "jboss | community | " + siteName + " | " + pageNameString;
+        s.channel = "jboss | community";
+        s.prop4 = s.eVar23 = encodeURI(document.URL);
+        s.prop21 = s.eVar18 = coreUrl;
+        s.prop2 = s.eVar22 = "en";
+        s.prop3 = s.eVar19 = "us";
+      </script>
+      <script src="http://www.redhat.com/j/rh_omni_footer.js" type="text/javascript"></script>
+      <script language="JavaScript" type="text/javascript">
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+      </script>
+      <noscript>
+        <a href="http://www.omniture.com" title="Web Analytics">
+          <img alt="" border="0" height="1" src="https://smtrcs.redhat.com/b/ss/redhatcom,redhatglobal/1/H.25.4--NS/0?[AQB]&amp;cdp=3&amp;[AQE]" width="1">
+        </a>
+      </noscript>
+    </div>
+  </body>
+</html>

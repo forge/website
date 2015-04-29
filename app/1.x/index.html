@@ -1,0 +1,687 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Forge |</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="/1.x/images/favicon.ico" rel="icon">
+    <link href="/1.x/stylesheets/styles.css" rel="stylesheet" type="text/css">
+    <link href="/1.x/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="/1.x/stylesheets/prettify.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="/1.x/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/bootstrap-collapse.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/prettify.js" type="text/javascript"></script>
+    <script src="/1.x/javascripts/videoscale.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function() {
+        $("pre.prettyprint code").removeClass("prettyprint").removeClass("linenums");
+        prettyPrint();
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        var pathname = window.location.pathname;
+        console.log(pathname);
+        $("body > .navbar a[href='" + pathname + "']").closest("li").addClass("active");
+        $("body > #content ul.nav a[href='" + pathname + "#content']").closest("li").addClass("active");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="github-banner hidden-phone hidden-tablet">
+            <a href="https://github.com/forge/core">
+              <img alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" style="position:absolute;top:0;right:0;border:0;">
+            </a>
+          </div>
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/1.x/index.html">
+            <img alt="JBoss Forge" class="forge-logo" src="/1.x/images/jbossforge_icon_256px.png">
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/1.x/index.html">Home</a>
+              </li>
+              <li>
+                <a href="/">Forge 2</a>
+              </li>
+              <li>
+                <a href="/1.x/docs/index.html">Documentation</a>
+              </li>
+              <li>
+                <a href="/1.x/team.html">Team</a>
+              </li>
+              <li>
+                <a href="https://community.jboss.org/en/forge">Forums</a>
+              </li>
+              <li>
+                <a href="https://github.com/forge/core">Source</a>
+              </li>
+              <li>
+                <a href="/1.x/plugins.html">Plugins</a>
+              </li>
+              <li>
+                <a href="https://issues.jboss.org/browse/FORGE" target="issue tracker">Issue Tracker</a>
+              </li>
+              <li>
+                <a href="https://issues.jboss.org/browse/FORGE#selectedTab=com.atlassian.jira.plugin.system.project%3Aroadmap-panel" target="roadmap">Roadmap</a>
+              </li>
+              <li>
+                <a href="/1.x/events.html">Events</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="content">
+      <div class="container">
+        <div class="row" style="margin-bottom: 45px;">
+          <p>
+            <center>
+              <img src="/1.x/images/forge.png">
+            </center>
+          </p>
+          <center>
+            <pre><div class="lead">The fastest way to build applications, share your software, and enjoy doing it.</div></pre>
+          </center>
+        </div>
+        <div class="container hidden-phone">
+          <div class="row">
+            <div class="span6">
+              <div class="row">
+                <div class="span6">
+                  <div class="video">
+                    <iframe width="560" height="315" src="http://www.youtube.com/embed/Clso5vtKu9k?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span6">
+                  <center>
+                    <h5>
+                      <span>Follow Forge on Twitter</span>
+                      <a href="http://twitter.com/jbossforge">@JBossForge</a>
+                    </h5>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <div class="span6">
+              <div class="hero-unit" style="min-height: 200px;">
+                <center>
+                  <h2>The new developer evolution.</h2>
+                  <a class="btn btn-primary btn-large" href="#" onclick="_gaq.push(['_trackEvent', 'Downloads', '1.4.4.Final']);document.location.href='https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&amp;g=org.jboss.forge&amp;a=forge-distribution&amp;v=1.4.4.Final&amp;e=zip'">Download (1.4.4.Final)</a>
+                  <a class="btn btn-secondary btn-large" href="/1.x/docs/">Get Started Now!</a>
+                  <p>(Looking for <a href="/">Forge 2</a>?)</p>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row visible-phone">
+          <div class="hero-unit">
+            <center>
+              <h4>The new developer evolution.</h4>
+              <a class="btn btn-primary btn-large" href="#" onclick="_gaq.push(['_trackEvent', 'Downloads', '1.4.4.Final']);document.location.href='https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&amp;g=org.jboss.forge&amp;a=forge-distribution&amp;v=1.4.4.Final&amp;e=zip'" style="width: 89px;">Download (1.4.4.Final)</a>
+              <a class="btn btn-secondary btn-large" href="/1.x/docs/" style="width: 89px;">Get Started Now</a>
+              <p>(Looking for <a href="https://github.com/forge/core#jboss-forge-20">Forge 2</a>?)</p>
+            </center>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h2>Quick Install</h2>
+            <p>
+              <span>The fastest and easiest way to install Forge on any operating system is through the use of</span>
+              <a href="http://jboss.org/tools">JBoss Tools</a>
+              <span>or</span>
+              <a href="https://devstudio.jboss.com/download/">JBoss Developer Studio</a>
+              <span>, where Forge comes pre-installed and makes use of IDE GUI integration. Alternatively, on OSX, you can also use</span>
+              <a href="http://mxcl.github.com/homebrew/">Homebrew</a>
+              <span>to install Forge natively for use on the command-line, via "brew install jboss-forge".</span>
+            </p>
+            <p>
+              <ol>
+                <li>Ensure that you have already installed a Java 6+ JDK.</li>
+                <li>
+                  <a href="https://repository.jboss.org/nexus/index.html#nexus-search;gav~org.jboss.forge~forge-distribution~1.*.Final~~">Download</a>
+                  <span>and Un-zip Forge (or a recent</span>
+                  <a href="https://repository.jboss.org/nexus/index.html#nexus-search;gav~org.jboss.forge~forge-distribution~~~~kw,versionexpand">snapshot build</a>
+                  <span>) into a folder on your hard-disk, this folder will be your FORGE_HOME</span>
+                </li>
+                <li>
+                  <span>Add '$FORGE_HOME/bin' to your path</span>
+                  <span>(</span>
+                  <a href="http://www.google.com/search?q=windows+edit+path">windows</a>
+                  <span>,</span>
+                  <a href="http://www.google.com/search?q=linux+set+path">linux</a>
+                  <span>,</span>
+                  <a href="http://www.google.com/search?q=mac+osx+edit+path">mac osx</a>
+                  <span>)</span>
+                </li>
+                <li>* Consider installing Git and Maven 3.0+ (both optional)</li>
+                <li>Open a command prompt and run 'forge' (if you are on Windows, you will need to run forge.bat unless using a Unix-style terminal)</li>
+              </ol>
+            </p>
+          </div>
+          <div class="span6">
+            <h2>Latest News</h2>
+            <ul class="simple">
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/05/22/post-forge-2-6-0-Final-released.html">Forge 2.6.0.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-5-22: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.6.0.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.6.0.Final is now available! This is the best release so far.
+                  What’s new and noteworthy?
+                  
+                  Component Upgrades: We&#8217;ve upgraded to Weld 2.2.1.Final, Aesh 0.54 and Roaster 2.4.0.Final. More stability and new features available out-of-the-box!
+                  
+                  And that&#8217;s not all!...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/04/24/post-forge-2-5-0-Final-released.html">Forge 2.5.0.Final (Coal) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-4-24: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.5.0.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.5.0.Final is now available! This is the best release so far.
+                  What’s new and noteworthy?
+                  
+                  Performance: We have introduced more performance enhancements in the Furnace runtime, so the shell and other features should feel quite a bit...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/04/07/post-forge-2-4-1-Final-released.html">Forge 2.4.1.Final (Roasted) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-4-7: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.4.1.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.4.1.Final is now available! This is the best release so far.
+                  What’s new and noteworthy?
+                  
+                  Performance: We have introduced some major performance enhancements in the Furnace runtime, so the shell and other features should feel quite a...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/03/20/post-forge-2-3-0-Final-released.html">Forge 2.3.0.Final (Platinumsmith) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-3-20: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.3.0.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.3.0.Final is now available! This is the best release so far.
+                  What’s new and noteworthy?
+                  Highlight your files: The cat command now supports a -c (or &#8212;color if you like to type more) to colorize a file.
+                  Meet...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/03/17/post-forge-2-2-0-Final-released.html">Forge 2.2.0.Final (Goldsmith) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-3-17: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.2.0.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.2.0.Final is now available! This is the best release so far.
+                  What’s new and noteworthy?
+                  The Prompts are back in town: Required options are now prompted for you if you forgot to fill in a value.
+                  BOM BOM...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/02/28/post-forge-2-1-1-Final-released.html">Forge 2.1.1.Final (Silversmith) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-2-28: George Gastaldi, Lincoln Baxter, III, Vineet Reynolds</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.1.1.Final is now available!
+                  The Forge Team is proud to announce that JBoss Forge 2.1.1.Final is now available! 51 issues were resolved since the last release and we migrated more commands and introduced some neat features in the UI addon. This is the best release so far. In addition,...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/01/29/post-forge-2-0-0-Final-released.html">Forge 2.0.0.Final (Furnace) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-1-29: Lincoln Baxter, III, George Gastaldi, Koen Aers, Vineet Reynolds, Stäle Pedersen</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.0.0.Final is now available!
+                  After two years of hard work, the Forge Team proudly presents the release of JBoss Forge 2.0.0.Final (codename Furnace).
+                  Please let us know if you encounter any issues, or have any feedback on usability, at http://issues.jboss.org/browse/FORGE. Thank you for your patience and for all of your...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/01/28/post-forge-2.html">Forge 2.0.0.CR2 (Heat) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-1-28: Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.0.0.CR2 is now available!
+                  Almost there. The Forge Team proudly presents the release of JBoss Forge 2.0.0.CR2. Final should be released in just two more days. As we near the end of waiting, it&#8217;s crucial that you give us your feedback, so please try CR2 (codename &#8220;Smolder&#8221;) and let...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/01/24/post-forge-1.html">Forge 1.4.4.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-1-24: George Gastaldi, Lincoln Baxter, III</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.4.4.Final is now available!
+                  The Forge Team is proud to announce the immediate availability of Forge 1.4.4.Final.
+                  Release Notes
+                          Bug
+                  
+                  
+                  [FORGE-1254] &#8211;         calling setStatic(true) on a static method add keyword &quot;static&quot; twice
+                  [FORGE-1343] &#8211;   ...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2014/01/15/post-forge-2.html">Forge 2.0.0.CR1 (Heat) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2014-1-15: Vineet Reynolds, Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.0.0.CR1 is now available!
+                  New year, new releases. The Forge Team proudly presents the release of JBoss Forge 2.0.0.CR1. 
+                  We are very close to releasing the Final version of Forge 2; however, given some Windows issues in the Shell addon, we decided to postpone 2.0.0.Final after they can be...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/12/26/post-forge-2.html">Forge 2.0.0.Beta4 (Pound) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-12-26: Vineet Reynolds, Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.0.0.Beta4 is now available!
+                  We are pleased to announce the release of JBoss Forge 2.0.0.Beta4, a Forge Runtime that features a streamlined programming model for Addon developers as well as a wide array of new Commands for developing Java EE applications.
+                  In this version, we did a lot of refactoring,...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/11/18/post-forge-1.html">Forge 1.4.3.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-11-18: Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.4.3.Final is now available!
+                  The Forge Team is proud to announce the immediate availability of Forge 1.4.3.Final.
+                  Release Notes
+                          Bug
+                  
+                  
+                  [FORGE-1221] &#8211;         scaffold views template uses backslashes instead of forward slashes
+                  [FORGE-1279] &#8211;    ...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/10/17/post-forge-1.html">Forge 1.4.2.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-10-17: Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.4.2.Final is now available!
+                  After exactly 1 month since the last release, we are proud to announce the immediate availability of Forge 1.4.2.Final.
+                  Release Notes
+                          Bug
+                  
+                  
+                  [FORGE-1212] &#8211;         REST endpoint findById doesn&#39;t handle NoResultException
+                  [FORGE-1219] &#8211; ...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/10/03/post-forge-2.html">Forge 2.0.0.Alpha13 (Lucky Thirteen) Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-10-3: Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 2.0.0.Alpha13 is now available!
+                  We are pleased to announce the release of &#8220;Lucky Thirteen&#8221;, a Forge Runtime that features a streamlined programming model for Addon developers (no more @Exported annotation,) as well as a wide array of new Commands for developing Java EE applications.
+                  Try out Forge 2 in Eclipse...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/09/17/post-forge-1.html">Forge 1.4.1.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-9-17: Lincoln Baxter, III, George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.4.1.Final is now available!
+                  It&#8217;s a great day for progress &#8211; Going forward, we&#8217;re putting Forge 1.x into maintenance mode. This means that new features will target Forge 2.x; only bug-fixes will be accepted for the 1.x stream.  The next JBoss Forge generation (Forge 2.0.0.Final) is due in...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/08/21/post-forge-1.html">Forge 1.4.0.Final Released, and Forge 2.0 is just around the corner</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-8-21: George Gastaldi, Vineet Reynolds, Lincoln Baxter III</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.4.0.Final is now available!
+                  After month of hard work, we are pleased to announce that JBoss Forge 1.4.0.Final is now available &#8211; with a metric ton of new features and bug-fixes. Check out what&#8217;s new and noteworthy in this lovely release!
+                  
+                  	Improved Microsoft Windows experience &#8211; The Windows experience just...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/07/15/post-forge-1.html">Forge 1.3.3.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-7-15: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.3.3.Final is now available!
+                  Release Notes
+                          Bug
+                  
+                  
+                  [FORGE-593] &#8211;         Forge swallows first character of user input after restarting (typically from plugin installation)
+                  [FORGE-856] &#8211;         JSF scaffold from entity...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/06/26/post-forge-1.html">Forge 1.3.2.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-6-26: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.3.2.Final is now available for download!
+                  We are so excited in releasing new versions that we decided to release another one just in time for the next version of JBoss Tools.
+                  Release Notes
+                          Bug
+                  
+                  
+                  [FORGE-913] &#8211;        ...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/06/17/post-forge-1.html">Forge 1.3.1.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-6-17: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.3.1.Final is now available for download! Check out the release notes below and see why Forge IS the best JavaEE development tool. Period.
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-907] &#8211;         Project finalName is expected in a Maven...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/05/15/post-forge-1.html">Forge 1.3.0.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-5-15: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.3.0.Final is now available for download !
+                  It is with great pleasure that we announce that JBoss Forge 1.3.0.Final is now available. Why the minor update ? Check it out.
+                  New and Noteworthy
+                  
+                  	Scaffold-x plugin: We have taken the Scaffold plugin to another level. This plugin was designed from ground up...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/04/10/post-forge-1.html">Forge 1.2.3.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-4-10: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.2.3.Final is now available for download !
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-830] &#8211;         RestPlugin should throw IllegalArgumentException if no domain entity is provided
+                  [FORGE-849] &#8211;         Forge update asks to...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/04/08/forge-update.html">Forge Update Issue</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-4-8: George Gastaldi</strong>
+                </p>
+                <p>
+                  Forge Update issue
+                  We have recently discovered an issue with the forge update command that allows people to update to non-final and unstable versions.
+                  This is fixed in 1.2.3.Final, so we kindly ask you to avoid using &#8220;forge update&#8221; on previous versions since it will prompt you
+                  to update to Forge 2.0.0.Alpha versions...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/03/08/post-maven-update.html">Update your maven dependencies automatically</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-3-8: George Gastaldi</strong>
+                </p>
+                <p>
+                  Update your maven dependencies automatically
+                  New versions of software are released every day, and it is hard to keep your project up-to-date with the latest version of a dependency declared in your pom.xml
+                  Fortunately, in 1.2.2.Final, JBoss Forge provides a new command to make things easier:
+                  maven update
+                  This command will scan each dependency...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/03/08/post-forge-1.html">Forge 1.2.2.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-3-8: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.2.2.Final is now available for download !
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-725] &#8211;         Tests Failing on Windows 7
+                  [FORGE-787] &#8211;         Forge update is not working correctly in Windows
+                  [FORGE-799] &#8211;...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/02/15/post-forge-1.html">Forge 1.2.1.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-2-15: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.2.1.Final is now available for download !
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-745] &#8211;         Can not use Java Parser in war deployment on AS7
+                  [FORGE-751] &#8211;         MavenDependencyFacet cause ConcurrentModificationException
+                  [FORGE-752] &#8211;...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2013/01/15/post-forge-1.html">Forge 1.2.0.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2013-1-15: Lincoln Baxter, III</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.2.0.Final is now available for download !
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-621] &#8211;         Support Weblogic 12c as a container in the Persistence plugin
+                  [FORGE-727] &#8211;         Starting forge with debug...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2012/12/14/post-forge-1.html">Forge 1.1.3.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2012-12-14: George Gastaldi</strong>
+                </p>
+                <p>
+                  JBoss Forge 1.1.3.Final is now available for download !
+                  Release Notes
+                          Bug
+                  
+                  [FORGE-704] &#8211;         org.jboss.forge.parser.java.impl.FieldImpl&lt;O&gt; do not handle byte[] class
+                  [FORGE-712] &#8211;         Forge has trouble finding some Maven Central artifacts
+                  [FORGE-713]...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2012/09/20/post-forge-1.html">Forge 1.1.0.Final Released</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2012-9-20: George Gastaldi</strong>
+                </p>
+                <p>
+                  It is with great pleasure that I announce that JBoss Forge 1.1.0.Final has just been released !
+                  This version is loaded with new features (That&#8217;s why we decided to change the minor version &#8211; :) ). Check out the Full Release Notes or, if you just want to catch up with...
+                </p>
+              </li>
+              <li>
+                <h3>
+                  <a href="/1.x/news/2012/07/25/post-new-forge-website.html">New Forge Website</a>
+                </h3>
+                <p style="color: #666;">
+                  <strong>2012-7-25: Paul Bakker, Lincoln Baxter III</strong>
+                </p>
+                <p>
+                  We have a new website, and would like to thank several of our community members for making this possible.
+                  Thanks to&#8230;
+                  
+                  	Paul Bakker &#8211; for getting the initial project started and doing the plugin search pages
+                  	Ivan St. Ivanov &#8211; for migrating the documentation
+                  	And many more &#8211; for their ideas and help over...
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; JBoss 2014</p>
+      </footer>
+    </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount','UA-34467975-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <script src="http://www.redhat.com/j/elqNow/elqCfg.js" type="text/javascript"></script>
+    <script src="http://www.redhat.com/j/elqNow/elqImg.js" type="text/javascript"></script>
+    <div id="oTags">
+      <script src="http://www.redhat.com/j/s_code.js" type="text/javascript"></script>
+      <script>
+        var coreUrl = encodeURI(document.URL.split("?")[0]);
+        var urlSplit = coreUrl.toLowerCase().split(/\//);
+        var urlLast = urlSplit[urlSplit.length-1];
+        var pageNameString = "";
+        var siteName = "";
+        var minorSectionIndex = 3
+        if (urlLast == "") {
+          urlSplit.splice(-1,1);
+        }
+        if (urlLast.search(/\./) >= 0) {
+          if (urlLast == "index.html") {
+            urlSplit.splice(-1,1);
+          }
+          else {
+            urlSplit[urlSplit.length-1] = urlLast.split(".").splice(0,1);
+          }
+        }
+        siteName = urlSplit[2].split(".")[1];
+        s.prop14 = s.eVar27 = siteName || "";
+        s.prop15 = s.eVar28 = urlSplit[minorSectionIndex] || "";
+        s.prop16 = s.eVar29 = urlSplit[minorSectionIndex+1] || "";
+        pageNameString = urlSplit.splice(3).join(" | ");
+        s.pageName = "jboss | community | " + siteName + " | " + pageNameString;
+        s.channel = "jboss | community";
+        s.prop4 = s.eVar23 = encodeURI(document.URL);
+        s.prop21 = s.eVar18 = coreUrl;
+        s.prop2 = s.eVar22 = "en";
+        s.prop3 = s.eVar19 = "us";
+      </script>
+      <script src="http://www.redhat.com/j/rh_omni_footer.js" type="text/javascript"></script>
+      <script language="JavaScript" type="text/javascript">
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+      </script>
+      <noscript>
+        <a href="http://www.omniture.com" title="Web Analytics">
+          <img alt="" border="0" height="1" src="https://smtrcs.redhat.com/b/ss/redhatcom,redhatglobal/1/H.25.4--NS/0?[AQB]&amp;cdp=3&amp;[AQE]" width="1">
+        </a>
+      </noscript>
+    </div>
+  </body>
+</html>
