@@ -75,13 +75,13 @@ app.get('/api/docs', function(req, res) {
 
 app.get('/api/news', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
-    var allEntries = yamlLoad(body);
+    var allEntries = yamlLoadAll(body);
     res.json(allEntries);
 });
 
 app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
-    var allEntries = yamlLoad(body);
+    var allEntries = yamlLoadAll(body).shift();
     res.json(allEntries);
 });
 
@@ -103,7 +103,7 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 /** Auxiliary functions **/
 
 /** Loads the YAML content into a JS object */
-function yamlLoad(body) {
+function yamlLoadAll(body) {
     var allEntries = [];
     yaml.safeLoadAll(body, function (entry) {
         if (entry)
@@ -111,6 +111,7 @@ function yamlLoad(body) {
     });
     return allEntries;
 }
+
 /** Clone the website-data repository*/
 function gitCloneWebsiteData() { 
     var gitUrl = config.get('FORGE_WEBSITE_DATA_URL');
