@@ -79,7 +79,7 @@ app.get('/api/news', function(req, res) {
     res.json(allEntries);
 });
 
-app.get('/api/v2/webhooks/cache_invalidate', function(req, res) {
+app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     gitPullWebsiteData();
     res.status(200);
     res.end();
