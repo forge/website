@@ -5,7 +5,19 @@ var cc          = require('config-multipaas'),
     fs          = require('fs'),
     yaml        = require('js-yaml'),
     exec        = require('child_process').exec;
-var config      = cc()
+// Git utilities
+var Git         = 
+    { 
+        clone: function(gitUrl, gitDir) { 
+            exec( 'rm -rf '+ gitDir +' && git clone -q ' + gitUrl + ' ' + gitDir);        
+        },
+        pull : function (gitDir) {
+            exec( 'cd ' + gitDir + ' && git pull', function ( err, stdout, stderr ){
+                console.log(stdout);
+            });
+        }
+    };
+    var config      = cc()
                     .add(
                         {
                             "FORGE_WEBSITE_DATA_URL": 'https://github.com/forge/website-data',
@@ -56,19 +68,18 @@ app.get('/api/docs', function(req, res) {
 
 app.get('/api/news', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
-    var allEntries = yamlLoadAll(body);
-    res.json(allEntries);
+    res.json(yamlLoadAll(body));
 });
 
 app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
-    var allEntries = yamlLoadAll(body).shift();
-    res.json(allEntries);
+    res.json(yamlLoadAll(body).shift());
 });
 
 /** Github hook */
+/** Pull from the website-data repository*/
 app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
-    gitPullWebsiteData();
+    Git.pull(config.get('FORGE_WEBSITE_DATA_DIR'));
     res.status(200);
     res.end();
 });
@@ -95,20 +106,4 @@ function yamlLoadAll(body) {
 }
 
 /** Clone the website-data repository*/
-function gitCloneWebsiteData() { 
-    var gitUrl = config.get('FORGE_WEBSITE_DATA_URL');
-    var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
-
-    exec( 'rm -rf '+ gitDir +' && git clone -q ' + gitUrl + ' ' + gitDir);
-}
-
-/** Pull from the website-data repository*/
-function gitPullWebsiteData() { 
-    var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
-    exec( 'cd ' + gitDir + ' && git pull', function ( err, stdout, stderr ){
-        console.log(stdout);
-    });
-}
-
-// Start by cloning the github repository
-gitCloneWebsiteData();
+Git.clone(config.get('FORGE_WEBSITE_DATA_URL'), config.get('FORGE_WEBSITE_DATA_DIR'));
