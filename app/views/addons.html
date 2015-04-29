@@ -330,11 +330,11 @@ id="searchOptionsPanel" aria-expanded="false">
                 </div><!-- /.row .addon-title-row -->
 
                 <div class="row addon-boxes">
-                    <div class="col-sm-3 col-xs-12" ng-repeat="addon in addons['community'] | filter: searchBox" >
+                    <div class="col-sm-3 col-xs-12" ng-repeat="addon in addons['community'] | filter: searchBox">
                         <div class="addon">
                             <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                                 <div class="img-div">
-                                 <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                 <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
                              </div>
                              <h2>{{addon.name}}</h2>
                              <h3>{{addon.author}}</h3>
@@ -368,7 +368,7 @@ id="searchOptionsPanel" aria-expanded="false">
                     <div class="addon">
                         <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                             <div class="img-div">
-                                <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
                             </div>
                             <h2>{{addon.name}}</h2>
                             <h3>{{addon.author}}</h3>
@@ -403,7 +403,7 @@ id="searchOptionsPanel" aria-expanded="false">
                     <div class="addon">
                         <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                             <div class="img-div">
-                                <img src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
                             </div>
                             <h2>{{addon.name}}</h2>
                             <h3>{{addon.author}}</h3>
