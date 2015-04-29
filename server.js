@@ -27,18 +27,8 @@ var mkdirSync = function (path) {
   }
 }
 
-// Caching index.html to minimize IO
-var indexHTML = fs.readFileSync(__dirname + '/app/index.html');
-
 // Routes
-app.get('/', function (req, res, next)
-{
-  res.status(200);
-  res.header('Content-Type', 'text/html');
-  res.end(indexHTML);
-});
-
-app.get(/\/(1\.x|css|fonts|images|js|views)\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
+app.get(/(\/|\/(1\.x|css|fonts|images|js|views)\/?.*)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 app.get('/addons', function(req, res) {
     var addons = 
