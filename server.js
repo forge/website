@@ -19,30 +19,10 @@ app.use(restify.fullResponse())
 
 // Routes
 app.get('/api/addons', function(req, res) {
-    var addons = 
-    { 
-        'community':
-        [
-        {
-            id: 'org.jboss.forge.addon:reflections',
-            name: 'Reflections', 
-            description: 'Enables the usage of the Reflections library as project facets for Java runtime metadata analysis', 
-            author:'George Gastaldi', 
-            rating: 5,
-        }
-        ], 
-        'core':
-        [
-        {
-            id: 'org.jboss.forge.addon:gradle',
-            name: 'Gradle', 
-            description: 'Enables Grade in your project', 
-            author:'Lincoln Baxter III', 
-            rating: 3,
-            logo: 'https://pbs.twimg.com/profile_images/2149314222/square.png',
-        }
-        ]
-    };    
+    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"));
+    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"));
+
+    var addons = { 'community': communityAddons, 'core' : coreAddons};
     res.json(addons);
 });
 
@@ -85,6 +65,7 @@ app.get('/api/metadata', function(req, res) {
     res.json(allEntries);
 });
 
+/** Github hook */
 app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     gitPullWebsiteData();
     res.status(200);
