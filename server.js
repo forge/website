@@ -79,6 +79,12 @@ app.get('/api/news', function(req, res) {
     res.json(allEntries);
 });
 
+app.get('/api/metadata', function(req, res) {
+    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
+    var allEntries = yamlLoad(body);
+    res.json(allEntries);
+});
+
 app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     gitPullWebsiteData();
     res.status(200);
