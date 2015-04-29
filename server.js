@@ -18,15 +18,6 @@ app.use(restify.queryParser())
 app.use(restify.CORS())
 app.use(restify.fullResponse())
 
-/* Create a directory, ignoring if already exists */
-var mkdirSync = function (path) {
-  try {
-    fs.mkdirSync(path);
-  } catch(e) {
-    if ( e.code != 'EEXIST' ) throw e;
-  }
-}
-
 // Routes
 app.get('/api/addons', function(req, res) {
     var addons = 
@@ -92,10 +83,13 @@ app.get('/api/news', function(req, res) {
 // Everything except the already defined routes. IMPORTANT: this should be the last route
 app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
+// Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {
   console.log( "Listening on " + config.get('IP') + ", port " + config.get('PORT') );
 });
 
+
+/** Auxiliary functions **/
 
 /** Loads the YAML content into a JS object */
 function yamlLoad(body) {
@@ -110,6 +104,15 @@ function yamlLoad(body) {
 function gitPullWebsiteData() { 
     mkdirSync(config.get('FORGE_WEBSITE_DATA_DIR'));
     console.log( "Created " + config.get('FORGE_WEBSITE_DATA_DIR') );
+}
+
+/* Create a directory, ignoring if already exists */
+function mkdirSync(path) {
+  try {
+    fs.mkdirSync(path);
+  } catch(e) {
+    if ( e.code != 'EEXIST' ) throw e;
+  }
 }
 
 gitPullWebsiteData();
