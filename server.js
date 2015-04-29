@@ -80,12 +80,18 @@ app.get('/api/news', function(req, res) {
     res.json(allEntries);
 });
 
+app.get('/api/invalidate_cache', function(req, res) {
+    gitPullWebsiteData();
+    res.status(200);
+    res.end();
+});
+
 // Everything except the already defined routes. IMPORTANT: this should be the last route
 app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 // Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {
-  console.log( "Listening on " + config.get('IP') + ", port " + config.get('PORT') );
+  console.log( "Listening on %s, port %s", config.get('IP'), config.get('PORT') );
 });
 
 
@@ -100,11 +106,38 @@ function yamlLoad(body) {
     });
     return allEntries;
 }
-
-function gitPullWebsiteData() { 
-    console.log( "Created " + config.get('FORGE_WEBSITE_DATA_DIR') );
-    Git.Clone(config.get('FORGE_WEBSITE_DATA_URL'),config.get('FORGE_WEBSITE_DATA_DIR'))
-    console.log('Cloned '+config.get('FORGE_WEBSITE_DATA_URL') + ' to ' + config.get('FORGE_WEBSITE_DATA_DIR'))
+/** Clone the website-data repository*/
+function gitCloneWebsiteData() { 
+    var gitUrl = config.get('FORGE_WEBSITE_DATA_URL');
+    var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
+    // See http://www.nodegit.org/guides/cloning/
+    Git.Clone(gitUrl, gitDir, {certificateCheck: function() { return 1; }})
+        .done(
+            function() {
+                console.log('Cloned %s to %s', gitUrl, gitDir);
+        });
 }
 
-gitPullWebsiteData();
+/** Pull from the website-data repository*/
+function gitPullWebsiteData() { 
+    var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
+    Git.Repository.open(gitDir)
+        .then(
+            function(repo) {
+                repository = repo;
+                return repository.fetchAll({certificateCheck: function() {return 1;}
+            });
+        })
+      // Now that we're finished fetching, go ahead and merge our local branch with the new one
+        .then(
+            function() {
+                return repository.mergeBranches("master", "origin/master");
+        })
+        .done(
+            function() {
+                console.log("Website data updated!");
+        });
+}
+
+// Start by cloning the github repository
+gitCloneWebsiteData();
