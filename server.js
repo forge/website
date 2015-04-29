@@ -4,13 +4,13 @@ var cc          = require('config-multipaas'),
     restify     = require('restify'),
     fs          = require('fs'),
     yaml        = require('js-yaml'),
-    fetchUrl    = require("fetch").fetchUrl;
-
+    fetchUrl    = require('fetch').fetchUrl,
+    Git         = require('nodegit');
 var config      = cc()
                     .add(
                         {
                             "FORGE_WEBSITE_DATA_URL": 'https://github.com/forge/website-data',
-                            "FORGE_WEBSITE_DATA_DIR": (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
+                            "FORGE_WEBSITE_DATA_DIR": (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
     app         = restify.createServer()
 
@@ -102,17 +102,9 @@ function yamlLoad(body) {
 }
 
 function gitPullWebsiteData() { 
-    mkdirSync(config.get('FORGE_WEBSITE_DATA_DIR'));
     console.log( "Created " + config.get('FORGE_WEBSITE_DATA_DIR') );
-}
-
-/* Create a directory, ignoring if already exists */
-function mkdirSync(path) {
-  try {
-    fs.mkdirSync(path);
-  } catch(e) {
-    if ( e.code != 'EEXIST' ) throw e;
-  }
+    Git.Clone(config.get('FORGE_WEBSITE_DATA_URL'),config.get('FORGE_WEBSITE_DATA_DIR'))
+    console.log('Cloned '+config.get('FORGE_WEBSITE_DATA_URL') + ' to ' + config.get('FORGE_WEBSITE_DATA_DIR'))
 }
 
 gitPullWebsiteData();
