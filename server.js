@@ -4,8 +4,7 @@ var cc          = require('config-multipaas'),
     restify     = require('restify'),
     fs          = require('fs'),
     yaml        = require('js-yaml'),
-    fetchUrl    = require('fetch').fetchUrl,
-    Git         = require('nodegit');
+    exec        = require('child_process').exec;
 var config      = cc()
                     .add(
                         {
@@ -80,7 +79,7 @@ app.get('/api/news', function(req, res) {
     res.json(allEntries);
 });
 
-app.get('/api/invalidate_cache', function(req, res) {
+app.get('/api/v2/webhooks/cache_invalidate', function(req, res) {
     gitPullWebsiteData();
     res.status(200);
     res.end();
@@ -110,33 +109,16 @@ function yamlLoad(body) {
 function gitCloneWebsiteData() { 
     var gitUrl = config.get('FORGE_WEBSITE_DATA_URL');
     var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
-    // See http://www.nodegit.org/guides/cloning/
-    Git.Clone(gitUrl, gitDir, {certificateCheck: function() { return 1; }})
-        .done(
-            function() {
-                console.log('Cloned %s to %s', gitUrl, gitDir);
-        });
+
+    exec( 'rm -rf '+ gitDir +' && git clone -q ' + gitUrl + ' ' + gitDir);
 }
 
 /** Pull from the website-data repository*/
 function gitPullWebsiteData() { 
     var gitDir = config.get('FORGE_WEBSITE_DATA_DIR');
-    Git.Repository.open(gitDir)
-        .then(
-            function(repo) {
-                repository = repo;
-                return repository.fetchAll({certificateCheck: function() {return 1;}
-            });
-        })
-      // Now that we're finished fetching, go ahead and merge our local branch with the new one
-        .then(
-            function() {
-                return repository.mergeBranches("master", "origin/master");
-        })
-        .done(
-            function() {
-                console.log("Website data updated!");
-        });
+    exec( 'cd ' + gitDir + ' && git pull', function ( err, stdout, stderr ){
+        console.log(stdout);
+    });
 }
 
 // Start by cloning the github repository
