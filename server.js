@@ -28,9 +28,7 @@ var mkdirSync = function (path) {
 }
 
 // Routes
-app.get(/(\/|\/(1\.x|css|fonts|images|js|views)\/?.*)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
-
-app.get('/addons', function(req, res) {
+app.get('/api/addons', function(req, res) {
     var addons = 
     { 
         'community':
@@ -58,7 +56,7 @@ app.get('/addons', function(req, res) {
     res.json(addons);
 });
 
-app.get('/docs', function(req, res) {
+app.get('/api/docs', function(req, res) {
     var docs = [
     {
         level: 'beginner',
@@ -85,11 +83,14 @@ app.get('/docs', function(req, res) {
     res.json(docs);
 });
 
-app.get('/news', function(req, res) {
+app.get('/api/news', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
     var allEntries = yamlLoad(body);
     res.json(allEntries);
 });
+
+// Everything except the already defined routes. IMPORTANT: this should be the last route
+app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 app.listen(config.get('PORT'), config.get('IP'), function () {
   console.log( "Listening on " + config.get('IP') + ", port " + config.get('PORT') );
