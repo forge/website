@@ -3,31 +3,33 @@
 var cc          = require('config-multipaas'),
     restify     = require('restify'),
     fs          = require('fs'),
-    fetchUrl    = require("fetch").fetchUrl,
     yaml        = require('js-yaml')
 
 var config      = cc(),
     app         = restify.createServer()
 
-var urls =  {
-    "news" : "https://raw.githubusercontent.com/forge/website-data/master/docs-news.yaml"
-}
-var cache = {};
-
-console.log(urls["news"]);
-
 app.use(restify.queryParser())
 app.use(restify.CORS())
 app.use(restify.fullResponse())
 
+/* Create a directory, ignoring if already exists */
+var mkdirSync = function (path) {
+  try {
+    fs.mkdirSync(path);
+  } catch(e) {
+    if ( e.code != 'EEXIST' ) throw e;
+  }
+}
+
+var websiteDataURL = 'https://github.com/forge/website-data';
+
+// The git directory
+var gitDir = (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data';
+
+// Caching index.html to minimize IO
 var indexHTML = fs.readFileSync(__dirname + '/app/index.html');
 
 // Routes
-app.get('/status', function (req, res, next)
-{
-  res.send("{status: 'ok'}");
-});
-
 app.get('/', function (req, res, next)
 {
   res.status(200);
@@ -35,6 +37,7 @@ app.get('/', function (req, res, next)
   res.end(indexHTML);
 });
 
+app.get(/\/1.x\/?.*/, restify.serveStatic({directory: './1.x/'}));
 app.get(/\/(css|fonts|images|js|views)\/?.*/, restify.serveStatic({directory: './app/'}));
 
 
@@ -88,7 +91,7 @@ var docs = [
 ];
 
 app.get('/addons', function(req, res) {
-  res.json(addons);
+    res.json(addons);
 });
 
 app.get('/docs', function(req, res) {
@@ -96,17 +99,29 @@ app.get('/docs', function(req, res) {
 });
 
 app.get('/news', function(req, res) {
-    // TODO: Move to another function
-    fetchUrl(urls['news'], function(error, meta, body){
-        var allEntries = [];
-        yaml.safeLoadAll(body, function (entry) {
-            if (entry)
-                allEntries.push(entry);
-        });
-        res.json(allEntries);
-    });
+    var body = fs.readFileSync(gitDir + "/docs-news.yaml");
+    var allEntries = yamlLoad(body);
+    res.json(allEntries);
 });
 
 app.listen(config.get('PORT'), config.get('IP'), function () {
   console.log( "Listening on " + config.get('IP') + ", port " + config.get('PORT') )
 });
+
+
+/** Loads the YAML content into a JS object */
+function yamlLoad(body) {
+    var allEntries = [];
+    yaml.safeLoadAll(body, function (entry) {
+        if (entry)
+            allEntries.push(entry);
+    });
+    return allEntries;
+}
+
+function gitPullWebsiteData() { 
+    mkdirSync(gitDir);
+    
+}
+
+gitPullWebsiteData();
