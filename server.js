@@ -38,7 +38,7 @@ app.get('/', function (req, res, next)
   res.end(indexHTML);
 });
 
-app.get(/\/(1\.x|css|fonts|images|js|views)\/?.*/, restify.serveStatic({directory: './app/'}));
+app.get(/\/(1\.x|css|fonts|images|js|views)\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 app.get('/addons', function(req, res) {
     var addons = 
