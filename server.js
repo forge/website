@@ -13,6 +13,7 @@ var config      = cc()
                         }),
     app         = restify.createServer()
 
+app.use(restify.gzipResponse());
 app.use(restify.queryParser())
 app.use(restify.CORS())
 app.use(restify.fullResponse())
