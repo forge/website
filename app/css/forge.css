@@ -394,9 +394,6 @@ div[role="navigation"] ul {
     padding:.2em 0;
 }
 
-.navbar-nav > li {
-    padding:0 5px;
-}
 
 .login-register-button-div {
     position: relative;
@@ -1438,12 +1435,12 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
     }
 
     .search-bar-row.small input[type="submit"] {
-        padding:10px  20px;
+        padding:10px  20px 11px 20px;
     }
     .search-bar-row.small input[type="text"] {
             font-size:15px;
             color:#666666;
-            padding:8px 15px 7px 15px;
+            padding:8px 15px 8px 15px;
     }
 
     .search-bar-row input {
@@ -1931,12 +1928,6 @@ GRADIENT BACKGROUNDS
     }
 
 
-    .navbar-nav > li {
-        padding:0 2px;
-    }
-
-
-
     ul.login-register-btns li a {
         padding:3px 5px;
     }
@@ -2013,7 +2004,15 @@ GRADIENT BACKGROUNDS
     .download-os-divs h2 {
         font-size:22px;
     }
+}
 
+
+
+@media(min-width:768px) and (max-width:780px) {
+    .navbar-nav > li > a {
+        padding-right:4px;
+        padding-left:4px;
+    }
 }
 
 
