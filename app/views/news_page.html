@@ -40,22 +40,9 @@
 				<div class="row">
 					<div class="col-xs-12 related-documents">
 						<h2>Related Posts</h2>
-						<ul>
-							<li><a href="#">JBoss Forge Reference Sheet</a></li>
-							<li><a href="#">Scaffolding</a></li>
-							<li><a href="#">Writing a basic Java EE app</a></li>
-							<li><a href="#">Testing with Forge</a></li>
-							<li><a href="#">UI Scaffolding</a></li>
-							<li><a href="#">Further samples</a></li>
-							<li><a href="#">Creating a Forge Plugin</a></li>
-						</ul>
+					    <div ng-bind-html="newsToc | sanitize"></div>
 					</div><!-- /.related-documents -->
-
 				</div>
-
-
-
-
 			</div>
 			<!-- /END LEFT MAIN COLUMN -->
 
@@ -63,39 +50,7 @@
 
 			<!-- RIGHT MAIN COLUMN -->
 			<div class="col-sm-8 doc-right-main-col news-page-article-col">
-			<h1 class="news-headline">Forge 2.12.0.Final (hearth) is here!</h1>
-			<div class="news-article-img">
-
-				<img src="images/horiz-img-placeholder.jpg" alt="News Headline Image" >
-			</div>
-
-			<h3 class="article-date">November 17, 2014</h3>
-
-				<p>
-					The Forge Team is working hard to make sure you have the best and most stable release ever, that’s why we are proud to announce that Forge 2.10.1.Final is now available!
-				</p>
-			<h3>What's New & Noteworthy?</h3>
-				<p>
-					<strong>Classpath Resolver now works for optional dependencies:</strong> Having a test class that deploys an addon in the full structure mode (api/impl/spi/tests modules), it is now possible to run it without requiring mvn clean install in the impl module first.</p>
-
-
-				<p>
-					<strong>Windows fixes:</strong> We fixed some issues in the console when using Windows.
-				</p>
-
-				<p>
-					<strong>Component Upgrade:</strong> We’ve upgraded to Roaster 2.8.0.Final. See the release notes here.
-				</p>
-				<h3>Release Notes</h3>
-
-				<h3>Bug</h3>
-				<blockquote>
-					<code>
-						<p>[FORGE-2003] - Forge workspace resolver fails to resolve local resource dependencies that are specified as  	&lsaquo;optional&rsaquo;</p>
-						<p>[FORGE-2008] - Broken history in Forge console</p>
-						<p>[FORGE-2011] - AddonManager installs old addon versions of existing addons</p>
-					</code>
-				</blockquote>
+			   <div ng-bind-html="newsContents | sanitize"></div>
                <!-- AUTHOR INFO SECTION -->
 				<div class="article-author-div">
 					<div class="row">

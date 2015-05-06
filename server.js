@@ -2,7 +2,9 @@
 
 var cc          = require('config-multipaas'),
     restify     = require('restify'),
+    fetchUrl    = require("fetch").fetchUrl,
     fs          = require('fs'),
+    url         = require('url'),
     yaml        = require('js-yaml'),
     exec        = require('child_process').exec;
 // Git utilities
@@ -17,9 +19,10 @@ var Git         =
             });
         }
     };
-    var config      = cc()
+var config      = cc()
                     .add(
                         {
+                            "REDOCULOUS_HOST": 'redoculous-forge.rhcloud.com',
                             "FORGE_WEBSITE_DATA_URL": 'https://github.com/forge/website-data',
                             "FORGE_WEBSITE_DATA_DIR": (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
@@ -66,14 +69,70 @@ app.get('/api/docs', function(req, res) {
     res.json(docs);
 });
 
+/** /api/news/{id} */
 app.get('/api/news', function(req, res) {
-    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
-    res.json(yamlLoadAll(body));
+    res.json(getNews());
+});
+
+app.get('/api/news/:newsId/contents', function(req, res) {
+    var newsItem = getNews().filter(function (item) {
+        return item.id == req.params.newsId;
+    }).shift();
+    if (!newsItem) {
+        res.status(404);
+        res.end();
+        return;            
+    }
+    // Fetching from Redoculous
+    var urlOptions = {
+        protocol: 'http:',
+        host : config.get('REDOCULOUS_HOST'),
+        pathname: "/api/v1/serve",
+        query : {
+            repo : newsItem.repo,
+            ref : newsItem.ref,
+            path: newsItem.path
+        }
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200)
+            res.write(response);
+        res.end();
+    });
+});
+
+app.get('/api/news/:newsId/toc', function(req, res) {
+    var newsItem = getNews().filter(function (item) {
+        return item.id == req.params.newsId;
+    }).shift();
+    if (!newsItem) {
+        res.status(404);
+        res.end();
+        return;            
+    }
+    // Fetching from Redoculous
+    var urlOptions = {
+        protocol: 'http:',
+        host : config.get('REDOCULOUS_HOST'),
+        pathname: "/api/v1/serve/toc",
+        query : {
+            repo : newsItem.repo,
+            ref : newsItem.ref,
+            path: newsItem.path
+        }
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200) {
+            res.write(response);
+        }
+        res.end();
+    });
 });
 
 app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
-    res.json(yamlLoadAll(body).shift());
+    var data = yamlLoadAll(body);
+    res.json(data.shift());
 });
 
 /** Github hook */
@@ -94,7 +153,15 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 
 
 /** Auxiliary functions **/
-
+function getNews() { 
+    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
+    var data = yamlLoadAll(body).map(function (item) {
+        // Add an ID to the news 
+        item.id = generateId(item.title);
+        return item;
+    });
+    return data;
+}
 /** Loads the YAML content into a JS object */
 function yamlLoadAll(body) {
     var allEntries = [];
@@ -103,6 +170,10 @@ function yamlLoadAll(body) {
             allEntries.push(entry);
     });
     return allEntries;
+}
+/** Generate an URL-friendly ID based on the content */
+function generateId(content) { 
+    return content.toLowerCase().replace(/ /g,'-');
 }
 
 /** Clone the website-data repository*/

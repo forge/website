@@ -41,7 +41,8 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('news_detail', {
     url: '/news/{newsId}',
     templateUrl: 'views/news_page.html',
-    css: 'css/forge_doc_pages.css'      
+    css: 'css/forge_doc_pages.css',
+    controller: 'newsCtrl'      
   })
   .state('documentation_detail',{
     url: '/documentation/{docId}',

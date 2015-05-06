@@ -25,6 +25,7 @@
   "dependencies": {
     "config-multipaas": "^0.1.0",
     "restify": "^2.8.3",
+    "fetch" : "0.3.6",
     "js-yaml": "3.3.0"
   },
   "devDependencies": {},
