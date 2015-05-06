@@ -69,7 +69,6 @@ app.get('/api/docs', function(req, res) {
     res.json(docs);
 });
 
-/** /api/news/{id} */
 app.get('/api/news', function(req, res) {
     res.json(getNews());
 });
@@ -77,7 +76,7 @@ app.get('/api/news', function(req, res) {
 app.get('/api/news/:newsId/contents', function(req, res) {
     var newsItem = getNews().filter(function (item) {
         return item.id == req.params.newsId;
-    }).shift();
+    })[0];
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -104,7 +103,7 @@ app.get('/api/news/:newsId/contents', function(req, res) {
 app.get('/api/news/:newsId/toc', function(req, res) {
     var newsItem = getNews().filter(function (item) {
         return item.id == req.params.newsId;
-    }).shift();
+    })[0];
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -132,7 +131,7 @@ app.get('/api/news/:newsId/toc', function(req, res) {
 app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
     var data = yamlLoadAll(body);
-    res.json(data.shift());
+    res.json(data[0]);
 });
 
 /** Github hook */
@@ -148,7 +147,9 @@ app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'
 
 // Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {
-  console.log( "Listening on %s, port %s", config.get('IP'), config.get('PORT') );
+    // Clone the website-data repository
+    Git.clone(config.get('FORGE_WEBSITE_DATA_URL'), config.get('FORGE_WEBSITE_DATA_DIR'));    
+    console.log( "Listening on %s, port %s", config.get('IP'), config.get('PORT') );
 });
 
 
@@ -175,6 +176,3 @@ function yamlLoadAll(body) {
 function generateId(content) { 
     return content.toLowerCase().replace(/ /g,'-');
 }
-
-/** Clone the website-data repository*/
-Git.clone(config.get('FORGE_WEBSITE_DATA_URL'), config.get('FORGE_WEBSITE_DATA_DIR'));
