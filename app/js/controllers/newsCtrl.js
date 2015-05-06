@@ -1,4 +1,4 @@
-angular.module('jboss-forge').controller('newsCtrl', function($scope, $sce, $stateParams, backendAPI){
+angular.module('jboss-forge').controller('newsCtrl', function($scope, $stateParams, backendAPI){
 	backendAPI.fetchNews(function(data) { 
 		$scope.news = data;
 	});
