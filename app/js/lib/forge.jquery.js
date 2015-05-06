@@ -131,14 +131,14 @@ function initializeUI() {
     }
 
     // If this is a document page, init column sizing for tablet/desktop size screens
-    if($('.doc-content').length && $(window).outerWidth() > 767) {
-       docContentHeightFix();
-       $(window).resize(function(){
-           if($(window).outerWidth() > 767) {
-               docContentHeightFix();
-           }
-       });
-    }
+    // if($('.doc-content').length && $(window).outerWidth() > 767) {
+    //    docContentHeightFix();
+    //    $(window).resize(function(){
+    //        if($(window).outerWidth() > 767) {
+    //            docContentHeightFix();
+    //        }
+    //    });
+    // }
 
     // Determine whether the language selection menu is present
     if($('.language-select-container').length) {
