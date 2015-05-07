@@ -74,9 +74,7 @@ app.get('/api/news', function(req, res) {
 });
 
 app.get('/api/news/:newsId/contents', function(req, res) {
-    var newsItem = getNews().filter(function (item) {
-        return item.id == req.params.newsId;
-    })[0];
+    var newsItem = findNewsById(req.params.newsId);
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -100,10 +98,18 @@ app.get('/api/news/:newsId/contents', function(req, res) {
     });
 });
 
+app.get('/api/news/:newsId', function (req,res) {
+    var newsItem = findNewsById(req.params.newsId);
+    if (!newsItem) {
+        res.status(404);
+        res.end();
+        return;            
+    }
+    res.json(newsItem);
+});
+
 app.get('/api/news/:newsId/toc', function(req, res) {
-    var newsItem = getNews().filter(function (item) {
-        return item.id == req.params.newsId;
-    })[0];
+    var newsItem = findNewsById(req.params.newsId);
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -163,6 +169,13 @@ function getNews() {
     });
     return data;
 }
+
+function findNewsById(newsId) {
+    return getNews().filter(function (item) {
+        return item.id == newsId;
+    })[0];
+}
+
 /** Loads the YAML content into a JS object */
 function yamlLoadAll(body) {
     var allEntries = [];

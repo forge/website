@@ -1,11 +1,14 @@
 angular.module('jboss-forge').controller('newsCtrl', function($scope, $stateParams, backendAPI){
 	if ($stateParams.newsId) {
+		backendAPI.fetchNewsById($stateParams.newsId, function (selectedNews) { 
+			$scope.selectedNews = selectedNews;
+		});
 		backendAPI.fetchNewsContents($stateParams.newsId, function (_htmlContents) { 
 			$scope.newsContents = _htmlContents;
 		});
 		backendAPI.fetchNewsToc($stateParams.newsId, function (_htmlContents) { 
 			$scope.newsToc = _htmlContents;
-		})		
+		});		
 	} else { 
 		backendAPI.fetchNews(function(data) { 
 			$scope.news = data;
@@ -31,7 +34,6 @@ angular.module('jboss-forge').controller('newsCtrl', function($scope, $statePara
 		            selectedCategories.push(item);
 		        }
 			}
-
 			$scope.clearCategories = function() { 
 				$scope.selectedCategories = [];
 			}

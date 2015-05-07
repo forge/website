@@ -22,6 +22,10 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 		return this.fetch('/api/news', _success);
 	}
 
+	this.fetchNewsById = function(newsId, _success) { 
+		return this.fetch('/api/news/'+newsId, _success);
+	}
+
 	this.fetchNewsContents = function(newsId, _success) { 
 		return this.fetch('/api/news/' + newsId + '/contents', _success);
 	}	
