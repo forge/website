@@ -56,7 +56,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-4 col-xs-offset-4">
-                        <a href="#" class="forge-btn btn btn-red btn-med reset-button">Reset Options</a>
+                        <a href="#" class="forge-btn btn btn-red btn-med reset-button" ng-click="clearCategories()">Reset Options</a>
                     </div>
                  </div>
             </div><!-- / End Left Side -->
@@ -68,76 +68,15 @@
                     <!-- Begin Checkboxes -->
 
                     <!-- Main Column 1 -->
-                    <div class="col-sm-6 col-sm-offset-0 col-xs-5 col-xs-offset-2 checkbox-columns">
-
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="latest-versions"> <label class="checkbox-label" for="latest-versions"><span></span>Latest Versions</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="video"> <label class="checkbox-label" for="video"><span></span>Video</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="article"> <label class="checkbox-label" for="article"><span></span>Article</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="level1"> <label class="checkbox-label" for="level1"><span></span>Level 1</label>
-                                    </div>
-									<div class="checkbox-row">
-										<input type="checkbox" class="search-checkbox" id="level2"> <label class="checkbox-label" for="level2"><span></span>Level 2</label>
-									</div>
-									<div class="checkbox-row">
-										<input type="checkbox" class="search-checkbox" id="level3"> <label class="checkbox-label" for="level3"><span></span>Level 3</label>
-									</div>
-
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-
-                            </div><!-- /.row -->
+                    <!--TODO: MOVE THIS TO FORGE.CSS -->
+                    <div style="display: flex; flex-flow: column wrap; height:120px; width:170px">
+                        <div class="checkbox-row"  ng-repeat="category in newsCategories">
+                            <input type="checkbox" class="search-checkbox" ng-click="addCategory(category, selectedCategories)" id="{{category}}"> 
+                            <label class="checkbox-label" for="{{category}}"><span></span>{{category}}</label>
+                        </div>
                     </div><!-- / End Main Column 1 -->
 
-                    <!-- Main Column 2 -->
-                    <div class="col-sm-6 col-xs-5 checkbox-columns">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="popular"> <label class="checkbox-label" for="popular"><span></span>Popular</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="community"> <label class="checkbox-label" for="community"><span></span>Community</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="core"> <label class="checkbox-label" for="core"><span></span>Core</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_4"> <label class="checkbox-label" for="option_4"><span></span>Option 4</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_5"> <label class="checkbox-label" for="option_5"><span></span>Option 5</label>
-                                    </div>
-                                    <div class=" checkbox-row">
-                                        <input type="checkbox" class="search-checkbox" id="option_6"> <label class="checkbox-label" for="option_6"><span></span>Option 6</label>
-                                    </div>
-
-                                </div><!-- /.col-sm-6 col-xs-12 -->
-
-                            </div><!-- /.row -->
-                    </div><!-- / End Main Column 2 -->
                     <!-- / End Checkboxes -->
-
-
-
                 </div><!-- /.row (.advanced-search-checkbox-area) -->
             </div>
             <!-- / End Right side -->
@@ -160,7 +99,7 @@
 				<div class="row news-item-boxes">
 
 					<!-- Item 2 -->
-					<div class="col-xs-12 news-item" ng-repeat="newsItem in news|filter:searchBox" ng-class="{'photo-version': newsItem.photo}">
+					<div class="col-xs-12 news-item" ng-repeat="newsItem in news|filter:searchBox|filter: categoryFilter" ng-class="{'photo-version': newsItem.photo}">
 						<!-- BEGIN PHOTO HEADER -->
 						<div class="col-xs-12 date-header" ng-if="newsItem.photo">
 
