@@ -314,6 +314,19 @@ div.medal.advanced {
 .usage-icons.talk-bubble {
     background: url('../images/small-icon-talk-bubble_32x32.png') no-repeat;
 }
+
+
+/*===============================================================================
+ FLEX DISPLAY
+===============================================================================*/
+
+.flex-display div.checkbox-flex-item {
+    display:inline-flex;
+    width:32%;
+}
+
+
+
 /*===============================================================================
  SCREEN SIZE/MEDIA CHANGE BREAKPOINTS
 ===============================================================================*/
@@ -349,6 +362,10 @@ div.medal.advanced {
     .small-width-icons img {
         width:80px;
         height:auto;
+    }
+
+    div.row.flex-display {
+        padding-top:.5em;
     }
 
 }
