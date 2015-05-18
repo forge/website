@@ -69,7 +69,7 @@
 
                     <!-- Main Column 1 -->
                     <!--TODO: MOVE THIS TO FORGE.CSS -->
-                    <div style="display: flex; flex-flow: column wrap; height:120px; width:170px">
+                    <div style="row flex-display">
                         <div class="checkbox-row"  ng-repeat="category in newsCategories">
                             <input type="checkbox" class="search-checkbox" ng-click="addCategory(category, selectedCategories)" id="{{category}}"> 
                             <label class="checkbox-label" for="{{category}}"><span></span>{{category}}</label>
