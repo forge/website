@@ -119,34 +119,37 @@ row.addon-boxes {
     padding-bottom:1em;
 }
 
+
 .addon-boxes div {
     margin:1em auto;
     text-align: center;
 }
 
-.addon-boxes div.click-modal {
+.addon-boxes div.click-modal,
+div.addon div.click-modal {
     margin:0;
     cursor:pointer;
     padding:.5em 0 1em 0;
     border-radius:          10px;
     -webkit-border-radius:  10px;
     -moz-border-radius:     10px;
+    width:100%;
+    display:block;
 }
 
-.addon-boxes div.click-modal:hover {
+.addon-boxes div.click-modal:hover,
+div.addon div.click-modal:hover {
     background: #f5f5f5;
 }
 
-.addon-boxes div.click-modal:active {
+.addon-boxes div.click-modal:active,
+.addon div.click-modal:active {
     background: #fbfbfb;
     box-shadow:         inset 0px 0px 10px #cccccc;
     -moz-box-shadow:    inset 0px 0px 10px #cccccc;
 
 }
 
-.addon-boxes div:first-child {
-
-}
 
 .addon-boxes div.addon {
     background:white;
@@ -160,25 +163,32 @@ row.addon-boxes {
 
     box-shadow:      0 0 5px #616161;
     -moz-box-shadow: 0 0 5px #616161;
-
 }
+
 
 .addon-boxes div.addon,
 .addon-boxes div.addon h2,
 .addon-boxes div.addon h3
-.addon-boxes div.addon p {
+.addon-boxes div.addon p,
+div.addon,
+div.addon h2,
+div.addon h3
+div.addon p,
+div.addon div {
     font-family:"Open Sans",sans-serif;
     text-align: center;
 }
 
 
 
-.addon-boxes div.addon {
+.addon-boxes div.addon,
+div.addon {
     font-size:11px;
     line-height:1.1;
 }
 
-.addon-boxes div.addon .img-div {
+.addon-boxes div.addon .img-div,
+div.addon .img-div {
     background:#f1f1f2;
     width:70px;
     height:70px;
@@ -186,18 +196,19 @@ row.addon-boxes {
     padding:1.5em;
     border-radius:50%;
     border:1px solid #dfdfdf;
-    margin-top:0;
-
+    margin:0 auto 1em auto;
 }
 
-.addon-boxes div.addon .img-div img {
+.addon-boxes div.addon .img-div img,
+div.addon .img-div img {
     width:100%;
     height:auto;
-
-
+    margin-left:auto;
+    margin-right:auto;
 }
 
-.addon-boxes div.addon h2 {
+.addon-boxes div.addon h2,
+div.addon h2 {
     font-weight:bold;
     font-size:12px;
     margin:0;
@@ -205,18 +216,22 @@ row.addon-boxes {
 }
 
 .addon-boxes div.addon h3,
-.addon-boxes div.addon p {
+.addon-boxes div.addon p,
+div.addon h3,
+div.addon p {
     font-weight:100;
     font-style:italic;
 }
 
-.addon-boxes div.addon h3 {
+.addon-boxes div.addon h3,
+div.addon h3 {
     font-size:11px;
     padding:.3em 0;
     margin:0;
 }
 
-.addon-boxes div.addon p {
+.addon-boxes div.addon p,
+div.addon p {
     font-size:10px;
     line-height:1.2em;
     height:auto;
@@ -227,9 +242,11 @@ row.addon-boxes {
 /* Stars */
 .star-row  {
     text-align: center;
-    display:inline-block;
+    width:100%;
     clear:both;
     margin-top:.5em;
+    margin-right:0;
+    margin-left:0;
 }
 
 .star-row span.glyphicon.glyphicon-star {
@@ -241,6 +258,33 @@ row.addon-boxes {
 .star-row span.glyphicon.glyphicon-star.gold {
     color:#ec7e3c;
 }
+
+
+/*===============================================================================
+ FLEX DISPLAY FOR ADDONS
+===============================================================================*/
+.flex-addon-display {
+}
+
+.flex-addon-display  div.addon {
+
+    display:inline-flex;
+    background:white;
+    color:#333;
+    padding:10px;
+    margin:1.5% 1%;
+    border-radius:          15px;
+    -moz-border-radius:     15px;
+    -webkit-border-radius:  15px;
+
+    box-shadow:      0 0 5px #616161;
+    -moz-box-shadow: 0 0 5px #616161;
+    /* Largest width */
+    width:22%;
+}
+
+
+
 
 /* SPECIAL CSS FOR THE ADDON SUB-PAGE **/
 
@@ -556,6 +600,10 @@ body {
     .phone-get-addon-btn-div {
         width:40%;
         margin:2.5em auto 1em auto;
+    }
+
+    .flex-addon-display  div.addon {
+        width:100%;
     }
 
 }

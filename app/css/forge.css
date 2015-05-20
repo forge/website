@@ -1488,6 +1488,17 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
 }
 
 
+/*===============================================================================
+ FLEX DISPLAY
+===============================================================================*/
+
+/* Flex settings for advanced search checkboxes (multiple pages) */
+.flex-display div.checkbox-flex-item {
+    display:inline-flex;
+    width:32%;
+}
+
+
 
 /*===============================================================================
  MODAL
@@ -2358,6 +2369,11 @@ GRADIENT BACKGROUNDS
 
     .modal-social-icons {
         padding-left:15px;
+    }
+
+    /* Resize Tag For Flex Display Grid in search boxes */
+    .checkbox-columns div.row.flex-display {
+        padding-top:.5em;
     }
 
 
