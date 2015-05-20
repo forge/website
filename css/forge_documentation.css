@@ -320,6 +320,7 @@ div.medal.advanced {
  FLEX DISPLAY
 ===============================================================================*/
 
+/* Flex settings for advanced search checkboxes (multiple pages) */
 .flex-display div.checkbox-flex-item {
     display:inline-flex;
     width:32%;
@@ -364,7 +365,7 @@ div.medal.advanced {
         height:auto;
     }
 
-    div.row.flex-display {
+    .checkbox-columns div.row.flex-display {
         padding-top:.5em;
     }
 
