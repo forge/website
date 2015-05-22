@@ -126,6 +126,7 @@ app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     res.end();
 });
 
+/** Atom feed */
 app.get('/atom.xml', function (req,res) {
     var feed = new Feed({
         title: 'JBoss Forge Blog Feed',
@@ -179,7 +180,7 @@ function getNews() {
 function getDocs() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
     var data = yamlLoadAll(body).map(function (item) {
-        // Add an ID to the news 
+        // Add an ID to the doc
         item.id = generateId(item.title);
         return item;
     });
