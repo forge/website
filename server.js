@@ -44,30 +44,7 @@ app.get('/api/addons', function(req, res) {
 });
 
 app.get('/api/docs', function(req, res) {
-    var docs = [
-    {
-        level: 'beginner',
-        group: 'core',
-        doc: 'blogpost',
-        title: 'Forge shell with Cygwin and Wildfly',
-        summary: 'Running Forge shell with Cygwin and deploying the generated app in Wildfly'
-    },
-    {
-        level: 'expert',
-        group: 'core',
-        doc: 'tutorial',
-        title: 'Write a Java EE Web Application - Advanced',
-        summary: 'Use Forge to create a entire Java EE Web application.'
-    },  
-    {
-        level: 'expert',
-        group: 'core',
-        doc: 'tutorial',
-        title: 'Write a Java EE Web Application - Advanced',
-        summary: 'Use Forge to create a entire Java EE Web application.'
-    }
-    ];
-    res.json(docs);
+    res.json(getDocs());
 });
 
 app.get('/api/news', function(req, res) {
@@ -191,6 +168,16 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 /** Auxiliary functions **/
 function getNews() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
+    var data = yamlLoadAll(body).map(function (item) {
+        // Add an ID to the news 
+        item.id = generateId(item.title);
+        return item;
+    });
+    return data;
+}
+
+function getDocs() { 
+    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
     var data = yamlLoadAll(body).map(function (item) {
         // Add an ID to the news 
         item.id = generateId(item.title);
