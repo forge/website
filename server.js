@@ -6,6 +6,7 @@ var cc          = require('config-multipaas'),
     fs          = require('fs'),
     url         = require('url'),
     yaml        = require('js-yaml'),
+    Feed        = require('feed'),
     exec        = require('child_process').exec;
 // Git utilities
 var Git         = 
@@ -145,6 +146,34 @@ app.get('/api/metadata', function(req, res) {
 app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     Git.pull(config.get('FORGE_WEBSITE_DATA_DIR'));
     res.status(200);
+    res.end();
+});
+
+app.get('/atom.xml', function (req,res) {
+    var feed = new Feed({
+        title: 'JBoss Forge Blog Feed',
+        description: 'Stay up to date on JBoss Forge',
+        link: 'http://forge.jboss.org/',
+        //image: 'http://forge.jboss.org/images/forge_logo_215x60.png',
+        copyright: 'Copyright 2015 Red Hat, Inc. and/or its affiliates',
+        author: {
+            name: 'JBoss Forge Team'
+        }
+    });
+    getNews().forEach(function (newsItem) {
+        feed.addItem({
+            title: newsItem.title,
+            link: 'http://forge.jboss.org/#/news/' + newsItem.id, 
+            author: {
+                name: newsItem.author
+            },
+            description: newsItem.summary,
+            date: newsItem.date
+        });
+    });
+    res.status(200);
+    res.header("Content-Type", "text/xml");
+    res.write(feed.render('atom-1.0'));
     res.end();
 });
 
