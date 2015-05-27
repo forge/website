@@ -47,47 +47,40 @@ app.get('/api/docs', function(req, res) {
     res.json(getDocs());
 });
 
+app.get('/api/docs/:docsId', function (req,res) {
+    var docsItem = findById(getDocs(),req.params.docsId);
+    if (!docsItem) {
+        res.status(404);
+        res.end();
+    } else { 
+        res.json(docsItem);
+    }
+});
+
+app.get('/api/docs/:docsId/contents', function (req,res) {
+    fetchContents(getDocs(),req.params.docsId,res);
+});
+
 app.get('/api/news', function(req, res) {
     res.json(getNews());
 });
 
 app.get('/api/news/:newsId/contents', function(req, res) {
-    var newsItem = findNewsById(req.params.newsId);
-    if (!newsItem) {
-        res.status(404);
-        res.end();
-        return;            
-    }
-    // Fetching from Redoculous
-    var urlOptions = {
-        protocol: 'http:',
-        host : config.get('REDOCULOUS_HOST'),
-        pathname: "/api/v1/serve",
-        query : {
-            repo : newsItem.repo,
-            ref : newsItem.ref,
-            path: newsItem.path
-        }
-    };
-    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200)
-            res.write(response);
-        res.end();
-    });
+    fetchContents(getNews(), req.params.newsId, res);
 });
 
 app.get('/api/news/:newsId', function (req,res) {
-    var newsItem = findNewsById(req.params.newsId);
+    var newsItem = findById(getNews(),req.params.newsId);
     if (!newsItem) {
         res.status(404);
         res.end();
-        return;            
+    } else { 
+        res.json(newsItem);
     }
-    res.json(newsItem);
 });
 
 app.get('/api/news/:newsId/toc', function(req, res) {
-    var newsItem = findNewsById(req.params.newsId);
+    var newsItem = findById(getNews(),req.params.newsId);
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -132,7 +125,6 @@ app.get('/atom.xml', function (req,res) {
         title: 'JBoss Forge Blog Feed',
         description: 'Stay up to date on JBoss Forge',
         link: 'http://forge.jboss.org/',
-        //image: 'http://forge.jboss.org/images/forge_logo_215x60.png',
         copyright: 'Copyright 2015 Red Hat, Inc. and/or its affiliates',
         author: {
             name: 'JBoss Forge Team'
@@ -187,9 +179,34 @@ function getDocs() {
     return data;
 }
 
-function findNewsById(newsId) {
-    return getNews().filter(function (item) {
-        return item.id == newsId;
+function fetchContents(col, id, res){
+    var item = findById(col,id);
+    if (!item) {
+        res.status(404);
+        res.end();
+        return;            
+    }
+    // Fetching from Redoculous
+    var urlOptions = {
+        protocol: 'http:',
+        host : config.get('REDOCULOUS_HOST'),
+        pathname: "/api/v1/serve",
+        query : {
+            repo : item.repo,
+            ref : item.ref,
+            path: item.path
+        }
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200)
+            res.write(response);
+        res.end();
+    });
+}
+
+function findById(col, id) {
+    return col.filter(function (item) {
+        return item.id == id;
     })[0];
 }
 
