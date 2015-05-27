@@ -44,43 +44,43 @@ app.get('/api/addons', function(req, res) {
 });
 
 app.get('/api/docs', function(req, res) {
-    res.json(getDocs());
+    res.json(allDocs());
 });
 
 app.get('/api/docs/:docsId', function (req,res) {
-    var docsItem = findById(getDocs(),req.params.docsId);
-    if (!docsItem) {
+    var item = findById(allDocs(),req.params.docsId);
+    if (!item) {
         res.status(404);
         res.end();
     } else { 
-        res.json(docsItem);
+        res.json(item);
     }
 });
 
 app.get('/api/docs/:docsId/contents', function (req,res) {
-    fetchContents(getDocs(),req.params.docsId,res);
+    fetchContents(allDocs(),req.params.docsId,res);
 });
 
 app.get('/api/news', function(req, res) {
-    res.json(getNews());
+    res.json(allNews());
 });
 
 app.get('/api/news/:newsId/contents', function(req, res) {
-    fetchContents(getNews(), req.params.newsId, res);
+    fetchContents(allNews(), req.params.newsId, res);
 });
 
 app.get('/api/news/:newsId', function (req,res) {
-    var newsItem = findById(getNews(),req.params.newsId);
-    if (!newsItem) {
+    var item = findById(allNews(),req.params.newsId);
+    if (!item) {
         res.status(404);
         res.end();
     } else { 
-        res.json(newsItem);
+        res.json(item);
     }
 });
 
 app.get('/api/news/:newsId/toc', function(req, res) {
-    var newsItem = findById(getNews(),req.params.newsId);
+    var newsItem = findById(allNews(),req.params.newsId);
     if (!newsItem) {
         res.status(404);
         res.end();
@@ -130,7 +130,7 @@ app.get('/atom.xml', function (req,res) {
             name: 'JBoss Forge Team'
         }
     });
-    getNews().forEach(function (newsItem) {
+    allNews().forEach(function (newsItem) {
         feed.addItem({
             title: newsItem.title,
             link: 'http://forge.jboss.org/#/news/' + newsItem.id, 
@@ -159,7 +159,7 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 
 
 /** Auxiliary functions **/
-function getNews() { 
+function allNews() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
     var data = yamlLoadAll(body).map(function (item) {
         // Add an ID to the news 
@@ -169,7 +169,7 @@ function getNews() {
     return data;
 }
 
-function getDocs() { 
+function allDocs() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
     var data = yamlLoadAll(body).map(function (item) {
         // Add an ID to the doc
