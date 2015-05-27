@@ -9,23 +9,24 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 		});
 		return request;
 	} 
-
 	this.fetchAddons = function(_success) { 
 		return this.fetch('/api/addons', _success);
 	}
-
 	this.fetchDocs = function(_success) { 
 		return this.fetch('/api/docs', _success);
 	}
-
+	this.fetchDocsById = function(docsId, _success) { 
+		return this.fetch('/api/docs/'+docsId, _success);
+	}
+	this.fetchDocsContents = function(newsId, _success) { 
+		return this.fetch('/api/docs/' + newsId + '/contents', _success);
+	}	
 	this.fetchNews = function(_success) { 
 		return this.fetch('/api/news', _success);
 	}
-
 	this.fetchNewsById = function(newsId, _success) { 
 		return this.fetch('/api/news/'+newsId, _success);
 	}
-
 	this.fetchNewsContents = function(newsId, _success) { 
 		return this.fetch('/api/news/' + newsId + '/contents', _success);
 	}	

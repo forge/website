@@ -61,6 +61,10 @@ app.get('/api/docs/:docsId/contents', function (req,res) {
     fetchContents(allDocs(),req.params.docsId,res);
 });
 
+app.get('/api/docs/:docsId/toc', function(req, res) {
+    fetchTOC(allDocs(), req.params.docsId, res);
+});
+
 app.get('/api/news', function(req, res) {
     res.json(allNews());
 });
@@ -80,29 +84,7 @@ app.get('/api/news/:newsId', function (req,res) {
 });
 
 app.get('/api/news/:newsId/toc', function(req, res) {
-    var newsItem = findById(allNews(),req.params.newsId);
-    if (!newsItem) {
-        res.status(404);
-        res.end();
-        return;            
-    }
-    // Fetching from Redoculous
-    var urlOptions = {
-        protocol: 'http:',
-        host : config.get('REDOCULOUS_HOST'),
-        pathname: "/api/v1/serve/toc",
-        query : {
-            repo : newsItem.repo,
-            ref : newsItem.ref,
-            path: newsItem.path
-        }
-    };
-    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200) {
-            res.write(response);
-        }
-        res.end();
-    });
+    fetchTOC(allNews(), req.params.newsId, res);
 });
 
 app.get('/api/metadata', function(req, res) {
@@ -157,7 +139,6 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
     console.log( "Listening on %s, port %s", config.get('IP'), config.get('PORT') );
 });
 
-
 /** Auxiliary functions **/
 function allNews() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
@@ -200,6 +181,32 @@ function fetchContents(col, id, res){
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200)
             res.write(response);
+        res.end();
+    });
+}
+
+function fetchTOC(col, id, res) {
+    var item = findById(col,id);
+    if (!item) {
+        res.status(404);
+        res.end();
+        return;            
+    }
+    // Fetching from Redoculous
+    var urlOptions = {
+        protocol: 'http:',
+        host : config.get('REDOCULOUS_HOST'),
+        pathname: "/api/v1/serve/toc",
+        query : {
+            repo : item.repo,
+            ref : item.ref,
+            path: item.path
+        }
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200) {
+            res.write(response);
+        }
         res.end();
     });
 }
