@@ -95,17 +95,11 @@
 					</div>
 				</div>
 
-
-
-
 				<div class="row">
 					<div class="col-xs-12 author-div">
 						<h2>Authors</h2>
 						<ul class="author-ul">
-							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">Lincoln Baxter</span></li>
-							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">Lincoln Baxter</span></li>
-
-
+							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">{{doc.author}}</span></li>
 						</ul>
 					</div><!-- /.  author-div -->
 				</div>
@@ -113,12 +107,7 @@
 				<div class="row">
 					<div class="col-xs-12 table-of-contents">
 						<h2>Table of Contents</h2>
-						<ul>
-							<li><a href="#">Install a Forge Distribution</a></li>
-							<li><a href="#">Getting Help</a></li>
-							<li><a href="#">Installing a Basic Java EE Web App</a></li>
-							<li><a href="#">Install Addons</a></li>
-						</ul>
+						<div ng-bind-html="docToc | sanitize"></div>
 					</div><!-- /.table-of-contents -->
 
 				</div>
@@ -146,89 +135,20 @@
 
 			<!-- RIGHT MAIN COLUMN -->
 			<div class="col-sm-8 doc-right-main-col">
-
-			<h1 class="hidden-xs">Installation & Getting Started</h1>
-
-				<p>Installing Forge is a relatively short process, and this guide will take you through the fundamentals (providing links to external materials if required) however, if you encounter any issues with this process, please ask in the Forge Users mailing list, or if you think something is wrong with this guide, report a defect to the team.
-				</p>
-			<h3>Install a Forge Distribution</h3>
-				<p>Follow these steps to install a forge distribution:</p>
-				<ol>
-					<li>
-						<p>
-							Ensure that you have already installed a <strong>Java 7+ JDK</strong>.</li>
-
-					</p>
-					<li>
-						<p>
-							Download and Un-zip Forge into a folder on your hard-disk, this folder will be your <code>FORGE_HOME</code></li>
-
-						</p>
-					<li>
-						<p>
-							Add <code>$FORGE_HOME/bin</code> to your path (windows, linux, mac osx)
-
-						</p>
-
-						<p>
-							On Unix based operating systems, this typically means editing your <code>~/.bashrc or ~/.profile;</code> you will need to the following entries:
-						</p>
-						<blockquote>
-							<code>export FORGE_HOME=~/forge/</code>
-							<code>export PATH=$PATH:$FORGE_HOME/bin</code>
-						</blockquote>
-
-						<p>
-							While on Windows, you will need to right-click on open the "Control Panel", then click "System Properties", open the "Advanced" tab, then click "Environment Variables" and add these two entries visually. It is recommended to set User variables for Forge, unless you have placed the unzipped distribution in a folder where all users can access it.
-						</p>
-						<p>
-							You may also simply create a shortcut to <code>bin/forge</code> (Unix,) or <code>bin\forge.bat</code> (Windows,) and place it on your Desktop.
-						</p>
-					</li>
-
-
-					<li>
-						<p>Consider installing Git and Maven 3.1+ (both optional)</p>
-					</li>
-
-					<li>
-						<p>Open a command prompt and run forge - located in <code>$FORGE_HOME/bin/</code> (if you are on Windows, you will need to run forge.bat unless using a Unix-style terminal)</p>
-						<blockquote>
-							<code>localhost:~ $ forge</code>
-							<code>[~] $</code>
-						</blockquote>
-					</li>
-				</ol>
-
-				<h3>That’s it! You’ve got Forge installed, but what to do next?</h3>
-
-				<p>
-					You can start by Forging your first Java EE webapp in about five minutes, and there are a few things you should probably check-out. If you are confused at any time, try pressing TAB. For instance, if you have not yet seen the Forge built-in commands, you may either press TAB to see a list of the currently available commands, or get a more descriptive list by typing:
-				</p>
-				<blockquote>
-					<code>$ command-list</code>
-				</blockquote>
-
-				<p>You may also use the <code>man</code> command for more detailed information about available Forge, a plugin, or a command.</p>
-				<blockquote>
-					<code>$ man {command-name}</code>
-				</blockquote>
-
-				<p><a href="#"><strong>NEED FORGE 1X? Get it here.</strong></a></p>
-
-                <!-- AUTHOR INFO SECTION -->
+				<h1 class="hidden-xs">{{doc.title}}</h1>
+				<div ng-bind-html="docContents|sanitize"></div>
                 <div class="article-author-div">
                     <div class="row">
                         <!-- AUTHOR IMAGE AND TITLE -->
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 author-info-div">
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-2 author-img">
-                                    <img src="images/place-img-300x300.jpg" alt="Lincoln Baxter">
+                                    <img src="images/place-img-300x300.jpg" alt="{{doc.author}}">
                                 </div><!-- / .author-info-div -->
 
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 author-name-title">
                                     <h1>Authors</h1>
-                                    <p>Lincoln Baxter</p>
+                                    <p>{{doc.author}}</p>
                                 </div><!-- / .author-name-title -->
                             </div><!-- / .row -->
                         </div>
