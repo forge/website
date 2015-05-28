@@ -15,11 +15,14 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchDocs = function(_success) { 
 		return this.fetch('/api/docs', _success);
 	}
-	this.fetchDocsById = function(docsId, _success) { 
+	this.fetchDocById = function(docsId, _success) { 
 		return this.fetch('/api/docs/'+docsId, _success);
 	}
-	this.fetchDocsContents = function(newsId, _success) { 
+	this.fetchDocContents = function(newsId, _success) { 
 		return this.fetch('/api/docs/' + newsId + '/contents', _success);
+	}	
+	this.fetchDocToc = function(docId, _success) { 
+		return this.fetch('/api/docs/' + docId + '/toc', _success);
 	}	
 	this.fetchNews = function(_success) { 
 		return this.fetch('/api/news', _success);

@@ -125,6 +125,12 @@ app.get('/atom.xml', function (req,res) {
     res.end();
 });
 
+// Legacy URLs
+app.get('/documentation', function(req, res) {
+    res.header('Location', '/#/documentation');
+    res.send(302);
+});
+
 // Everything except the already defined routes. IMPORTANT: this should be the last route
 app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
