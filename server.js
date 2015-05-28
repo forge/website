@@ -30,17 +30,13 @@ var config      = cc()
     app         = restify.createServer()
 
 app.use(restify.gzipResponse());
-app.use(restify.queryParser())
-app.use(restify.CORS())
-app.use(restify.fullResponse())
+app.use(restify.queryParser());
+app.use(restify.CORS());
+app.use(restify.fullResponse());
 
 // Routes
 app.get('/api/addons', function(req, res) {
-    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"));
-    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"));
-
-    var addons = { 'community': communityAddons, 'core' : coreAddons};
-    res.json(addons);
+    res.json(allAddons());
 });
 
 app.get('/api/docs', function(req, res) {
@@ -140,6 +136,14 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 });
 
 /** Auxiliary functions **/
+function allAddons() { 
+    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"));
+    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"));
+
+    var addons = { 'community': communityAddons, 'core' : coreAddons};
+    return addons;
+}
+
 function allNews() { 
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
     var data = yamlLoadAll(body).map(function (item) {
