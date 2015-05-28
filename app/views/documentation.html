@@ -136,34 +136,34 @@
                     <div class="row documentation-boxes">
 						<!-- Item -->
                         <div class="col-sm-4 col-xs-12" ng-repeat="doc in docs|filter:searchBox">
-                            <div class="doc-div">
-                                <div class="info-row">
-                                    <div class="medal {{doc.level.toLowerCase()}}"> </div>
-                                    <h2>{{doc.title}}</h2>
-                                    <p>{{doc.summary}}</p>
-                                </div>
-                                <div class="row info-links">
-                                	<a ui-sref="documentation_detail({docId: doc.id})">
-	                                    <!-- Group Type -->
-	                                    <div class="col-xs-4 contrib">
-	                                       <div class="contrib-icons {{doc.group.toLowerCase()}}-icon">&nbsp;</div>{{doc.group}}
-	                                    </div>
-	                                    <!-- / End Group Type -->
+                           	<a ui-sref="documentation_detail({docId: doc.id})">
+	                            <div class="doc-div">
+	                                <div class="info-row">
+	                                    <div class="medal {{doc.level.toLowerCase()}}"> </div>
+	                                    <h2>{{doc.title}}</h2>
+	                                    <p>{{doc.summary}}</p>
+	                                </div>
+	                                <div class="row info-links">
+		                                    <!-- Group Type -->
+		                                    <div class="col-xs-4 contrib">
+		                                       <div class="contrib-icons {{doc.group.toLowerCase()}}-icon">&nbsp;</div>{{doc.group}}
+		                                    </div>
+		                                    <!-- / End Group Type -->
 
-	                                    <!-- Usage Icon -->
-	                                    <div class="col-xs-4 mid-col">
-											<span class="usage-icons" ng-class="{'notebook': doc.type == 'Tutorial', 'notepaper': doc.type == 'Get Started', 'talk-bubble': doc.type == 'Blog Post'}">&nbsp;</span>
-	                                    </div>
-	                                    <!-- /End Usage Icon -->
+		                                    <!-- Usage Icon -->
+		                                    <div class="col-xs-4 mid-col">
+												<span class="usage-icons" ng-class="{'notebook': doc.type == 'Tutorial', 'notepaper': doc.type == 'Get Started', 'talk-bubble': doc.type == 'Blog Post'}">&nbsp;</span>
+		                                    </div>
+		                                    <!-- /End Usage Icon -->
 
-	                                    <!-- Author Image -->
-	                                    <div class="col-xs-4 author-img">
-											<img src="images/place-img-300x300.jpg" alt="Author Image"/>
-	                                    </div>
-	                                    <!-- / End Author Image -->
-	                                </a>
-                                </div><!-- / .info-links -->
-                            </div><!-- / .documentation -->
+		                                    <!-- Author Image -->
+		                                    <div class="col-xs-4 author-img">
+												<img src="images/place-img-300x300.jpg" alt="Author Image"/>
+		                                    </div>
+		                                    <!-- / End Author Image -->
+	                                </div><!-- / .info-links -->
+	                            </div><!-- / .documentation -->
+	                        </a>
                         </div><!-- / col-sm-4 col-xs-12 -->
 						<!-- / End  Item -->
 					</div><!-- / .row.addon-boxes -->
