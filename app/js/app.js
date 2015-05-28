@@ -19,12 +19,14 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('addon_detail',{
     url: '/addons/mobile/{addonId}',
     templateUrl: 'views/addon_phone_template.html',
-    css: 'css/forge_addons.css'
+    css: 'css/forge_addons.css',
+    controller: 'addonCtrl'
   })
   .state('documentation', {
     url: '/documentation',
     templateUrl: 'views/documentation.html',
-    css: 'css/forge_documentation.css'
+    css: 'css/forge_documentation.css',
+    controller: 'docCtrl'
   })
   .state('community', {
     url: '/community',
@@ -47,6 +49,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('documentation_detail',{
     url: '/documentation/{docId}',
     templateUrl: 'views/documentation_page.html',
-    css: 'css/forge_doc_pages.css'
+    css: 'css/forge_doc_pages.css',
+    controller: 'docCtrl'
   })
 });
