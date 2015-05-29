@@ -131,7 +131,7 @@ input[type="checkbox"].search-checkbox:checked + label span {
     -moz-box-flex: 1 1 28.3333%;
     -webkit-flex:1 1 28.3333%;
     margin:10px 8px;
-    -mx-flex:1;
+    -ms-flex:1;
 
 }
 
@@ -356,9 +356,26 @@ div.medal.advanced {
 ===============================================================================*/
 
 /* Flex settings for advanced search checkboxes (multiple pages) */
-.flex-display div.checkbox-flex-item {
+
+.flex-display.checkbox-area {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow:row wrap;
+}
+
+.flex-display.checkbox-area div.checkbox-flex-item {
     display:inline-flex;
+    flex:0 0 33%;
+    -webkit-box-flex:0 0 33%;
+    -moz-box-flex: 0 0 33%;
+    -webkit-flex:0 0 33%;
     width:32%;
+    padding-top:.2em;
+    padding-bottom:.2em;
 }
 
 
