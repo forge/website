@@ -1493,10 +1493,29 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
 ===============================================================================*/
 
 /* Flex settings for advanced search checkboxes (multiple pages) */
-.flex-display div.checkbox-flex-item {
+/*.flex-display.checkbox-area {
+
     display:inline-flex;
+    flex:0 0 33%;
+    -webkit-box-flex:0 0 33%;
+    -moz-box-flex: 0 0 33%;
+    -webkit-flex:0 0 33%;
     width:32%;
 }
+
+.flex-display.checkbox-area div.checkbox-flex-item {
+    display:inline-flex;
+    width:32%;
+}*/
+
+
+/*.flex-display div.checkbox-flex-item {
+    display:inline-flex;
+    width:32%;
+
+}*/
+
+
 
 
 

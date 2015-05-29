@@ -93,27 +93,50 @@ input[type="checkbox"].search-checkbox:checked + label span {
     background-color:#e9e8ec;
     padding:4em 0 6em 0;
     min-height:300px;
-    /*box-shadow:         inset 0px 30px 30px #9d9d9d;
-    -moz-box-shadow:    inset 0px 30px 30px #9d9d9d;*/
 }
 
 
-
-
-row.documentation-boxes {
-    padding-top:1em;
-    padding-bottom:1em;
+.row.documentation-flex-boxes,
+.row.documentation-boxes {
+    padding:1em 0;
 }
 
+.row.documentation-flex-boxes {
+    align-items: center;
+    justify-content: center;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow:row wrap;
+
+
+}
+
+.row.documentation-flex-boxes p {
+    display:block;
+}
+
+
+.documentation-flex-boxes div.documentation-item,
 .documentation-boxes div {
-    margin:1em auto;
     text-align: center;
 }
 
-.documentation-boxes div:first-child {
+.documentation-flex-boxes div.documentation-item {
+    flex: 1 1 28.3333%;
+    -webkit-box-flex: 1 1 28.3333%;
+    -moz-box-flex: 1 1 28.3333%;
+    -webkit-flex:1 1 28.3333%;
+    margin:10px 8px;
+    -ms-flex:1;
 
 }
 
+
+.documentation-flex-boxes div.doc-div,
 .documentation-boxes div.doc-div {
     background:white;
     color:#333;
@@ -129,12 +152,15 @@ row.documentation-boxes {
 
 }
 
+.documentation-flex-boxes div.doc-div,
+.documentation-flex-boxes div.doc-div p,
 .documentation-boxes div.doc-div,
 .documentation-boxes div.doc-div p {
     font-family:"Open Sans",sans-serif;
     text-align: center;
 }
 
+.documentation-flex-boxes div.doc-div .info-row h2,
 .documentation-boxes div.doc-div .info-row h2 {
     font-family:"Montserrat",sans-serif;
     font-size:15px;
@@ -142,11 +168,13 @@ row.documentation-boxes {
     text-transform: none;
 }
 
+.documentation-flex-boxes div.doc-div,
 .documentation-boxes div.doc-div {
     font-size:11px;
     line-height:1.1;
 }
 
+.documentation-flex-boxes div.doc-div .img-div,
 .documentation-boxes div.doc-div .img-div {
     background:#f1f1f2;
     width:120px;
@@ -157,6 +185,7 @@ row.documentation-boxes {
 
 }
 
+.documentation-flex-boxes div.doc-div .img-div img,
 .documentation-boxes div.doc-div .img-div img {
     width:100%;
     height:auto;
@@ -179,7 +208,8 @@ row.documentation-boxes {
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85828e', endColorstr='#9e9baa',GradientType=0 ); /* IE6-8 */
 
  }
-
+ 
+.documentation-flex-boxes div.doc-div h2,
 .documentation-boxes div.doc-div h2 {
     font-weight:bold;
     font-size:12px;
@@ -187,6 +217,8 @@ row.documentation-boxes {
     padding:.2em 0;
 }
 
+.documentation-flex-boxes div.doc-div h3,
+.documentation-flex-boxes div.doc-div p,
 .documentation-boxes div.doc-div h3,
 .documentation-boxes div.doc-div p {
     font-weight:100;
@@ -195,10 +227,12 @@ row.documentation-boxes {
     padding:.3em 0;
 }
 
+.documentation-flex-boxes div.doc-div h3,
 .documentation-boxes div.doc-div h3 {
     font-size:11px;
 }
 
+.documentation-flex-boxes div.doc-div p,
 .documentation-boxes div.doc-div p {
     font-size:10px;
     line-height:1.2em;
@@ -244,8 +278,9 @@ div.medal.advanced {
     padding:1em .5em .4em .5em;
 }
 
+.documentation-flex-boxes div.info-links,
 .documentation-boxes div.info-links {
-    margin:0;
+    margin:1em 0 0 0;
     padding:0 .5em;
 }
 
@@ -321,9 +356,26 @@ div.medal.advanced {
 ===============================================================================*/
 
 /* Flex settings for advanced search checkboxes (multiple pages) */
-.flex-display div.checkbox-flex-item {
+
+.flex-display.checkbox-area {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow:row wrap;
+}
+
+.flex-display.checkbox-area div.checkbox-flex-item {
     display:inline-flex;
+    flex:0 0 33%;
+    -webkit-box-flex:0 0 33%;
+    -moz-box-flex: 0 0 33%;
+    -webkit-flex:0 0 33%;
     width:32%;
+    padding-top:.2em;
+    padding-bottom:.2em;
 }
 
 
@@ -369,6 +421,20 @@ div.medal.advanced {
         padding-top:.5em;
     }
 
+    /* Remove Flex attribute to display in one column */
+    .row.documentation-flex-boxes {
+
+        display:block;
+        -webkit-display:block;
+        flex-flow: nowrap;
+        -webkit-flex-row: nowrap;
+    }
+
+    .documentation-flex-boxes div.documentation-item {
+        display:block;
+        margin:2em 0;
+    }
+
 }
 
 /* Small SM */
@@ -393,7 +459,7 @@ div.medal.advanced {
         font-size:11px;
     }
 
-
+    .documentation-flex-boxes div.addon .img-div,
     .documentation-boxes div.addon .img-div {
         width:70px;
         height:70px;

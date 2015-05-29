@@ -261,9 +261,40 @@ div.addon p {
 
 
 /*===============================================================================
- FLEX DISPLAY FOR ADDONS
+ FLEX DISPLAY FOR ADDONS & CHECKBOX AREA
 ===============================================================================*/
+
+
+.flex-display.checkbox-area {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow:row wrap;
+}
+
+.flex-display.checkbox-area div.checkbox-flex-item {
+    display:inline-flex;
+    flex:0 0 33%;
+    -webkit-box-flex:0 0 33%;
+    -moz-box-flex: 0 0 33%;
+    -webkit-flex:0 0 33%;
+    width:32%;
+    padding-top:.2em;
+    padding-bottom:.2em;
+
+}
+
 .flex-addon-display {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow:row wrap;
 }
 
 .flex-addon-display  div.addon {
