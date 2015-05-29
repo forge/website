@@ -143,9 +143,16 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 
 /** Auxiliary functions **/
 function allAddons() { 
-    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"));
-    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"));
-
+    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"))
+        .map(function (item) {
+            item.type = 'community';
+            return item;
+        });
+    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"))
+            .map(function (item) {
+            item.type = 'core';
+            return item;
+        });
     var addons = { 'community': communityAddons, 'core' : coreAddons};
     return addons;
 }
