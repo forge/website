@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>JBoss Forge</title>
+    <title ng-bind="'JBoss Forge'">JBoss Forge</title>
     <link rel="icon" href="images/favicon.ico" />
     <!--CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
@@ -11,7 +11,7 @@
     <link href="css/forge.css" rel="stylesheet" media="all" />
 </head>
 
-<body ng-controller="rootCtrl">
+<body ng-controller="rootCtrl">{{$state}}
     <!--==================  BEGIN PAGE CONTENT  ==================-->
     <header class="navbar navbar-static-top">
         <div class="container-fluid header-container">
@@ -165,7 +165,7 @@
 <script type="text/javascript" src="js/lib/forge.jquery.js"></script>
 
 <!-- AngularJS -->
-<script type="text/javascript" src="js/lib/angular.js"></script>
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="js/lib/ui-route-styles.js"></script>
 
