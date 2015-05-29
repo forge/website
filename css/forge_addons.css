@@ -298,7 +298,6 @@ div.addon p {
 }
 
 .flex-addon-display  div.addon {
-
     display:inline-flex;
     background:white;
     color:#333;
@@ -314,6 +313,12 @@ div.addon p {
     width:22%;
 }
 
+
+@-moz-document url-prefix() {
+    .flex-addon-display  div.addon {
+       margin:10px;
+    }
+}
 
 
 
