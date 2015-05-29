@@ -2,7 +2,7 @@ angular.module('jboss-forge').controller('docCtrl', function($rootScope, $scope,
 	if ($stateParams.docId) {
 		backendAPI.fetchDocById($stateParams.docId, function (selectedDoc) { 
 			$scope.doc = selectedDoc;
-			$rootScope.title = ': ' + selectedDoc.title;
+			$rootScope.title = selectedDoc.title;
 		});
 		backendAPI.fetchDocContents($stateParams.docId, function (_htmlContents) { 
 			$scope.docContents = _htmlContents;
