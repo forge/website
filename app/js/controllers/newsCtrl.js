@@ -1,7 +1,8 @@
-angular.module('jboss-forge').controller('newsCtrl', function($scope, $stateParams, backendAPI){
+angular.module('jboss-forge').controller('newsCtrl', function($rootScope, $scope, $stateParams, backendAPI){
 	if ($stateParams.newsId) {
 		backendAPI.fetchNewsById($stateParams.newsId, function (selectedNews) { 
 			$scope.selectedNews = selectedNews;
+			$rootScope.title = ': ' + selectedNews.title;
 		});
 		backendAPI.fetchNewsContents($stateParams.newsId, function (_htmlContents) { 
 			$scope.newsContents = _htmlContents;

@@ -1,5 +1,18 @@
 //Add the necessary routes here
 angular.module('jboss-forge', ['ui.router','routeStyles'])
+.run(
+  [          '$rootScope', '$state', '$stateParams',
+    function ($rootScope,   $state,   $stateParams) {
+
+    // It's very handy to add references to $state and $stateParams to the $rootScope
+    // so that you can access them from any scope within your applications.For example,
+    // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+    // to active whenever 'contacts.list' or one of its decendents is active.
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+    }
+  ]
+)
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
   // Set up the states
@@ -8,13 +21,15 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/',
     templateUrl: 'views/home.html',
     css: 'css/parallax-styles.css',
-    controller: 'rootCtrl'
+    controller: 'rootCtrl',
+    title: ': Home'
   })
   .state('addons', {
     url: '/addons',
     templateUrl: 'views/addons.html',
     css: ['css/forge_addons.css', 'css/parallax-styles.css'],
-    controller: 'addonCtrl'
+    controller: 'addonCtrl',
+    title: 'Addons'
   })
   .state('addon_detail',{
     url: '/addons/mobile/{addonId}',
@@ -26,25 +41,28 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/documentation',
     templateUrl: 'views/documentation.html',
     css: 'css/forge_documentation.css',
-    controller: 'docCtrl'
+    controller: 'docCtrl',
+    title: 'Documentation'
   })
   .state('community', {
     url: '/community',
     templateUrl: 'views/community.html',
     css: ['css/forge_community.css','css/parallax-styles.css'],
-    controller: 'communityCtrl'
+    controller: 'communityCtrl',
+    title: 'Community'
   })
   .state('news', {
     url: '/news',
     templateUrl: 'views/news.html',
     css: 'css/forge_news.css',
-    controller: 'newsCtrl'
+    controller: 'newsCtrl',
+    title: 'News'
   })
   .state('news_detail', {
     url: '/news/{newsId}',
     templateUrl: 'views/news_page.html',
     css: 'css/forge_doc_pages.css',
-    controller: 'newsCtrl'      
+    controller: 'newsCtrl'
   })
   .state('documentation_detail',{
     url: '/documentation/{docId}',
