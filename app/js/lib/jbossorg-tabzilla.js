@@ -344,7 +344,7 @@ Tabzilla.preventDefault = function(ev)
 Tabzilla.content =
 '<div class="tabnavclearfix" id="tabnav">'
 +'<div class="tabcontent">'
-+'  <p class="overview"> Like the project? It’s part of the community of Red Hat projects. Learn more about Red Hat and our open source communities:</p>'
++'  <p class="overview">Like <span id="project_name">JBoss Forge</span>? It’s part of a community of Red Hat projects. Learn more about Red Hat and our open source communities:</p>'
 +'  <div class="row-fluid">'
 +'    <span class="span4 middlewarelogo">'
 +'      <img src="/images/RHJB_Middleware_Logotype.png" alt="Red Hat JBoss MIDDLEWARE" />'
@@ -586,9 +586,7 @@ function renderTabzilla( projectName , projectId, fullWidth ) {
     */
 
     // Getting HTML tab content from remote source.
-    var wrapper = $.ajax({url:"/partials/tabcontent.html",
-      dataType:'html'
-    });
+    var wrapper = null;
 
     /* THIS PART OF CODE IS TEMPORARILY DISABLED TILL THE SERVICE WILL BE IN PRODUCTION.
     // When both results are available we continue with actual rendering of the data.
