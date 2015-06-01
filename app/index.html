@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <base href="/"> <!-- this is important -->
     <link rel="icon" href="images/favicon.ico" />
     <!--CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
@@ -46,7 +47,7 @@
                 <div class="col-md-7 col-sm-5 col-xs-4 navbar-collapse collapse pull-right width" role="navigation" id="navBarMain" >
                     <!-- Insert to the left of main nav in order to display these to the far right -->
                     <ul class="nav navbar-nav pull-right main-menu-ul">
-                        <li><a href="#">Download</a></li>
+                        <li><a ui-sref="download">Download</a></li>
                         <li><a ui-sref="addons">Add-ons</a></li>
                         <li><a ui-sref="news">News</a></li>
                         <li><a ui-sref="documentation">Documentation</a></li>
@@ -178,6 +179,7 @@
 <script type="text/javascript" src="js/controllers/addonCtrl.js"></script>
 <script type="text/javascript" src="js/controllers/communityCtrl.js"></script>
 <script type="text/javascript" src="js/controllers/docCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/downloadCtrl.js"></script>
 <script type="text/javascript" src="js/controllers/newsCtrl.js"></script>
 </body>
 </html>

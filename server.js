@@ -7,7 +7,8 @@ var cc          = require('config-multipaas'),
     url         = require('url'),
     yaml        = require('js-yaml'),
     Feed        = require('feed'),
-    exec        = require('child_process').exec;
+    exec        = require('child_process').exec,
+    moment      = require('moment');
 // Git utilities
 var Git         = 
     { 
@@ -85,8 +86,9 @@ app.get('/api/news/:newsId/toc', function(req, res) {
 
 app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
-    var data = yamlLoadAll(body);
-    res.json(data[0]);
+    var data = yamlLoadAll(body)[0];
+    data.latestReleaseMoment = moment(data.latestReleaseDate).fromNow();
+    res.json(data);
 });
 
 /** Github hook */
@@ -111,7 +113,7 @@ app.get('/atom.xml', function (req,res) {
     allNews().forEach(function (newsItem) {
         feed.addItem({
             title: newsItem.title,
-            link: 'http://forge.jboss.org/#/news/' + newsItem.id, 
+            link: 'http://forge.jboss.org/news/' + newsItem.id, 
             author: {
                 name: newsItem.author
             },
@@ -125,14 +127,16 @@ app.get('/atom.xml', function (req,res) {
     res.end();
 });
 
-// Legacy URLs
-app.get('/documentation', function(req, res) {
-    res.header('Location', '/#/documentation');
-    res.send(302);
-});
+app.get(/\/?.*(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 // Everything except the already defined routes. IMPORTANT: this should be the last route
-app.get(/\/?.*/, restify.serveStatic({default: 'index.html', directory: './app/'}));
+app.get(/\/?.*/, function(req,res) {
+    //console.log('REQ: '+req.path());
+    res.status(200);
+    res.header("Content-Type", "text/html");
+    res.write(fs.readFileSync("app/index.html"));
+    res.end();
+})
 
 // Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {

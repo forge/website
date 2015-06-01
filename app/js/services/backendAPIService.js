@@ -36,5 +36,8 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchNewsToc = function(newsId, _success) { 
 		return this.fetch('/api/news/' + newsId + '/toc', _success);
 	}	
+	this.fetchMetadata = function(_success) { 
+		return this.fetch('/api/metadata', _success);
+	}
 });
 

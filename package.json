@@ -27,7 +27,8 @@
     "restify": "^2.8.3",
     "fetch" : "0.3.6",
     "js-yaml": "3.3.0",
-    "feed" : "0.2.6"
+    "feed" : "0.2.6",
+    "moment": "2.10.3"
   },
   "devDependencies": {},
   "bundleDependencies": [],

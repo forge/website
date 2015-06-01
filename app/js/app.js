@@ -1,19 +1,17 @@
 //Add the necessary routes here
 angular.module('jboss-forge', ['ui.router','routeStyles'])
-.run(
-  [          '$rootScope', '$state', '$stateParams',
+.run(['$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
-
     // It's very handy to add references to $state and $stateParams to the $rootScope
     // so that you can access them from any scope within your applications.For example,
     // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
     // to active whenever 'contacts.list' or one of its decendents is active.
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    }
-  ]
+    }]
 )
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+  $locationProvider.html5Mode({ enabled: true, requireBase: true });  
   $urlRouterProvider.otherwise('/');
   // Set up the states
   $stateProvider
@@ -22,7 +20,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     templateUrl: 'views/home.html',
     css: 'css/parallax-styles.css',
     controller: 'rootCtrl',
-    title: ': Home'
+    title: 'Home'
   })
   .state('addons', {
     url: '/addons',
@@ -70,4 +68,11 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     css: 'css/forge_doc_pages.css',
     controller: 'docCtrl'
   })
+  .state('download',{
+    url: '/dowload',
+    templateUrl: 'views/download.html',
+    css: ['css/forge_community.css','css/parallax-styles.css'],
+    controller: 'downloadCtrl',
+    title: 'Download'
+  })  
 });
