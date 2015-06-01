@@ -127,16 +127,21 @@ app.get('/atom.xml', function (req,res) {
     res.end();
 });
 
-app.get(/\/?.*(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
+app.get(/\/?.*(\/1.x\/?)|(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
 
 // Everything except the already defined routes. IMPORTANT: this should be the last route
 app.get(/\/?.*/, function(req,res) {
-    //console.log('REQ: '+req.path());
-    res.status(200);
-    res.header("Content-Type", "text/html");
-    res.write(fs.readFileSync("app/index.html"));
-    res.end();
-})
+    fs.readFile('app/index.html', 'utf-8', function (err,file){
+        if (err) {
+           res.send(500);
+           res.end();
+        }
+        res.status(200);
+        res.header("Content-Type", "text/html");
+        res.write(file);
+        res.end();
+    });
+});
 
 // Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {
