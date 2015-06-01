@@ -78,6 +78,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('events',{
     url: '/events',
     templateUrl: 'views/events.html',
+    controller: 'eventsCtrl',    
     title: 'Events'
   })  
 });
