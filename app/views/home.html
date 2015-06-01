@@ -244,8 +244,8 @@
                         <div class="row grey-div left-div">
                             <div class="col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                                 <h2>Developer<br />Studio</h2>
-                                <a href="#" class="forge-btn btn btn-lrg btn-blue hidden-xs">Download</a>
-                                <a href="#" class="forge-btn btn  btn-lrg btn-blue visible-xs">Learn More</a>
+                                <a href="https://www.jboss.org/products/devstudio.html" target="_self" class="forge-btn btn btn-lrg btn-blue hidden-xs">Download</a>
+                                <a href="https://www.jboss.org/products/devstudio.html" target="_self" class="forge-btn btn  btn-lrg btn-blue visible-xs">Learn More</a>
                                 <p>Forge is included in JBoss Developer Studio</p>
                             </div>
                         </div><!-- / .row -->
@@ -254,17 +254,18 @@
                 <div class="col-sm-4 col-xs-12 center-contain-div">
                         <!-- Shown in Phone Version Only -->
                         <div class="visible-xs row grey-div center-div eclipse-intellij-row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <h2>For Eclipse</h2>
-
-                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
+                                <a href="http://www.jboss.org/tools/" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
                             </div>
-                            <div class="col-xs-6">
-                                <h2>For Intellij</h2>
-                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
-
+                            <div class="col-xs-4">
+                                <h2>For Intellij IDEA</h2>
+                                <a href="http://plugins.jetbrains.com/plugin/7515" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
                             </div>
-
+                            <div class="col-xs-4">
+                                <h2>For NetBeans</h2>
+                                <a href="http://plugins.netbeans.org/plugin/57296/" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
+                            </div>
                             <div class="col-xs-12 get-forge">
                                 Get Forge for your IDE
                             </div>
@@ -275,9 +276,11 @@
                         <div class="hidden-xs row grey-div center-div">
                             <div class="col-sm-8 col-sm-offset-2 col-xs-12">
                                 <h2>For Eclipse</h2>
-                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
+                                <a href="http://www.jboss.org/tools/" target="_self" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
                                 <h2>For Intellij</h2>
-                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
+                                <a href="http://plugins.jetbrains.com/plugin/7515" target="_self" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
+                                <h2>For NetBeans</h2>
+                                <a href="http://plugins.netbeans.org/plugin/57296/" target="_self" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
                                 <p class="link-p">Get Forge for your IDE</p>
                             </div>
                         </div>
@@ -294,8 +297,21 @@
                                 </div>
                                 <p class="visible-xs link-p get-forge" >All Operating Systems</p>
                                 <h2>OSX <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <ul style="text-align:left">
+                                    <li>Use Homebrew to install Forge natively for use on the command-line, via <code>brew install jboss-forge</code></li>
+                                    <li>Or use <code>curl http://forge.jboss.org/sh | sh</code></li>
+                                    <li>Or grab the <a href="https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline" target="_self">ZIP</a> to install Forge natively on OSX</li>
+                                </ul>
                                 <h2>Linux <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <ul style="text-align:left">
+                                    <li>Use <code>curl http://forge.jboss.org/sh | sh</code></li>
+                                    <li>Or grab the <a href="https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline" target="_self">ZIP</a> to install Forge natively on Linux</li>
+                                </ul>                                
                                 <h2>Windows <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <ul style="text-align:left">
+                                    <li>Grab the <a href="https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline" target="_self">ZIP</a> to install Forge natively on Windows</li>
+                                </ul>                                
+
                                 <p class="hidden-xs link-p get-forge" >Get Forge for your OS</p>
                             </div>
                         </div>
