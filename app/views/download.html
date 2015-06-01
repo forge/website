@@ -1,4 +1,4 @@
-<!-- PAGE SECTION COMMUNITY MARQUEE SECTION -->
+<!-- PAGE SECTION DOWNLOAD MARQUEE SECTION -->
 <div class="page-section static blue community-marquee">
    <div class="container">
         <div class="row marquee-content">
@@ -14,84 +14,89 @@
    </div><!-- /.container -->
 </div><!-- / .page-section -->
 
-
-
-
-<!-- PAGE SECTION CONTRIBUTE -->
-<div class="page-section white contribute-section">
-    <div class="container">
-        <div class="row">
-            <h1>Choose your preferred environment</h1>
-        </div><!-- / .row -->
-
-
-
-
-    </div><!-- /.container -->
-
-    <div class="row contribute-columns">
-        <!-- Left Column -->
-        <div class="col-sm-3 col-xs-12 outer-container left-col-container">
-            <div class="display-div left-col">
-                <h2>Discuss</h2>
-                <a href="#" class="forge-btn btn btn-blue btn-med">Forums</a>
-                <a href="#" class="forge-btn btn btn-blue btn-med">Email</a>
-                <a href="#" class="forge-btn btn btn-blue btn-med">IRC</a>
-
-            </div>
+<!-- PAGE SECTION ADDITIONAL DOWNLOADS FOR ENVIRONMENTS -->
+<div class="page-section static white environment-os-section" ng-controller="downloadCtrl">
+    <div class="row os-first-section">
+        <div class="col-xs-12">
+            <h1 class="environment-os-section-heading">Works in the environment you <strong>Use.</strong></h1>
 
         </div>
-        <!-- / End Left Column -->
-
-        <div class="col-sm-6 col-xs-12">
-            <div class="row middle-section">
-                <div class="col-sm-6 interior-left-column">
-                    <div class="display-div build-an-addon ">
-                        <h2>Build An<br>Addon</h2>
-                        <a href="#" class="forge-btn btn btn-red btn-med">Get Started</a>
-
-                    </div><!-- /.build-an-addon -->
-
-                </div>
-
-                <div class="col-sm-6 three-row-col-div">
-                   <div class="display-div">
-                        <a href="#">
-                            <span class="text">Submit Bugs</span>
-                            <span class="right-arrow">&nbsp;</span>
-                        </a>
-                   </div>
-
-                    <div class="display-div">
-                        <a href="#">
-                            <span class="text">Improve Code</span>
-                            <span class="right-arrow">&nbsp;</span>
-                        </a>
-
-                    </div>
-
-                    <div class="display-div">
-                        <a href="#">
-                            <span class="text">Expand Docs</span>
-                            <span class="right-arrow">&nbsp;</span>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-        </div><!-- / .col-sm-6 -->
-
-        <!-- Right Column -->
-        <div class="col-sm-3 col-xs-12 outer-container right-col-container attend-event">
-            <div class="display-div right-col attend-event">
-                <h2>Attend<br>An Event</h2>
-                <a href="#" class="forge-btn btn btn-red btn-med">The Calendar</a>
-            </div>
-
-        </div>
-        <!-- / End Right Column -->
-
     </div><!-- / .row -->
-</div><!-- / .page-section -->
-<!-- / END CONTRIBUTE SECTION -->
+
+
+    <div class="row">
+        <div class="container-fluid download-os-divs">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12" >
+                        <div class="row grey-div left-div">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                                <h2>Developer<br />Studio</h2>
+                                <a href="#" class="forge-btn btn btn-lrg btn-blue hidden-xs">Download</a>
+                                <a href="#" class="forge-btn btn  btn-lrg btn-blue visible-xs">Learn More</a>
+                                <p>Forge is included in JBoss Developer Studio</p>
+                            </div>
+                        </div><!-- / .row -->
+                </div><!-- /. col-sm-4 -->
+
+                <div class="col-sm-4 col-xs-12 center-contain-div">
+                        <!-- Shown in Phone Version Only -->
+                        <div class="visible-xs row grey-div center-div eclipse-intellij-row">
+                            <div class="col-xs-6">
+                                <h2>For Eclipse</h2>
+
+                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
+                            </div>
+                            <div class="col-xs-6">
+                                <h2>For Intellij</h2>
+                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Learn More</a>
+
+                            </div>
+
+                            <div class="col-xs-12 get-forge">
+                                Get Forge for your IDE
+                            </div>
+                        </div><!-- / .row.grey-div.center-div -->
+                        <!-- / End Phone Version -->
+
+                        <!-- Tablet/Desktop -->
+                        <div class="hidden-xs row grey-div center-div">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+                                <h2>For Eclipse</h2>
+                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
+                                <h2>For Intellij</h2>
+                                <a href="#" class="forge-btn btn  btn-center btn-lrg btn-red">Download</a>
+                                <p class="link-p">Get Forge for your IDE</p>
+                            </div>
+                        </div>
+                        <!-- / .row.grey-div.center-div -->
+                        <!-- / End Tablet/Desktop -->
+
+                </div><!-- /. col-sm-4 -->
+
+                <div class="col-sm-4 col-xs-12">
+                        <div class="row grey-div right-div ">
+                            <div class="col-sm-9 col-sm-offset-1 col-xs-12 download-links-for-os">
+                                <div class="hidden-sm hidden-md hidden-lg displayed-computer">
+                                    <img src="images/computer_396x216.png" alt="Operating Systems" />
+                                </div>
+                                <p class="visible-xs link-p get-forge" >All Operating Systems</p>
+                                <h2>OSX <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <h2>Linux <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <h2>Windows <a href="#" class="download-arrow hidden-xs"> </a></h2>
+                                <p class="hidden-xs link-p get-forge" >Get Forge for your OS</p>
+                            </div>
+                        </div>
+                </div><!-- /. col-sm-4 -->
+            </div>
+        </div><!-- / .contiainer-fluid -->
+    </div>
+
+    <div class="row hidden-xs">
+        <div class="col-xs-12">
+           <p class="link-p need-forge" >
+               <br />
+               NEED FORGE 1X? <a target="_self" href="/1.x">Get it here.</a>
+           </p>
+        </div>
+    </div>
+</div><!-- / .page-section static -->
