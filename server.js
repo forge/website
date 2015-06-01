@@ -24,9 +24,10 @@ var Git         =
 var config      = cc()
                     .add(
                         {
-                            "REDOCULOUS_HOST": 'redoculous-forge.rhcloud.com',
-                            "FORGE_WEBSITE_DATA_URL": 'https://github.com/forge/website-data',
-                            "FORGE_WEBSITE_DATA_DIR": (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
+                            'FORGE_SH_URL' : 'https://raw.githubusercontent.com/forge/core/master/forge-install.sh',
+                            'REDOCULOUS_HOST': 'redoculous-forge.rhcloud.com',
+                            'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
+                            'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
     app         = restify.createServer()
 
@@ -125,6 +126,16 @@ app.get('/atom.xml', function (req,res) {
     res.header("Content-Type", "text/xml");
     res.write(feed.render('atom-1.0'));
     res.end();
+});
+
+/** SH Script */
+app.get('/sh', function(req,res) {
+    fetchUrl(config.get('FORGE_SH_URL'), function(error, meta, response) { 
+        if (meta.status == 200) {
+            res.write(response);
+        }
+        res.end();
+    });
 });
 
 app.get(/\/?.*(\/1.x\/?)|(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
