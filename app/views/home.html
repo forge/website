@@ -155,16 +155,9 @@
 
             <!-- Right Side -->
             <div class="network-img-holder">
-                <img  src="images/place-img-alt-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-alt-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
-                <img  src="images/place-img-300x300.jpg" alt="Placeholder" />
+                <a href="{{contrib.html_url}}" target="_blank" ng-repeat="contrib in contributors">
+                    <img title="{{contrib.login}}" ng-src="{{contrib.avatar_url}}">
+                </a>
             </div>
 
             <div class="col-sm-6 hidden-xs  network-graphic-grid-container">

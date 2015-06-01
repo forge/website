@@ -24,6 +24,7 @@ var Git         =
 var config      = cc()
                     .add(
                         {
+                            'FORGE_CONTRIBUTORS_URL' : 'https://api.github.com/repos/forge/core/contributors',
                             'FORGE_SH_URL' : 'https://raw.githubusercontent.com/forge/core/master/forge-install.sh',
                             'REDOCULOUS_HOST': 'redoculous-forge.rhcloud.com',
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
@@ -39,6 +40,16 @@ app.use(restify.fullResponse());
 // Routes
 app.get('/api/addons', function(req, res) {
     res.json(allAddons());
+});
+
+app.get('/api/contributors', function(req, res) {
+    fetchUrl(config.get('FORGE_CONTRIBUTORS_URL'), function(error, meta, response) { 
+        if (meta.status == 200) {
+            res.header("Content-Type", "application/json");
+            res.write(response);
+        }
+        res.end();
+    });
 });
 
 app.get('/api/docs', function(req, res) {

@@ -19,7 +19,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/',
     templateUrl: 'views/home.html',
     css: 'css/parallax-styles.css',
-    controller: 'rootCtrl',
+    controller: 'homeCtrl',
     title: 'Home'
   })
   .state('addons', {

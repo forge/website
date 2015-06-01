@@ -39,5 +39,8 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchMetadata = function(_success) { 
 		return this.fetch('/api/metadata', _success);
 	}
+	this.fetchContributors = function(_success) { 
+		return this.fetch('/api/contributors', _success);
+	}
 });
 

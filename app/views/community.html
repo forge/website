@@ -115,26 +115,9 @@
 
             <!-- Community image section -->
             <div class="community-images-holder">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-alt-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-alt-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-alt-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
-                <img alt="Placeholder" src="images/place-img-300x300.jpg">
+                <a href="{{contrib.html_url}}" target="_blank" ng-repeat="contrib in contributors">
+                    <img title="{{contrib.login}}" ng-src="{{contrib.avatar_url}}">
+                </a>
             </div>
             <!-- Community Grid -->
             <div class="community-grid reg-display hidden-xs container">
