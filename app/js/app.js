@@ -63,13 +63,13 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     controller: 'newsCtrl'
   })
   .state('documentation_detail',{
-    url: '/documentation/{docId}',
+    url: '/document/{docId}',
     templateUrl: 'views/documentation_page.html',
     css: 'css/forge_doc_pages.css',
     controller: 'docCtrl'
   })
   .state('download',{
-    url: '/dowload',
+    url: '/download',
     templateUrl: 'views/download.html',
     css: ['css/forge_community.css','css/parallax-styles.css'],
     controller: 'downloadCtrl',
