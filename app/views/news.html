@@ -125,7 +125,7 @@
 
 						<!-- Begin News Item Main Content -->
 						<div class="col-xs-12 news-main-content">
-							<h1>{{newsItem.title}}</h1>
+							<h1><a ui-sref="news_detail({newsId: newsItem.id})">{{newsItem.title}}</a></h1>
 							<h2>Learn More About What's Changed</h2>
 							<p>{{newsItem.summary}}</p>
 						</div>
