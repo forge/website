@@ -9,12 +9,21 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="all" />
     <link href="css/forge.css" rel="stylesheet" media="all" />
+    <link href="css/tabzilla.css" rel="stylesheet" media="all" />    
     <title ng-bind="($state.current.title || title ) + ' | JBoss Forge'">JBoss Forge</title>
 </head>
 
 <body ng-controller="rootCtrl">
     <!--==================  BEGIN PAGE CONTENT  ==================-->
     <header class="navbar navbar-static-top">
+        <div class="dropup">
+          <div id="ajbossproject">A JBoss Project</div> <a class="tabnav-closed" href="#" id="tab" role="button">Red Hat</a>
+          <script>
+          window.addEventListener('load', function() {
+            renderTabzilla("JBoss Forge", "forge.jboss.org", true );
+       }, false);
+          </script>
+      </div>
         <div class="container-fluid header-container">
             <div class="alt-header-row col-xs-2 visible-xs row-fluid">
                 <div class="col-xs-12">
@@ -165,7 +174,7 @@
 <!-- Touchswipe -->
 <script type="text/javascript" src="js/lib/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="js/lib/forge.jquery.js"></script>
-
+<script type="text/javascript" src="js/lib/jbossorg-tabzilla.js"></script>
 <!-- AngularJS -->
 <script type="text/javascript" src="js/lib/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-ui-router.min.js"></script>
