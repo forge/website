@@ -75,4 +75,9 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     controller: 'downloadCtrl',
     title: 'Download'
   })  
+  .state('events',{
+    url: '/events',
+    templateUrl: 'views/events.html',
+    title: 'Events'
+  })  
 });
