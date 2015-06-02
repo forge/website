@@ -1,6 +1,7 @@
 #!/bin/env node
 
 var cc          = require('config-multipaas'),
+    NodeCache   = require('node-cache'),
     restify     = require('restify'),
     fetchUrl    = require("fetch").fetchUrl,
     fs          = require('fs'),
@@ -30,7 +31,8 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
-    app         = restify.createServer()
+    app         = restify.createServer(),
+    cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 } );
 
 app.use(restify.gzipResponse());
 app.use(restify.queryParser());
@@ -107,6 +109,7 @@ app.get('/api/metadata', function(req, res) {
 /** Pull from the website-data repository*/
 app.post('/api/v2/webhooks/cache_invalidate', function(req, res) {
     Git.pull(config.get('FORGE_WEBSITE_DATA_DIR'));
+    cache.flushAll();
     res.status(200);
     res.end();
 });
@@ -173,39 +176,51 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 });
 
 /** Auxiliary functions **/
-function allAddons() { 
-    var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"))
-        .map(function (item) {
-            item.type = 'community';
-            return item;
-        });
-    var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"))
+function allAddons() {
+    var addons = cache.get('allAddons');
+    if (!addons) {
+        var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"))
             .map(function (item) {
-            item.type = 'core';
-            return item;
-        });
-    var addons = { 'community': communityAddons, 'core' : coreAddons};
+                item.type = 'community';
+                return item;
+            });
+        var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"))
+            .map(function (item) {
+                item.type = 'core';
+                return item;
+            });
+        addons = { 'community': communityAddons, 'core' : coreAddons};
+        cache.set('allAddons',addons);
+    }
     return addons;
 }
 
 function allNews() { 
-    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
-    var data = yamlLoadAll(body).map(function (item) {
-        // Add an ID to the news 
-        item.id = generateId(item.title);
-        return item;
-    });
-    return data;
+    var news = cache.get('allNews');
+    if (!news) {
+        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
+        news = yamlLoadAll(body).map(function (item) {
+            // Add an ID to the news 
+            item.id = generateId(item.title);
+            return item;
+        });
+        cache.set('allNews',news);
+    }
+    return news;
 }
 
 function allDocs() { 
-    var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
-    var data = yamlLoadAll(body).map(function (item) {
-        // Add an ID to the doc
-        item.id = generateId(item.title);
-        return item;
-    });
-    return data;
+    var docs = cache.get('allDocs');
+    if (!docs){
+        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
+        docs = yamlLoadAll(body).map(function (item) {
+            // Add an ID to the doc
+            item.id = generateId(item.title);
+            return item;
+        });
+        cache.set('allDocs',docs);
+    }
+    return docs;
 }
 
 function fetchContents(col, id, res){

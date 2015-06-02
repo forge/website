@@ -28,7 +28,8 @@
     "fetch" : "0.3.6",
     "js-yaml": "3.3.0",
     "feed" : "0.2.6",
-    "moment": "2.10.3"
+    "moment": "2.10.3",
+    "node-cache": "3.0.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
