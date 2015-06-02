@@ -176,7 +176,7 @@ app.get('/sh', function(req,res) {
     });
 });
 
-app.get(/\/?.*(\/1.x\/?)|(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/'}));
+app.get(/\/?.*(\/1.x\/?)|(.js|.css|.png|.ico|.html|.jpg)/, restify.serveStatic({default: 'index.html', directory: './app/', cache: true}));
 
 // Everything except the already defined routes. IMPORTANT: this should be the last route
 app.get(/\/?.*/, function(req,res) {
