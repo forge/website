@@ -45,13 +45,21 @@ app.get('/api/addons', function(req, res) {
 });
 
 app.get('/api/contributors', function(req, res) {
-    fetchUrl(config.get('FORGE_CONTRIBUTORS_URL'), function(error, meta, response) { 
-        if (meta.status == 200) {
-            res.header("Content-Type", "application/json");
-            res.write(response);
-        }
+    var contrib = cache.get('allContributors');
+    if (!contrib) {
+        fetchUrl(config.get('FORGE_CONTRIBUTORS_URL'), function(error, meta, response) { 
+            if (meta.status == 200) {
+                cache.set('allContributors',response);
+                res.header("Content-Type", "application/json");
+                res.write(response);
+            }
+            res.end();
+        });
+    } else { 
+        res.header("Content-Type", "application/json");
+        res.write(contrib);
         res.end();
-    });
+    }
 });
 
 app.get('/api/docs', function(req, res) {
