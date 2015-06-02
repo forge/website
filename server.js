@@ -44,6 +44,22 @@ app.get('/api/addons', function(req, res) {
     res.json(allAddons());
 });
 
+app.get('/api/addons/:addonsId', function (req,res) {
+    var addons = allAddons();
+    var item = findById(addons['community'],req.params.addonsId);
+    if (!item) {
+        item = findById(addons['core'],req.params.addonsId);
+        if (!item) {
+            res.status(404);
+            res.end();
+        } else { 
+            res.json(item);
+        }
+    } else { 
+        res.json(item);
+    }
+});
+
 app.get('/api/contributors', function(req, res) {
     var contrib = cache.get('allContributors');
     if (!contrib) {
