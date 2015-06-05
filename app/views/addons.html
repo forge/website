@@ -96,10 +96,10 @@
 
 					<!-- Installation Panel -->
 					<div role="tabpanel" class="tab-pane" id="installation_detail">
-						This is the installation panel
-
-
-					</div>
+                        <p>From Forge CLI:</p>
+                        <br/>
+                        <code>addon-install-from-git --url {{selectedAddon.repo}} --coordinate {{selectedAddon.id}} {{selectedAddon.ref != 'master' ? '--ref '+ selectedAddon.ref : ''}}</code>
+                    </div>
 					<!-- / End Installation Panel -->
 
 
@@ -139,7 +139,7 @@
 			<div class="modal-footer product-panel">
 				<div class="row">
 					<div class="col-md-3 col-sm-3 col-xs-4 modal-left-button-div">
-						<button type="button" class="btn forge-btn btn-orange no-shadow btn-default" data-dismiss="modal">Get Addon</button>
+<a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab" class="btn forge-btn btn-orange no-shadow btn-default" onclick="return false">Get Addon</a>                        
 					</div>
 
 					<div class="col-md-6 col-sm-6 col-xs-8 modal-social-icons">
@@ -152,8 +152,11 @@
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-12">
-                        <span class="community-contributed ">
+                        <span class="community-contributed" ng-if="selectedAddon.type === 'community'">
                             COMMUNITY<br>CONTRIBUTED
+                        </span>
+                        <span class="core-addons" ng-if="selectedAddon.type === 'core'">
+                            CORE
                         </span>
                     </div>
                 </div>

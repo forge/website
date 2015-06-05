@@ -1688,6 +1688,23 @@ WITH EXCEPTIONS FOR FF ADDED LAST.
     padding:.5em 0 .4em 3.6em;
 }
 
+.share-label,
+.core-addons {
+    font-size:13px;
+    font-family: 'Montserrat', sans-serif;
+    color:#20182c;
+}
+
+.core-addons {
+    margin-top:-.2em;
+    display:block;
+    text-align:left;
+    line-height:1.1;
+    background:url(../images/core_addons_100x100.png) no-repeat;
+    background-size: contain;
+    padding:.5em 0 .4em 3.6em;
+}
+
 .modal-left-button-div button {
     margin:0 auto;
 }
