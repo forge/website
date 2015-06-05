@@ -206,13 +206,13 @@ function allAddons() {
         var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"))
             .map(function (item) {
                 item.type = 'community';
-                item.installCmd = 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' : '-- ref '+item.ref : '');
+                item.installCmd = 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' ? '-- ref '+item.ref : '');
                 return item;
             });
         var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"))
             .map(function (item) {
                 item.type = 'core';
-                item.installCmd = 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' : '-- ref '+item.ref : '');                
+                item.installCmd = 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' ? '-- ref '+item.ref : '');
                 return item;
             });
         addons = { 'community': communityAddons, 'core' : coreAddons};
