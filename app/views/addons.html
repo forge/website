@@ -7,13 +7,12 @@
 				<div class="row">
 					<div class="product-nav-row col-xs-12">
 						<a href="#overview_detail" aria-controls="overview" role="tab" data-toggle="tab" onclick="return false">Overview</a>
-						<a href="#stats_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Stats</a>
-						<a href="#reviews_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Reviews</a>
 						<a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Installation</a>
+                        <a href="#stats_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Stats</a>
+                        <a href="#reviews_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Reviews</a>
 						<a href="#changelog_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Changelog</a>
 						<a href="#documentation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Documentation</a>
 						<a href="#support_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Support</a>
-
 					</div>
 
 				</div>
@@ -98,7 +97,7 @@
 					<div role="tabpanel" class="tab-pane" id="installation_detail">
                         <p>From Forge CLI:</p>
                         <br/>
-                        <code>addon-install-from-git --url {{selectedAddon.repo}} --coordinate {{selectedAddon.id}} {{selectedAddon.ref != 'master' ? '--ref '+ selectedAddon.ref : ''}}</code>
+                        <code>{{selectedAddon.installCmd}}</code>
                     </div>
 					<!-- / End Installation Panel -->
 
