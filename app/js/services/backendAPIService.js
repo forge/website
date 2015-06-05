@@ -15,6 +15,12 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchAddonById = function(addonId, _success) { 
 		return this.fetch('/api/addons/'+addonId, _success);
 	}
+	this.fetchAddonDocsById = function(addonId, _success) { 
+		return this.fetch('/api/addons/'+addonId+'/docs', _success);
+	}
+	this.fetchAddonDocContentsById = function(addonId, docId, _success) { 
+		return this.fetch('/api/addons/'+addonId+'/docs/'+docId, _success);
+	}
 	this.fetchDocs = function(_success) { 
 		return this.fetch('/api/docs', _success);
 	}

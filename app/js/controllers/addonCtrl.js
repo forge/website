@@ -2,12 +2,22 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 	backendAPI.fetchAddons(function(data) { 
 		$scope.addons = data;
 	});
-	$scope.setSelectedAddon = function(addon) {
+	var selectAddon = function(addon) { 
 		$scope.selectedAddon = addon;
+		backendAPI.fetchAddonDocsById(addon.id, function(data) {
+			$scope.docSections = data;
+		});
+	}
+	
+	$scope.setSelectedAddon = selectAddon;
+	$scope.fetchDocContents = function(addonId, docId) { 
+		backendAPI.fetchAddonDocContentsById(addonId, docId, function (data) {
+			$scope.selectedAddon.docContents = data;
+		});
 	}
 	if ($stateParams.addonId) { 
 		backendAPI.fetchAddonById($stateParams.addonId, function(addon) {
-			$scope.selectedAddon = addon;
+			selectAddon();
 			productModal();
 		});
 	}

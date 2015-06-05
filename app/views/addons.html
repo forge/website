@@ -6,13 +6,9 @@
 				<button type="button" class="close modal-forge-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<div class="row">
 					<div class="product-nav-row col-xs-12">
-						<a href="#overview_detail" aria-controls="overview" role="tab" data-toggle="tab" onclick="return false">Overview</a>
-						<a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Installation</a>
-                        <a href="#stats_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Stats</a>
-                        <a href="#reviews_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Reviews</a>
-						<a href="#changelog_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Changelog</a>
-						<a href="#documentation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Documentation</a>
-						<a href="#support_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false">Support</a>
+                        <a href="#overview_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false;">Overview</a>
+                        <a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false;">Installation</a>
+                        <a ng-repeat="doc in docSections" href="#{{doc}}_detail" aria-controls="{{doc}}" role="tab" data-toggle="tab" ng-click="fetchDocContents(selectedAddon.id,doc)">{{doc}}</a>
 					</div>
 
 				</div>
@@ -50,85 +46,20 @@
 					</div>
 					<!-- / End Overview Panel -->
 
-
-
-					<!-- Stats Panel -->
-					<div role="tabpanel" class="tab-pane" id="stats_detail">
-						<div class="row">
-							<div class="col-xs-12">
-								<h2>
-									Lorem Ipsum
-								</h2>
-								<div class="main-content">
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet vulputate risus, a pulvinar nibh. Nunc sit amet vulputate libero. Vestibulum non risus non felis commodo tempus sed a mauris. Suspendisse rutrum, dui vitae euismod varius, urna ipsum porttitor metus, non vehicula risus sapien id magna. Curabitur et odio semper, dictum orci in, eleifend augue. In mollis nulla non nulla rutrum semper. In pulvinar a magna in finibus. Vivamus quis consectetur turpis.
-									</p>
-
-									<p>
-										Vestibulum hendrerit tortor augue, eget varius felis venenatis sed. Duis tempus dolor orci, a maximus elit rhoncus ultricies. Integer venenatis tellus sed tellus rhoncus, et efficitur eros eleifend. Curabitur dapibus porta mi, eget dignissim neque rutrum at. Nam at porttitor est. Vivamus in urna tincidunt, malesuada mauris gravida, tincidunt magna. Donec rutrum nisi eget ultrices varius. Donec ut ultricies tellus, et dignissim lacus. Suspendisse potenti. Praesent nec nulla a arcu tempus accumsan vel at neque. Phasellus tempus consectetur magna. Quisque varius mi in quam molestie, quis feugiat urna blandit.
-									</p>
-									<p>
-										Etiam luctus, lectus at pulvinar maximus, tortor arcu luctus massa, vel facilisis neque tellus in eros. Nam rutrum accumsan nisi, nec finibus urna pharetra eget. Nullam elementum nisl velit, ac ullamcorper nunc ultrices vitae. Nunc maximus convallis magna, non bibendum odio consequat ut. Curabitur lacinia pharetra elit, vitae tincidunt felis cursus placerat. Donec non lectus bibendum, gravida mauris vitae, venenatis libero. Cras semper lorem nec congue dictum. Ut egestas nisi quis magna dapibus laoreet. Nullam ipsum sapien, consequat nec nisl eget, mollis elementum ipsum. Integer venenatis lectus at libero fringilla eleifend. Phasellus vulputate neque libero, et sodales velit dapibus vel. Cras vitae nisl ut dui condimentum eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse luctus tortor pretium magna scelerisque, a varius ex consectetur. Pellentesque finibus, est ut condimentum scelerisque, diam est convallis nisl, quis aliquet nibh massa ac justo.
-									</p>
-
-
-								</div>
-
-							</div>
-
-						</div>
-
-
-					</div>
-					<!-- / End Stats Panel -->
-
-
-
-					<!-- Reviews Panel -->
-					<div role="tabpanel" class="tab-pane" id="reviews_detail">
-						This is the reviews panel
-
-
-					</div>
-					<!-- / End Reviews Panel -->
-
-
-					<!-- Installation Panel -->
-					<div role="tabpanel" class="tab-pane" id="installation_detail">
+                    <!-- Installation Panel -->
+                    <div role="tabpanel" class="tab-pane" id="installation_detail">
                         <p>From Forge CLI:</p>
                         <br/>
                         <code>{{selectedAddon.installCmd}}</code>
                     </div>
-					<!-- / End Installation Panel -->
+                    <!-- / End Installation Panel -->
 
 
-					<!-- Changelog Panel -->
-					<div role="tabpanel" class="tab-pane" id="changelog_detail">
-						This is the changelog panel
-
-
+					<!-- Dynamic Panels -->
+					<div role="tabpanel" class="tab-pane" id="{{doc}}_detail" ng-repeat="doc in docSections">
+                        <div ng-bind-html="selectedAddon.docContents|sanitize"></div>
 					</div>
-					<!-- / End Changelog Panel -->
-
-
-					<!-- Documentation Panel -->
-					<div role="tabpanel" class="tab-pane" id="documentation_detail">
-						This is the documentation panel
-
-
-					</div>
-					<!-- / End Documentation Panel -->
-
-
-					<!-- Support Panel -->
-					<div role="tabpanel" class="tab-pane" id="support_detail">
-						This is the support panel
-
-
-					</div>
-					<!-- / End Support Panel -->
-
-
+					<!-- / End Dynamic Panels -->
 
 				</div>
 
