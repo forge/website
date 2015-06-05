@@ -17,7 +17,7 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 	}
 	if ($stateParams.addonId) { 
 		backendAPI.fetchAddonById($stateParams.addonId, function(addon) {
-			selectAddon();
+			selectAddon(addon);
 			productModal();
 		});
 	}
