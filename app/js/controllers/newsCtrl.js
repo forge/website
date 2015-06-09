@@ -17,7 +17,7 @@ angular.module('jboss-forge').controller('newsCtrl', function($rootScope, $scope
 			data.forEach(function (item) {
 				item.tags.split(',').forEach(
 					function(tag) {
-						tags.push(tag.trim());
+						tags.push(tag.trim().toLowerCase());
 					}
 				);
 			});

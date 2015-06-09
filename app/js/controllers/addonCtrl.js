@@ -7,7 +7,7 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 				if (item.tags) {
 					item.tags.split(',').forEach(
 						function(tag) {
-							tags.push(tag.trim());
+							tags.push(tag.trim().toLowerCase());
 						}
 					);
 				}
