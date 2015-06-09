@@ -25,14 +25,14 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   .state('addons', {
     url: '/addons',
     templateUrl: 'views/addons.html',
-    css: ['css/forge_addons.css', 'css/parallax-styles.css'],
+    css: ['css/forge_addons.css'],
     controller: 'addonCtrl',
     title: 'Addons'
   })
   .state('addons_detail', {
     url: '/addon/{addonId}',
     templateUrl: 'views/addons.html',
-    css: ['css/forge_addons.css', 'css/parallax-styles.css'],
+    css: ['css/forge_addons.css'],
     controller: 'addonCtrl',
     title: 'Addons'
   }) 
