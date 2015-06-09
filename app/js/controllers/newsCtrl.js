@@ -44,7 +44,7 @@ angular.module('jboss-forge').controller('newsCtrl', function($rootScope, $scope
 		        if ($scope.selectedCategories.length > 0) {
 		        	for (i=0;i<$scope.selectedCategories.length;i++) 
 		        	{
-						if (item.tags && item.tags.contains($scope.selectedCategories[i])) { 
+						if (item.tags && item.tags.indexOf($scope.selectedCategories[i]) > -1) { 
 							return item;
 						}
 		        	}
