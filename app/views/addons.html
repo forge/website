@@ -196,91 +196,93 @@ id="searchOptionsPanel" aria-expanded="false">
             <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 
                 <!-- BEGIN COMMUNITY-CONTRIBUTED SECTION -->
-                <div class="row addon-title-row" ng-show="(addons['community']| filter:searchBox|filter: tagFilter).length > 0">
-                    <div class="col-xs-12 visible-xs small-width-icons">
-                        <img src="images/community-contrib-heart_100x100.png" alt="Community Contributed">
-                    </div>
-                    <div class="col-md-4 col-sm-5 col-xs-12 section-title community-contributed">Community Contributed</div>
-                    <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider red">&nbsp;</div>
-                </div><!-- /.row .addon-title-row -->
+                <div ng-if="(addons['community']| filter:searchBox|filter: tagFilter).length > 0">
+                    <div class="row addon-title-row">
+                        <div class="col-xs-12 visible-xs small-width-icons">
+                            <img src="images/community-contrib-heart_100x100.png" alt="Community Contributed">
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-12 section-title community-contributed">Community Contributed</div>
+                        <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider red">&nbsp;</div>
+                    </div><!-- /.row .addon-title-row -->
 
-                <div class="row-fluid flex-addon-display">          
-                    <div class="addon" ng-repeat="addon in addons['community'] | filter: searchBox|filter: tagFilter">
-                        <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
-                            <div class="img-div">
-                                <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
-                            </div>
-                            <h2>{{addon.name}}</h2>
-                            <h3>{{addon.author}}</h3>
-                            <p>{{addon.description}}</p>
-                            <div class="star-row" data-rating="{{addon.rating}}"></div>
-                        </div><!-- / end .click-modal -->
-                    </div><!-- / .addon -->         
-                </div><!-- /.flex-addon-display -->
-
+                    <div class="row-fluid flex-addon-display">          
+                        <div class="addon" ng-repeat="addon in addons['community'] | filter: searchBox|filter: tagFilter">
+                            <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                                <div class="img-div">
+                                    <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                </div>
+                                <h2>{{addon.name}}</h2>
+                                <h3>{{addon.author}}</h3>
+                                <p>{{addon.description}}</p>
+                                <div class="star-row" data-rating="{{addon.rating}}"></div>
+                            </div><!-- / end .click-modal -->
+                        </div><!-- / .addon -->         
+                    </div><!-- /.flex-addon-display -->
+                </div>
                 <!-- END COMMUNITY-CONTRIBUTED SECTION -->
 
 
                 <!-- BEGIN CORE ADDONS -->
-                <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox|filter: tagFilter).length > 0">
-                    <div class="col-xs-12 visible-xs small-width-icons">
-                        <img src="images/core_addons_100x100.png" alt="Core Addons">
-                    </div>
-                    <div class="col-md-4 col-sm-5 col-xs-12 section-title core-addons">
-                        Core Addons
-                    </div>
-                    <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider core-addons-divider dark-blue">
-                        &nbsp;
-                    </div>
-                </div><!-- /.row .addon-title-row -->
+                <div ng-if="(addons['core']| filter:searchBox|filter: tagFilter).length > 0">
+                    <div class="row addon-title-row">
+                        <div class="col-xs-12 visible-xs small-width-icons">
+                            <img src="images/core_addons_100x100.png" alt="Core Addons">
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-12 section-title core-addons">
+                            Core Addons
+                        </div>
+                        <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider core-addons-divider dark-blue">
+                            &nbsp;
+                        </div>
+                    </div><!-- /.row .addon-title-row -->
 
 
-                <div class="row-fluid flex-addon-display">
-                    <div class="addon" ng-repeat="addon in addons['core'] | filter: searchBox|filter: tagFilter">
-                        <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
-                            <div class="img-div">
-                                <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
-                            </div>
-                            <h2>{{addon.name}}</h2>
-                            <h3>{{addon.author}}</h3>
-                            <p>{{addon.description}}</p>
-                            <div class="star-row" data-rating="{{addon.rating}}"></div>
-                        </div><!-- / end .click-modal -->
-                    </div><!-- / .addon -->         
-                </div><!-- / .row-fluid.flex-addon-display -->
-
-
+                    <div class="row-fluid flex-addon-display">
+                        <div class="addon" ng-repeat="addon in addons['core'] | filter: searchBox|filter: tagFilter">
+                            <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                                <div class="img-div">
+                                    <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                </div>
+                                <h2>{{addon.name}}</h2>
+                                <h3>{{addon.author}}</h3>
+                                <p>{{addon.description}}</p>
+                                <div class="star-row" data-rating="{{addon.rating}}"></div>
+                            </div><!-- / end .click-modal -->
+                        </div><!-- / .addon -->         
+                    </div><!-- / .row-fluid.flex-addon-display -->
+                </div>
                 <!-- / END CORE ADDONS -->
 
 
 
                 <!-- BEGIN SPONSORED ADDONS -->
-                <div class="row addon-title-row" ng-show="(addons['sponsored']| filter:searchBox|filter: tagFilter).length > 0">
-                    <div class="col-xs-12 visible-xs small-width-icons">
-                        <img src="images/sponsored_addons_100x100.png" alt="Sponsored Addons">
-                    </div>
-                    <div class="col-md-4 col-sm-5 col-xs-12 section-title sponsored-addons">
-                        Sponsored Addons
-                    </div>
-                    <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider grey">
-                        &nbsp;
-                    </div>
-                </div><!-- /.row .addon-title-row -->
+                <div ng-if="(addons['sponsored']| filter:searchBox|filter: tagFilter).length > 0">
+                    <div class="row addon-title-row">
+                        <div class="col-xs-12 visible-xs small-width-icons">
+                            <img src="images/sponsored_addons_100x100.png" alt="Sponsored Addons">
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-12 section-title sponsored-addons">
+                            Sponsored Addons
+                        </div>
+                        <div class="col-md-8 col-sm-7  col-xs-12 section-line-divider grey">
+                            &nbsp;
+                        </div>
+                    </div><!-- /.row .addon-title-row -->
 
-                <div class="row-fluid flex-addon-display">
-                    <div class="addon" ng-repeat="addon in addons['sponsored'] | filter: searchBox|filter: tagFilter">
-                        <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
-                            <div class="img-div">
-                                <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
-                            </div>
-                            <h2>{{addon.name}}</h2>
-                            <h3>{{addon.author}}</h3>
-                            <p>{{addon.description}}</p>
-                            <div class="star-row" data-rating="{{addon.rating}}"></div>
-                        </div><!-- / end .click-modal -->
-                    </div><!-- / .addon -->         
-                </div><!-- / .row-fluid.flex-addon-display -->
-
+                    <div class="row-fluid flex-addon-display">
+                        <div class="addon" ng-repeat="addon in addons['sponsored'] | filter: searchBox|filter: tagFilter">
+                            <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
+                                <div class="img-div">
+                                    <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                </div>
+                                <h2>{{addon.name}}</h2>
+                                <h3>{{addon.author}}</h3>
+                                <p>{{addon.description}}</p>
+                                <div class="star-row" data-rating="{{addon.rating}}"></div>
+                            </div><!-- / end .click-modal -->
+                        </div><!-- / .addon -->         
+                    </div><!-- / .row-fluid.flex-addon-display -->
+                </div>
                 <!-- / END SPONSORED ADDONS -->
 
             </div><!-- /.col-sm-8 col-sm-offset-1 col-xs-12 -->
