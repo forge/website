@@ -169,45 +169,10 @@ id="searchOptionsPanel" aria-expanded="false">
                     <div class="col-xs-12 checkbox-columns ">
 
                         <div class="row flex-display checkbox-area">
-                            <div class="checkbox-flex-item" >
-                                <input type="checkbox" class="search-checkbox" id="blogTwo" > <label class="checkbox-label" for="blogTwo"><span></span>Blog</label>
+                            <div class="checkbox-flex-item" ng-repeat="tag in addonTags">
+                                <input type="checkbox" class="search-checkbox" id="{{tag}}" ng-click="addTag(tag, selectedTags)" > 
+                                <label class="checkbox-label" for="{{tag}}"><span></span>{{tag}}</label>
                             </div>
-                            <div class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="videoTwo"> <label class="checkbox-label" for="videoTwo"><span></span>Video</label>
-                            </div>
-                            <div  class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="articleTwo" > <label class="checkbox-label" for="articleTwo"><span></span>Article</label>
-                            </div>
-
-                            <div class="checkbox-flex-item" >
-                                <input type="checkbox" class="search-checkbox" id="blogThree" > <label class="checkbox-label" for="blogThree"><span></span>Blog</label>
-                            </div>
-                            <div class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="videoThree"> <label class="checkbox-label" for="videoThree"><span></span>Video</label>
-                            </div>
-                            <div  class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="articleThree" > <label class="checkbox-label" for="articleThree"><span></span>Article</label>
-                            </div>
-
-                            <div class="checkbox-flex-item" >
-                                <input type="checkbox" class="search-checkbox" id="blogFour" > <label class="checkbox-label" for="blogFour"><span></span>Blog</label>
-                            </div>
-                            <div class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="videoFour"> <label class="checkbox-label" for="videoFour"><span></span>Video</label>
-                            </div>
-                            <div  class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="articleFour" > <label class="checkbox-label" for="articleFour"><span></span>Article</label>
-                            </div>
-
-
-                            <div class="checkbox-flex-item" >
-                                <input type="checkbox" class="search-checkbox" id="blogFive" > <label class="checkbox-label" for="blogFive"><span></span>Blog</label>
-                            </div>
-                            <div class="checkbox-flex-item">
-                                <input type="checkbox" class="search-checkbox" id="videoFive"> <label class="checkbox-label" for="videoFive"><span></span>Video</label>
-                            </div>
-
-
                         </div><!-- /.row -->
                     </div><!-- / End Main Column 1 -->
 
@@ -231,7 +196,7 @@ id="searchOptionsPanel" aria-expanded="false">
             <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 
                 <!-- BEGIN COMMUNITY-CONTRIBUTED SECTION -->
-                <div class="row addon-title-row" ng-show="(addons['community']| filter:searchBox).length > 0">
+                <div class="row addon-title-row" ng-show="(addons['community']| filter:searchBox|filter: tagFilter).length > 0">
                     <div class="col-xs-12 visible-xs small-width-icons">
                         <img src="images/community-contrib-heart_100x100.png" alt="Community Contributed">
                     </div>
@@ -240,7 +205,7 @@ id="searchOptionsPanel" aria-expanded="false">
                 </div><!-- /.row .addon-title-row -->
 
                 <div class="row-fluid flex-addon-display">          
-                    <div class="addon" ng-repeat="addon in addons['community'] | filter: searchBox">
+                    <div class="addon" ng-repeat="addon in addons['community'] | filter: searchBox|filter: tagFilter">
                         <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                             <div class="img-div">
                                 <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
@@ -257,7 +222,7 @@ id="searchOptionsPanel" aria-expanded="false">
 
 
                 <!-- BEGIN CORE ADDONS -->
-                <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox).length > 0">
+                <div class="row addon-title-row" ng-show="(addons['core']| filter:searchBox|filter: tagFilter).length > 0">
                     <div class="col-xs-12 visible-xs small-width-icons">
                         <img src="images/core_addons_100x100.png" alt="Core Addons">
                     </div>
@@ -271,7 +236,7 @@ id="searchOptionsPanel" aria-expanded="false">
 
 
                 <div class="row-fluid flex-addon-display">
-                    <div class="addon" ng-repeat="addon in addons['core'] | filter: searchBox">
+                    <div class="addon" ng-repeat="addon in addons['core'] | filter: searchBox|filter: tagFilter">
                         <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                             <div class="img-div">
                                 <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
@@ -290,7 +255,7 @@ id="searchOptionsPanel" aria-expanded="false">
 
 
                 <!-- BEGIN SPONSORED ADDONS -->
-                <div class="row addon-title-row" ng-show="(addons['sponsored']| filter:searchBox).length > 0">
+                <div class="row addon-title-row" ng-show="(addons['sponsored']| filter:searchBox|filter: tagFilter).length > 0">
                     <div class="col-xs-12 visible-xs small-width-icons">
                         <img src="images/sponsored_addons_100x100.png" alt="Sponsored Addons">
                     </div>
@@ -303,7 +268,7 @@ id="searchOptionsPanel" aria-expanded="false">
                 </div><!-- /.row .addon-title-row -->
 
                 <div class="row-fluid flex-addon-display">
-                    <div class="addon" ng-repeat="addon in addons['sponsored'] | filter: searchBox">
+                    <div class="addon" ng-repeat="addon in addons['sponsored'] | filter: searchBox|filter: tagFilter">
                         <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
                             <div class="img-div">
                                 <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">

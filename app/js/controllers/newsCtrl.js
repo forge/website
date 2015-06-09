@@ -40,10 +40,9 @@ angular.module('jboss-forge').controller('newsCtrl', function($rootScope, $scope
 			}
 			$scope.categoryFilter = function(item) {
 		        if ($scope.selectedCategories.length > 0) {
-		        	var allTags = item.tags.split(',');
 		        	for (i=0;i<$scope.selectedCategories.length;i++) 
 		        	{
-						if (item.tags.contains($scope.selectedCategories[i])) { 
+						if (item.tags && item.tags.contains($scope.selectedCategories[i])) { 
 							return item;
 						}
 		        	}
