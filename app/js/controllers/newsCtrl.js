@@ -15,11 +15,13 @@ angular.module('jboss-forge').controller('newsCtrl', function($rootScope, $scope
 			$scope.news = data;
 			var tags = [];
 			data.forEach(function (item) {
-				item.tags.split(',').forEach(
-					function(tag) {
-						tags.push(tag.trim().toLowerCase());
-					}
-				);
+				if (item.tags) {
+					item.tags.split(',').forEach(
+						function(tag) {
+							tags.push(tag.trim());
+						}
+					);
+				}
 			});
 			$scope.newsCategories = 			
 				tags.filter(function (item, pos, self) {

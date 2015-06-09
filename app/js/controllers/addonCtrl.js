@@ -5,9 +5,9 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 		for (type in data) { 
 			data[type].forEach(function (item) {
 				if (item.tags) {
-					item.tags.split(',').forEach(
+					item.tags.forEach(
 						function(tag) {
-							tags.push(tag.trim().toLowerCase());
+							tags.push(tag.trim());
 						}
 					);
 				}
@@ -32,7 +32,7 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 			if ($scope.selectedTags.length > 0) {
 				for (i=0;i<$scope.selectedTags.length;i++) 
 				{
-					if (item.tags && item.tags.contains($scope.selectedTags[i])) { 
+					if (item.tags && item.tags.indexOf($scope.selectedTags[i]) > -1) { 
 						return item;
 					}
 				}
