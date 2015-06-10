@@ -4,8 +4,8 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 		if (_success){ 
 			request.success(_success);
 		}
-		request.error(function() { 
-			alert('Sorry, but the requested service is under maintenance.\nDo not worry, a team of high-skilled blacksmiths was dispatched to fix it.');
+		request.error(function(err) { 
+			alert('Sorry, but the requested service is under maintenance.\nDo not worry, a team of high-skilled blacksmiths was dispatched to fix it.\n\n'+err.code+': '+err.message);
 		});
 		return request;
 	} 
