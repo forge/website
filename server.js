@@ -9,7 +9,8 @@ var cc          = require('config-multipaas'),
     yaml        = require('js-yaml'),
     Feed        = require('feed'),
     exec        = require('child_process').exec,
-    moment      = require('moment');
+    moment      = require('moment'),
+    cheerio     = require('cheerio');
 // Git utilities
 var Git         = 
     { 
@@ -340,6 +341,7 @@ function fetchRedoculous(item, res, _callback) {
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200) {
+            response = transposeImages(item, response);
             if (_callback) {
                 _callback(response);
             } else { 
@@ -348,6 +350,18 @@ function fetchRedoculous(item, res, _callback) {
         }
         res.end();        
     });
+}
+
+function transposeImages(urlInfo, response) {
+     $ = cheerio.load(response);
+     $('img').each(function (index, element) {
+        var imgSrc = $(this).attr('src');
+        if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
+        //FIXME : This won't work for images outside forge/docs
+        var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
+        $(this).attr('src',newSrc);
+     });
+     return $.html();
 }
 
 function fetchTOC(col, id, res) {
