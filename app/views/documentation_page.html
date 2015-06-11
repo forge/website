@@ -198,17 +198,10 @@
                 </div>
             </div>
 
-
-
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 table-of-contents">
-                    <h2>Categories</h2>
-                    <ul>
-                        <li><a href="#">Installation</a></li>
-                        <li><a href="#">Getting Help</a></li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">Community Involvement</a></li>
-                    </ul>
+					<h2>Table of Contents</h2>
+					<div ng-bind-html="docToc | sanitize"></div>
                 </div><!-- /.table-of-contents -->
 
             </div>
@@ -216,15 +209,11 @@
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 related-documents">
                     <h2>Related Posts</h2>
-                    <ul>
-                        <li><a href="#">JBoss Forge Reference Sheet</a></li>
-                        <li><a href="#">Scaffolding</a></li>
-                        <li><a href="#">Writing a basic Java EE app</a></li>
-                        <li><a href="#">Testing with Forge</a></li>
-                        <li><a href="#">UI Scaffolding</a></li>
-                        <li><a href="#">Further samples</a></li>
-                        <li><a href="#">Creating a Forge Plugin</a></li>
-                    </ul>
+					<ul>
+						<li ng-repeat="relatedDoc in doc.relatedDocs">
+							<a ui-sref="documentation_detail({docId: relatedDoc.id})">{{relatedDoc.title}}</a>
+						</li>
+					</ul>
                 </div><!-- /.related-documents -->
 
             </div>
@@ -236,37 +225,3 @@
     </div><!-- /.container -->
 
 </div><!-- / .page-section -->
-
-
-<!-- PAGE SECTION AUTHOR AND SOCIAL MEDIA FOR SMALLER DEVICES -->
-
-<!--<div class="page-section white bottom-author-section visible-xs">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 author-bottom-image-box-images">
-				<img src="images/place-img-300x300.jpg" alt="Lincoln Baxter">
-				<img src="images/place-img-300x300.jpg" alt="Second Author">
-
-
-			</div>
-            <div class="col-xs-12">
-                <h3>Authors</h3>
-                <p class="author-names-bottom">Lincoln Baxter</p>
-                <p class="author-names-bottom">Second Author Name</p>
-
-
-                <h3>Share</h3>
-                <div class="doc-content-social-media">
-                    <a href="#" target="_blank" class="facebook-link"> </a>
-                    <a href="#" target="_blank" class="twitter-link"></a>
-                    <a href="#" target="_blank" class="linkedin-link"></a>
-                    <a href="#" target="_blank" class="googleplus-link"></a>
-                    <a href="#" target="_blank" class="youtube-link"></a>
-
-                </div>
-            </div>
-
-
-		</div>&lt;!&ndash; / .row &ndash;&gt;
-	</div>&lt;!&ndash; /.container &ndash;&gt;
-</div>&lt;!&ndash; / .page-section &ndash;&gt;-->
