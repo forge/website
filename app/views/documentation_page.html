@@ -116,10 +116,9 @@
 					<div class="col-xs-12 related-documents">
 						<h2>Related Forge Documents</h2>
 						<ul>
-							<li><a href="#">Document Link</a></li>
-							<li><a href="#">Document Link</a></li>
-							<li><a href="#">Document Link</a></li>
-							<li><a href="#">Document Link</a></li>
+							<li ng-repeat="relatedDoc in doc.relatedDocs">
+								<a ui-sref="documentation_detail({docId: relatedDoc.id})">{{relatedDoc.title}}</a>
+							</li>
 						</ul>
 					</div><!-- /.related-documents -->
 

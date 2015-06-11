@@ -121,11 +121,22 @@ app.get('/api/docs', function(req, res) {
 });
 
 app.get('/api/docs/:docsId', function (req,res) {
-    var item = findById(allDocs(),req.params.docsId);
+    var docs = allDocs();
+    var item = findById(docs,req.params.docsId);
     if (!item) {
         res.status(404);
         res.end();
     } else { 
+        //Add related docs
+        item.relatedDocs = [];
+        while (item.relatedDocs.length < 5 && docs.length != 0) { 
+             var idx = Math.floor(Math.random() * docs.length); 
+             var elem = docs[idx];
+             if (elem.type === item.type && elem.id != item.id) {
+                item.relatedDocs.push({id: elem.id, title: elem.title});
+             }
+             docs.splice(idx, 1);
+        }
         res.json(item);
     }
 });
