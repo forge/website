@@ -733,6 +733,35 @@ div.network-graphic-grid-container .network-grid {
 */
 
 
+/*============== DOWNLOAD INSTRUCTIONS SECTION ==============*/
+.download-instructions-section {
+    background: #eeedf2;
+    padding:1em 0 2em 0;
+}
+
+.download-instructions-section h2.download-title {
+    margin-bottom:20px;
+    color: #838383;
+    text-align: center;
+}
+
+.download-instructions-section h2.section-heading {
+    margin-top:20px;
+    font-size:1.4em;
+}
+
+.download-instructions-section ul {
+    list-style-position: outside;
+    margin:0;
+    padding:0;
+}
+
+.download-instructions-section ul li {
+    font-size:.8em;
+    padding:.5em 0;
+}
+
+
 @media (min-width:960px) and (max-width:1089px) {
     /* Sizes 60% of original (rounded down) */
 
@@ -2393,6 +2422,11 @@ GRADIENT BACKGROUNDS
     /* Resize Tag For Flex Display Grid in search boxes */
     .checkbox-columns div.row.flex-display {
         padding-top:.5em;
+    }
+
+    .download-instructions-section .row {
+        width:80%;
+        margin:0 auto;
     }
 
 
