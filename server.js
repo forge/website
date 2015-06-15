@@ -97,7 +97,6 @@ app.get('/api/addons/:addonsId/docs/:docSection', function (req,res) {
     }
 });
 
-
 app.get('/api/contributors', function(req, res) {
     var contrib = cache.get('allContributors');
     if (!contrib) {
@@ -303,7 +302,7 @@ function findAddonDocSections(addonId) {
 function allNews() { 
     var news = cache.get('allNews');
     if (!news) {
-        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs-news.yaml");
+        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/news.yaml");
         news = yamlLoadAll(body).map(function (item) {
             // Add an ID to the news 
             item.id = generateId(item.title);
