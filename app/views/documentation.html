@@ -127,9 +127,9 @@ id="searchOptionsPanel" aria-expanded="false">
 <div class="page-section documentation-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <div ng-controller="docDivHeightCtrl" class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
                 <!-- FLEX GRID -->
-                <div class="row documentation-flex-boxes">
+                <div  class="row documentation-flex-boxes">
                     <!-- Item -->
                     <div class="documentation-item" ng-repeat="doc in docs|filter:searchBox">
                         <a ui-sref="documentation_detail({docId: doc.id})">                           
@@ -169,3 +169,4 @@ id="searchOptionsPanel" aria-expanded="false">
     </div><!-- /.row -->
 </div><!-- /.container -->
 </div><!-- / .page-section -->
+

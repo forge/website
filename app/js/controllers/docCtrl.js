@@ -14,5 +14,5 @@ angular.module('jboss-forge').controller('docCtrl', function($rootScope, $scope,
 		backendAPI.fetchDocs(function(data) { 
 			$scope.docs = data;
 		});
-	}	
+	}
 });
