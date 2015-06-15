@@ -241,8 +241,8 @@ input[type="checkbox"].search-checkbox:checked + label span {
 
 .documentation-flex-boxes div.doc-div p,
 .documentation-boxes div.doc-div p {
-    font-size:10px;
-    line-height:1.2em;
+    font-size:12px;
+    line-height:1.3em;
     height:auto;
 }
 
