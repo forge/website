@@ -104,18 +104,22 @@ input[type="checkbox"].search-checkbox:checked + label span {
 .row.documentation-flex-boxes {
     align-items: center;
     justify-content: center;
+
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) *Update - hurts any recent FF version */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display:flex;
 
     justify-content:flex-start;
-    -webkit-justify-content:space-between;
     flex-flow: row wrap;
     -webkit-flex-flow:row wrap;
+    flex-direction:row;
+    -webkit-flex-direction:row;
     align-items: flex-start;
+    -webkit-align-items:flex-start;
 
+    -webkit-align-content:flex-start;
     text-align: center;
 }
 
@@ -134,7 +138,7 @@ input[type="checkbox"].search-checkbox:checked + label span {
     flex:0 0 31.333%;
     -moz-box-flex: 0 0 31.333%;
     -webkit-box-flex:0 0 31.333%;
-    -webkit-flex: 0 0 31.333%;
+    -webkit-flex: 0 0 31%;
 
 }
 
