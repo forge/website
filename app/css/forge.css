@@ -41,7 +41,7 @@ html , body {
 }
 
 body {
-    background:#ccc;
+    /*background:#ccc;*/
     color:#ffffff;
     /* Default font */
     font-family: "Open Sans",Helvetica, sans-serif;
@@ -507,11 +507,11 @@ PAGE SECTIONS
     margin:-15px 0;
     /*overflow: hidden;*/
     /* Static Background */
-    /*
+    background-color:#333333;
     background-image:url(../images/sparks_med_res.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    */
+
 }
 
 .intro-download-section .container-fluid.content-holder {
