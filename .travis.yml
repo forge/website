@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "0.12"
+deploy:
+  provider: openshift
+  user: forge@redhat.com
+  password:
+    secure: WQqIuCQrXMryCL72TdxF+euVv0wKeAtMwr2RiCLsMLMD/MKffhNaJbEFsux0ro8eX5nL8HaF/3MVjmTRnXPIBH/HpOFgNfE+LUPzmY008HLXa/FwteIehOZDbwNVsw8FEs+dZ7AjWUoNfvjD46INZLQf/0iG+gEJwNTxojdzjkI=
+  app: website
+  domain: forge
+  on:
+    repo: forge/website
+    branch: nodejs
