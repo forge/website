@@ -10,4 +10,4 @@ deploy:
   domain: forge
   on:
     repo: forge/website
-    branch: nodejs
+    branch: master
