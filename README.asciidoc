@@ -1,4 +1,6 @@
 Forge Website
 =============
 
+image:https://travis-ci.org/forge/website.svg?branch=master["Build Status", link="https://travis-ci.org/forge/website"]
+
 This is the official forge website
