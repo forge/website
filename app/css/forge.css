@@ -179,8 +179,6 @@ h6,.h6 {
 }
 
 
-
-
 .page-section {
     position: relative;
     width:100%;
@@ -2178,8 +2176,6 @@ GRADIENT BACKGROUNDS
         float:none;
     }
 
-
-
     /* Create a static bg image for the top-most 'download button' section (normally where parallax goes) */
     .page-section.intro-download-section {
            background-image: url(../images/sparks_med_res.jpg);
@@ -2187,7 +2183,6 @@ GRADIENT BACKGROUNDS
            background-repeat: no-repeat;
            background-position: center center;
     }
-
 
     /* Change login & register buttons to 1 pillbox */
     .login-register-button-div {

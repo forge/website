@@ -64,7 +64,7 @@ function initializeUI() {
     //widthBox();
 
     // Use vertical-only parallax
-    runVertParallax();
+    setTimeout('runVertParallax()',300);
 
     // Maintain position of emblem if viewing on a phone-size screen
     smallScreenWidthMgr();
@@ -600,7 +600,7 @@ function productModal() {
 // Vertically-oriented parallax
 // Initially designed to deactivate for smaller screens but that happens automatically
 function runVertParallax() {
-    $('.intro-download-section').parallax({imageSrc: 'images/sparks_med_res.jpg'});
+    $('.intro-download-section').parallax({imageSrc: 'images/sparks_large_res.jpg'});
 }
 
 
