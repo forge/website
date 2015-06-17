@@ -13,7 +13,7 @@
     <title ng-bind="($state.current.title || title ) + ' | JBoss Forge'">JBoss Forge</title>
 </head>
 
-<body ng-controller="rootCtrl">
+<body ng-controller="rootCtrl" autoscroll="true">
     <!--==================  BEGIN PAGE CONTENT  ==================-->
     <header class="navbar navbar-static-top">
         <div class="dropup">
@@ -71,7 +71,7 @@
     </header>
 
     <!-- This is where the main content will be placed -->
-    <div ui-view autoscroll="true"></div>
+    <div ui-view ></div>
 
     <!-- PAGE SECTION LINKS AND SUPPORT -->
     <div class="page-section  blue footer-links-support">
