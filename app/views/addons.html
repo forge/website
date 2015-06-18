@@ -207,15 +207,17 @@ id="searchOptionsPanel" aria-expanded="false">
 
                     <div class="row-fluid flex-addon-display">          
                         <div class="addon" ng-repeat="addon in addons['community'] | filter: searchBox|filter: tagFilter">
-                            <div class="click-modal" data-toggle="modal" data-target="#productModal" ng-click="setSelectedAddon(addon)">
-                                <div class="img-div">
-                                    <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
-                                </div>
-                                <h2>{{addon.name}}</h2>
-                                <h3>{{addon.author}}</h3>
-                                <p>{{addon.description}}</p>
-                                <div class="star-row" data-rating="{{addon.rating}}"></div>
-                            </div><!-- / end .click-modal -->
+                            <a ui-sref="addons_detail({addonId: addon.id})">
+                                <div class="click-modal">
+                                    <div class="img-div">
+                                        <img ng-src="{{addon.logo || 'images/forge_120x120.png'}}" alt="{{addon.name}}">
+                                    </div>
+                                    <h2>{{addon.name}}</h2>
+                                    <h3>{{addon.author}}</h3>
+                                    <p>{{addon.description}}</p>
+                                    <div class="star-row" data-rating="{{addon.rating}}"></div>
+                                </div><!-- / end .click-modal -->
+                            </a>
                         </div><!-- / .addon -->         
                     </div><!-- /.flex-addon-display -->
                 </div>
