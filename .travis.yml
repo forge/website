@@ -13,4 +13,7 @@ deploy:
     branch: master
 notifications:
   email: false
-  irc: chat.freenode.net#forge
+  irc:
+    channels:
+      - "chat.freenode.net#forge"
+    use_notice: true
