@@ -12,4 +12,5 @@ deploy:
     repo: forge/website
     branch: master
 notifications:
+  email: false
   irc: chat.freenode.net#forge
