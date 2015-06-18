@@ -367,9 +367,11 @@ function transposeImages(urlInfo, response) {
      $('img').each(function (index, element) {
         var imgSrc = $(this).attr('src');
         if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
-        //FIXME : This won't work for images outside forge/docs
-        var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
-        $(this).attr('src',newSrc);
+        if (imgSrc.indexOf('http') != 0) {
+            //FIXME : This won't work for images outside forge/docs
+            var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
+            $(this).attr('src',newSrc);
+        }
      });
      return $.html();
 }
