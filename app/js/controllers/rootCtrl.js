@@ -4,4 +4,7 @@ angular.module('jboss-forge').controller('rootCtrl', function($scope){
 			initializeUI();
 		},1000);
 	});
+	$scope.$on('$stateChangeSuccess', function() {
+	   document.body.scrollTop = document.documentElement.scrollTop = 0;
+	});	
 });
