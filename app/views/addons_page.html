@@ -1,0 +1,192 @@
+<!-- Smaller Device Window Language Selector Menu -->
+<div class="language-select-container">
+			<div class="col-sm-3 col-sm-offset-9 col-xs-8 col-xs-offset-2 language-selector hidden">
+				<div class="selected-language">
+					<div>
+						<span class="language-label"></span><a href="#" data-selected-lang="" class="lang-control-btn"></a>
+						<span class="language-img "></span>
+					</div>
+				</div>
+
+				<div class="alternate-languages hidden">
+					<!--<a href="#">
+						Espa&ntilde;ol<span class="language-img language-espanol"></span>
+					</a>
+					<div class="language-divider"></div>
+					<a href="#">
+						Fran&ccedil;ais<span class="language-img language-francais"></span>
+					</a>
+					<div class="language-divider"></div>
+					<a href="#">
+						Deutsch<span class="language-img language-german"></span>
+					</a>
+					<div class="language-divider"></div>
+					<a href="#">
+						日本の<span class="language-img language-japanese"></span>
+					</a>
+					<div class="language-divider"></div>
+					<a href="#">Add Language<span class="language-img language-new"></span>
+					</a>-->
+
+				</div>
+			</div>
+</div>
+<!-- / End Smaller Device Window Language Selector Menu -->
+
+
+
+<!-- Smaller Device Window Language Selector Menu -->
+<!--<div class="row language-select-bar visible-xs">
+	<div class="row">
+		Small screen width language selector Here
+	</div>
+</div>-->
+<!-- / End Smaller Device Window Language Selector Menu -->
+
+
+<!-- PAGE SECTION CONTENT SECTION-->
+<div class="page-section static white doc-content">
+	<!--<div class="container">-->
+		<!-- MAIN CONTENT ROW -->
+		<div class="row">
+			<!-- LEFT MAIN COLUMN -->
+			<div class="col-sm-4 doc-left-main-col hidden-xs">
+				<div class="row doc-search-bar-row search-bar-row small ">
+					<div class="col-xs-12">
+						<input type="text" placeholder="Search Document" name="doc_search" class="doc_search" ><input type="submit" value="&nbsp;" class="btn-red doc_search_submit">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 author-div">
+						<h2>About</h2>
+						{{addon.description}}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 author-div">
+						<h2>Authors</h2>
+						<ul class="author-ul">
+							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">{{addon.author}}</span></li>
+						</ul>
+					</div><!-- /.  author-div -->
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 author-div">
+						<h2>Website</h2>
+						<a href="{{addon.website}}" target="_new">{{addon.website}}</a>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 table-of-contents">
+						<h2>Table of Contents</h2>
+						<ul>
+							<li ng-repeat="doc in docSections">
+								<a href="#" ng-click="fetchDocContents(addon.id,doc)">{{doc}}</a>
+							</li>
+						</ul>
+
+						<div ng-bind-html="addonToc | sanitize"/>
+					</div><!-- /.table-of-contents -->
+				</div>
+			</div>
+			<!-- /END LEFT MAIN COLUMN -->
+
+
+
+			<!-- RIGHT MAIN COLUMN -->
+			<div class="col-sm-8 doc-right-main-col">
+				<h1 class="hidden-xs">{{addon.name}}</h1>
+				<div ng-bind-html="addon.docContents|sanitize">{{addon.description}}</div>
+                <div class="article-author-div">
+                    <div class="row">
+                        <!-- AUTHOR IMAGE AND TITLE -->
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 author-info-div">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-2 author-img">
+                                    <img src="images/place-img-300x300.jpg" alt="{{addon.author}}">
+                                </div><!-- / .author-info-div -->
+
+                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 author-name-title">
+                                    <h1>Authors</h1>
+                                    <p>{{addon.author}}</p>
+                                </div><!-- / .author-name-title -->
+                            </div><!-- / .row -->
+                        </div>
+                        <!-- / END AUTHOR IMAGE AND TITLE -->
+
+                        <!-- SHARE/PERMALINK BOX -->
+                        <div class="col-lg-6 col-lg-offset-1 col-md-7 col-sm-7  col-xs-12 pull-right ">
+                            <div class="row">
+                                <div class="col-sm-2 col-xs-12 share-label news-share">
+                                    Share
+                                </div>
+
+                                <div class="col-sm-8 col-xs-12 news-social-icons">
+									<a href="https://www.facebook.com/sharer/sharer.php?u=http://forge.jboss.org/document/{{addon.id}}" target="_blank" class="facebook-link"> </a>
+									<a href="http://twitter.com/intent/tweet?text={{addon.title}}+(http://forge.jboss.org/document/{{addon.id}})" target="_blank" class="twitter-link"> </a>
+									<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://forge.jboss.org/document/{{addon.id}}&title={{addon.title}}" target="_blank" class="linkedin-link"> </a>
+									<a href="https://plus.google.com/share?url=http://forge.jboss.org/document/{{addon.id}}" target="_blank" class="googleplus-link"> </a>
+                                </div>
+                            </div><!-- /. row -->
+                        </div>
+                        <!-- SHARE/PERMALINK BOX -->
+                    </div>
+                </div>
+                <!-- / END AUTHOR INFO SECTION -->
+			</div>
+			<!-- /END RIGHT MAIN COLUMN -->
+
+
+
+
+
+
+
+		</div><!-- / .row -->
+		<!-- / END MAIN CONTENT ROW -->
+	<!--</div>--><!-- /.container -->
+</div><!-- / .page-section -->
+
+
+<!-- PAGE SECTION TABLE OF CONTENTS AND SEARCH FOR SMALLER DEVICE SCREENS -->
+<div class="page-section  white bottom-toc-section visible-xs">
+    <div class="container">
+        <div class="row">
+
+            <div class="row search-bar-row small ">
+                <div class="col-xs-12">
+                    <input type="text" placeholder="Search Blog" name="doc_search" class="doc_search" ><input type="submit" value="&nbsp;" class="btn-red doc_search_submit">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 table-of-contents">
+					<h2>Table of Contents</h2>
+					<div ng-bind-html="addonToc | sanitize"></div>
+                </div><!-- /.table-of-contents -->
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 related-documents">
+                    <h2>Related Posts</h2>
+					<ul>
+						<li ng-repeat="relatedAddon in addon.relatedAddons">
+							<a ui-sref="addons_detail({addonId: relatedAddon.id})">{{relatedAddon.title}}</a>
+						</li>
+					</ul>
+                </div><!-- /.related-documents -->
+
+            </div>
+
+
+
+
+        </div><!-- / .row -->
+    </div><!-- /.container -->
+
+</div><!-- / .page-section -->

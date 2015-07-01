@@ -1,144 +1,41 @@
-<!--================== MODAL ==================-->
-<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close modal-forge-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<div class="row">
-					<div class="product-nav-row col-xs-12">
-                        <a href="#overview_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false;">Overview</a>
-                        <a href="#installation_detail" aria-controls="stats" role="tab" data-toggle="tab" onclick="return false;">Installation</a>
-                        <a ng-repeat="doc in docSections" href="#{{doc}}_detail" aria-controls="{{doc}}" role="tab" data-toggle="tab" ng-click="fetchDocContents(selectedAddon.id,doc)">{{doc}}</a>
-					</div>
-
-				</div>
-			</div>
-			<div class="modal-body product-panel">
-				<div class="tab-content">
-					<!-- Overview Panel -->
-					<div role="tabpanel" class="tab-pane active" id="overview_detail">
-						<div class="row">
-							<div class="col-sm-9 col-xs-12">
-								<h2>{{selectedAddon.name}}</h2>
-								<div class="main-content">
-									<p>{{selectedAddon.description}}</p>
-								</div>
-
-								<p class="notice-text">
-                                    <ul>
-                                        <li>Requires JBoss Forge 2.0 or Higher</li>
-									</ul>
-								</p>
-
-							</div>
-
-							<div class="col-sm-3 col-xs-12">
-								<h3>AUTHORS</h3>
-                                <ul>
-                                    <li>{{selectedAddon.author}}</li>
-                                </ul>
-							</div>
-
-
-						</div><!-- /.row -->
-
-
-					</div>
-					<!-- / End Overview Panel -->
-
-                    <!-- Installation Panel -->
-                    <div role="tabpanel" class="tab-pane" id="installation_detail">
-                        <p>From Forge CLI:</p>
-                        <br/>
-                        <code>{{selectedAddon.installCmd}}</code>
-                    </div>
-                    <!-- / End Installation Panel -->
-
-
-					<!-- Dynamic Panels -->
-					<div role="tabpanel" class="tab-pane" id="{{doc}}_detail" ng-repeat="doc in docSections">
-                        <div ng-bind-html="selectedAddon.docContents|sanitize"></div>
-					</div>
-					<!-- / End Dynamic Panels -->
-
-				</div>
-
-
-
-			</div>
-			<div class="modal-footer product-panel">
-				<div class="row">
-					<div class="col-md-3 col-sm-3 col-xs-4 modal-left-button-div">
-<a href="{{selectedAddon.repo}}" target="_self"  class="btn forge-btn btn-orange no-shadow btn-default">Get Addon</a>                        
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-8 modal-social-icons">
-						<ul>
-							<li><span class="share-label">SHARE</span></li>
-							<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://forge.jboss.org/addon/{{selectedAddon.id}}" target="_blank" class="facebook-link"> </a></li>
-							<li><a href="http://twitter.com/intent/tweet?text={{selectedAddon.name}}+(http://forge.jboss.org/addon/{{selectedAddon.id}})" target="_blank" class="twitter-link"> </a></li>
-							<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http://forge.jboss.org/addon/{{selectedAddon.id}}&title={{selectedAddon.name}}" target="_blank" class="linkedin-link"> </a></li>
-							<li><a href="https://plus.google.com/share?url=http://forge.jboss.org/addon/{{selectedAddon.id}}" target="_blank" class="googleplus-link"> </a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12">
-                        <span class="community-contributed" ng-if="selectedAddon.type === 'community'">
-                            COMMUNITY<br>CONTRIBUTED
-                        </span>
-                        <span class="core-addons" ng-if="selectedAddon.type === 'core'">
-                            CORE
-                        </span>
-                    </div>
-                </div>
-				<!--
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>-->
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!--================== END MODAL ==================-->
-
 <!-- PAGE SECTION MARQUEE SECTION -->
 <div class="page-section static blue addon-marquee"><div class="dark-blue-overlay">&nbsp;</div>
-<div class="container">
-    <div class="row marquee-content">
-        <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
-            <h2><strong>Add</strong> to your toolbox & get the job done <strong>Quick</strong>.</h2>
-            <h3 class="display-sm hidden-xs">Three categories of Addons to enhance your <br />usage of JBoss Forge are available below.</h3>
-            <div class="row search-bar-row large">
-                <div class="col-xs-12">
-                    <input type="text" name="addon_search" class="addon_search" ng-model="searchBox" ><input type="submit" value="Search" class="btn-red addon_search_submit">
+    <div class="container">
+        <div class="row marquee-content">
+            <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
+                <h2><strong>Add</strong> to your toolbox & get the job done <strong>Quick</strong>.</h2>
+                <h3 class="display-sm hidden-xs">Three categories of Addons to enhance your <br />usage of JBoss Forge are available below.</h3>
+                <div class="row search-bar-row large">
+                    <div class="col-xs-12">
+                        <input type="text" name="addon_search" class="addon_search" ng-model="searchBox" ><input type="submit" value="Search" class="btn-red addon_search_submit">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
+                <div class="row">
 
-                <!-- Advanced Search Panel Collapse Button -->
-                <!-- Large Screen button -->
-                <div class="col-xs-12 advanced-search hidden-xs">
+                    <!-- Advanced Search Panel Collapse Button -->
+                    <!-- Large Screen button -->
+                    <div class="col-xs-12 advanced-search hidden-xs">
+                        <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
+                        aria-controls="searchOptionsPanel" aria-expanded="false">
+                        <span class="text-block ">Advanced Search</span>
+                        <span class="white-chevron filled hidden-xs">&nbsp;</span>
+                    </a>
+                </div>
+                <!-- / Large Screen Button -->
+                <!-- Small screen button -->
+                <div class="col-xs-12 advanced-search visible-xs">
                     <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
                     aria-controls="searchOptionsPanel" aria-expanded="false">
-                    <span class="text-block ">Advanced Search</span>
-                    <span class="white-chevron filled hidden-xs">&nbsp;</span>
-                </a>
+                        <span class="text-block ">Advanced<br>Search</span><br>
+                        <span class="white-chevron-outline">&nbsp;</span>
+                    </a>
+                </div>
+            <!-- / Small screen button -->
+            <!-- End Advanced Search Panel Collapse Button -->
+                </div>
             </div>
-            <!-- / Large Screen Button -->
-            <!-- Small screen button -->
-            <div class="col-xs-12 advanced-search visible-xs">
-                <a href="#searchOptionsPanel" data-toggle="collapse" class="advanced-search-button-link"
-                aria-controls="searchOptionsPanel" aria-expanded="false">
-                <span class="text-block ">Advanced<br>Search</span><br>
-                <span class="white-chevron-outline">&nbsp;</span>
-            </a>
-        </div>
-        <!-- / Small screen button -->
-        <!-- End Advanced Search Panel Collapse Button -->
-    </div>
-</div>
-</div><!-- / .row.marquee-content -->
-</div><!-- /.container -->
+        </div><!-- / .row.marquee-content -->
+    </div><!-- /.container -->
 </div><!-- / .page-section -->
 
 

@@ -31,11 +31,11 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
   })
   .state('addons_detail', {
     url: '/addon/{addonId}',
-    templateUrl: 'views/addons.html',
-    css: ['css/forge_addons.css'],
+    templateUrl: 'views/addons_page.html',
+    css: ['css/forge_doc_pages.css'],
     controller: 'addonCtrl',
     title: 'Addons'
-  }) 
+  })
   .state('addon_mobile_detail',{
     url: '/addons-mobile/{addonId}',
     templateUrl: 'views/addon_phone_template.html',
