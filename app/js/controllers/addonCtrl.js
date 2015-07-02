@@ -41,25 +41,21 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 			return item;
 		}
 	});
-	var selectAddon = function(addon) { 
-		$scope.addon = addon;
-		backendAPI.fetchAddonDocsById(addon.id, function(data) {
-			$scope.docSections = data;
-			// Get the documentation section
-			backendAPI.fetchAddonDocContentsById(addon.id, 'Readme', function (data) {
-				$scope.addon.docContents = data;
-			});
-		});
-	}
-	
-	$scope.setSelectedAddon = selectAddon;
 	$scope.fetchDocContents = function(addonId, docId) { 
 		backendAPI.fetchAddonDocContentsById(addonId, docId, function (data) {		
 			$scope.addon.docContents = data;
 		});
 	}
 	if ($stateParams.addonId) { 
-
-		backendAPI.fetchAddonById($stateParams.addonId, selectAddon);
+		backendAPI.fetchAddonById($stateParams.addonId, function(addon) { 
+			$scope.addon = addon;
+			backendAPI.fetchAddonDocsById(addon.id, function(docSections) {
+				$scope.docSections = docSections;
+				// Get the readme section
+				backendAPI.fetchAddonDocContentsById(addon.id, docSections[0], function (docContents) {
+					$scope.addon.docContents = docContents;
+				});
+			});
+		});
 	}
 });
