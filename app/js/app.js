@@ -36,12 +36,6 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     controller: 'addonCtrl',
     title: 'Addons'
   })
-  .state('addon_mobile_detail',{
-    url: '/addons-mobile/{addonId}',
-    templateUrl: 'views/addon_phone_template.html',
-    css: 'css/forge_addons.css',
-    controller: 'addonCtrl'
-  })
   .state('documentation', {
     url: '/documentation',
     templateUrl: 'views/documentation.html',
