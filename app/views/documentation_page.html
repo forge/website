@@ -1,41 +1,3 @@
-<!-- PAGE SECTION NEWS/NAV TOP BAR -->
-<!--<div class="page-section static white nav-news-bar">-->
-   <!--<div class="container">-->
-        <!--<div class="row hidden-xs page-navigation-line">-->
-			<!-- Documentation / Installation /-->
-
-
-			<!--<ol class="breadcrumb sibling-switch-menu ">-->
-				<!--<li class="menu-bar-li">Documentation</li>-->
-				<!--<li class="menu-bar-li"><a href="#" data-menu-level="0" class="level-one sibling-switch-ctrl"></a><span>Installation</span>-->
-					<!--<ol class="sub-menu">-->
-						<!--<li><a href="#">Getting Started</a></li>-->
-						<!--<li><a href="#">Next Option Item</a></li>-->
-						<!--<li><a href="#">Next Option Item</a></li>-->
-					<!--</ol>-->
-				<!--</li>-->
-				<!--<li class="menu-bar-li"><a href="#" data-menu-level="1" class="level-two sibling-switch-ctrl"></a><span>Getting Started</span>-->
-					<!--<ol class="sub-menu">-->
-						<!--<li><a href="#">Install Forge</a></li>-->
-						<!--<li><a href="#">Getting Help</a></li>-->
-						<!--<li><a href="#">Start Basic Java EE</a></li>-->
-						<!--<li><a href="#">Install Addons</a></li>-->
-					<!--</ol>-->
-				<!--</li>-->
-			<!--</ol>-->
-        <!--</div>--><!-- / .row -->
-
-	   <!-- Heading for smaller device window widths -->
-	   <!--<div class="row visible-xs phone-width">-->
-		   <!--<h1>{{doc.title}}</h1>-->
-	   <!--</div>-->
-	   <!-- / End heading for smaller device window widths -->
-
-
-
-   <!--</div>--><!-- /.container -->
-<!--</div>--><!-- / .page-section -->
-
 <!-- Smaller Device Window Language Selector Menu -->
 <div class="language-select-container">
 			<div class="col-sm-3 col-sm-offset-9 col-xs-8 col-xs-offset-2 language-selector hidden">
@@ -71,17 +33,6 @@
 </div>
 <!-- / End Smaller Device Window Language Selector Menu -->
 
-
-
-<!-- Smaller Device Window Language Selector Menu -->
-<!--<div class="row language-select-bar visible-xs">
-	<div class="row">
-		Small screen width language selector Here
-	</div>
-</div>-->
-<!-- / End Smaller Device Window Language Selector Menu -->
-
-
 <!-- PAGE SECTION CONTENT SECTION-->
 <div class="page-section static white doc-content">
 	<!--<div class="container">-->
@@ -93,7 +44,7 @@
 					<div class="col-xs-12 author-div">
 						<h2>Authors</h2>
 						<ul class="author-ul">
-							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">{{doc.author}}</span></li>
+							<li><img src="{{doc.author.avatar_url}}" alt="Author Image"> <span class="author-line">{{doc.author.name}}</span></li>
 						</ul>
 					</div><!-- /.  author-div -->
 				</div>
@@ -136,12 +87,12 @@
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 author-info-div">
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-2 author-img">
-                                    <img src="images/place-img-300x300.jpg" alt="{{doc.author}}">
+                                    <img src="{{doc.author.avatar_url}}" alt="{{doc.author.name}}">
                                 </div><!-- / .author-info-div -->
 
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 author-name-title">
                                     <h1>Authors</h1>
-                                    <p>{{doc.author}}</p>
+                                    <p>{{doc.author.name}}</p>
                                 </div><!-- / .author-name-title -->
                             </div><!-- / .row -->
                         </div>

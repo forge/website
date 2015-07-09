@@ -9,7 +9,7 @@ angular.module('jboss-forge').controller('docCtrl', function($rootScope, $scope,
 		});
 		backendAPI.fetchDocToc($stateParams.docId, function (_htmlContents) { 
 			$scope.docToc = (_htmlContents.trim()) ? _htmlContents : "No Content";
-		});		
+		});	
 	} else { 
 		$scope.levels = ['Beginner', 'Intermediate', 'Advanced'];
 

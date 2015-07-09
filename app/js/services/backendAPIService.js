@@ -21,6 +21,9 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchAddonDocContentsById = function(addonId, docId, _success) { 
 		return this.fetch('/api/addons/'+addonId+'/docs/'+docId, _success);
 	}
+	this.fetchContributors = function(_success) { 
+		return this.fetch('/api/contributors', _success);
+	}
 	this.fetchDocs = function(_success) { 
 		return this.fetch('/api/docs', _success);
 	}
@@ -33,6 +36,9 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchDocToc = function(docId, _success) { 
 		return this.fetch('/api/docs/' + docId + '/toc', _success);
 	}	
+	this.fetchMetadata = function(_success) { 
+		return this.fetch('/api/metadata', _success);
+	}
 	this.fetchNews = function(_success) { 
 		return this.fetch('/api/news', _success);
 	}
@@ -45,11 +51,5 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetchNewsToc = function(newsId, _success) { 
 		return this.fetch('/api/news/' + newsId + '/toc', _success);
 	}	
-	this.fetchMetadata = function(_success) { 
-		return this.fetch('/api/metadata', _success);
-	}
-	this.fetchContributors = function(_success) { 
-		return this.fetch('/api/contributors', _success);
-	}
 });
 

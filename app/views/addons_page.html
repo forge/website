@@ -70,7 +70,7 @@
 					<div class="col-xs-12 author-div">
 						<h2>Authors</h2>
 						<ul class="author-ul">
-							<li><img src="images/place-img-300x300.jpg" alt="Author Image"> <span class="author-line">{{addon.author}}</span></li>
+							<li><img src="{{addon.author.avatar_url}}" alt="Author Image"> <span class="author-line">{{addon.author.name}}</span></li>
 						</ul>
 					</div><!-- /.  author-div -->
 				</div>
@@ -109,12 +109,12 @@
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 author-info-div">
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-2 author-img">
-                                    <img src="images/place-img-300x300.jpg" alt="{{addon.author}}">
+                                    <img src="{{addon.author.avatar_url}}" alt="{{addon.author.name}}">
                                 </div><!-- / .author-info-div -->
 
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 author-name-title">
                                     <h1>Authors</h1>
-                                    <p>{{addon.author}}</p>
+                                    <p>{{addon.author.name}}</p>
                                 </div><!-- / .author-name-title -->
                             </div><!-- / .row -->
                         </div>

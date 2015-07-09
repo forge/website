@@ -33,7 +33,7 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
     app         = restify.createServer(),
-    cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 } );
+    cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 });
 
 app.use(restify.gzipResponse());
 app.use(restify.queryParser());
@@ -55,7 +55,7 @@ app.get('/api/addons/:addonsId', function (req,res) {
         res.status(404);
         res.end();
     } else { 
-        res.json(item);
+        res.json(item);            
     }
 });
 
@@ -362,20 +362,6 @@ function fetchRedoculous(item, res, _callback) {
     });
 }
 
-function transposeImages(urlInfo, response) {
-     $ = cheerio.load(response);
-     $('img').each(function (index, element) {
-        var imgSrc = $(this).attr('src');
-        if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
-        if (imgSrc.indexOf('http') != 0) {
-            //FIXME : This won't work for images outside forge/docs
-            var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
-            $(this).attr('src',newSrc);
-        }
-     });
-     return $.html();
-}
-
 function fetchTOC(col, id, res) {
     var item = findById(col,id);
     if (!item) {
@@ -406,6 +392,20 @@ function findById(col, id) {
     return col.filter(function (item) {
         return item.id == id;
     })[0];
+}
+
+function transposeImages(urlInfo, response) {
+     $ = cheerio.load(response);
+     $('img').each(function (index, element) {
+        var imgSrc = $(this).attr('src');
+        if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
+        if (imgSrc.indexOf('http') != 0) {
+            //FIXME : This won't work for images outside forge/docs
+            var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
+            $(this).attr('src',newSrc);
+        }
+     });
+     return $.html();
 }
 
 /** Loads the YAML content into a JS object */
