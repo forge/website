@@ -17,3 +17,4 @@ notifications:
     channels:
       - "chat.freenode.net#forge"
     use_notice: true
+sudo: false
