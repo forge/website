@@ -3,6 +3,6 @@
 
 angular.module('jboss-forge').controller('docPageJSCtrl',function($scope) {
     $scope.$watch('$viewContentLoaded', function(){
-        setTimeout('docContentHeightFix()',300);
+        setTimeout('docContentHeightFix()',500);
     });
 });

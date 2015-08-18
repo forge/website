@@ -3,6 +3,6 @@
 
 angular.module('jboss-forge').controller('newsJSCtrl',function($scope) {
     $scope.$watch('$viewContentLoaded', function(){
-        setTimeout('initNews()',200);
+        setTimeout('initNews()',500);
     });
 });
