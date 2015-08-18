@@ -1,24 +1,22 @@
-// These scripts manage the height values of the individual documentation page divs.
-function initDocumentationJS() {
-    if($('.row.documentation-flex-boxes').length) {
-       heightMatchDocDivs();
+// JS Functions for the news page
+
+/**
+ * Functions for the news page and news sub-pages
+ */
+
+//$(initNews);
+function initNews() {
+    // If this is a document page, init column sizing for tablet/desktop size screens
+    if($('.doc-content').length && $(window).outerWidth() > 767) {
+        docContentHeightFix();
+        $(window).resize(function(){
+            if($(window).outerWidth() > 767) {
+                docContentHeightFix();
+            }
+        });
     }
 }
 
-
-//Match heights of .info-row div within each .documentation-item
-function heightMatchDocDivs() {
-    var iArr = new Array();
-
-    $('.info-row').each(function(i,e){
-        iArr.push($(this).outerHeight());
-    });
-
-    //Max value
-    var heightVal = Math.max.apply(Math,iArr);
-
-   $('.info-row').css({'height':heightVal + 'px'});
-}
 
 // On document pages, this makes the left column & right column heights equal
 function docContentHeightFix() {
