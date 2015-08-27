@@ -10,7 +10,9 @@ var cc          = require('config-multipaas'),
     Feed        = require('feed'),
     exec        = require('child_process').exec,
     moment      = require('moment'),
-    cheerio     = require('cheerio');
+    cheerio     = require('cheerio'),
+    asciidoctor = require('asciidoctor.js')();
+
 // Git utilities
 var Git         = 
     { 
@@ -33,7 +35,8 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
                         }),
     app         = restify.createServer(),
-    cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 });
+    cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
+    processor   = asciidoctor.Asciidoctor(true);
 
 app.use(restify.gzipResponse());
 app.use(restify.queryParser());
@@ -338,6 +341,32 @@ function fetchContents(col, id, res){
 }
 
 function renderAsciidoc(item, res, _callback) { 
+    if (item.renderedBy == 'redoculous') {
+        fetchFromRedoculous(item,res,_callback);
+    } else { 
+        // Using Asciidoctor.js
+        var urlOptions = {
+            protocol: 'https:',
+            host : 'raw.githubusercontent.com',
+            pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
+        };
+        //console.log(url.format(urlOptions));
+        fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+            if (meta.status == 200) {
+                response = processor.$convert(response.toString());
+                response = transposeImages(item, response);
+                if (_callback) {
+                    _callback(response);
+                } else { 
+                    res.write(response);
+                }
+            }
+            res.end();        
+        });
+    }
+}
+
+function fetchFromRedoculous(item, res, _callback) { 
     // Fetching from Redoculous
     var urlOptions = {
         protocol: 'http:',
