@@ -83,7 +83,7 @@ app.get('/api/addons/:addonsId/docs/:docSection', function (req,res) {
             return;
         }
         if (!value['contents']) {
-            fetchRedoculous(value, res, function(data) {
+            renderAsciidoc(value, res, function(data) {
                 value['contents'] = data;
                 res.header("Content-Type", "text/html");
                 res.write(value['contents']);
@@ -334,10 +334,10 @@ function fetchContents(col, id, res){
         res.end();
         return;            
     }
-    fetchRedoculous(item,res);
+    renderAsciidoc(item,res);
 }
 
-function fetchRedoculous(item, res, _callback) { 
+function renderAsciidoc(item, res, _callback) { 
     // Fetching from Redoculous
     var urlOptions = {
         protocol: 'http:',
