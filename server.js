@@ -341,32 +341,35 @@ function fetchContents(col, id, res){
 }
 
 function renderAsciidoc(item, res, _callback) { 
-    if (item.renderedBy == 'redoculous') {
-        fetchFromRedoculous(item,res,_callback);
+    if (item.renderedBy === 'redoculous') {
+        renderUsingRedoculous(item,res,_callback);
     } else { 
-        // Using Asciidoctor.js
-        var urlOptions = {
-            protocol: 'https:',
-            host : 'raw.githubusercontent.com',
-            pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
-        };
-        //console.log(url.format(urlOptions));
-        fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-            if (meta.status == 200) {
-                response = processor.$convert(response.toString());
-                response = transposeImages(item, response);
-                if (_callback) {
-                    _callback(response);
-                } else { 
-                    res.write(response);
-                }
-            }
-            res.end();        
-        });
+        renderUsingAsciidoctor(item, res, _callback);
     }
 }
 
-function fetchFromRedoculous(item, res, _callback) { 
+function renderUsingAsciidoctor(item, res, _callback) { 
+    // Using Asciidoctor.js
+    var urlOptions = {
+        protocol: 'https:',
+        host : 'raw.githubusercontent.com',
+        pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200) {
+            response = processor.$convert(response.toString());
+            response = transposeImages(item, response);
+            if (_callback) {
+                _callback(response);
+            } else { 
+                res.write(response);
+            }
+        }
+        res.end();        
+    });
+}
+
+function renderUsingRedoculous(item, res, _callback) { 
     // Fetching from Redoculous
     var urlOptions = {
         protocol: 'http:',
