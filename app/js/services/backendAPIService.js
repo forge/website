@@ -1,11 +1,12 @@
 angular.module('jboss-forge').service('backendAPI', function($http, config){
 	this.fetch = function (_contextPath, _success) { 
-		var request = $http.get(config.baseUrl + _contextPath);
+		var url = config.baseUrl + _contextPath;
+		var request = $http.get(url);
 		if (_success){ 
 			request.success(_success);
 		}
 		request.error(function(err) { 
-			alert('Sorry, but the requested service is under maintenance.\nDo not worry, a team of high-skilled blacksmiths was dispatched to fix it.\n\n'+err.code+': '+err.message);
+			alert('Oops, something bad happened while accessing '+url+'.\nLet us know by sending an email with this error to forge@redhat.com.\n'+err);
 		});
 		return request;
 	} 

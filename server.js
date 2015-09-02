@@ -364,6 +364,12 @@ function renderUsingAsciidoctor(item, res, _callback) {
             } else { 
                 res.write(response);
             }
+        } else { 
+            res.status(meta.status);
+            res.header("Content-Type", "text/html");
+            if (error) 
+                res.write(error);
+            res.write("\nStatus: "+meta.status+" - "+url.format(urlOptions));
         }
         res.end();        
     });
@@ -389,6 +395,12 @@ function renderUsingRedoculous(item, res, _callback) {
             } else { 
                 res.write(response);
             }
+        } else { 
+            res.status(meta.status);
+            res.header("Content-Type", "text/html");
+            if (error) 
+                res.write(error);
+            res.write("\nStatus: "+meta.status+" - "+url.format(urlOptions));
         }
         res.end();        
     });
