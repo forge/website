@@ -38,16 +38,6 @@ var config      = cc()
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
 
-// Redirect HTTP/S to HTTP (Invalid certificate in custom domain)
-app.use(function(req, res, next) {
-    if (req.headers['x-forwarded-proto'] == 'https') { 
-        res.status(302);
-        res.header('Location','http://' + req.headers.host + req.getPath());
-        res.end();
-    } else {
-        next();
-    }
-});
 app.use(restify.gzipResponse());
 app.use(restify.queryParser());
 app.use(restify.CORS());
