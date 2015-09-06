@@ -6,7 +6,7 @@ angular.module('jboss-forge').service('backendAPI', function($http, config){
 			request.success(_success);
 		}
 		request.error(function(err) { 
-			alert('Oops, something bad happened while accessing '+url+'.\nLet us know by sending an email with this error to forge@redhat.com.\n'+err);
+			alert('Oops, something bad happened while accessing '+url+'.\nLet us know by clicking in the "Provide Feedback" link and detailing the steps to reproduce this.\n'+err);
 		});
 		return request;
 	} 
