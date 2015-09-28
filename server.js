@@ -32,7 +32,7 @@ var config      = cc()
                             'FORGE_SH_URL' : 'https://raw.githubusercontent.com/forge/core/master/forge-install.sh',
                             'REDOCULOUS_HOST': 'redoculous-forge.rhcloud.com',
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
-                            'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_TMP_DIR || '/tmp')  + '/website-data'
+                            'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
     app         = restify.createServer(),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
