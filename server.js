@@ -390,6 +390,7 @@ function renderUsingRedoculous(item, res, _callback) {
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200) {
             response = transposeImages(item, response);
+            response = fixEncodingIssues(response);
             if (_callback) {
                 _callback(response);
             } else { 
@@ -404,6 +405,9 @@ function renderUsingRedoculous(item, res, _callback) {
         }
         res.end();        
     });
+}
+function fixEncodingIssues(response) {
+    return response.replace(/&#xE2;&#x80;&#x99;/g,'&#8217;').replace(/&#xC3;&#xA0;/g,'à');
 }
 
 function fetchTOC(col, id, res) {
