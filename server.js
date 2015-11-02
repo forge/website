@@ -364,7 +364,7 @@ function renderUsingAsciidoctor(item, res, _callback) {
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200) {
             response = processor.$convert(response.toString());
-            response = transposeImages(item, response);
+            response = transposeImages(url.format(urlOptions).replace(item.path,''), response);
             if (_callback) {
                 _callback(response);
             } else { 
@@ -395,7 +395,12 @@ function renderUsingRedoculous(item, res, _callback) {
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200) {
-            response = transposeImages(item, response);
+            var baseUrlOptions = {
+                protocol: 'https:',
+                host : 'raw.githubusercontent.com',
+                pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.linkTransposition
+            };            
+            response = transposeImages(url.format(baseUrlOptions), response);
             response = fixEncodingIssues(response);
             if (_callback) {
                 _callback(response);
@@ -448,14 +453,13 @@ function findById(col, id) {
     })[0];
 }
 
-function transposeImages(urlInfo, response) {
+function transposeImages(baseUrl, response) {
      $ = cheerio.load(response);
      $('img').each(function (index, element) {
         var imgSrc = $(this).attr('src');
         if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
         if (imgSrc.indexOf('http') != 0) {
-            //FIXME : This won't work for images outside forge/docs
-            var newSrc = 'https://raw.githubusercontent.com/forge/docs/master/' + urlInfo.path.substring(0,urlInfo.path.lastIndexOf('/')) + "/" + imgSrc;
+            var newSrc = baseUrl + "/" + imgSrc;
             $(this).attr('src',newSrc);
         }
      });
