@@ -298,7 +298,6 @@ div.addon p {
 }
 
 .flex-addon-display  div.addon {
-    display:inline-flex;
     background:white;
     color:#333;
     padding:10px;
