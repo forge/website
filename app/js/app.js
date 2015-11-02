@@ -33,8 +33,7 @@ angular.module('jboss-forge', ['ui.router','routeStyles'])
     url: '/addon/{addonId}',
     templateUrl: 'views/addons_page.html',
     css: ['css/forge_doc_pages.css'],
-    controller: 'addonCtrl',
-    title: 'Addons'
+    controller: 'addonCtrl'  
   })
   .state('documentation', {
     url: '/documentation',

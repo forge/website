@@ -1,4 +1,4 @@
-angular.module('jboss-forge').controller('addonCtrl', function($scope, $stateParams, backendAPI){
+angular.module('jboss-forge').controller('addonCtrl', function($rootScope, $scope, $stateParams, backendAPI){
 	if ($stateParams.addonId) { 
 		// Addon detail page
 		$scope.fetchDocContents = function(addonId, docId) { 
@@ -7,6 +7,7 @@ angular.module('jboss-forge').controller('addonCtrl', function($scope, $statePar
 			});
 		}
 		backendAPI.fetchAddonById($stateParams.addonId, function(addon) { 
+			$rootScope.title = addon.name;
 			$scope.addon = addon;
 			backendAPI.fetchAddonDocsById(addon.id, function(docSections) {
 				$scope.docSections = docSections;
