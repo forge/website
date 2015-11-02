@@ -11,8 +11,8 @@ var cc          = require('config-multipaas'),
     exec        = require('child_process').exec,
     moment      = require('moment'),
     cheerio     = require('cheerio'),
-    asciidoctor = require('asciidoctor.js')();
-
+    asciidoctor = require('asciidoctor.js')(),
+    util = require('util');
 // Git utilities
 var Git         = 
     { 
@@ -258,6 +258,9 @@ function allAddons() {
             .map(function (item) {
                 item.type = 'community';
                 item.installCmd = (item.installCmd || 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' ? ' --ref '+item.ref : ''));
+                if (!util.isArray(item.installCmd)) {
+                    item.installCmd = [item.installCmd];
+                }
                 if (item.tags) {
                     item.tags = item.tags.split(',').map(function(elem){return elem.trim().toLowerCase();});
                 }
@@ -267,6 +270,9 @@ function allAddons() {
             .map(function (item) {
                 item.type = 'core';
                 item.installCmd = (item.installCmd || 'addon-install --coordinate '+item.id);
+                if (!util.isArray(item.installCmd)) {
+                    item.installCmd = [item.installCmd];
+                }                
                 if (item.tags) {
                     item.tags = item.tags.split(',').map(function(elem){return elem.trim().toLowerCase();});
                 }

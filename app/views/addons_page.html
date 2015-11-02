@@ -62,7 +62,9 @@
 					<div class="col-xs-12 author-div">
 						<h2>Installation instructions</h2>
 						<p>In the Forge CLI:</p>
-						<code>{{addon.installCmd}}</code>
+						<p ng-repeat="cmd in addon.installCmd">
+							<code>{{cmd}}</code>
+						</p>
 					</div>
 				</div>
 
