@@ -195,7 +195,7 @@ app.get('/atom.xml', function (req,res) {
         title: 'JBoss Forge Blog Feed',
         description: 'Stay up to date on JBoss Forge',
         link: 'http://forge.jboss.org/',
-        copyright: 'Copyright 2015 Red Hat, Inc. and/or its affiliates',
+        copyright: 'Copyright '+new Date().getFullYear()+' Red Hat, Inc. and/or its affiliates',
         author: {
             name: 'JBoss Forge Team'
         }
