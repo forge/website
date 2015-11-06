@@ -177,6 +177,7 @@ app.get('/api/metadata', function(req, res) {
     var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/metadata.yaml");
     var data = yamlLoadAll(body)[0];
     data.latestReleaseMoment = moment(data.latestReleaseDate).fromNow();
+    data.experimental.releaseMoment = moment(data.experimental.releaseDate).fromNow();
     res.json(data);
 });
 
