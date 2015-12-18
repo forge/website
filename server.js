@@ -228,6 +228,11 @@ app.get('/sh', function(req,res) {
     });
 });
 
+app.get('/docs/index.html', function (req,res) {
+    res.header('Location', '/documentation');
+    res.send(302);
+});
+
 app.get(/\/?.*(\/1.x\/?)|([.](js|css|png|ico|html|jpg|ttf|wof))/, restify.serveStatic({default: 'index.html', directory: './app/', cache: true}));
 
 // Everything except the already defined routes. IMPORTANT: this should be the last route
