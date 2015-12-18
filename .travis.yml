@@ -15,6 +15,6 @@ notifications:
   email: false
   irc:
     channels:
-      - "chat.freenode.net#forge"
+      - "irc.freenode.net#forge"
     use_notice: true
 sudo: false
