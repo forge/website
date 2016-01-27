@@ -371,7 +371,7 @@ function renderUsingAsciidoctor(item, res, _callback) {
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
         if (meta.status == 200) {
             response = processor.$convert(response.toString());
-            response = transposeImages(url.format(urlOptions).replace(item.path,''), response);
+            response = transposeImages(url.format(urlOptions).replace(item.path, item.linkTransposition || ''), response);
             if (_callback) {
                 _callback(response);
             } else { 
