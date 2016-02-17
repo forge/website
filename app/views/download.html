@@ -4,12 +4,14 @@
         <div class="row marquee-content">
             <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
                 <h2>Get JBoss Forge <a target="_self" href="http://downloads.jboss.org/forge/releases/{{metadata.latestVersion}}/forge-distribution-{{metadata.latestVersion}}-offline.zip" style="color:white"><strong>{{metadata.latestVersion}}</strong></a> TODAY!</h2>
+                <center>Download and verify the file <a style="color:white" href="http://downloads.jboss.org/forge/releases/{{metadata.latestVersion}}/forge-distribution-{{metadata.latestVersion}}-offline.zip.sha256">SHA-256 checksum</a></center>
                 <h3>Released {{metadata.latestReleaseMoment}}</h3>
             </div>
         </div><!-- / .row.marquee-content -->
         <div class="row marquee-content" ng-if="metadata.experimental">
             <div class="col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 marquee-content-container-div">
                 <h2>or try our experimental <a target="_self" href="http://downloads.jboss.org/forge/releases/{{metadata.experimental.version}}/forge-distribution-{{metadata.experimental.version}}-offline.zip" style="color:white"><strong>{{metadata.experimental.version}}</strong></a></h2>
+                <center>Download and verify the file <a style="color:white" href="http://downloads.jboss.org/forge/releases/{{metadata.experimental.version}}/forge-distribution-{{metadata.experimental.version}}-offline.zip.sha256">SHA-256 checksum</a></center>
                 <h3>Released {{metadata.experimental.releaseMoment}}</h3>
             </div>
         </div><!-- / .row.marquee-content -->
