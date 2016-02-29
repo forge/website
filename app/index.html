@@ -203,7 +203,107 @@
 
   ga('create', 'UA-34467975-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+<!-- https://issues.jboss.org/browse/ORG-2828 -->
+<script src="//www.redhat.com/j/s_code.js" />
+<script>
+(function() {
+
+// Load the path name, without it's inital /
+var arr = location.pathname.substr(1, location.pathname.length).toLowerCase().split('/');
+
+// If the path ends in index.html or whitespace, trim the array
+if (arr[arr.length - 1] == "index.html" || arr[arr.length - 1] == "" )
+{ arr.pop(); }
+
+/*
+
+    Assign values to Adobe Analytics properties
+    */
+
+s.channel = "jboss | Channel" // The channel is our top level classification
+s.server = "jboss" // The server is ???
+s.pageName = "jboss | Channel | " + (arr[arr.length -1] || "homepage"); // pageName is jboss | <Channel> |
+{page_name}. {page_name}
+
+has index.html removed
+s.prop2 = s.eVar22 = "en"; // prop2/eVar22 is the ISO 639-1 language code
+s.prop4 = s.eVar23 = encodeURI(location.search); //prop4/eVar23 is the query string of the page
+
+// Pad the array as needed, so we can shift away later
+for (var i = arr.length; i < 3; i++)
+{ arr[i] = ""; }
+
+s.prop14 = s.eVar27 = arr.shift(); // prop14/eVar27 is the first minor section (normally /
+{minor_section_1}
+
+)
+s.prop15 = s.eVar28 = arr.shift(); // prop15/eVar28 is the second minor section (normally /a/
+{minor_section_2}
+
+)
+s.prop16 = s.eVar29 = arr.shift(); // prop16/eVar29 is the third minor section (normally /a/b/
+{minor_section_3}
+
+)
+s.prop21 = s.eVar18 = encodeURI(location.hostname+location.pathname).toLowerCase(); // prop21/eVar18 is the URL, less any query strings or fragments
+
+})();
+</script>
+<script src="//www.redhat.com/assets/js/tracking/rh_omni_footer.js"/>
+
+<!-- SiteCatalyst code version: H.21.
+Copyright 1996-2010 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<div id="oTags">
+<!-- // **************************** CHANGE PAT BELOW TO YOUR SERVERS PATH -->
+<script type="text/javascript" src="https://www.stage.redhat.com/j/s_code.js"></script>
+
+<script><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+/* E-commerce Variables */
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')'!''')
+
+//--></script><noscript><a href="http://www.omniture.com" title="Web
+Analytics"><img src="https://smtrcs.redhat.com/b/ss/redhatjbossorg/1/H.21--NS/0?[AQB]&cdp=3&[AQE]"
+height="1" width="1" border="0" alt="" /></a></noscript>
+
+<!-/DO NOT REMOVE/->
+</div>
+
+<!-- End SiteCatalyst code version: H.21. -->
+<!-- SiteCatalyst code version: H.21.
+Copyright 1996-2010 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<div id="oTags">
+<!-- // **************************** CHANGE PAT BELOW TO YOUR SERVERS PATH -->
+<script type="text/javascript" src="http://www.redhat.com/j/s_code.js"></script>
+
+<script>
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+/* E-commerce Variables */
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+
+<script type="text/javascript">
+//<![CDATA[
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')'!''')
+
+//]]>
+</script>
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img src="https://smtrcs.redhat.com/b/ss/redhatjbossorg/1/H.21--NS/0?[AQB]%26cdp=3%26[AQE]" height="1" width="1" border="0" alt="" /></a></noscript>
+
+<!-/DO NOT REMOVE/->
+</div>
+
+<!-- End SiteCatalyst code version: H.21. -->
 </body>
 </html>
