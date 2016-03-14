@@ -306,7 +306,7 @@ function findAddonDocSections(addonId) {
                 // 'stats' : {path: 'README.asciidoc', repo: item.repo, ref: item.ref},
                 // 'reviews' : {path: 'README.asciidoc', repo: item.repo, ref: item.ref},
                 // 'changelog' : {path: 'CHANGELOG.asciidoc', repo: item.repo, ref: item.ref},
-                'Readme' : {path: ((item.path || '') +'/README.asciidoc'), repo: item.repo, ref: item.ref},
+                'Readme' : {path: ((item.path || '') + '/' + (item.home || 'README.asciidoc')), repo: item.repo, ref: item.ref},
                 // 'support' : {path: 'README.asciidoc', repo: item.repo, ref: item.ref}
             }
             cache.set(cacheKey, docs);
