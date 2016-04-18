@@ -8,7 +8,7 @@ var cc          = require('config-multipaas'),
     url         = require('url'),
     yaml        = require('js-yaml'),
     Feed        = require('feed'),
-    exec        = require('child_process').exec,
+    execSync    = require('child_process').execSync,
     moment      = require('moment'),
     cheerio     = require('cheerio'),
     asciidoctor = require('asciidoctor.js')(),
@@ -17,12 +17,13 @@ var cc          = require('config-multipaas'),
 var Git         = 
     { 
         clone: function(gitUrl, gitDir) { 
-            exec( 'rm -rf '+ gitDir +' && git clone -q ' + gitUrl + ' ' + gitDir);        
+            return execSync( 'rm -rf '+ gitDir +' && git clone ' + gitUrl + ' ' + gitDir);
+        },
+        checkout: function(branch, gitDir) {
+            return execSync( 'cd '+gitDir+' && git checkout '+branch);
         },
         pull : function (gitDir) {
-            exec( 'cd ' + gitDir + ' && git pull', function ( err, stdout, stderr ){
-                console.log(stdout);
-            });
+            return execSync( 'cd ' + gitDir + ' && git pull');
         }
     };
 var config      = cc()
@@ -259,7 +260,8 @@ app.get(/\/?.*/, function(req,res) {
 // Start the server
 app.listen(config.get('PORT'), config.get('IP'), function () {
     // Clone the website-data repository
-    Git.clone(config.get('FORGE_WEBSITE_DATA_URL'), config.get('FORGE_WEBSITE_DATA_DIR'));    
+    Git.clone(config.get('FORGE_WEBSITE_DATA_URL'), config.get('FORGE_WEBSITE_DATA_DIR'));
+    //Git.checkout('split',config.get('FORGE_WEBSITE_DATA_DIR'));
     console.log( "Listening on %s, port %s", config.get('IP'), config.get('PORT') );
 });
 
@@ -267,7 +269,7 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 function allAddons() {
     var addons = cache.get('allAddons');
     if (!addons) {
-        var communityAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-community.yaml"))
+        var communityAddons = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/community/")
             .map(function (item) {
                 item.type = 'community';
                 item.installCmd = (item.installCmd || 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' ? ' --ref '+item.ref : ''));
@@ -279,7 +281,7 @@ function allAddons() {
                 }
                 return item;
             });
-        var coreAddons = yamlLoadAll(fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons-core.yaml"))
+        var coreAddons = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/core/")
             .map(function (item) {
                 item.type = 'core';
                 item.installCmd = (item.installCmd || 'addon-install --coordinate '+item.id);
@@ -324,12 +326,13 @@ function findAddonDocSections(addonId) {
 function allNews() { 
     var news = cache.get('allNews');
     if (!news) {
-        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/news.yaml");
-        news = yamlLoadAll(body).map(function (item) {
-            // Add an ID to the news 
-            item.id = generateId(item.title);
-            return item;
-        });
+        news = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/news/")
+            .reverse()
+            .map(function (item) {
+                // Add an ID to the news 
+                item.id = generateId(item.title);
+                return item;
+            });
         cache.set('allNews',news);
     }
     return news;
@@ -338,12 +341,12 @@ function allNews() {
 function allDocs() { 
     var docs = cache.get('allDocs');
     if (!docs){
-        var body = fs.readFileSync(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs.yaml");
-        docs = yamlLoadAll(body).map(function (item) {
-            // Add an ID to the doc
-            item.id = generateId(item.title);
-            return item;
-        });
+        docs = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs/")
+            .map(function (item) {
+                // Add an ID to the doc
+                item.id = generateId(item.title);
+                return item;
+            });
         cache.set('allDocs',docs);
     }
     return docs;
@@ -479,15 +482,21 @@ function transposeImages(baseUrl, response) {
      return $.html();
 }
 
-/** Loads the YAML content into a JS object */
-function yamlLoadAll(body) {
+/** Loads all the YAML file contents into a single JS array */
+function yamlLoadAll(path) {
     var allEntries = [];
-    yaml.safeLoadAll(body, function (entry) {
-        if (entry)
-            allEntries.push(entry);
-    });
+    var files = fs.readdirSync(path);
+    files.forEach(function (file) {
+        var body  = fs.readFileSync(path + file);
+        yaml.safeLoadAll(body, function (entry) {
+            if (entry) { 
+                allEntries.push(entry);
+            }
+        });
+    }); 
     return allEntries;
 }
+
 /** Generate an URL-friendly ID based on the content */
 function generateId(content) { 
     return content.toLowerCase().replace(/ /g,'-');
