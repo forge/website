@@ -8,7 +8,7 @@ var cc          = require('config-multipaas'),
     url         = require('url'),
     yaml        = require('js-yaml'),
     Feed        = require('feed'),
-    execSync    = require('child_process').execSync,
+    exec        = require('child_process').exec,
     moment      = require('moment'),
     cheerio     = require('cheerio'),
     asciidoctor = require('asciidoctor.js')(),
@@ -17,13 +17,14 @@ var cc          = require('config-multipaas'),
 var Git         = 
     { 
         clone: function(gitUrl, gitDir) { 
-            return execSync( 'rm -rf '+ gitDir +' && git clone ' + gitUrl + ' ' + gitDir);
+            exec( 'rm -rf '+ gitDir +' && git clone ' + gitUrl + ' ' + gitDir);
         },
         checkout: function(branch, gitDir) {
-            return execSync( 'cd '+gitDir+' && git checkout '+branch);
+	    //Change to execSync
+            exec( 'cd '+gitDir+' && git checkout '+branch);
         },
         pull : function (gitDir) {
-            return execSync( 'cd ' + gitDir + ' && git pull');
+            exec( 'cd ' + gitDir + ' && git pull');
         }
     };
 var config      = cc()
