@@ -270,7 +270,7 @@ app.listen(config.get('PORT'), config.get('IP'), function () {
 function allAddons() {
     var addons = cache.get('allAddons');
     if (!addons) {
-        var communityAddons = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/community/")
+        var communityAddons = yamlLoadAllFiles(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/community/")
             .map(function (item) {
                 item.type = 'community';
                 item.installCmd = (item.installCmd || 'addon-install-from-git --url '+item.repo+' --coordinate '+item.id+ (item.ref != 'master' ? ' --ref '+item.ref : ''));
@@ -282,7 +282,7 @@ function allAddons() {
                 }
                 return item;
             });
-        var coreAddons = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/core/")
+        var coreAddons = yamlLoadAllFiles(config.get('FORGE_WEBSITE_DATA_DIR') + "/addons/core/")
             .map(function (item) {
                 item.type = 'core';
                 item.installCmd = (item.installCmd || 'addon-install --coordinate '+item.id);
@@ -327,7 +327,7 @@ function findAddonDocSections(addonId) {
 function allNews() { 
     var news = cache.get('allNews');
     if (!news) {
-        news = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/news/")
+        news = yamlLoadAllFiles(config.get('FORGE_WEBSITE_DATA_DIR') + "/news/")
             .reverse()
             .map(function (item) {
                 // Add an ID to the news 
@@ -342,7 +342,7 @@ function allNews() {
 function allDocs() { 
     var docs = cache.get('allDocs');
     if (!docs){
-        docs = yamlLoadAll(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs/")
+        docs = yamlLoadAllFiles(config.get('FORGE_WEBSITE_DATA_DIR') + "/docs/")
             .map(function (item) {
                 // Add an ID to the doc
                 item.id = generateId(item.title);
@@ -484,17 +484,23 @@ function transposeImages(baseUrl, response) {
 }
 
 /** Loads all the YAML file contents into a single JS array */
-function yamlLoadAll(path) {
+function yamlLoadAllFiles(path) {
     var allEntries = [];
     var files = fs.readdirSync(path);
     files.forEach(function (file) {
         var body  = fs.readFileSync(path + file);
-        yaml.safeLoadAll(body, function (entry) {
-            if (entry) { 
-                allEntries.push(entry);
-            }
-        });
+        yamlLoadAll(body, allEntries);
     }); 
+    return allEntries;
+}
+
+function yamlLoadAll(body, entries) {
+    var allEntries = entries || [];
+    yaml.safeLoadAll(body, function (entry) {
+    	if (entry) {
+    	   allEntries.push(entry);
+	}
+    });
     return allEntries;
 }
 
