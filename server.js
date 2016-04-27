@@ -12,6 +12,7 @@ var cc          = require('config-multipaas'),
     moment      = require('moment'),
     cheerio     = require('cheerio'),
     asciidoctor = require('asciidoctor.js')(),
+    marked      = require('marked'),
     util = require('util');
 // Git utilities
 var Git         = 
@@ -39,6 +40,13 @@ var config      = cc()
     app         = restify.createServer(),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
+
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      sanitize: true,
+      smartLists: true,
+      smartypants: false
+    });
 
 app.use(restify.gzipResponse());
 app.use(restify.queryParser());
@@ -94,7 +102,7 @@ app.get('/api/addons/:addonsId/docs/:docSection', function (req,res) {
             return;
         }
         if (!value['contents']) {
-            renderAsciidoc(value, res, function(data) {
+            render(value, res, function(data) {
                 value['contents'] = data;
                 res.header("Content-Type", "text/html");
                 res.write(value['contents']);
@@ -360,15 +368,43 @@ function fetchContents(col, id, res){
         res.end();
         return;            
     }
-    renderAsciidoc(item,res);
+    render(item,res);
 }
 
-function renderAsciidoc(item, res, _callback) { 
-    if (item.renderedBy === 'redoculous') {
-        renderUsingRedoculous(item,res,_callback);
+function render(item, res, _callback) { 
+    if (item.renderedBy === 'markdown') {
+        renderUsingMarkdown(item, res, _callback);
+    } else if (item.renderedBy === 'redoculous') {
+        renderUsingRedoculous(item,res, _callback);
     } else { 
         renderUsingAsciidoctor(item, res, _callback);
     }
+}
+
+function renderUsingMarkdown(item, res,_callback) {
+    var urlOptions = {
+        protocol: 'https:',
+        host : 'raw.githubusercontent.com',
+        pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
+    };
+    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
+        if (meta.status == 200) {
+            response = marked(response.toString());
+            response = transposeImages(url.format(urlOptions).replace(item.path, item.linkTransposition || ''), response);
+            if (_callback) {
+                _callback(response);
+            } else { 
+                res.write(response);
+            }
+        } else { 
+            res.status(meta.status);
+            res.header("Content-Type", "text/html");
+            if (error) 
+                res.write(error);
+            res.write("\nStatus: "+meta.status+" - "+url.format(urlOptions));
+        }
+        res.end();        
+    });
 }
 
 function renderUsingAsciidoctor(item, res, _callback) { 
