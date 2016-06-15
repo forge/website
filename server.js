@@ -55,8 +55,8 @@ app.use(restify.fullResponse());
 
 // Routes
 // Lets Encrypt route
-app.get('/.well-known/acme-challenge/36bGUE2xdYuHIcMPdXdzzfIjMlpCtnBzcbbz_1OrlJA', function(req,res) {
-   res.write('36bGUE2xdYuHIcMPdXdzzfIjMlpCtnBzcbbz_1OrlJA.n6UzmiWpkLSV9JMaOOzZSZXZuBhSBF5YPa_vpEvgX_0');
+app.get('/.well-known/acme-challenge/JrICgCxlrcy0NjBIF7QDVvwq7NfTCHZn2FqQNM817CI', function(req,res) {
+   res.write('JrICgCxlrcy0NjBIF7QDVvwq7NfTCHZn2FqQNM817CI.n6UzmiWpkLSV9JMaOOzZSZXZuBhSBF5YPa_vpEvgX_0');
    res.end();
 });
 
