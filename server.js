@@ -354,6 +354,16 @@ function allDocs() {
             .map(function (item) {
                 // Add an ID to the doc
                 item.id = generateId(item.title);
+                item.editURL = url.format({
+                       protocol: 'https:',
+                        host : 'github.com',
+                        pathname: item.repo.replace('https://github.com/','').replace('.git','/edit/') +  item.ref + item.path
+                });
+                item.historyURL = url.format({
+                       protocol: 'https:',
+                        host : 'github.com',
+                        pathname: item.repo.replace('https://github.com/','').replace('.git','/commits/') +  item.ref + item.path
+                });
                 return item;
             });
         cache.set('allDocs',docs);
