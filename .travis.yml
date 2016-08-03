@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "6.0.0"
+before_deploy:
+  - rvm 1.9.3 do gem install net-ssh -v 2.9.2
 deploy:
   provider: openshift
   user: forge@redhat.com
