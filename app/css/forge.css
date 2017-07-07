@@ -212,7 +212,9 @@ h6,.h6 {
 }
 
 
-
+ul.no-bullets {
+    list-style-type: none;
+}
 
 .forge-btn {
     /* Kept for reference */
