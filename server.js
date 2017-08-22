@@ -231,7 +231,7 @@ app.get('/atom.xml', function (req,res) {
     });
     res.status(200);
     res.header("Content-Type", "text/xml");
-    res.write(feed.render('atom-1.0'));
+    res.write(feed.atom1());
     res.end();
 });
 
