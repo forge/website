@@ -33,7 +33,7 @@ var config      = cc()
                         {
                             'FORGE_CONTRIBUTORS_URL' : 'https://api.github.com/repos/forge/core/contributors',
                             'FORGE_SH_URL' : 'https://raw.githubusercontent.com/forge/core/master/forge-install.sh',
-                            'REDOCULOUS_HOST': 'redoculous-forge.rhcloud.com',
+                            'REDOCULOUS_HOST': (process.env.REDOCULOUS_HOST || 'redoculous-forge.rhcloud.com'),
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
