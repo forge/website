@@ -54,7 +54,8 @@ app.use(restify.CORS());
 app.use(restify.fullResponse());
 // Add security headers
 app.use(function(req, res, next) {
-    //res.header("Content-Security-Policy","default-src 'self'; script-src 'self' https://www.google-analytics.com; object-src 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://player.vimeo.com https://www.youtube.com https://ghbtns.com; img-src 'self' https://www.google-analytics.com https://asciinema.org");    res.header("X-Frame-Options", "DENY");
+    //res.header("Content-Security-Policy","default-src 'self'; script-src 'self' https://www.google-analytics.com; object-src 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://player.vimeo.com https://www.youtube.com https://ghbtns.com; img-src 'self' https://www.google-analytics.com https://asciinema.org");
+    res.header("X-Frame-Options", "DENY");
     res.header("X-Content-Type-Options", "nosniff");
     res.header("X-XSS-Protection", "1; mode=block");
     // Only connect to this site via HTTPS for the two years (recommended)
