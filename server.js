@@ -61,6 +61,7 @@ app.use(function(req, res, next) {
                 frame-src 'self' https://player.vimeo.com https://www.youtube.com https://disqus.com https://redhat.demdex.net/; \
                 img-src * data: ;\
                 font-src 'self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com");
+    res.header("Public-Key-Pins","max-age=1296000; includeSubDomains; pin-sha256=\"YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=\"");
     res.header("X-Frame-Options", "DENY");
     res.header("X-Content-Type-Options", "nosniff");
     res.header("X-XSS-Protection", "1; mode=block");
