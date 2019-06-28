@@ -28,6 +28,11 @@ var Git         =
             exec( 'cd ' + gitDir + ' && git pull');
         }
     };
+// Setup some https server options
+var https_options = {
+    key: fs.readFileSync('/etc/ssl/self-signed/server.key'),
+    certificate: fs.readFileSync('/etc/ssl/self-signed/server.crt')
+  };    
 var config      = cc()
                     .add(
                         {
@@ -37,7 +42,7 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
-    app         = restify.createServer(),
+    app         = restify.createServer(https_options),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
 
@@ -54,7 +59,7 @@ app.use(restify.CORS());
 app.use(restify.fullResponse());
 // Add security headers
 app.use(function(req, res, next) {
-    res.header("Content-Security-Policy","default-src https: 'unsafe-eval' 'unsafe-inline'");
+    res.header("Content-Security-Policy","default-src * 'unsafe-eval' 'unsafe-inline'; frame-ancestors 'none'; object-src 'none'");
     res.header("X-Frame-Options", "DENY");
     res.header("X-Content-Type-Options", "nosniff");
     res.header("X-XSS-Protection", "1; mode=block");
