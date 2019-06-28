@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
                 script-src 'self' 'unsafe-eval' https://code.jquery.com https://www.redhat.com https://maxcdn.bootstrapcdn.com https://ajax.googleapis.com https://issues.jboss.org https://www.google-analytics.com https://jsonip.com https://assets.adobedtm.com https://img.en25.com https://www.youtube.com https://jbossforge.disqus.com https://disqus.com https://c.disquscdn.com https://s.ytimg.com;\
                 style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com https://c.disquscdn.com; \
                 frame-src 'self' https://player.vimeo.com https://www.youtube.com https://disqus.com; \
-                img-src *;\
+                img-src * 'unsafe-inline';\
                 font-src 'self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com");
     res.header("X-Frame-Options", "DENY");
     res.header("X-Content-Type-Options", "nosniff");
