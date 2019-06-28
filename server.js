@@ -52,7 +52,6 @@ app.use(restify.gzipResponse());
 app.use(restify.queryParser());
 app.use(restify.CORS());
 app.use(restify.fullResponse());
-
 // Routes
 app.get('/api/addons', function(req, res) {
     res.json(allAddons());
@@ -355,10 +354,10 @@ function allDocs() {
                 });
                 item.historyURL = url.format({
                        protocol: 'https:',
-                        hosthttps_optionsb.com',
-                        pathhttps_optionsm.repo.replace('https://github.com/','').replace('.git','/commits/') +  item.ref + item.path
+                        host : 'github.com',
+                        pathname: item.repo.replace('https://github.com/','').replace('.git','/commits/') +  item.ref + item.path
                 });
-                return item;https_options
+                return item;
             });
         cache.set('allDocs',docs);
     }
