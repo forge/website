@@ -37,8 +37,8 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
-    //app         = restify.createServer({key: fs.readFileSync('/etc/ssl/self-signed/server.key'),certificate: fs.readFileSync('/etc/ssl/self-signed/server.crt')}),
-    app         = restify.createServer(),
+    app         = restify.createServer({key: fs.readFileSync('/etc/ssl/self-signed/server.key'),certificate: fs.readFileSync('/etc/ssl/self-signed/server.crt')}),
+    //app         = restify.createServer(),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
 
@@ -55,10 +55,10 @@ app.use(restify.CORS());
 app.use(restify.fullResponse());
 // Add security headers
 app.use(function(req, res, next) {
-    res.header("Content-Security-Policy","default-src 'self' https://www.google-analytics.com https://dpm.demdex.net; object-src 'none'; frame-ancestors 'none'; \
-                script-src 'self' 'unsafe-eval' 'unsafe-inline' https://code.jquery.com https://www.redhat.com https://maxcdn.bootstrapcdn.com https://ajax.googleapis.com https://issues.jboss.org https://www.google-analytics.com https://jsonip.com https://assets.adobedtm.com https://img.en25.com https://www.youtube.com;\
-                style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com; \
-                frame-src 'self' https://player.vimeo.com https://www.youtube.com; \
+    res.header("Content-Security-Policy","default-src 'self' https://www.google-analytics.com https://dpm.demdex.net https://links.services.disqus.com; object-src 'none'; frame-ancestors 'none'; \
+                script-src 'self' 'unsafe-eval' https://code.jquery.com https://www.redhat.com https://maxcdn.bootstrapcdn.com https://ajax.googleapis.com https://issues.jboss.org https://www.google-analytics.com https://jsonip.com https://assets.adobedtm.com https://img.en25.com https://www.youtube.com https://jbossforge.disqus.com https://disqus.com https://c.disquscdn.com https://s.ytimg.com;\
+                style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com https://c.disquscdn.com; \
+                frame-src 'self' https://player.vimeo.com https://www.youtube.com https://disqus.com; \
                 img-src *;\
                 font-src 'self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com");
     res.header("X-Frame-Options", "DENY");

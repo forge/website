@@ -648,3 +648,7 @@ function renderTabzilla( projectName , projectId, fullWidth ) {
 
   }
 }
+
+window.addEventListener('load', function() {
+    renderTabzilla("JBoss Forge", "forge.jboss.org", true );
+}, false);
