@@ -28,11 +28,6 @@ var Git         =
             exec( 'cd ' + gitDir + ' && git pull');
         }
     };
-// Setup some https server options
-var https_options = {
-    key: fs.readFileSync('/etc/ssl/self-signed/server.key'),
-    certificate: fs.readFileSync('/etc/ssl/self-signed/server.crt')
-  };    
 var config      = cc()
                     .add(
                         {
@@ -42,7 +37,7 @@ var config      = cc()
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
-    app         = restify.createServer(https_options),
+    app         = restify.createServer(),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
 
@@ -57,17 +52,7 @@ app.use(restify.gzipResponse());
 app.use(restify.queryParser());
 app.use(restify.CORS());
 app.use(restify.fullResponse());
-// Add security headers
-app.use(function(req, res, next) {
-    res.header("Content-Security-Policy","default-src * 'unsafe-eval' 'unsafe-inline'; frame-ancestors 'none'; object-src 'none'");
-    res.header("X-Frame-Options", "DENY");
-    res.header("X-Content-Type-Options", "nosniff");
-    res.header("X-XSS-Protection", "1; mode=block");
-    // Only connect to this site via HTTPS for the two years (recommended)
-    res.header("Strict-Transport-Security","max-age=63072000");
 
-    next.call();
-});
 // Routes
 app.get('/api/addons', function(req, res) {
     res.json(allAddons());
@@ -370,10 +355,10 @@ function allDocs() {
                 });
                 item.historyURL = url.format({
                        protocol: 'https:',
-                        host : 'github.com',
-                        pathname: item.repo.replace('https://github.com/','').replace('.git','/commits/') +  item.ref + item.path
+                        hosthttps_optionsb.com',
+                        pathhttps_optionsm.repo.replace('https://github.com/','').replace('.git','/commits/') +  item.ref + item.path
                 });
-                return item;
+                return item;https_options
             });
         cache.set('allDocs',docs);
     }
