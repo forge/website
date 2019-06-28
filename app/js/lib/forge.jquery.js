@@ -64,7 +64,9 @@ function initializeUI() {
     //widthBox();
 
     // Use vertical-only parallax
-    setTimeout('runVertParallax()',300);
+    setTimeout(function() {
+        runVertParallax();
+    },300);
 
     // Maintain position of emblem if viewing on a phone-size screen
     smallScreenWidthMgr();
