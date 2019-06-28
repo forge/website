@@ -54,12 +54,6 @@ app.use(restify.CORS());
 app.use(restify.fullResponse());
 
 // Routes
-// Lets Encrypt route
-app.get('/.well-known/acme-challenge/uhGuEn1I6XQbVeupvMASH9Yb92EsgTiSa2xANZyx3w8', function(req,res) {
-   res.write('uhGuEn1I6XQbVeupvMASH9Yb92EsgTiSa2xANZyx3w8.n6UzmiWpkLSV9JMaOOzZSZXZuBhSBF5YPa_vpEvgX_0');
-   res.end();
-});
-
 app.get('/api/addons', function(req, res) {
     res.json(allAddons());
 });
