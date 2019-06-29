@@ -1,5 +1,7 @@
 angular.module('jboss-forge').controller('docDivHeightCtrl',function($scope) {
     $scope.$watch('$viewContentLoaded', function(){
-        setTimeout('initDocumentationJS()',500);
+        setTimeout(function(){
+            initDocumentationJS();
+        },500);
     });
 });
