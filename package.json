@@ -11,9 +11,9 @@
   "author": {
     "name": "Forge Team",
     "email": "forge@redhat.com",
-    "url": "http://forge.jboss.org/"
+    "url": "https://forge.jboss.org/"
   },
-  "homepage": "http://forge.jboss.org/",
+  "homepage": "https://forge.jboss.org/",
   "repository": {
     "type": "git",
     "url": "https://github.com/forge/website"
