@@ -130,7 +130,7 @@ app.get('/api/contributors', function(req, res) {
     var contrib = cache.get('allContributors');
     if (!contrib) {
         fetchUrl(config.get('FORGE_CONTRIBUTORS_URL'), function(error, meta, response) { 
-            if (meta.status == 200) {
+            if (meta.status === 200) {
                 cache.set('allContributors',response);
                 res.header("Content-Type", "application/json");
                 res.write(response);
@@ -222,7 +222,7 @@ app.get('/atom.xml', function (req,res) {
     var feed = new Feed({
         title: 'JBoss Forge Blog Feed',
         description: 'Stay up to date on JBoss Forge',
-        link: 'http://forge.jboss.org/',
+        link: 'https://forge.jboss.org/',
         copyright: 'Copyright '+new Date().getFullYear()+' Red Hat, Inc. and/or its affiliates',
         author: {
             name: 'JBoss Forge Team'
@@ -231,7 +231,7 @@ app.get('/atom.xml', function (req,res) {
     allNews().forEach(function (newsItem) {
         feed.addItem({
             title: newsItem.title,
-            link: 'http://forge.jboss.org/news/' + newsItem.id, 
+            link: 'https://forge.jboss.org/news/' + newsItem.id,
             author: {
                 name: newsItem.author
             },
@@ -248,7 +248,7 @@ app.get('/atom.xml', function (req,res) {
 /** SH Script */
 app.get('/sh', function(req,res) {
     fetchUrl(config.get('FORGE_SH_URL'), function(error, meta, response) { 
-        if (meta.status == 200) {
+        if (meta.status === 200) {
             res.write(response);
         }
         res.end();
@@ -408,7 +408,7 @@ function renderUsingMarkdown(item, res,_callback) {
         pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200) {
+        if (meta.status === 200) {
             response = marked(response.toString());
             response = transposeImages(url.format(urlOptions).replace(item.path, item.linkTransposition || ''), response);
             if (_callback) {
@@ -435,7 +435,7 @@ function renderUsingAsciidoctor(item, res, _callback) {
         pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.path
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200) {
+        if (meta.status === 200) {
             response = processor.$convert(response.toString());
             response = transposeImages(url.format(urlOptions).replace(item.path, item.linkTransposition || ''), response);
             if (_callback) {
@@ -467,7 +467,7 @@ function renderUsingRedoculous(item, res, _callback) {
         }
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200) {
+        if (meta.status === 200) {
             var baseUrlOptions = {
                 protocol: 'https:',
                 host : 'raw.githubusercontent.com',
@@ -513,7 +513,7 @@ function fetchTOC(col, id, res) {
         }
     };
     fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status == 200) {
+        if (meta.status === 200) {
             res.write(response);
         }
         res.end();
@@ -522,7 +522,7 @@ function fetchTOC(col, id, res) {
 
 function findById(col, id) {
     return col.filter(function (item) {
-        return item.id == id;
+        return item.id === id;
     })[0];
 }
 
@@ -530,8 +530,8 @@ function transposeImages(baseUrl, response) {
      $ = cheerio.load(response);
      $('img').each(function (index, element) {
         var imgSrc = $(this).attr('src');
-        if (imgSrc.indexOf("./") == 0) imgSrc = imgSrc.substring(1);
-        if (imgSrc.indexOf('http') != 0) {
+        if (imgSrc.indexOf("./") === 0) imgSrc = imgSrc.substring(1);
+        if (imgSrc.indexOf('http') !== 0) {
             var newSrc = baseUrl + "/" + imgSrc;
             $(this).attr('src',newSrc);
         }
