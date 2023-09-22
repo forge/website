@@ -33,11 +33,9 @@ var config      = cc()
                         {
                             'FORGE_CONTRIBUTORS_URL' : 'https://api.github.com/repos/forge/core/contributors',
                             'FORGE_SH_URL' : 'https://raw.githubusercontent.com/forge/core/master/forge-install.sh',
-                            'REDOCULOUS_HOST': (process.env.REDOCULOUS_HOST || 'redoculous.forge.svc:8080'),
                             'FORGE_WEBSITE_DATA_URL': 'https://github.com/forge/website-data',
                             'FORGE_WEBSITE_DATA_DIR': (process.env.OPENSHIFT_DATA_DIR || '/tmp')  + '/website-data'
                         }),
-    //app         = restify.createServer({key: fs.readFileSync('/etc/ssl/self-signed/server.key'),certificate: fs.readFileSync('/etc/ssl/self-signed/server.crt')}),
     app         = restify.createServer(),
     cache       = new NodeCache({stdTTL: 1000, checkperiod: 120 }),
     processor   = asciidoctor.Asciidoctor(true);
@@ -454,44 +452,17 @@ function renderUsingAsciidoctor(item, res, _callback) {
     });
 }
 
-function renderUsingRedoculous(item, res, _callback) { 
-    // Fetching from Redoculous
-    var urlOptions = {
-        protocol: 'http:',
-        host : config.get('REDOCULOUS_HOST'),
-        pathname: "/api/v1/serve",
-        query : {
-            repo : item.repo,
-            ref : item.ref,
-            path: item.path
+function renderUsingRedoculous(item, res, _callback) {
+    fs.readFile('app/redoculous/hands-on-lab.html', 'utf-8', function (err,file){
+        if (err) {
+            res.send(500);
+            res.end();
         }
-    };
-    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status === 200) {
-            var baseUrlOptions = {
-                protocol: 'https:',
-                host : 'raw.githubusercontent.com',
-                pathname: item.repo.replace('https://github.com/','').replace('.git','/') + item.ref + item.linkTransposition
-            };            
-            response = transposeImages(url.format(baseUrlOptions), response);
-            response = fixEncodingIssues(response);
-            if (_callback) {
-                _callback(response);
-            } else { 
-                res.write(response);
-            }
-        } else { 
-            res.status(meta.status);
-            res.header("Content-Type", "text/html");
-            if (error) 
-                res.write(error);
-            res.write("\nStatus: "+meta.status+" - "+url.format(urlOptions));
-        }
-        res.end();        
+        res.status(200);
+        res.header("Content-Type", "text/html");
+        res.write(file);
+        res.end();
     });
-}
-function fixEncodingIssues(response) {
-    return response.replace(/&#xE2;&#x80;&#x99;/g,'&#8217;').replace(/&#xC3;&#xA0;/g,'à');
 }
 
 function fetchTOC(col, id, res) {
@@ -501,23 +472,9 @@ function fetchTOC(col, id, res) {
         res.end();
         return;            
     }
-    // Fetching from Redoculous
-    var urlOptions = {
-        protocol: 'http:',
-        host : config.get('REDOCULOUS_HOST'),
-        pathname: "/api/v1/serve/toc",
-        query : {
-            repo : item.repo,
-            ref : item.ref,
-            path: item.path
-        }
-    };
-    fetchUrl(url.format(urlOptions), function(error, meta, response) { 
-        if (meta.status === 200) {
-            res.write(response);
-        }
-        res.end();
-    });
+    // Return 200 OK with empty body
+    res.status(200);
+    res.end();
 }
 
 function findById(col, id) {
